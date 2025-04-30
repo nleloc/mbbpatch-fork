@@ -17,6 +17,27 @@ else
     FIGLET=:
 fi
 
+# Initial startup
+if [ -d ~/mbbpatch/MBCPApp/mbapk ]
+then
+    clear
+else 
+    mkdir ~/mbbpatch/MBCPApp/mbapk
+    fi
+
+if [ -d ~/mbbpatch/MBCPApp/mbcpapp_apk ]
+then
+    clear
+else 
+    mkdir ~/mbbpatch/MBCPApp/mbcpapp_apk
+fi  
+if [ -d ~/mbbpatch/MBCPApp/tools ]
+    then
+    clear 
+else 
+    mkdir ~/mbbpatch/MBCPApp/tools
+    fi
+
 $FIGLET "MBCPApp Flutter Patcher"
 echo -------------------------------------------------------------  
 echo Auto patching-tool for MB Bank, mainly for MB Flutter
