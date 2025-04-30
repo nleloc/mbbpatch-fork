@@ -1,22 +1,5 @@
 #!/bin/bash
 
-if [[ $(grep -i Microsoft /proc/version) ]]; then
-echo "You are trying to run on WSL, please use real Linux environment !"
-exit
-fi
-
-if [[ $(grep -i Linux /proc/version) ]]; then
-echo "INFO : You have Linux environment :)"
-fi
-
-if [ -x /usr/bin/figlet ]
-then
-    FIGLET=/usr/bin/figlet
-else
-    echo "WARN : figlet not found, ignoring banner !"
-    FIGLET=:
-fi
-
 # Initial startup
 if [ -d ~/mbbpatch/MBCPApp/mbapk ]
 then
@@ -38,11 +21,33 @@ else
     mkdir ~/mbbpatch/MBCPApp/tools
     fi
 
+# Check if user trying to run under HyperV (Windows Subsystem For Linux)
+if [[ $(grep -i Microsoft /proc/version) ]]; then
+echo "You are trying to run on WSL, please use real Linux environment !"
+exit
+fi
+
+# Check if user runs on actual Linux environment
+if [[ $(grep -i Linux /proc/version) ]]; then
+echo "INFO : You have Linux environment :)"
+fi
+
+# Check if figlet exists or not
+if [ -x /usr/bin/figlet ]
+then
+    FIGLET=/usr/bin/figlet
+else
+    echo "WARN : figlet not found, ignoring banner !"
+    FIGLET=:
+fi
+
+# Banner 
 $FIGLET "MBCPApp Flutter Patcher"
 echo -------------------------------------------------------------  
 echo Auto patching-tool for MB Bank, mainly for MB Flutter
 echo Original APK path must be inside [mbapk] folder !
-echo -------------------------------------------------------------        
+echo -------------------------------------------------------------   
+# Main functions      
 PS3='Please select options to continue : '
 select opt in 'Unpack APK' 'Repack APK' 'Autopatch strings' 'Change app logo' 'Modify app theme' 'Inject bypass class' 'Extract assets [ROOT]' 'Bypass signature check' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download apktool' 'Exit'
 do
@@ -53,13 +58,21 @@ do
 
 
     elif [ "$opt" == 'Unpack APK' ]; then
+    # Check if *.apk exists
     if [ -f ~/mbbpatch/MBCPApp/mbapk/*.apk ]
  then
+    # Check if apk is unpacked or not
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
     then
     echo APK already unpacked, no need to unpack again !
     else
+    # Check if apktool exists or not
+    if [ -f ~/mbbpatch/MBCPApp/tools/apktool_2.11.1.jar ]
+then
     java -jar tools/apktool_2.11.1.jar d mbapk/*.apk -o mbapk/mbapk_unpacked
+else
+    echo "Please download apktool first !"
+fi
     fi 
   else
     echo "Where is *.apk file?"
@@ -269,25 +282,18 @@ then
     fi
 
 
-
-
-
-
-
-
-
-
         elif [ "$opt" == 'Exit' ]; then
         clear
         sh mbcpapp.sh
 
-            break
-        	fi
+        break
+    fi
 done
     
     elif [ "$opt" == 'Bypass signature check' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then 
+    # Checks for MBShield, if exists then exit function
     echo "Checking for MBShield !!"
     if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]
  then
