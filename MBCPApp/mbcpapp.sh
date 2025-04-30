@@ -79,6 +79,8 @@ fi
     fi
 
      elif [ "$opt" == 'Repack APK' ]; then
+     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
+ then
     echo Repacking APK...
     java -jar tools/apktool_2.11.1.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter.zip
     echo App repacked to [mbcpapp_apk/MBCP_Flutter.zip] !!!
@@ -92,6 +94,9 @@ fi
     echo Both file will be copied to [/sdcard] !!!
     adb push mbcpapp_apk/MBCP_Flutter.zip /sdcard
     adb push mbsig/mbsig.apk /sdcard
+else
+    echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
+    fi
 
 
 
