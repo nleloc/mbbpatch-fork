@@ -64,7 +64,7 @@ echo Original APK path must be inside [mbapk] folder !
 echo -------------------------------------------------------------   
 # Main functions      
 PS3='Please select options to continue : '
-select opt in 'Unpack APK' 'Repack APK' 'Autopatch strings' 'Change app logo' 'Modify app theme' 'Inject bypass class' 'Extract assets [ROOT]' 'Bypass signature check' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download apktool' 'Exit'
+select opt in 'Unpack APK' 'Repack APK' 'Patch App'  'Autopatch strings' 'Change app logo' 'Modify app theme' 'Inject bypass class' 'Extract assets [ROOT]' 'Bypass signature check' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download apktool' 'Exit'
 do
 	if [ "$opt" == 'Download apktool' ]; then
     echo Downloading apktool_2.11.1.jar
@@ -114,6 +114,8 @@ else
     fi
 
     elif [ "$opt" == 'MBShield Check' ]; then
+    if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
+then
     if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]
 then
     echo "MBShield found on [mbapk_unpacked/assets/mbshield.szip]" !!!
@@ -124,6 +126,9 @@ else
     echo "Patching operation are all not limited at all !"
     echo "Asset extraction is not needed :)"
     fi
+else 
+    echo "[mbapk_unpacked] not found ! Please unpack APK first !"
+fi
 
 
      elif [ "$opt" == 'Patch App' ]; then
@@ -211,6 +216,7 @@ else
 done
 
     elif [ "$opt" == 'Clear MBCPApp/MBBank app data' ]; then
+    echo "Clearing [com.mbmobile] data..."
     adb shell pm clear com.mbmobile
     adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
     echo "INFO : Current logged in account will remain present, even if app data is cleared !"
@@ -221,11 +227,13 @@ done
     adb shell am force-stop com.mbmobile
 
     elif [ "$opt" == 'Clean patched app' ]; then
-    rm mbcpapp_apk/*.apk
-    rm mbcpapp_apk/*.zip
-    rm mbapk/*.apk
-    rm mbapk/*.apks
+    echo "Cleaning, please wait..." 
+    rm -f mbcpapp_apk/*.apk
+    rm -f mbcpapp_apk/*.zip
+    rm -f mbapk/*.apk
+    rm -f mbapk/*.apks
     rm -rf mbapk/mbapk_unpacked
+    echo "Cleared !"
 
     elif [ "$opt" == 'Exit' ]; then
 		exit

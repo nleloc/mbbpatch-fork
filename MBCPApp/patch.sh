@@ -1,12 +1,13 @@
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portait screen' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
  then
-    echo Patching strings in [libapp.so]...
+    echo "Applying [Autopatch strings] patch..."
+    echo "Patching strings in [libapp.so], please wait..."
     sed -i -e 's/online OTP/DigitalOTP/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i -e 's/online OTP/DigitalOTP/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     echo INFO : [online OTP] strings are modified to [DigitalOTP] !
@@ -19,7 +20,6 @@ do
     sed -i -e 's/The lastest version/Telegram: @mbbpatch/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i -e 's/The lastest version/Telegram: @mbbpatch/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     echo INFO : [The lastest version] strings are modified to [Telegram: @mbbpatch] !
-    echo Patching strings in [libapp.so]...
     sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLoginClassic.png|https://gitlab.com/-/project/56341767/uploads/f585b28f88876db211f116d1d622031d/mbcp_login.png?git1|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLoginClassic.png|https://gitlab.com/-/project/56341767/uploads/f585b28f88876db211f116d1d622031d/mbcp_login.png?git1|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_thumbnailClassic.png|https://gitlab.com/-/project/56341767/uploads/ba4f0923a4956ba379868e01c55e9cfb/thumb.png?aaaaaaa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
@@ -62,24 +62,33 @@ do
     sed -i 's|Coming soon|Placeholder|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     sed -i 's|Coming Soon|Placeholder|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|Coming Soon|Placeholder|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-
-
-
+    echo "Applied [Autopatch strings] patch !!!"
     
  else
      echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
      echo "ERROR : Auto patch strings requires [mbapk_unpacked] in order to continue !"
  fi 
 
+   elif [ "$opt" == 'Force portait screen' ]; then
+    if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
+ then
+    echo "Applying patch [Force portait screen]..."
+    echo "Patching [AndroidManifest.xml]..."
+    sed -i 's|fullSensor|portait|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+    echo "Applied [Force portait screen] patch !!!"
+ else
+   echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
+ fi  
 
     elif [ "$opt" == 'Bypass accessibility & malicious apps check' ]; then
     if [ -d ~/mbbpatch/MBCPApp/patches/bypass_accessibility_applist ]
  then
+    echo "Applying patch [Bypass accessibility & malicious apps check]..."
     echo Copying patched code [MbbankUtilitiesPlugin]...
     cp -r -f 'patches/bypass_accessibility_applist/com' 'mbapk/mbapk_unpacked/smali'
     echo Patching [AndroidManifest.xml]
      sed -i 's|<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml 
-    echo "Patched code applied !"
+    echo "Applied [Bypass accessibility & malicious apps check] patch !!!"
  else
     echo "Patch not found ! Aborting :)"
  fi
@@ -87,13 +96,15 @@ do
     elif [ "$opt" == 'Remove garbage permission and activities' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
-    echo Patching [AndroidManifest.xml]...
+    echo "Applying patch [Remove garbage permission and activities]..."
+    echo "Patching [AndroidManifest.xml]..."
     sed -i 's|android:protectionLevel="signature"|android:protectionLevel="normal"|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     sed -i 's|<uses-permission android:name="com.android.vending.CHECK_LICENSE" android:required="false"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     sed -i 's|<uses-permission android:name="com.google.android.gms.permission.AD_ID"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     sed -i 's| <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" android:required="false"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     sed -i 's|<activity android:launchMode="singleTop" android:name="com.vtap.MaintenanceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
-    
+    echo "Applied [Remove garbage permission and activities] patch !!!"
+
  else
     echo "[mbapk_unpacked] not found ! Please unpack APK !"
  fi
@@ -102,29 +113,31 @@ do
      elif [ "$opt" == 'Remove banners & MiniApp' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
+    echo "Applying patch [Remove banners & MiniApp]..."
     echo Removing banner links from [libapp.so]...
     sed -i 's|banner|remove|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|banner|remove|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo Removing garbage resources...
+    echo Removing related resources...
     rm -rf 'mbapk/mbapk_unpacked/assets/flutter_assets/packages'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/billing_img_defaultBanner.webp'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/billing_img_defaultBanner.private.webp'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/explore_img_defaultBanner.webp'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/coreBanking_img_successBanner.webp'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/homeLanding_img_defaultBanner.webp'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/homeLanding_img_defaultBanner.private.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/billing_img_defaultBanner.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/billing_img_defaultBanner.private.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/explore_img_defaultBanner.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/coreBanking_img_successBanner.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/homeLanding_img_defaultBanner.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/homeLanding_img_defaultBanner.private.webp'
     # Priority exclusive
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/explore_img_defaultBanner.webp'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/coreBanking_img_successBanner.webp'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/homeLanding_img_defaultBanner.webp'
-    echo Patch applied !
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/explore_img_defaultBanner.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/coreBanking_img_successBanner.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/homeLanding_img_defaultBanner.webp'
+    echo "Applied [Remove banners & MiniApp] patch !!!"
 
  else
-    echo if
+    echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
  fi
 
-
+   # Placeholder  patch, not yet implemented 
     elif [ "$opt" == 'Bypass signature check' ]; then
+    echo "Applying patch [Bypass signature check]..."
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then 
     # Checks for MBShield, if exists then exit function
@@ -149,45 +162,48 @@ fi
     elif [ "$opt" == 'Remove new root detection' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
+    echo "Applying [Remove new root detection] patch..."
     echo Removing [libZDefend.so]...
-    rm 'mbapk/mbapk_unpacked/lib/arm64-v8a/libZDefend.so'
-    rm 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libZDefend.so'
+    rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libZDefend.so'
+    rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libZDefend.so'
     echo Removing [libvvb2060.so]...
-    rm 'mbapk/mbapk_unpacked/lib/arm64-v8a/libvvb2060.so'
-    rm 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libvvb2060.so'
+    rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libvvb2060.so'
+    rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libvvb2060.so'
     echo Removing [libtoolChecker.so]...
-    rm 'mbapk/mbapk_unpacked/lib/arm64-v8a/libtoolChecker.so'
-    rm 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libtoolChecker.so'
-    echo Removing garbage files...
+    rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libtoolChecker.so'
+    rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libtoolChecker.so'
+    echo Removing related files...
     sleep 3
     rm -rf 'mbapk/mbapk_unpacked/assets/zfiles'
-    rm 'mbapk/mbapk_unpacked/assets/dlangV5.dat'
-    rm 'mbapk/mbapk_unpacked/assets/dlangV5.en.dat'
-    rm 'mbapk/mbapk_unpacked/assets/policy0'
-    rm 'mbapk/mbapk_unpacked/assets/policy1'
-    rm 'mbapk/mbapk_unpacked/assets/policy2'
-    rm 'mbapk/mbapk_unpacked/assets/policy3'
-    rm 'mbapk/mbapk_unpacked/assets/policy4'
-    rm 'mbapk/mbapk_unpacked/assets/policy5'
-    rm 'mbapk/mbapk_unpacked/assets/policy6'
-    rm 'mbapk/mbapk_unpacked/assets/policy8'
-    rm 'mbapk/mbapk_unpacked/assets/policy9'
-    rm 'mbapk/mbapk_unpacked/assets/policym'
-    rm 'mbapk/mbapk_unpacked/assets/rulesV5.dat'
-    echo Modifying [AndroidManifest.xml]
+    rm -f 'mbapk/mbapk_unpacked/assets/dlangV5.dat'
+    rm -f 'mbapk/mbapk_unpacked/assets/dlangV5.en.dat'
+    rm -f 'mbapk/mbapk_unpacked/assets/policy0'
+    rm -f 'mbapk/mbapk_unpacked/assets/policy1'
+    rm -f 'mbapk/mbapk_unpacked/assets/policy2'
+    rm -f 'mbapk/mbapk_unpacked/assets/policy3'
+    rm -f 'mbapk/mbapk_unpacked/assets/policy4'
+    rm -f 'mbapk/mbapk_unpacked/assets/policy5'
+    rm -f 'mbapk/mbapk_unpacked/assets/policy6'
+    rm -f 'mbapk/mbapk_unpacked/assets/policy8'
+    rm -f 'mbapk/mbapk_unpacked/assets/policy9'
+    rm -f 'mbapk/mbapk_unpacked/assets/policym'
+    rm -f 'mbapk/mbapk_unpacked/assets/rulesV5.dat'
+    echo "Patching [AndroidManifest.xml]"
     sed -i 's|<provider android:authorities="com.mbmobile.honor.essence.enter" android:exported="false" android:name="androidx.cigarette.titles.corporation.moscow.Township"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml 
-
+    echo "Applied [Remove new root detection] patch !!!"
 
  else
-    echo "[mbapk_unpacked] not found ! Please unpack APK ! "
+    echo "[mbapk_unpacked] not found ! Please unpack APK first ! "
  fi
 
     elif [ "$opt" == 'Add modified resources' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
+    echo "Applying patch [Add modified resources]..."
     echo "Copying modified resources..."
     cp -r -f 'patches/resources/raw' 'mbapk/mbapk_unpacked/res/'
     cp -f 'patches/resources/strings-vi/strings.xml' 'mbapk/mbapk_unpacked/res/values-vi/'
+    echo "Applied [Add modified resources] patch !!!"
  else
     echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
@@ -195,29 +211,30 @@ fi
 elif [ "$opt" == 'Remove bulit-in fonts' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
+    echo "Applying patch [Remove bulit-in fonts]..."
     echo "Removing..."
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Black.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-BlackItalic.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Bold.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-BoldItalic.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Extrabold.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-ExtraboldItalic.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCy-Extrathin.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCy-ExtrathinItalic.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Light.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-LightItalic.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Regular.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-RegularItalic.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Semibold.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-SemiboldItalic.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Thin.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-ThinItalic.otf'
-    rm 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/SF-Pro-Display-Medium.ttf'
-    rm 'mbapk/mbapk_unpacked/res/font/avenir_next_bold.ttf'
-    rm 'mbapk/mbapk_unpacked/res/font/bold.ttf'
-    rm 'mbapk/mbapk_unpacked/res/font/medium.ttf'
-    rm 'mbapk/mbapk_unpacked/res/font/regular.ttf'
-    rm 'mbapk/mbapk_unpacked/assets/insider.ttf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Black.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-BlackItalic.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Bold.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-BoldItalic.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Extrabold.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-ExtraboldItalic.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCy-Extrathin.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCy-ExtrathinItalic.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Light.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-LightItalic.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Regular.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-RegularItalic.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Semibold.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-SemiboldItalic.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Thin.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-ThinItalic.otf'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/SF-Pro-Display-Medium.ttf'
+    rm -f 'mbapk/mbapk_unpacked/res/font/avenir_next_bold.ttf'
+    rm -f 'mbapk/mbapk_unpacked/res/font/bold.ttf'
+    rm -f 'mbapk/mbapk_unpacked/res/font/medium.ttf'
+    rm -f 'mbapk/mbapk_unpacked/res/font/regular.ttf'
+    rm -f 'mbapk/mbapk_unpacked/assets/insider.ttf'
     rm -rf 'mbapk/mbapk_unpacked/assets/font'
     # Placeholder font to fix display issues when open details balance notifications 
     echo "Creating placeholder font..."
@@ -227,18 +244,14 @@ elif [ "$opt" == 'Remove bulit-in fonts' ]; then
     touch 'mbapk/mbapk_unpacked/res/font/bold.ttf'
     touch 'mbapk/mbapk_unpacked/res/font/medium.ttf'
     touch 'mbapk/mbapk_unpacked/res/font/regular.ttf'
-
-
-
-
-
+    echo "Applied [Remove bulit-in fonts] patch !!!"
 
  else
     echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
 
 
-elif [ "$opt" == 'Modify app theme' ]; then
+elif [ "$opt" == 'Modify app theme' ]; then 
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then 
     echo In order to modify app theme, you must extract assets first if current unpacked APK has MBShield!
@@ -250,7 +263,7 @@ do
     mv 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority' 'patches/semipriority/'
     sleep 2
     echo Modifying QR background...
-    rm 'patches/semipriority/priority/qr_img_ThemeDefalut.webp'
+    rm -f 'patches/semipriority/priority/qr_img_ThemeDefalut.webp'
     mv 'patches/semipriority/priority/a_background_image.webp' 'patches/semipriority/priority/qr_img_ThemeDefalut.webp'
     echo Renaming to [base]...
     mv 'patches/semipriority/priority' 'patches/semipriority/base'
@@ -285,7 +298,6 @@ do
     echo Applied [MBCP MBClassic] theme.
      elif [ "$opt" == 'Exit' ]; then
         sh patch.sh
-
         break
     fi
 done
@@ -322,7 +334,7 @@ then
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo Done !
+        echo Applied selected logo !
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
@@ -347,7 +359,7 @@ then
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo Done !
+        echo Applied selected logo !
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
@@ -372,7 +384,7 @@ then
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo Done !
+        echo Applied selected logo !
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
@@ -397,7 +409,7 @@ then
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo Done !
+        echo Applied selected logo !
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
@@ -413,11 +425,12 @@ done
    elif [ "$opt" == 'Hide VTAP root detection activity & dialog' ]; then
     if [ -d ~/mbbpatch/MBCPApp/patches/skip_maintainscreen ]
  then
-    echo "Applying patches to [mbapk/mbapk_unpacked/smali_classes4]..."
-    rm 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity.smali'
-    rm 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity$1.smali'
-    rm 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/VTapSetupPlugin.smali'
+    echo "Applying [Hide VTAP root detection activity & dialog]..."
+    rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity.smali'
+    rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity$1.smali'
+    rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/VTapSetupPlugin.smali'
     cp -r -f 'patches/skip_maintainscreen/com' 'mbapk/mbapk_unpacked/smali_classes4/'
+    echo "Applied [Hide VTAP root detection activity & dialog] patch !!!"
  else
     echo "Patch not found ! Aborting :)"
  fi
