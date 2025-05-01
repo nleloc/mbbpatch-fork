@@ -64,7 +64,7 @@ echo Original APK path must be inside [mbapk] folder !
 echo -------------------------------------------------------------   
 # Main functions      
 PS3='Please select options to continue : '
-select opt in 'Unpack APK' 'Repack APK' 'Patch App'  'Autopatch strings' 'Change app logo' 'Modify app theme' 'Inject bypass class' 'Extract assets [ROOT]' 'Bypass signature check' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download apktool' 'Exit'
+select opt in 'Unpack APK' 'Repack APK' 'Patch App' 'Convert apks to apk'  'Autopatch strings' 'Change app logo' 'Modify app theme' 'Extract assets [ROOT]' 'Bypass signature check' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download apktool' 'Exit'
 do
 	if [ "$opt" == 'Download apktool' ]; then
     echo Downloading apktool_2.11.1.jar
@@ -91,6 +91,9 @@ fi
     fi 
   else
     echo "Where is *.apk file?"
+    # APK not found ?
+    echo "*.apk not found on [mbapk] folder, please copy apk to [mbapk] folder !"
+    echo "If you got apks from eMBee APKs, use [Convert apks to apk] option !"
     fi
 
      elif [ "$opt" == 'Repack APK' ]; then
@@ -130,6 +133,19 @@ else
     echo "[mbapk_unpacked] not found ! Please unpack APK first !"
 fi
 
+
+    elif [ "$opt" == 'Convert apks to apk' ]; then
+    if [ -f ~/mbbpatch/MBCPApp/mbapk/*.apks ]
+ then
+    echo "Converting apks to apk..."
+    java -jar tools/APKEditor-1.4.2.jar m -i mbapk/*.apks
+    mv mbapk/*.apk mbapk/MBOriginal.apk
+    echo Cleaning left over [apks] files...
+    rm -f mbapk/*.apks
+    echo "You probably can continue to unpack APK!"
+ else
+    echo "APKs missing, cannot continue !"
+ fi
 
      elif [ "$opt" == 'Patch App' ]; then
      if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
