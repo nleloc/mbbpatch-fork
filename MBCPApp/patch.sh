@@ -1,7 +1,7 @@
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portait screen' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -69,13 +69,13 @@ do
      echo "ERROR : Auto patch strings requires [mbapk_unpacked] in order to continue !"
  fi 
 
-   elif [ "$opt" == 'Force portait screen' ]; then
+   elif [ "$opt" == 'Force portrait screen' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
-    echo "Applying patch [Force portait screen]..."
+    echo "Applying patch [Force portrait screen]..."
     echo "Patching [AndroidManifest.xml]..."
     sed -i 's|fullSensor|portrait|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
-    echo "Applied [Force portait screen] patch !!!"
+    echo "Applied [Force portrait screen] patch !!!"
  else
    echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
  fi  
