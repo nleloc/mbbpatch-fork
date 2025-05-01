@@ -44,6 +44,8 @@ cd ~/mbbpatch/MBCPApp
 - Install it to your device (requires [MBCP Helper](https://gitlab.com/cuynu/mbcp-helper/-/releases) / [CorePatch](https://github.com/lsposed/corepatch/releases) ) due to unsigned APK
 - Profit :)
 
+## TODO
+- fully implement `Bypass signature check` function
 
 ## External projects 
 - `MBCPApp Patcher` project won't be possible without those external projects !!

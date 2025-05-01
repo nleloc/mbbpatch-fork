@@ -74,7 +74,7 @@ do
  then
     echo "Applying patch [Force portait screen]..."
     echo "Patching [AndroidManifest.xml]..."
-    sed -i 's|fullSensor|portait|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+    sed -i 's|fullSensor|portrait|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     echo "Applied [Force portait screen] patch !!!"
  else
    echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
