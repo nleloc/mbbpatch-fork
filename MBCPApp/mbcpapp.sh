@@ -41,9 +41,24 @@ else
     FIGLET=:
 fi
 
+# Check if java exists on /usr/bin/java
+echo Checking if Java exists...
+if [ -x /usr/bin/java ]
+then
+    JAVA=/usr/bin/java
+    clear
+else
+    echo "ERROR : Java not found on [/usr/bin/java] !!!"
+    echo "INFO : Please install Java for your Linux distribution ! "
+    echo "INFO : If you have different JDK location, be sure link it"
+    exit
+    JAVA=:
+fi
+
 # Banner 
 $FIGLET "MBCPApp Flutter Patcher"
-echo -------------------------------------------------------------  
+echo -------------------------------------------------------------
+echo Source code : https://gitlab.com/cuynu/mbbpatch  
 echo Auto patching-tool for MB Bank, mainly for MB Flutter
 echo Original APK path must be inside [mbapk] folder !
 echo -------------------------------------------------------------   
@@ -98,42 +113,26 @@ else
     echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
     fi
 
+    elif [ "$opt" == 'MBShield Check' ]; then
+    if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]
+then
+    echo "MBShield found on [mbapk_unpacked/assets/mbshield.szip]" !!!
+    echo "Patching operation is limited due to MBShield :("
+    echo "You need to extract assets from Android device for some patching operation to works properly !!!"
+else
+    echo "MBShield NOT found on [mbapk_unpacked/assets/]"
+    echo "Patching operation are all not limited at all !"
+    echo "Asset extraction is not needed :)"
+    fi
 
 
-	elif [ "$opt" == 'Autopatch strings' ]; then
-   if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
+     elif [ "$opt" == 'Patch App' ]; then
+     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
  then
-    echo Patching strings in libapp.so...
-    sed -i -e 's/online OTP/DigitalOTP/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i -e 's/online OTP/DigitalOTP/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo INFO : [online OTP] strings are modified to [DigitalOTP] !
-    sed -i -e 's/Online OTP/DigitalOTP/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i -e 's/Online OTP/DigitalOTP/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo INFO : [Online OTP] strings are modified to [DigitalOTP] !
-    sed -i -e 's/MB Bank/MBCPApp/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i -e 's/MB Bank/MBCPApp/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo INFO : [MB Bank] strings are modified to [MBCPApp] !
-    sed -i -e 's/The lastest version/No  new version !!!/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i -e 's/The lastest version/No  new version !!!/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo INFO : [The lastest version] strings are modified to [Patched as MBCPApp] !
-    echo Patching link strings....
-    sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLoginClassic.png|https://gitlab.com/-/project/56341767/uploads/f585b28f88876db211f116d1d622031d/mbcp_login.png?git1|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLoginClassic.png|https://gitlab.com/-/project/56341767/uploads/f585b28f88876db211f116d1d622031d/mbcp_login.png?git1|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_thumbnailClassic.png|https://gitlab.com/-/project/56341767/uploads/ba4f0923a4956ba379868e01c55e9cfb/thumb.png?aaaaaaa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_thumbnailClassic.png|https://gitlab.com/-/project/56341767/uploads/ba4f0923a4956ba379868e01c55e9cfb/thumb.png?aaaaaaa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    sed -i 's|market://details?id=com.mbmobile|https://t.me/mbbpatch/          |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|market://details?id=com.mbmobile|https://t.me/mbbpatch/          |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
- else
-     echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
-     echo "ERROR : Auto patch strings requires [mbapk_unpacked] in order to continue !"
- fi
-
-
-    elif [ "$opt" == 'Modify app theme' ]; then
-    echo In order to modify app theme, you must extract assets first !
-
-    elif [ "$opt" == 'Inject bypass class' ]; then
-    echo placeholder
+    sh patch.sh
+else 
+    echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
+    fi
 
     elif [ "$opt" == 'Extract assets [ROOT]' ]; then
     echo To extract encrypted assets [if current app has MBShield protection] you need rooted device 
@@ -155,10 +154,47 @@ then
 then
         echo "INFO : MBShield found ! Continuing !!!"
         echo You MUST grant root access to [com.android.shell] in order to extract assets !
-        echo Trying to extract flutter_assets...
-        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/flutter_assets /sdcard/flutter_assets
+        echo Trying to extract assets...
+        adb shell am force-stop com.mbmobile
+        adb shell rm -rf /sdcard/assets
+        adb shell mkdir /sdcard/assets
+        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/flutter_assets /sdcard/assets
+        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/dexopt /sdcard/assets
+        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/font /sdcard/assets
+        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/mbshield /sdcard/assets
+        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/media_init_data /sdcard/assets
+        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/mlkit_barcode_models /sdcard/assets
+        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/models_bundled /sdcard/assets
+        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/mwebview /sdcard/assets
+        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/zfiles /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/crashlytics-build.properties /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/firmware /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/insider.ttf /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/dlangV5.dat /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/dlangV5.en.dat /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy0 /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy1 /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy2 /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy3 /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy4 /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy5 /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy6 /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy8 /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy9 /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policym /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/profile /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/rulesV5.dat /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/sgprofile /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/signature /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/smart_ekyc_finall.zip /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/version.json /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/vkeylicensepack /sdcard/assets
+        adb shell su -c cp -f /data/user/0/com.mbmobile/files/voscodesign.vky /sdcard/assets
         echo Copying assets...
-        adb pull /sdcard/flutter_assets mbapk/mbapk_unpacked/assets/
+        sleep 2
+        adb pull /sdcard/assets mbapk/mbapk_unpacked/
+        sleep 5
+        adb shell rm -rf /sdcard/assets
         else
         echo "INFO : MBShield not found ! No need to extract assets !"
         fi
@@ -174,165 +210,10 @@ else
         	fi
 done
 
-
-
-
-
-
-    
-    elif [ "$opt" == 'Change app logo' ]; then
-    echo -------------------------------------------
-    echo -------------------------------------------
-    PS3='Select app icon variant to continue, or [5] to quit : '
-    select opt in '30/4-1/5' 'MB Classic' 'Tet' 'Noel' 'Exit'
-do
-    	if [ "$opt" == '30/4-1/5' ]; then
-         if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
-then
-        echo Removing old logos...
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-hdpi
-        echo INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-mdpi
-        echo INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-        echo INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-        echo INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
-        echo INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !
-        echo Copying new logos to [mbapk_unpacked/res] !!!
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-hdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-mdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xhdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo Done !
-    else
-        echo "[mbapk_unpacked] not found ! Please unpack APK first !"
-    fi
-
-        elif [ "$opt" == 'MB Classic' ]; then
-         if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
-then
-        echo Removing old logos...
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-hdpi
-        echo INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-mdpi
-        echo INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-        echo INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-        echo INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
-        echo INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !
-        echo Copying new logos to [mbapk_unpacked/res] !!!
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-hdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-mdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xhdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo Done !
-    else
-        echo "[mbapk_unpacked] not found ! Please unpack APK first !"
-    fi
-
-        elif [ "$opt" == 'Tet' ]; then
-         if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
-then
-        echo Removing old logos...
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-hdpi
-        echo INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-mdpi
-        echo INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-        echo INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-        echo INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
-        echo INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !
-        echo Copying new logos to [mbapk_unpacked/res] !!!
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-hdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-mdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xhdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo Done !
-    else
-        echo "[mbapk_unpacked] not found ! Please unpack APK first !"
-    fi
-
-        elif [ "$opt" == 'Noel' ]; then
-         if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
-then
-        echo Removing old logos...
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-hdpi
-        echo INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-mdpi
-        echo INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-        echo INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-        echo INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !
-        rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
-        echo INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !
-        echo Copying new logos to [mbapk_unpacked/res] !!!
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-hdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-mdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xhdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-        cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo Done !
-    else
-        echo "[mbapk_unpacked] not found ! Please unpack APK first !"
-    fi
-
-
-        elif [ "$opt" == 'Exit' ]; then
-        clear
-        sh mbcpapp.sh
-
-        break
-    fi
-done
-    
-    elif [ "$opt" == 'Bypass signature check' ]; then
-    if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
- then 
-    # Checks for MBShield, if exists then exit function
-    echo "Checking for MBShield !!"
-    if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]
- then
-    echo "INFO : MBShield found ! Bypass signature checks won't be possible if MBShield is present on current unpacked APK !"
-    echo "INFO : Please use supported version !!!"
-    echo For React Native : MBBank/MB Lite v1.0 up to v6.3.11
-    echo For Flutter : MBBank v6.4.0 up to v6.4.21
-    echo Some specific version has no MBShield can also be used :
-    echo MBBank v6.4.24 [versionCode : 624]
-    echo MBBank v6.4.26 [versionCode : 626]
-    echo MBBank v6.4.45 [versionCode : 658]
-    else
-    echo "INFO : MBShield not found ! Continuing !!! "
-    echo "Placeholder function! "
-   
-    fi
-    else
-    echo APK are not unpacked ! Please unpack APK first !
-fi
-
-
-
-
-
-
-
-
     elif [ "$opt" == 'Clear MBCPApp/MBBank app data' ]; then
     adb shell pm clear com.mbmobile
+    adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
     echo "INFO : Current logged in account will remain present, even if app data is cleared !"
-
-
-
-
 
     elif [ "$opt" == 'Launch MBCPApp/MBBank' ]; then
     adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
