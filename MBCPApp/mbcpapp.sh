@@ -61,7 +61,7 @@ fi
 # Banner 
 $FIGLET "MBCPApp Flutter Patcher"
 echo -------------------------------------------------------------
-echo Source code : https://gitlab.com/cuynu/mbbpatch  
+echo Source code : https://gitlab.com/mbcp/mbbpatch  
 echo Auto patching-tool for MB Bank, mainly for MB Flutter
 echo Original APK path must be inside [mbapk] folder !
 echo -------------------------------------------------------------   
