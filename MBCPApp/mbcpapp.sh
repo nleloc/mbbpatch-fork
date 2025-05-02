@@ -22,8 +22,10 @@ else
     fi
 
 # Check if user trying to run under HyperV (Windows Subsystem For Linux)
-if [[ $(grep -i Microsoft /proc/version) ]]; then
-echo "You are trying to run on WSL, please use real Linux environment !"
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then 
+echo "Detected WSL (Windows Subsystem for Linux) in current Linux environment !!"
+echo "INFO : MBCPApp Patcher must be run on actual or virtualized (non-WSL) Linux environment instead of WSL"
+echo "INFO : Trying to remove WSL detection code might make script not works properly and impact to project development due to being run on non-freedom environment !!!"
 exit
 fi
 
