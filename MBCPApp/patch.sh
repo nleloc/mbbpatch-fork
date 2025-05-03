@@ -128,7 +128,7 @@ do
  then
     echo "Applying patch [Bypass accessibility & malicious apps check]..."
     echo Copying patched code [MbbankUtilitiesPlugin]...
-    cp -r -f 'patches/bypass_accessibility_applist/com' 'mbapk/mbapk_unpacked/smali'
+    cp -r -f 'patches/bypass_accessibility_applist/com' 'mbapk/mbapk_unpacked/smali_classes3'
     echo Patching [AndroidManifest.xml]
      sed -i 's|<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml 
     echo "Applied [Bypass accessibility & malicious apps check] patch !!!"
