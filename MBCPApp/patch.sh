@@ -302,7 +302,7 @@ elif [ "$opt" == 'Modify app theme' ]; then
  then 
     echo In order to modify app theme, you must extract assets first if current unpacked APK has MBShield!
     PS3='Select themes : '
-select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Exit'
+select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Exit'
 do
     if [ "$opt" == 'MBCP SemiPriority' ]; then
     echo Moving [priority] folder...
@@ -342,6 +342,30 @@ do
     cp -f 'patches/mbclassic/login_bg_main.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
     cp -f 'patches/mbclassic/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
     echo Applied [MBCP MBClassic] theme.
+
+    elif [ "$opt" == 'Noel 2024' ]; then
+    echo "Ensure that you did NOT applied SemiPriority theme before apply this theme !"
+    echo "Otherwise it will conflicts like mixed SemiPriority and Noel 2024 theme, You've warned !!! "
+    cp -f 'patches/noel/a_background_image.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/bill_background_gold.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/general_bg_success.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/loading_bg_main.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/login_bg_main.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    ##############
+    cp -f 'patches/noel/a_background_image.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/bill_background_gold.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/coreBanking_img_successBackground.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/general_bg_screenshot.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/general_bg_success.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/homeLanding_bg_main.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/loading_bg_main.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/login_bg_main.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/qr_img_ThemeDefalut.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    echo Applied [Noel 2024] theme.
      elif [ "$opt" == 'Exit' ]; then
         sh patch.sh
         break
