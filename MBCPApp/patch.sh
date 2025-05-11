@@ -218,11 +218,9 @@ fi
     echo Removing [libtoolChecker.so]...
     rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libtoolChecker.so'
     rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libtoolChecker.so'
-    echo Patching [libapp.so...]
-    sed -i 's|zimperium|cuynuttmb|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|zimperium|cuynuttmb|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    sed -i 's|ZDEFNED|FUCKUMB|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|ZDEFEND|FUCKUMB|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    echo Removing [libdesignersactivists.so]...
+    rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so'
+    rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so'
     echo Removing related files...
     sleep 3
     rm -rf 'mbapk/mbapk_unpacked/assets/zfiles'
@@ -241,6 +239,7 @@ fi
     rm -f 'mbapk/mbapk_unpacked/assets/rulesV5.dat'
     echo "Patching [AndroidManifest.xml]"
     sed -i 's|<provider android:authorities="com.mbmobile.honor.essence.enter" android:exported="false" android:name="androidx.cigarette.titles.corporation.moscow.Township"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml 
+    sed -i 's|<provider android:authorities="com.mbmobile.inserted.thumbzilla.ireland" android:exported="false" android:name="androidx.UnderlyingVcl"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     echo "Applied [Remove new root detection] patch !!!"
 
  else
