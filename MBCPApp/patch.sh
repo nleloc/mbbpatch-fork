@@ -218,6 +218,11 @@ fi
     echo Removing [libtoolChecker.so]...
     rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libtoolChecker.so'
     rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libtoolChecker.so'
+    echo Patching [libapp.so...]
+    sed -i 's|zimperium|cuynuttmb|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|zimperium|cuynuttmb|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    sed -i 's|ZDEFNED|FUCKUMB|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|ZDEFEND|FUCKUMB|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     echo Removing related files...
     sleep 3
     rm -rf 'mbapk/mbapk_unpacked/assets/zfiles'
