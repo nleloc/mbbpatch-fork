@@ -12,7 +12,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -151,7 +151,25 @@ do
  else
     echo "[mbapk_unpacked] not found ! Please unpack APK !"
  fi
- 
+
+     elif [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
+     mkdir bypass1200
+     echo "Downloading v6.4.47 apks..."
+     wget https://github.com/ghclonenah1/mbbpatch_release/releases/download/a/embee_v6.4.47_arm64-v8a_armeabi-v7a.apks -q --show-progress
+     mv *.apks bypass1200/
+     echo "Unpacking..."
+     java -jar tools/APKEditor-1.4.2.jar m -i bypass1200/*.apks
+     java -jar tools/apktool_2.11.1.jar d bypass1200/*.apk -o bypass1200/unpacked
+     mv bypass1200/unpacked/lib/arm64-v8a/libapp.so mbapk/mbapk_unpacked/lib/arm64-v8a/ 
+     mv bypass1200/unpacked/lib/armeabi-v7a/libapp.so mbapk/mbapk_unpacked/lib/armeabi-v7a/ 
+     mv bypass1200/unpacked/lib/arm64-v8a/libflutter.so mbapk/mbapk_unpacked/lib/arm64-v8a/ 
+     mv bypass1200/unpacked/lib/armeabi-v7a/libflutter.so mbapk/mbapk_unpacked/lib/armeabi-v7a/   
+     echo "Cleaning..."   
+     rm -rf bypass1200
+     ## MB Forced update to 658, it must be spoofed!
+     echo "Patching [apktool.yml]..."
+     sed -i 's|658|700|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/apktool.yml
+     
 
      elif [ "$opt" == 'Remove banners & MiniApp' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
