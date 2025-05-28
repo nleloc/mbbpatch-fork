@@ -300,15 +300,13 @@ elif [ "$opt" == 'Remove bulit-in fonts' ]; then
     touch 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Regular.otf' 
     # Placeholder to prevent compiling resource fail
     touch 'mbapk/mbapk_unpacked/res/font/avenir_next_bold.ttf'
-    touch 'mbapk/mbapk_unpacked/res/font/bold.ttf'
-    touch 'mbapk/mbapk_unpacked/res/font/medium.ttf'
-    touch 'mbapk/mbapk_unpacked/res/font/regular.ttf'
-    echo "Applied [Remove bulit-in fonts] patch !!!"
     echo Copying fix fonts...
     # NFC scanning phase requires actual font in order to not throw exception
-    cp -f 'patches/resources/font/bold.ttf' 'mbapk/mbapk_unpacked/res/font'
-    cp -f 'patches/resources/font/medium.ttf' 'mbapk/mbapkunpacked/res/font'
-    cp -f 'patches/resources/font/regular.ttf 'mbapk/mbapk_unpacked/res/font'
+    cp -f 'patches/resources/font/bold.ttf' 'mbapk/mbapk_unpacked/res/font/'
+    cp -f 'patches/resources/font/medium.ttf' 'mbapk/mbapkunpacked/res/font/'
+    cp -f 'patches/resources/font/regular.ttf' 'mbapk/mbapk_unpacked/res/font/'
+    echo "Applied [Remove bulit-in fonts] patch !!!"
+ 
     
 
 
