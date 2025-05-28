@@ -295,7 +295,6 @@ elif [ "$opt" == 'Remove bulit-in fonts' ]; then
     rm -f 'mbapk/mbapk_unpacked/res/font/medium.ttf'
     rm -f 'mbapk/mbapk_unpacked/res/font/regular.ttf'
     rm -f 'mbapk/mbapk_unpacked/assets/insider.ttf'
-    rm -rf 'mbapk/mbapk_unpacked/assets/font'
     # Placeholder font to fix display issues when open details balance notifications 
     echo "Creating placeholder font..."
     touch 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Regular.otf' 
@@ -305,6 +304,13 @@ elif [ "$opt" == 'Remove bulit-in fonts' ]; then
     touch 'mbapk/mbapk_unpacked/res/font/medium.ttf'
     touch 'mbapk/mbapk_unpacked/res/font/regular.ttf'
     echo "Applied [Remove bulit-in fonts] patch !!!"
+    echo Copying fix fonts...
+    # NFC scanning phase requires actual font in order to not throw exception
+    cp -f 'patches/resources/font/bold.ttf' 'mbapk/mbapk_unpacked/res/font'
+    cp -f 'patches/resources/font/medium.ttf' 'mbapk/mbapkunpacked/res/font'
+    cp -f 'patches/resources/font/regular.ttf 'mbapk/mbapk_unpacked/res/font'
+    
+
 
  else
     echo "[mbapk_unpacked] not found ! Please unpack APK first !"
