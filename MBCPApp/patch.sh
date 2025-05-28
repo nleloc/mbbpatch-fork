@@ -303,7 +303,7 @@ elif [ "$opt" == 'Remove bulit-in fonts' ]; then
     echo Copying fix fonts...
     # NFC scanning phase requires actual font in order to not throw exception
     cp -f 'patches/resources/font/bold.ttf' 'mbapk/mbapk_unpacked/res/font/'
-    cp -f 'patches/resources/font/medium.ttf' 'mbapk/mbapkunpacked/res/font/'
+    cp -f 'patches/resources/font/medium.ttf' 'mbapk/mbapk_unpacked/res/font/'
     cp -f 'patches/resources/font/regular.ttf' 'mbapk/mbapk_unpacked/res/font/'
     echo "Applied [Remove bulit-in fonts] patch !!!"
  
