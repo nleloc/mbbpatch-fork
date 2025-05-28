@@ -88,6 +88,34 @@ do
     if [ -f ~/mbbpatch/MBCPApp/tools/apktool_2.11.1.jar ]
 then
     java -jar tools/apktool_2.11.1.jar d mbapk/*.apk -o mbapk/mbapk_unpacked
+        echo "Cleaning useless files..."
+    rm -rf 'mbapk/mbapk_unpacked/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/2GcdAWdkXGgxPfHSIhzLkrkf2LU6Z_cuZfUWnczoEHw_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/BiLlLhV4LAy_y_rvwmD82q_4yN_liwgN1X0mfwfqTeE_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/c7uFHgsHzlQ_T524_4N3h9neXvtcUg0m1ERhEjFpPI8_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/ccBu4aSM_mSaMBpFvr14pizu6EGMvwRiZltU_zVJMz0_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/DcM3z3tolULDhbn8YrUE7hxOlxZx2oFC5yNQFG1SX9k_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/fPGzhQFvISia1NiVGU8vQx9IpRm63E4_1Xv0Z2ypWUE_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/g9x205p_On9_RR4kI_GdsoQ2pfSrV_OQXSopshyhYVk_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/GXNv8xc5IcVF6TyUgjJpyYFeyHGqUqN7ZS0X_2WRbEE_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/H8leCCp85eX0YRvo4WCzqF5MEuj2_9ix6zL2bjnj6hk_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/Hput_BfAb8ftOt8hvazec24Eqk0gC5DDY6qALJMLtcI_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/MZuOOtdhO6pcGnZ5_kqMPh56hL3LqawBZd05vfIivww_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/noNmNoHJ0EUpV0TiKtyRPIVWI0im6K1RPIq3N_q0ho0_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/oOot9yCPD3GFqBix7JXjoz4Uui3k3NrwI8wHRlOpn4s_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/rqfr7ucXEZM4vIIYYPHXlo6IG1iEad_H61Z4bbEMR3s_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/Sje9R7eg_A4wlgbLNHwXS5xNFmS5qaoPnJ6Vg0RnIQ8_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/t8_bY_8ibDPQ9rngMwnd7WFI_uqoPlht9nBi26_llbw_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/VipqZ50mSUd28eIlPS_2t31IZ6tY24fl8sSl5YsQrbI_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/vLpH08bnGzkpsq_MmUdHqkh3bjrVN5tutp6s4jscm3w_'
+    rm -rf 'mbapk/mbapk_unpacked/assets/WZ7CC4mxgoVWzgm8AO7rbOneE6TkqXwT2YV3htdswEQ_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/x_uYtCXdh_oYw_XLfZQkX10Bcqq2HFK3q7v1dJVw3zM_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/Y83jllvBi79vZIh2_UNtyo3_Lvd94lqie_q1dc5O3j0_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/ZN6CRAqtR7CKp7LFoivhHDbCS6iAtrEW6_sLvrfWgEM_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/ZOKOK1a6XCiqYb_a8bYPE9c0rjUf7_n7k77YxX5Ypdw_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/zxHdhL4_ZEQLQeo8R2DzSYl9PGss_cKSCQTcZGBtVmU_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/jNMI79raTvV7VHN5Vrzw4Xs66YP_a1ftP9SmUB24DYg_' 
 else
     echo "Please download apktool first !"
 fi
