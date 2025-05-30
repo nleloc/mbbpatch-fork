@@ -139,6 +139,8 @@ do
     sed -i 's| <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" android:required="false"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     sed -i 's|<activity android:launchMode="singleTop" android:name="com.vtap.MaintenanceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     sed -i 's|<permission android:name="com.mbmobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>"| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+    sed -i 's|<activity android:launchMode="singleTop" android:name="com.vtap.MaintenanceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+    sed -i 's|<activity android:name="com.vkey.android.vguard.VGDialogActivity" android:theme="@style/NoTitleDialog"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     echo "Applied [Remove garbage permission and activities] patch !!!" 
 
  else
@@ -547,10 +549,11 @@ done
     if [ -d ~/mbbpatch/MBCPApp/patches/skip_maintainscreen ]
  then
     echo "Applying [Hide VTAP root detection activity & dialog]..."
+    sed -i 's|Lcom/vtap/MaintenanceActivity;|Lio/flutter/plugins/MainActivity;|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali_classes4/com/vtap/VTapSetupPlugin.smali
     rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity.smali'
     rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity$1.smali'
-    rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/VTapSetupPlugin.smali'
-    cp -r -f 'patches/skip_maintainscreen/com' 'mbapk/mbapk_unpacked/smali_classes4/'
+    rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/vguard/VGDialogActivity.smali'
+    sed -i 's|Lcom/vkey/android/vguard/VGDialogActivity;|Lio/flutter/plugins/MainActivity;|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/dy.smali
     echo "Applied [Hide VTAP root detection activity & dialog] patch !!!"
  else
     echo "Patch not found ! Aborting :)"
