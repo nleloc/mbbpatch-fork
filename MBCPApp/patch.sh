@@ -248,7 +248,7 @@ fi
     rm -f 'mbapk/mbapk_unpacked/assets/policym'
     rm -f 'mbapk/mbapk_unpacked/assets/rulesV5.dat'
     rm -rf 'mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl'
-    rm -f 'mbapk/mbapk_unpacked/smali/UnderlyingVcl.smali'
+    rm -f 'mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali'
     echo "Patching [AndroidManifest.xml]"
     sed -i 's|<provider android:authorities="com.mbmobile.honor.essence.enter" android:exported="false" android:name="androidx.cigarette.titles.corporation.moscow.Township"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml 
     sed -i 's|<provider android:authorities="com.mbmobile.inserted.thumbzilla.ireland" android:exported="false" android:name="androidx.UnderlyingVcl"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
