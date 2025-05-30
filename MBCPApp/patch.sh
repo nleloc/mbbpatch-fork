@@ -138,7 +138,8 @@ do
     sed -i 's|<uses-permission android:name="com.google.android.gms.permission.AD_ID"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     sed -i 's| <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" android:required="false"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
     sed -i 's|<activity android:launchMode="singleTop" android:name="com.vtap.MaintenanceActivity" android:screenOrientation="portrait" android:theme="@style/AppTheme"/>"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
-    echo "Applied [Remove garbage permission and activities] patch !!!"
+    sed -i 's|<permission android:name="com.mbmobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" android:protectionLevel="signature"/>"| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+    echo "Applied [Remove garbage permission and activities] patch !!!" 
 
  else
     echo "[mbapk_unpacked] not found ! Please unpack APK !"
