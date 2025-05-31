@@ -12,7 +12,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -164,6 +164,22 @@ do
      ## MB Forced update to 658, it must be spoofed!
      echo "Patching [apktool.yml]..."
      sed -i 's|658|700|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/apktool.yml
+
+     elif [ "$opt" == 'Remove eMBee' ]; then
+     echo "WARNING : Remove eMBee also remove customer support and any other options on eMBee Helper !"
+     echo "Removing eMBee Customer support function..."
+     sed -i 's|group_button_support|whywouldiuseyouembee|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+     sed -i 's|group_button_support|whywouldiuseyouembee|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+     sed -i 's|Customer support|                |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+     sed -i 's|Customer support|                |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+     echo "Removing eMBee..."
+     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_page.webp'
+     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_page.private.webp'
+     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_login.private.webp'
+     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_header.webp'
+     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_header.private.webp'
+     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_login.webp'
+     echo "Applied [Remove eMBee] patch !!!"
      
 
      elif [ "$opt" == 'Remove banners & MiniApp' ]; then
