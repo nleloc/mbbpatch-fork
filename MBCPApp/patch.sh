@@ -95,6 +95,8 @@ do
     echo "INFO : [get notifications] strings are modified to [Get notifications] !"
     sed -i 's|Read the announcement|Notify with voice    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|Read the announcement|Notify with voice    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    sed -i 's|Viettel post|Viettel Post|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|Viettel post|Viettel Post|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     echo "INFO : [Read the announcement] strings are modified to [Notify with voice] !"
 
     echo "Applied [Autopatch strings] patch !!!"
