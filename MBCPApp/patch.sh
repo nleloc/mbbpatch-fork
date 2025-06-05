@@ -431,8 +431,8 @@ done
 elif [ "$opt" == 'Change app logo' ]; then
     echo -------------------------------------------
     echo -------------------------------------------
-    PS3='Select app icon variant to continue, or [5] to quit : '
-    select opt in '30/4-1/5' 'MB Classic' 'Tet' 'Summer 2025' 'Noel' 'Exit'
+    PS3='Select app icon variant to continue, or [7] to quit : '
+    select opt in 'MB Classic' 'Tet' 'Valentine 2025' '30/4-1/5' 'Summer 2025' 'Noel' 'Exit'
 do
     	if [ "$opt" == '30/4-1/5' ]; then
          if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
@@ -508,6 +508,26 @@ then
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
+
+      elif [ "$opt" == 'Valentine 2025' ]; then
+         if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
+      then
+         echo "Removing old logos..."
+         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-hdpi
+         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-mdpi
+         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xhdpi
+         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
+         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
+         echo "Copying new logos to [mbapk_unpakced/res] !!!"
+         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/valentine/mipmap-hdpi mbapk/mbapk_unpacked/res
+         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/valentine/mipmap-mdpi mbapk/mbapk_unpacked/res
+         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/valentine/mipmap-xhdpi mbapk/mbapk_unpacked/res
+         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/valentine/mipmap-xxhdpi mbapk/mbapk_unpacked/res
+         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/valentine/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
+         echo "Applied selected logo !"
+      else 
+         ehco "[mbapk_unpacked] not found ! Please unpack APK first !"
+      fi
 
       elif [ "$opt" == 'Summer 2025' ]; then
          if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
