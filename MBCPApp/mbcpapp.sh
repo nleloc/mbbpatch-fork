@@ -1,14 +1,5 @@
 #!/bin/bash
 
-# Check if user trying to run under HyperV (Windows Subsystem For Linux)
-# Remove this detection part to bypass WSL detection might lead project development to be STOPPED, You've warned !
-if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
-echo "Detected WSL (Windows Subsystem for Linux) in current Linux environment !!"
-echo "INFO : MBCPApp Patcher must be run on actual or virtualized (non-WSL) Linux environment instead of WSL"
-echo "INFO : Trying to remove WSL detection code might make script not works properly and impact to project development due to being run on non-freedom environment !!!"
-exit
-fi
-
 # Initial startup
 if [ -d ~/mbbpatch/MBCPApp/mbapk ]
 then
@@ -33,6 +24,13 @@ else
 # Check if user runs on actual Linux environment
 if [[ $(grep -i Linux /proc/version) ]]; then
 echo "INFO : You have Linux environment :)"
+fi
+
+# Check if user trying to run under HyperV (Windows Subsystem For Linux)
+# Remove this detection part to bypass WSL detection might lead project development to be STOPPED, You've warned !
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+    echo "Detected WSL (Windows Subsystem for Linux) in current Linux environment !!"
+    echo "Warn : You won't be supported for any issues under WSL environment !!"
 fi
 
 # Check if figlet exists or not
