@@ -12,7 +12,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -183,6 +183,20 @@ do
      rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_login.webp'
      echo "Applied [Remove eMBee] patch !!!"
      
+     elif [ "$opt" == 'Remove invoke to mbshield' ]; then
+     if [ -d ~/mbbpatch/MBCPApp/patches/noinvoke ]
+   then
+     echo "Currently only support remove invoke mbshield to [io.flutter.plugins.MainActivity] and [MBBHomeWidgetQR] !!!"
+     echo "Copying..."
+     rm -f 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins/MainAcitivity.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins/MBBHomeWidgetQR.smali'
+     cp -f 'patches/noinvoke/MainActivity.smali' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins'
+     cp -f 'patches/noinvoke/MBBHomeWidgetQR.smali' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins'
+     echo "Applied [Remove invoke to mbshield] patch !!!"
+   else
+     echo "noinvoke patch not found!"
+   fi
+     
 
      elif [ "$opt" == 'Remove banners & MiniApp' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
@@ -329,10 +343,6 @@ elif [ "$opt" == 'Remove bulit-in fonts' ]; then
     cp -f 'patches/resources/font/medium.ttf' 'mbapk/mbapk_unpacked/res/font/'
     cp -f 'patches/resources/font/regular.ttf' 'mbapk/mbapk_unpacked/res/font/'
     echo "Applied [Remove bulit-in fonts] patch !!!"
- 
-    
-
-
  else
     echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
