@@ -1,6 +1,11 @@
 # MBCPApp Patcher for MB Bank
-Lightweight "open source" tool for patching MB Bank Flutter (Android) app, mostly written with Bash script, mainly made by [Cuynu](https://gitlab.com/cuynu) and MBCPApp Author (anonymous).
-<a href="">
+Lightweight "open source" tool for patching MB Bank Flutter (Android) app, mostly written in Bash script, mainly made by [Cuynu](https://gitlab.com/cuynu) and no one else (MBCPApp Author) is fake :)
+
+# Notice FOR MB Bank developers / securities 
+- WE did NOT made this project just for you to report this to MB Bank development team and fix those patches. This is COMMUNITY PROJECT which patches MB Bank app to remove annoying limitation you've implemented to MB Bank app !
+
+Lightweight "open source" tool for patching MB Bank Flutter (Android) app, mostly written in Bash script, mainly made by [Cuynu](https://gitlab.com/cuynu) and no one else (MBCPApp Author) is fake :)
+
 <img alt="https://gitlab.com/cuynu/mbbpatch" src="https://gitlab.com/cuynu/archive/-/raw/main/mbcpapp_patcher.png?inline=false" width="" height="" />
 </a>
 
@@ -25,7 +30,7 @@ cd ~/mbbpatch/MBCPApp
 ```
 
 - Since MB Bank are now using split APK (*.apks) since `v5.3 (135)` so you have to convert it to regular APK first
-- Get MB Bank apks from [eMBee APKs](https://t.me/embeeapks) and copy it to `~/mbbpatch/MBCPApp/mbapk`
+- Grab MB Bank apks from [eMBee APKs](https://t.me/embeeapks) and copy it to `~/mbbpatch/MBCPApp/mbapk`
 
 - Run bash `mbcpapp.sh` script
 ```
@@ -48,7 +53,7 @@ cd ~/mbbpatch/MBCPApp
 - fully implement `Bypass signature check` function
 
 ## External projects 
-- `MBCPApp Patcher` project won't be possible without those external projects !!
+MBCPApp Patcher project won't be possible without those external projects !!
 - [apktool](https://github.com/iBotPeaches/Apktool)
 - [APKEditor](https://github.com/REAndroid/APKEditor/)
 - [MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3
