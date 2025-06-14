@@ -15,11 +15,35 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app, mostl
 - [MBCP (MBBank CorePatch)](https://t.me/mbbpatch) are closed source before, and many people don't like it because worry about security & privacy issues. 
 - In order to support community and make MBCP open source, We spend days to rewritten whole `MBCPApp` patches in Bash and open it so you can patch it yourself on (Bare metal, not WSL) Linux environment (where we used to patch `MBCP`) 
 
+## Patches list :
+### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
+<details>
+
+| ⚙️ Patch | 📜 Description | 🏦 Suggested version |
+|:--------:|:--------------:|:-----------------:|
+| `Autopatch strings` | Modify the strings in-app within `libapp.so`, and also fixes some translation typo in-app. | v6.4.0 ~ v6.4.52 |
+| `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.52 |
+| `Force portrait screen` | Force the screen always portrait on app, espcially when launching. | v6.4.0 ~ v6.4.52 |
+| `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.52 |
+| `Remove bulit-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.4.52 |
+| `Modify app theme` | Modify the app theme in app from original one to others. Currently have MBClassic and SemiPriority. | v6.4.30 ~ v6.4.52 |
+| `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.4.52 |
+| `Remove eMBee` | Removes eMBee options in app, alongside with Customer support. | v6.4.0 ~ v6.4.52 |
+| `Remove banner & MiniApp` | Removes the banner and MiniApp on `homeLanding` page when logged in. | v6.4.0 ~ v6.4.52 |
+| `Bypass accessibility & malicious apps check` | Remove the restriction of using the app when an app using accessibility service or "malicious apps" like (HideMyAppList) installed. | v6.4.25 ~ v6.4.52 |
+| `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted". | v6.4.0 ~ v6.4.52 |
+| `Remove new root detection` | Remove the new Zimperium (ZDefend) root detection from app. | v6.4.15 ~ v6.4.52 |
+| `Add modified resources` | Adds the specific strings for MBCP on eKYC phase, and modify the DigiBank logo. | v6.4.0 ~ v6.4.52 |
+| `Bypass signature check` | Not implemented | v6.4.0 ~ v6.4.21 |
+| `Bypass 1200 error` | Workaround for 1200 error that happening on original MB app with specific version, now discontinued. | v6.4.45 |
+</details>
+
 ## Requirements
 - Actual Linux environment (not on virtualized environment like WSL) and any compatible distro (Arch Linux based recommended)
 - Little knowledge about `bash` commands 
 - `git` installed
 - `java` or `jdk-openjdk` installed
+
 
 ## Usage
 - Go to home directory, then clone repository first
