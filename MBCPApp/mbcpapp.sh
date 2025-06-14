@@ -179,7 +179,7 @@ fi
      elif [ "$opt" == 'Patch App' ]; then
      if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
  then
-    sh patch.sh
+    ./patch.sh
 else 
     echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
     fi
