@@ -153,6 +153,8 @@ do
  fi
 
      elif [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
+     echo "Notice : v6.4.45 are now got [GW525 - Force update !] !!!"
+     echo "This patch will remain available but you cannot bypass GW525 error !"
      mkdir bypass1200
      echo "Downloading v6.4.47 apks..."
      wget https://github.com/ghclonenah1/mbbpatch_release/releases/download/a/embee_v6.4.47_arm64-v8a_armeabi-v7a.apks -q --show-progress
