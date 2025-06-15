@@ -22,7 +22,7 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app, mostl
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
 | `Autopatch strings` | Modify the strings in-app within `libapp.so`, and also fixes some translation typo in-app. | v6.4.0 ~ v6.4.53 |
-| `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.52 |
+| `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.53 |
 | `Force portrait screen` | Force the screen always portrait on app, espcially when launching. | v6.4.0 ~ v6.4.53 |
 | `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.53 |
 | `Remove bulit-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.4.53 |
