@@ -447,7 +447,16 @@ do
     cp -f 'patches/noel/loading_bg_main.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
     cp -f 'patches/noel/login_bg_main.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
     cp -f 'patches/noel/qr_img_ThemeDefalut.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
-    echo Applied [Noel 2024] theme.
+    # Change theme preview
+    cp -f 'patches/noel/customUI_img_classicMode.png' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'patches/noel/customUI_img_classicMode.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+    # Lockdown ability to change other theme, also force Noel 2024 theme
+    echo "Patching [libapp.so]..."
+    sed -i 's|theme|Noel |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|theme|Noel |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    echo "INFO : You WON'T be able to use other theme than Noel 2024 on app !"
+
+    echo "Applied [Noel 2024] theme."
      elif [ "$opt" == 'Exit' ]; then
         sh patch.sh
         break
