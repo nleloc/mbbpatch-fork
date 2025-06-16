@@ -12,7 +12,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -241,7 +241,7 @@ do
    fi
 
      elif [ "$opt" == 'Remove animated QR background' ]; then
-   if [ -d ~/mbbpatch/MBCPApp/patches/qr_blank ]
+   if [ -d ~/mbbpatch/MBCPApp/patches/qr_white ]
 then
    echo "This will remove animated QR on bottom navigation bar and replace with white background !"
    echo "Removing animated QR..."
@@ -251,7 +251,7 @@ then
    cp -f 'patches/qr_white/homeLanding_bg_qrCode.gif' 'mbapk/mbapk_unpacked/flutter_assets/assets/images/static'
    echo "Applied [Remove animated QR background] patch !!!"
 else
-   echo "[qr_blank] not found !"
+   echo "[qr_white] not found !"
 fi     
 
      elif [ "$opt" == 'Remove banners & MiniApp' ]; then
