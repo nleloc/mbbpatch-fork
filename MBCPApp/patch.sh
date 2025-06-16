@@ -647,7 +647,10 @@ done
     if [ -d ~/mbbpatch/MBCPApp/patches/skip_maintainscreen ]
  then
     echo "Applying [Hide VTAP root detection activity & dialog]..."
-    sed -i 's|Lcom/vtap/MaintenanceActivity;|Lio/flutter/plugins/MainActivity;|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali_classes4/com/vtap/VTapSetupPlugin.smali
+    # Adapt with v6.4.53+
+    sed -i 's|Lcom/vtap/MaintenanceActivity;|Lio/flutter/plugins/MainActivity;|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali_classes4/com/vtap/d.smali > /dev/null 2>&1
+
+    sed -i 's|Lcom/vtap/MaintenanceActivity;|Lio/flutter/plugins/MainActivity;|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali_classes4/com/vtap/VTapSetupPlugin.smali  > /dev/null 2>&1
     rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity.smali'
     rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity$1.smali'
     rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/vguard/VGDialogActivity.smali'
