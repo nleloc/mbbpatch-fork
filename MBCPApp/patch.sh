@@ -220,6 +220,8 @@ do
      cp -f 'patches/revert_old_eMBee/customerService_img_avatarChat02.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
      cp -f 'patches/revert_old_eMBee/customerService_img_avatarChat03.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
      cp -f 'patches/revert_old_eMBee/customerService_img_avatarChat04.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+     echo "Applied [Revert old eMBee logo] patch !!!"
+
    else
       echo "[revert_old_eMBee] patch not found !"
    fi
