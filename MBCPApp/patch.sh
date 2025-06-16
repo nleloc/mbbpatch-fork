@@ -237,7 +237,20 @@ do
    else
      echo "noinvoke patch not found!"
    fi
-     
+
+     elif [ "$opt" == 'Remove animated QR background' ]; then
+   if [ -d ~/mbbpatch/MBCPApp/patches/qr_blank ]
+then
+   echo "This will remove animated QR on bottom navigation bar and replace with white background !"
+   echo "Removing animated QR..."
+   rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/homeLanding_bg_qrCode.gif' 
+   echo "Copying new static white background..."
+   mv 'patches/qr_white/150.png' 'patches/qr_white/homeLanding_bg_qrCode.gif'
+   cp -f 'patches/qr_white/homeLanding_bg_qrCode.gif' 'mbapk/mbapk_unpacked/flutter_assets/assets/images/static'
+   echo "Applied [Remove animated QR background] patch !!!"
+else
+   echo "[qr_blank] not found !"
+fi     
 
      elif [ "$opt" == 'Remove banners & MiniApp' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
