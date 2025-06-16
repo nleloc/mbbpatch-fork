@@ -261,6 +261,22 @@ do
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/explore_img_defaultBanner.webp'
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/coreBanking_img_successBanner.webp'
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/homeLanding_img_defaultBanner.webp'
+
+    # Shield related resources
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_hoadon.private.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_hoadon.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_muasam.private.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_muasam.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_offline.private.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_offline.webp'
+
+    # 
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/banner_transfer_mass.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/banner_transfer_private.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/recap_banner.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/poster_cyberrisk_noti.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding/ads_banner_borigin.webp'
+   
     echo "Applied [Remove banners & MiniApp] patch !!!"
 
  else
