@@ -741,6 +741,10 @@ done
     rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity$1.smali'
     rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/vguard/VGDialogActivity.smali'
     sed -i 's|Lcom/vkey/android/vguard/VGDialogActivity;|Lio/flutter/plugins/MainActivity;|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/dy.smali
+    # Bypass VKey root check that throw VGFullScreenDialogActivity then exit :)
+    cp -f 'patches/bypass_rootold/BasicThreatInfo.smali' 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/internal/vguard/engine/'
+    cp -f 'patches/bypass_rootold/VGThreatAppInfo.smali' 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/vguard/model/'
+    cp -f 'patches/bypass_rootold/VGThreatResponse.smali' 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/vguard/model/'
     echo "Applied [Hide VTAP root detection activity & dialog] patch !!!"
  else
     echo "Patch not found ! Aborting :)"
