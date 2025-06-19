@@ -65,7 +65,7 @@ echo Original APK path must be inside [mbapk] folder !
 echo -------------------------------------------------------------   
 # Main functions      
 PS3='Please select options to continue : '
-select opt in 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'MBShield Check' 'Patch App' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
+select opt in 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Copy patched app again'  'MBShield Check' 'Patch App' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
 do
     if [ "$opt" == 'Download tools' ]; then
     echo Downloading apktool_2.11.1.jar...
@@ -280,6 +280,15 @@ done
     rm -f mbapk/*.apks
     rm -rf mbapk/mbapk_unpacked
     echo "Cleared !"
+
+    elif [ "$opt" == 'Copy patched app again' ]; then
+    if [ -f ~/mbbpatch/MBCPApp/mbcpapp_apk/MBCP_Flutter.zip ]
+ then
+    adb push mbcpapp_apk/MBCP_Flutter.zip /sdcard
+    adb push mbsig/mbsig.apk /sdcard
+ else
+    echo "Repacked app not found! Did you repacked apk?"
+ fi
 
     elif [ "$opt" == 'Exit' ]; then
 		exit
