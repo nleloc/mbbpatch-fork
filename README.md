@@ -73,6 +73,7 @@ cd ~/mbbpatch/MBCPApp
 - Profit :)
 
 ## TODO
+- bypass `EKYC3002-MS6998` error on some specific device with custom ROMs
 - fully implement `Bypass signature check` function
 
 ## External projects 
