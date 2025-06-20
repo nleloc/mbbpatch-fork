@@ -333,12 +333,18 @@ fi
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/homeLanding_img_defaultBanner.webp'
 
     # Shield related resources
-    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_hoadon.private.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_hoadon.private.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_muasam.private.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_offline.private.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_hoadon.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_muasam.webp'
+    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_offline.webp'
+
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_hoadon.webp'
-    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_muasam.private.webp'
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_muasam.webp'
-    rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_offline.private.webp'
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_img_offline.webp'
+
+    
 
     # 
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/banner_transfer_mass.webp'
