@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Fun fact is this project made with
+# A tinkerer, not developer xD
+# You might see this line but ignore it then continues calling me a developer, but after all, i just a loser :D
+
 # Check if user trying to run under HyperV (Windows Subsystem For Linux)
 # Remove this detection part to bypass WSL detection might lead project development to be STOPPED, You've warned !
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then

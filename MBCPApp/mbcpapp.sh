@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Fun fact is this project made with
+# A tinkerer, not developer xD
+# You might see this line but ignore it then continues calling me a developer, but after all, i just a loser :D
+
+
 # Initial startup
 if [ -d ~/mbbpatch/MBCPApp/mbapk ]
 then
