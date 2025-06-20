@@ -158,6 +158,10 @@ do
     sed -i 's|You can request a new code later|You can request a new code after|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     echo "INFO : [You can request a new code later] strings are modified to [You can request a new code after] !"
 
+    sed -i 's|Verification information is invalid, please contact hotline 1900545426 for support|EKYC failed, please go to our Telegram group (@mbbpatch) for details and help !!! |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|Verification information is invalid, please contact hotline 1900545426 for support|EKYC failed, please go to our Telegram group (@mbbpatch) for details and help !!! |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    echo "INFO : [Verification information is...] strings are modified to [EKYC failed, please go to our Telegram...] !"
+
     echo "Applied [Autopatch strings] patch !!!"
     
  else
