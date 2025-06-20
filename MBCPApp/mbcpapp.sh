@@ -62,7 +62,7 @@ else
 fi
 
 # Banner 
-$FIGLET "MBCPApp Flutter Patcher"
+$FIGLET "MBCPApp Patcher"
 echo -------------------------------------------------------------
 echo Source code : https://gitlab.com/mbcp/mbbpatch  
 echo Auto patching-tool for MB Bank, mainly for MB Flutter
