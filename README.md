@@ -1,13 +1,10 @@
 # MBCPApp Patcher for MB Bank
-Lightweight "open source" tool for patching MB Bank Flutter (Android) app, mostly written in Bash script, mainly made by [Cuynu](https://gitlab.com/cuynu) and no one else (MBCPApp Author) is fake :)
+Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://gitlab.com/cuynu) (as a loser) with love <3
 
-# Notice FOR MB Bank developers / securities 
-- WE did NOT made this project just for you to report this to MB Bank development team and fix those patches. This is COMMUNITY PROJECT which patches MB Bank app to remove annoying limitation you've implemented to MB Bank app !
+<img src="https://gitlab.com/mbcp/mbbpatch/-/raw/mbflutter/MBCPApp/mbcpicons/summer2025/mipmap-hdpi/ic_launcher_round.png?ref_type=heads&inline=false" style="width: 72px;" alt="2025_logo">
 
-Lightweight "open source" tool for patching MB Bank Flutter (Android) app, mostly written in Bash script, mainly made by [Cuynu](https://gitlab.com/cuynu) and no one else (MBCPApp Author) is fake :)
-
-<img alt="https://gitlab.com/cuynu/mbbpatch" src="https://gitlab.com/cuynu/archive/-/raw/main/mbcpapp_patcher.png?inline=false" width="" height="" />
-</a>
+![GitLab Forks](https://img.shields.io/gitlab/forks/65209567?gitlab_url=https%3A%2F%2Fgitlab.com&style=for-the-badge&logo=gitlab)
+![GitLab Stars](https://img.shields.io/gitlab/stars/65209567?gitlab_url=https%3A%2F%2Fgitlab.com&style=for-the-badge&logo=gitlab)
 
 - Licensed as MIT License : [View license.](https://gitlab.com/cuynu/mbbpatch/-/blob/mbflutter/LICENSE)
 
