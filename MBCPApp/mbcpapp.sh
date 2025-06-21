@@ -77,7 +77,7 @@ echo "Made possible by Cuynu with love <3"
 echo -------------------------------------------------------------   
 # Main functions      
 PS3='Please select options to continue : '
-select opt in 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Copy patched app again'  'MBShield Check' 'Patch App' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
+select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Copy patched app again'  'MBShield Check' 'Patch App' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
 do
     if [ "$opt" == 'Download tools' ]; then
     echo "Downloading apktool_2.11.1.jar..."
@@ -279,6 +279,11 @@ done
     adb shell pm clear com.mbmobile
     adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
     echo "INFO : Current logged in account will remain present, even if app data is cleared !"
+
+    elif [ "$opt" == 'Pull latest commit' ]; then
+    git pull origin dev
+    echo "Please run patcher again !"
+    exit
 
     elif [ "$opt" == 'Launch MBCPApp/MBBank' ]; then
     adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
