@@ -47,6 +47,9 @@ else
     FIGLET=:
 fi
 
+COMMIT='git rev-parse --short HEAD'
+
+
 # Check if java exists on /usr/bin/java
 echo Checking if Java exists...
 if [ -x /usr/bin/java ]
@@ -64,18 +67,22 @@ fi
 # Banner 
 $FIGLET "MBCPApp Patcher"
 echo -------------------------------------------------------------
-echo Source code : https://gitlab.com/mbcp/mbbpatch  
-echo Auto patching-tool for MB Bank, mainly for MB Flutter
-echo Original APK path must be inside [mbapk] folder !
+echo "Patching-tool for MB Bank app with Flutter engine (v6.4.0+)"
+echo "Original APK path must be inside [mbapk] folder !"
+echo "IMPORTANT : Script must be run on [~/mbbpatch/MBCPApp] !"
+echo -------------------------------------------------------------
+echo "Current commit :" $(git rev-parse --short HEAD) '(dev)'
+echo "Source code : https://gitlab.com/mbcp/mbbpatch"
+echo "Made possible by Cuynu with love <3"
 echo -------------------------------------------------------------   
 # Main functions      
 PS3='Please select options to continue : '
 select opt in 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Copy patched app again'  'MBShield Check' 'Patch App' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
 do
     if [ "$opt" == 'Download tools' ]; then
-    echo Downloading apktool_2.11.1.jar...
+    echo "Downloading apktool_2.11.1.jar..."
     wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.11.1.jar -q --show-progress 
-    echo Downloading APKEditor-1.4.3.jar...
+    echo "Downloading APKEditor-1.4.3.jar..."
     wget https://github.com/REAndroid/APKEditor/releases/download/V1.4.3/APKEditor-1.4.3.jar -q --show-progress
     mv *.jar tools/
 
@@ -92,7 +99,7 @@ do
     if [ -f ~/mbbpatch/MBCPApp/tools/apktool_2.11.1.jar ]
 then
     java -jar tools/apktool_2.11.1.jar d mbapk/*.apk -o mbapk/mbapk_unpacked
-        echo "Cleaning useless files..."
+    echo "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
     rm -rf 'mbapk/mbapk_unpacked/assets/2GcdAWdkXGgxPfHSIhzLkrkf2LU6Z_cuZfUWnczoEHw_'
@@ -134,7 +141,7 @@ fi
      elif [ "$opt" == 'Repack APK' ]; then
      if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
-    echo Repacking APK...
+    echo "Repacking APK..."
     java -jar tools/apktool_2.11.1.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter.zip
     echo App repacked to [mbcpapp_apk/MBCP_Flutter.zip] !!!
     echo ------------------------------------------
@@ -147,6 +154,7 @@ fi
     echo Both file will be copied to [/sdcard] !!!
     adb push mbcpapp_apk/MBCP_Flutter.zip /sdcard
     adb push mbsig/mbsig.apk /sdcard
+    echo "In case if you want to copy again, use [Copy patched app again function]."
 else
     echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
     fi
