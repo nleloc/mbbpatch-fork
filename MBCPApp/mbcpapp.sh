@@ -143,7 +143,7 @@ fi
  then
     echo "Repacking APK..."
     touch mbcpinfo.txt 'mbapk/mbapk_unpacked/assets'
-    echo "This app are patched by MBCPApp Patcher with commit :" $(git rev-parse --short HEAD). "That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcpinfo.txt'
+    echo "This app are patched by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). "That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcpinfo.txt'
     java -jar tools/apktool_2.11.1.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter.zip
     echo App repacked to [mbcpapp_apk/MBCP_Flutter.zip] !!!
     echo ------------------------------------------
