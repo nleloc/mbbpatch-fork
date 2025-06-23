@@ -144,19 +144,19 @@ fi
     echo "Repacking APK..."
     touch mbcpinfo.txt 'mbapk/mbapk_unpacked/assets'
     echo "This app are patched by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). "That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcpinfo.txt'
-    java -jar tools/apktool_2.11.1.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter.zip
-    echo App repacked to [mbcpapp_apk/MBCP_Flutter.zip] !!!
-    echo ------------------------------------------
-    echo ------------------------------------------
-    echo You MUST use MT Manager on Android, and copy ALL FILE and FOLDERS on [MBCP_Flutter.zip] to [mbsig.apk]
-    echo So patched MBBank [MBCPApp] can pass MBShield signature check [if have] and works.
-    echo "!!! MT Manager are required because Apktool can't handle and keep APK signature scheme v2 and v3 !!!"
-    echo -----------------------------------------------------
-    echo -----------------------------------------------------
-    echo Both file will be copied to [/sdcard] !!!
-    adb push mbcpapp_apk/MBCP_Flutter.zip /sdcard
-    adb push mbsig/mbsig.apk /sdcard
-    echo "In case if you want to copy again, use [Copy patched app again function]."
+    java -jar tools/apktool_2.11.1.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk
+    echo "Processing APK signature scheme v2/v3..."
+    rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
+    java -jar tools/APKEditor-1.4.3.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
+    cp -r 'mbsig/signatures' 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml/'
+    java -jar tools/APKEditor-1.4.3.jar b -i 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
+    mv 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml_out.apk' 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+    rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
+    rm MBCP_Flutter_TMP.apk
+    echo "Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!"
+    echo "Install and trying to open it when ಠ‿ಠ"
+    echo "If you are facing issues, report it on Telegram [@mbbpatch] or GitLab : mbbpatch !!"
+
 else
     echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
     fi
