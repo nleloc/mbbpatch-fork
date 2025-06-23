@@ -152,7 +152,7 @@ fi
     java -jar tools/APKEditor-1.4.3.jar b -i 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
     mv 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml_out.apk' 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
     rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
-    rm MBCP_Flutter_TMP.apk
+    rm 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
     echo "Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!"
     echo "Install and trying to open it when ಠ‿ಠ"
     echo "If you are facing issues, report it on Telegram [@mbbpatch] or GitLab : mbbpatch !!"
