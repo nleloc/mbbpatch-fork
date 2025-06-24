@@ -16,7 +16,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Fix DF16211 eKYC error' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -296,6 +296,19 @@ do
 
    else
       echo "[revert_old_eMBee] patch not found !"
+   fi
+
+      elif [ "$opt" == 'Fix DF16211 eKYC error' ]; then
+       if [ -d ~/mbbpatch/MBCPApp/patches/fix_df16211 ]
+   then
+       echo "Applying patch..."
+       cp -f 'patches/fix_df16211/R1Native.smali' 'mbapk/mbapk_unpacked/smali_classes3/com/singalarity/sdk/blueshield/tenv/'
+       cp -f 'patches/fix_df16211/m1/M1RemoteService.smali' 'mbapk/mbapk_unpacked/smali_classes3/com/singalarity/sdk/blueshield/tenv/m1/'
+       cp -f 'patches/fix_df16211/g5.smali' 'mbapk/mbapk_unpacked/smali/PnsNdyzgXyeb3tEAPFdpbje8b4s'
+       cp -f 'patches/fix_df16211/j5.smali' 'mbapk/mbapk_unpacked/smali/PnsNdyzgXyeb3tEAPFdpbje8b4s'
+       echo "Applied [Fix DF16211 eKYC error] !"
+   else
+       echo "[fix_df16211] not found!"
    fi
 
      elif [ "$opt" == 'Remove invoke to mbshield' ]; then
@@ -717,7 +730,6 @@ then
       else 
          ehco "[mbapk_unpacked] not found ! Please unpack APK first !"
       fi
-
 
         elif [ "$opt" == 'Noel' ]; then
          if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  

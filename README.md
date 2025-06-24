@@ -33,6 +33,7 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 | `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted". | v6.4.0 ~ v6.4.54 |
 | `Remove new root detection` | Remove the new Zimperium (ZDefend) root detection from app. | v6.4.15 ~ v6.4.54 |
 | `Add modified resources` | Adds the specific strings for MBCP on eKYC phase, and modify the DigiBank logo. | v6.4.0 ~ v6.4.54 |
+| `Fix DF16211 eKYC error` | Fixes error while authenticating face with eKYC on some devices. | v6.4.40 ~ v6.4.54 |
 | `Bypass signature check` | Not implemented | v6.4.0 ~ v6.4.21 |
 | `Bypass 1200 error` | Workaround for 1200 error that happening on original MB app with specific version, now discontinued. | v6.4.45 |
 </details>
