@@ -37,5 +37,8 @@
 
 
 # virtual methods
+.method public native checkForRoot([Ljava/lang/Object;)I
+.end method
+
 .method public native setLogDebugMessages(Z)I
 .end method
