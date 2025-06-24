@@ -47,15 +47,6 @@
     return-void
 .end method
 
-.method public static native haveMagicMount()I
-.end method
-
-.method public static native haveMagiskHide()I
-.end method
-
-.method public static native haveSu()I
-.end method
-
 
 # virtual methods
 .method public final native onBind(Landroid/content/Intent;)Landroid/os/IBinder;
