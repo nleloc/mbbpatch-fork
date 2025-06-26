@@ -28,6 +28,7 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 | `Remove eMBee` | Removes eMBee options in app, alongside with Customer support. | v6.4.0 ~ v6.4.54 |
 | `Revert old eMBee logo` | Revert old eMBee logo, specially on product consultation options. | v6.4.53 ~ v6.4.54 |
 | `Remove animated QR background` | Remove the animated QR background on bottom navigation bar and replace with white background. | v6.4.40 ~ v6.4.54 | 
+| `Restore old registration resources` | Restore old resources on `onboarding` page. | v6.4.48 ~ v6.4.54 |
 | `Remove banner & MiniApp` | Removes the banner and MiniApp on `homeLanding` page when logged in. | v6.4.0 ~ v6.4.54 |
 | `Bypass accessibility & malicious apps check` | Remove the restriction of using the app when an app using accessibility service or "malicious apps" like (HideMyAppList) installed. | v6.4.25 ~ v6.4.54 |
 | `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted". | v6.4.0 ~ v6.4.54 |
