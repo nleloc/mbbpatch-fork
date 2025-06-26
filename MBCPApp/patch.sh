@@ -16,7 +16,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -311,6 +311,19 @@ do
    else
      echo "noinvoke patch not found!"
    fi
+
+   elif [ "$opt" == 'Restore old registration resources' ]; then
+   if [ -d ~/mbbpatch/MBCPApp/patches/restore_oldreg ]
+then
+   echo "Applying patch..."
+   cp -f 'patches/restore_oldreg/onboarding_illus_featureAccount.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
+   cp -f 'patches/restore_oldreg/onboarding_illus_featureFreeService.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
+   cp -f 'patches/restore_oldreg/onboarding_illus_featureMBS.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
+   cp -f 'patches/restore_oldreg/onboarding_illus_featureShield.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
+   echo "Applied [Restore old registration resources] patch !!!"
+else
+   echo "[restore_oldreg] not found !"
+fi
 
      elif [ "$opt" == 'Remove animated QR background' ]; then
    if [ -d ~/mbbpatch/MBCPApp/patches/qr_white ]
