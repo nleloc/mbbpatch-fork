@@ -61,27 +61,24 @@ cd ~/mbbpatch/MBCPApp
 cd ~/mbbpatch/MBCPApp
 ./mbcpapp.sh
 ```
-- Download necessary tools first with `Download tools` function (otherwise other function with unlikely to work!)
+- Download necessary tools first with `Download tools` function (otherwise other function are unlikely to work!)
 - Convert apks to apk first using `Convert apks to apk` function
 - Unpack apk with `Unpack apk` function
 - Check if MBShield present on unpacked APK with `Check MBShield` function 
-(if MBShield present then you have to extract assets from Android device with `Extract assets [ROOT]`)
+(if MBShield present then you may need to extract assets from Android device with `Extract assets [ROOT]`)
 - After extracted assets (if MBShield present), use `Patch App` function and select the patches you want to apply to unpacked app
-- When done, use `Repack APK` function to recompile apk (You must have Android device connected with debugging mode enabled!)
-- Output will be `MBCP_Flutter.zip` on `~/mbbpatch/MBCPApp/mbcpapp_apk/` and `mbsig.apk` will be copied to Android internal storage
-- Use [MT Manager](https://mt2.cn/), put all files inside `MBCP_Flutter.zip` to `mbsig.apk` and untick `AUTO SIGN`
-- Install it to your device (requires [MBCP Helper](https://gitlab.com/cuynu/mbcp-helper/-/releases) / [CorePatch](https://github.com/lsposed/corepatch/releases) ) due to unsigned APK
+- When done, use `Repack APK` function to recompile patched app
+- Patched app will be `MBCP_Flutter_SelfPatched.apk` on `~/mbbpatch/MBCPApp/mbcpapp_apk/`
+- Install it to your device (requires [MBCP Helper](https://gitlab.com/cuynu/mbcp-helper/-/releases) / [CorePatch](https://github.com/lsposed/corepatch/releases) ) with enabled "Disable digest verify" option.
 - Profit :)
 
 ## TODO
-- bypass `EKYC3002-MS6998` error on some specific device with custom ROMs
-- fully implement `Bypass signature check` function
 
 ## External projects 
 MBCPApp Patcher project won't be possible without those external projects !!
 - [apktool](https://github.com/iBotPeaches/Apktool)
 - [APKEditor](https://github.com/REAndroid/APKEditor/)
-- [MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3
+- [MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3 (in the past)
 
 
 
