@@ -77,7 +77,7 @@ echo "Made possible by Cuynu with love <3"
 echo -------------------------------------------------------------   
 # Main functions      
 PS3='Please select options to continue : '
-select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Copy patched app again'  'MBShield Check' 'Patch App' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
+select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'MBShield Check' 'Patch App' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
 do
     if [ "$opt" == 'Download tools' ]; then
     echo "Downloading apktool_2.11.1.jar..."
@@ -301,14 +301,19 @@ done
     rm -rf mbapk/mbapk_unpacked
     echo "Cleared !"
 
-    elif [ "$opt" == 'Copy patched app again' ]; then
-    if [ -f ~/mbbpatch/MBCPApp/mbcpapp_apk/MBCP_Flutter.zip ]
+    elif [ "$opt" == 'Install patched app' ]; then
+    if [ -f ~/mbbpatch/MBCPApp/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
  then
-    adb push mbcpapp_apk/MBCP_Flutter.zip /sdcard
-    adb push mbsig/mbsig.apk /sdcard
+    echo "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
+    echo "You must have connected Android device with USB debugging turned on in order to install !!!"
+    adb kill-server
+    adb start-server
+    adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+    adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
  else
     echo "Repacked app not found! Did you repacked apk?"
  fi
+
 
     elif [ "$opt" == 'Exit' ]; then
 		exit
