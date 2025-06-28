@@ -189,8 +189,10 @@ do
     echo Patching [AndroidManifest.xml]...
     sed -i 's|<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml 
     echo Patching [libapp.so]...  
-      sed -i 's|packageName|packageMBCP|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-      sed -i 's|packageName|packageMBCP|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so   
+      sed -i 's|PackageName|packageMBBB|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+      sed -i 's|PackageName|packageMBBB|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so   
+      sed -i 's|packageName|packageMBBa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+      sed -i 's|packageName|packageMBBa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so   
     echo "Applied [Bypass accessibility & malicious apps check] patch !!!"
  else
     echo "Patch not found ! Aborting :)"
