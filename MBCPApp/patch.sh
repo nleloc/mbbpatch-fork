@@ -16,7 +16,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -326,6 +326,15 @@ then
 else
    echo "[restore_oldreg] not found !"
 fi
+
+   # Test remove VPN detection function from bundle, that showing notice warn users to turn off VPN.
+   elif [ "$opt" == 'Remove VPN detection' ]; then
+   echo "Applying patch..."
+      sed -i 's|vpn|app|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+      sed -i 's|vpn|app|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "Applied [Remove VPN detection patch] !!!"
+   
+
 
      elif [ "$opt" == 'Remove animated QR background' ]; then
    if [ -d ~/mbbpatch/MBCPApp/patches/qr_white ]
