@@ -322,6 +322,8 @@ then
    cp -f 'patches/restore_oldreg/onboarding_illus_featureFreeService.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
    cp -f 'patches/restore_oldreg/onboarding_illus_featureMBS.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
    cp -f 'patches/restore_oldreg/onboarding_illus_featureShield.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
+   cp -f 'patches/restore_oldreg/onboarding_img_referLinkNoneCoin.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
+   cp -f 'patches/restore_oldreg/onboarding_img_referLinkPersonalCoin.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
    echo "Applied [Restore old registration resources] patch !!!"
 else
    echo "[restore_oldreg] not found !"
