@@ -128,7 +128,7 @@ then
     rm -rf 'mbapk/mbapk_unpacked/assets/zxHdhL4_ZEQLQeo8R2DzSYl9PGss_cKSCQTcZGBtVmU_' 
     rm -rf 'mbapk/mbapk_unpacked/assets/jNMI79raTvV7VHN5Vrzw4Xs66YP_a1ftP9SmUB24DYg_' 
     echo "Creating [mbcp_info] folder..."
-    mkdir 'mbapk/mbapk_unpacked/mbcp_info/'
+    mkdir 'mbapk/mbapk_unpacked/assets/mbcp_info/'
 else
     echo "Please download apktool first !"
 fi
