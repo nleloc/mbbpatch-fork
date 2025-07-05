@@ -80,11 +80,14 @@ PS3='Please select options to continue : '
 select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'MBShield Check' 'Patch App' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
 do
     if [ "$opt" == 'Download tools' ]; then
+    cd tools && rm -rf *.jar
     echo "Downloading apktool_2.11.1.jar..."
     wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.11.1.jar -q --show-progress 
     echo "Downloading APKEditor-1.4.3.jar..."
     wget https://github.com/REAndroid/APKEditor/releases/download/V1.4.3/APKEditor-1.4.3.jar -q --show-progress
     mv *.jar tools/
+    cd ..
+    echo "You can now continue with other operations"
 
     elif [ "$opt" == 'Unpack APK' ]; then
     # Check if *.apk exists
