@@ -127,6 +127,8 @@ then
     rm -rf 'mbapk/mbapk_unpacked/assets/ZOKOK1a6XCiqYb_a8bYPE9c0rjUf7_n7k77YxX5Ypdw_' 
     rm -rf 'mbapk/mbapk_unpacked/assets/zxHdhL4_ZEQLQeo8R2DzSYl9PGss_cKSCQTcZGBtVmU_' 
     rm -rf 'mbapk/mbapk_unpacked/assets/jNMI79raTvV7VHN5Vrzw4Xs66YP_a1ftP9SmUB24DYg_' 
+    echo "Creating [mbcp_info] folder..."
+    mkdir 'mbapk/mbapk_unpacked/mbcp_info/'
 else
     echo "Please download apktool first !"
 fi
@@ -142,8 +144,7 @@ fi
      if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
     echo "Repacking APK..."
-    touch mbcpinfo.txt 'mbapk/mbapk_unpacked/assets'
-    echo "This app are patched by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). "That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcpinfo.txt'
+    echo "This app are patched by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). "That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
     java -jar tools/apktool_2.11.1.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk
     echo "Processing APK signature scheme v2/v3..."
     rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
