@@ -113,17 +113,27 @@ do
     sed -i 's|Coming Soon|Placeholder|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     echo "INFO : [Coming Soon] strings are modified to [Placeholder] !"
 
-    sed -i 's|MBBank app|MBCPAppOSS|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|MBBank app|MBCPAppOSS|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [MBBank app] strings are modified to [MBCPAppOSS] !"
+    sed -i 's|MBBank app|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|MBBank app|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    echo "INFO : [MBBank app] strings are modified to [MBCPApp] !"
+    
+    # Adapt for v6.4.56+
+    sed -i 's|MBBank APP|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|MBBank APP|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    echo "INFO : [MBBank APP] strings are modified to [MBCPApp] !"
 
-    sed -i 's|MBBank App|MBCPAppOSS|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|MBBank App|MBCPAppOSS|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [MBBank App] strings are modified to [MBCPAppOSS] !"    
+    # Adapt for v6.4.56+
+    sed -i 's|APP MBBank|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|APP MBBank|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    echo "INFO : [APP MBBank] strings are modified to [MBCPApp] !"
 
-    sed -i 's|App MBBank|MBCPAppOSS|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|App MBBank|MBCPAppOSS|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [App MBBank] strings are modified to [MBCPAppOSS] !"
+    sed -i 's|MBBank App|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|MBBank App|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    echo "INFO : [MBBank App] strings are modified to [MBCPApp] !"    
+
+    sed -i 's|App MBBank|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|App MBBank|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    echo "INFO : [App MBBank] strings are modified to [MBCPApp] !"
 
     sed -i 's|get notifications|Get notifications|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|get notifications|Get notifications|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
