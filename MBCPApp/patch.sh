@@ -638,6 +638,9 @@ do
     echo "Patching [libapp.so]..."
     sed -i 's|theme|Noel |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|theme|Noel |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    # Settings
+    sed -i 's|Change Noel |Noel 2024   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+    sed -i 's|Change Noel |Noel 2024   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/noel2024_theme.inf'
     echo "INFO : You WON'T be able to use other theme than Noel 2024 on app !"
 
