@@ -1480,26 +1480,6 @@
 
     :goto_3e
     :try_start_3f
-    invoke-virtual {p0}, Lio/flutter/embedding/engine/FlutterEngine;->getPlugins()Lio/flutter/embedding/engine/plugins/PluginRegistry;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/vnpay/air/ticket/vnpay_air_ticket/b;
-
-    invoke-direct {v2}, Lcom/vnpay/air/ticket/vnpay_air_ticket/b;-><init>()V
-
-    invoke-interface {v1, v2}, Lio/flutter/embedding/engine/plugins/PluginRegistry;->add(Lio/flutter/embedding/engine/plugins/FlutterPlugin;)V
-    :try_end_3f
-    .catch Ljava/lang/Exception; {:try_start_3f .. :try_end_3f} :catch_3f
-
-    goto :goto_3f
-
-    :catch_3f
-    move-exception v1
-
-    const-string v2, "Error registering plugin vnpay_air_ticket, com.vnpay.air.ticket.vnpay_air_ticket.VnpayAirTicketPlugin"
-
-    invoke-static {v0, v2, v1}, Lio/flutter/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)V
 
     :goto_3f
     :try_start_40
