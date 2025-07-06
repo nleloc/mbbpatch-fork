@@ -16,7 +16,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Add anime resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Add anime resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -287,6 +287,172 @@ do
      echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_embee.inf'
 
      echo "Applied [Remove eMBee] patch !!!"
+
+     elif [ "$opt" == 'Remove VNPAY VMB20' ]; then
+     echo "Applying patch..."
+     rm -rf 'mbapk/mbapk_unpacked/smali_classes4/com/vnpay'
+     rm -rf 'mbapk/mbapk_unpacked/smali_classes4/com/d5'
+     rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/u4'
+     rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/v4'
+     rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/x2'
+     rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/y4'
+     rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/z4'
+     rm -rf 'mbapk/mbapk_unpacked/smali/com/a5'
+     rm -rf 'mbapk/mbapk_unpacked/smali/com/ay4
+     rm -rf 'mbapk/mbapk_unpacked/smali/com/az4
+     rm -rf 'mbapk/mbapk_unpacked/smali/com/c5'
+     rm -rf 'mbapk/mbapk_unpacked/smali/com/d5'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP10.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP11.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP12.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP13.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP14.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP15.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP16.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP17.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP18.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP19.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP20.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP21.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP22.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP23.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP24.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP25.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP26.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP27.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP28.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP29.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP30.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP31.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP32.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP33.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP34.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP35.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP36.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP37.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP38.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP39.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP40.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP41.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP42.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP43.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP44.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP45.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP46.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP47.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP48.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP49.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP50.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP51.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP52.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP53.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP54.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP55.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP56.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP57.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP58.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP59.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP60.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP61.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP62.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP63.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP64.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP65.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP66.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP67.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP68.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP69.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP70.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP71.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP72.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP73.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP74.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP75.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP76.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP80.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP82.smali'
+     rm -f 'mbapk/mbapk_unpacked/smali_classes5/mbshield/EP9.smali'
+     rm -f 'mbapk/mnapk_unpacked/res/drawable-xhdpi/ic_home_vna.png'
+     rm -f 'mbapk/mnapk_unpacked/res/drawable-xhdpi/logo_vnairline.png'
+     rm -f 'mbapk/mnapk_unpacked/res/drawable-xxhdpi/ic_home_vna.png'
+     rm -f 'mbapk/mnapk_unpacked/res/drawable-xxhdpi/logo_vnairline.png'
+     echo "Removing resources..."
+
+     cd ~/mbbpatch/MBCPApp
+
+      # Remove activity
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20BlankActivity" android:supportsRtl="true" android:theme="@style/Theme.Transparent"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.FlightTracking.SearchingResultActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.FlightTracking.FlightSearchingActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.FlightTracking.FollowingFlightActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.FlightTracking.FlightDetailActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20TimChuyenBayActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20ThoiGianActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20DiaDiemActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20HangHangKhongActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20LoadingActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.confirm.VMBConfirmBookActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20BookFlightSuccessActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20BookHistoryActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20TicketDetailsActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20TermActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20InfoServiceActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20ActivityThoiGianNew" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20BookFlightSuccessActivity2" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.CheckinActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.PnrInfoActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.InitChooseSeatActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.UpdateInfoActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.UpdatePassportInfoActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.ReCheckinActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.TicketPreviewActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.CheckinConditionAcitvity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.SendMailActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.TermConditionActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.FlightTracking.FlightTrackingMapActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.VJInfoFlightActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.rename.VMBChangeNameActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.rename.VJDetailFeeActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.changeFlight.VJChangeFlightActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.VJListFlightActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.VJHistoryActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.history.VJInfoTicketActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.VJTermActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.history.VJDetailTicketActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.ancillary.VJAddOnMealActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20PaylaterActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.ebill.VMB20EBillActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.ebill.VMB20ConfirmExportBillActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.VJConfirmActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20FlightActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20AirportActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20IFlightActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20NewSortActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.VMB20DetailFlightActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.VMBManagerBookingActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.VMBDetailFeeActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.VMBInfoFlightActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.VMBSeatMapActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.seats.VMBInfoSeatActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.VjAddOn.ancillary.VNBL.VMBVNBLActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Voucher.VMBListVoucherActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Voucher.VMBDetailVoucherActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <service android:enabled="true" android:exported="false" android:name="com.vnpay.tracking.ExitService" android:stopWithTask="false"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <receiver android:enabled="false" android:exported="false" android:name="com.vnpay.tracking.TrackingReceiver"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:exported="false" android:name="com.vnpay.ticketlib.Activity.contact.VMBAddInfoActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.Activity.contact.VMBPassengerContactActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:exported="false" android:name="com.vnpay.ticketlib.Activity.infobook.VMBNewInfoBookActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustResize"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:exported="false" android:name="com.vnpay.ticketlib.Activity.search.VMBNewSearchActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:exported="false" android:name="com.vnpay.ticketlib.Activity.search.VMBSortINTFlightActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:exported="false" android:name="com.vnpay.ticketlib.Activity.iflight.VMBNewIFlightsActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:exported="false" android:name="com.vnpay.ticketlib.Activity.iflight.VMBQuotePriceIFlightActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:name="com.vnpay.ticketlib.checkin.PnrReviewActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:exported="false" android:name="com.vnpay.ticketlib.Activity.contact.VMBAddInfoActivity" android:theme="@style/VMB20TranslucentStatusBar" android:windowSoftInputMode="adjustPan"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <activity android:exported="false" android:name="com.vnpay.air.ticket.vnpay_air_ticket.PaymentActivity">| <activity android:exported="false" android:name="test.app">|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <action android:name="_vemaybay_payment"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <action android:name="_vemaybay_payment_without_paymentcode"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's| <action android:name="_vemaybay_payment_paylater"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+      
 
      elif [ "$opt" == 'Revert old eMBee logo' ]; then
      if [ -d ~/mbbpatch/MBCPApp/patches/revert_old_eMBee ]
