@@ -452,6 +452,8 @@ do
       sed -i 's| <action android:name="_vemaybay_payment"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
       sed -i 's| <action android:name="_vemaybay_payment_without_paymentcode"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
       sed -i 's| <action android:name="_vemaybay_payment_paylater"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+
+      cp -f 'patches/remove_vmb20/GeneratedPluginRegistrant.smali' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins'
       
 
      elif [ "$opt" == 'Revert old eMBee logo' ]; then
