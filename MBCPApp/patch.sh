@@ -16,7 +16,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Add anime resources' 'Bypass signature check' 'Bypass 1200 error [v6.4.45]' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -364,9 +364,18 @@ fi
       echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_vpn_detection.inf'
    echo "Applied [Remove VPN detection patch] !!!"
 
-
-   
-
+   elif [ "$opt" == 'Add anime resources' ]; then
+   if [ -d ~/mbbpatch/MBCPApp/patches/anime_resources ]
+ then
+   echo "Applying patch..."
+   cp -f 'patches/anime_resources/rating_illus_fiveStar.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/'
+   cp -f 'patches/anime_resources/rating_illus_fourStar.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/'
+   cp -f 'patches/anime_resources/rating_illus_threeStar.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/'
+   cp -f 'patches/anime_resources/rating_illus_twoStar.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/'
+   cp -f 'patches/anime_resources/rating_illus_oneStar.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/'
+ else
+   echo "[anime_resources] not found !"
+ fi
 
      elif [ "$opt" == 'Remove animated QR background' ]; then
    if [ -d ~/mbbpatch/MBCPApp/patches/qr_white ]

@@ -36,6 +36,7 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 | `Remove new root detection` | Remove the new Zimperium (ZDefend) root detection from app. | v6.4.15 ~ v6.4.56 |
 | `Remove VPN detection` | Remove the VPN detection that warn users to turn it off on app bundle. Might doesn't works well | v6.4.52 ~ v6.4.56 |
 | `Add modified resources` | Adds the specific strings for MBCP on eKYC phase, and modify the DigiBank logo. | v6.4.0 ~ v6.4.56 |
+| `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.4.56 |
 | `Bypass signature check` | Not implemented | v6.4.0 ~ v6.4.21 |
 | `Bypass 1200 error` | Workaround for 1200 error that happening on original MB app with specific version, now discontinued. | v6.4.45 |
 </details>
@@ -81,6 +82,7 @@ MBCPApp Patcher project won't be possible without those external projects !!
 - [apktool](https://github.com/iBotPeaches/Apktool)
 - [APKEditor](https://github.com/REAndroid/APKEditor/)
 - [MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3 (in the past)
+- [Zhaxia CN](https://t.me/zhaxia_cn) for sticker packs (Add anime resources)
 
 
 
