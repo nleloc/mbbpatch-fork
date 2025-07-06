@@ -312,6 +312,12 @@ do
      cp -f 'patches/revert_old_eMBee/eMBee_img_headerNew.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority'
      cp -f 'patches/revert_old_eMBee/eMBee_img_loginSupport.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority'
 
+     # Restore old eMBee account profile picture (present before on MB React Native)
+     cp -f 'patches/revert_old_eMBee/homeLanding_img_avatarDefault.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+     cp -f 'patches/revert_old_eMBee/homeLanding_img_avatarDefault.private.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
+     cp -f 'patches/revert_old_eMBee/homeLanding_img_avatarDefault.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority'
+
+
      echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/revert_old_embee.inf'
      echo "Applied [Revert old eMBee logo] patch !!!"
 
@@ -357,6 +363,8 @@ fi
       sed -i 's|vpn|app|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
       echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_vpn_detection.inf'
    echo "Applied [Remove VPN detection patch] !!!"
+
+
    
 
 
