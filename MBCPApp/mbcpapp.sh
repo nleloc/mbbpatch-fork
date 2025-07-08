@@ -204,6 +204,15 @@ else
     echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
     fi
 
+    elif [ "$opt" == 'Legacy patches' ]; then
+     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
+ then
+    ./legacy_patch.sh
+else 
+    echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
+    fi
+
+
     elif [ "$opt" == 'Extract assets [ROOT]' ]; then
     echo To extract encrypted assets [if current app has MBShield protection] you need rooted device 
     echo And trigger a bulit-in app assets extraction !
