@@ -16,7 +16,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Add anime resources' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' '[TEST] Remove v6.4.56 root detection' 'Add modified resources' 'Add anime resources' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -196,6 +196,7 @@ do
     elif [ "$opt" == 'Bypass accessibility & malicious apps check' ]; then
     if [ -d ~/mbbpatch/MBCPApp/patches/bypass_accessibility_applist ]
  then
+    echo "This will trigger device not secure dialog on v6.4.56, do not apply if you have v6.4.56!"
     echo "Applying patch [Bypass accessibility & malicious apps check]..."
     echo Copying patched code [MbbankUtilitiesPlugin]...
     cp -r -f 'patches/bypass_accessibility_applist/com' 'mbapk/mbapk_unpacked/smali_classes3'
@@ -636,6 +637,42 @@ fi
  else
     echo "[mbapk_unpacked] not found ! Please unpack APK first ! "
  fi
+
+    elif [ "$opt" == '[TEST] Remove v6.4.56 root detection' ]; then
+    if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali ]
+ then
+   # PLEASE PM ME ON LOTUS CHAT : https://lotuschat.vn/w/cuynu OR DISCORD : https://discord.com/users/988784897231552564 IF YOU ARE GOING TO FIX THIS, WE NEED FREEDOM, NOT YOUR PRIVATE FIX !!!
+   # We are just supporting open source community :(
+    echo "Applying patch..."
+    echo "Removing checksum from provider..."
+    sed -i 's|e1a14adc915d7ad159edf2668b0dfcb359cf86538642de0e425d027f66eb07b2||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|ca168a2ad00a92b8010d6801c3ca43e6df9f3701f084f6864399eaa4bbfaf56d||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|5c9a139e42e6e6032ddbc1092af9831b8142e4e5ae89700fc7828f5bd62e1671||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|c0a161a71738083df4298a0f03b0c54abf5bfda97c7d230875d97593733226ec||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|designersactivists                                                                     |weneedfreedom|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    echo "Patching [libdesignersactivists.so]..."
+    sed -i 's|com.zimperium|app.dontfixew|g' 'mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so'
+    sed -i 's|detection|freedom..|g' 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so'
+    echo "Moving from [libdesignersactivists.so] to [libweneedfreedom.so]..."
+    mv 'mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/lib/arm64-v8a/libweneedfreedom.so'
+    mv 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libweneedfreedom.so'
+    # Prevent "MB detected that the device is currently not secure for peforming transactions" dialog
+    echo "Creating placeholder lib"
+    rm -rf temp
+    mkdir temp
+    cp 'mbapk/mbapk_unpacked/lib/arm64-v8a/libweneedfreedom.so' 'temp/'
+    mv 'temp/libweneedfreedom.so' 'temp/libdesignersactivists.so'
+    cp -f 'temp/libdesignersactivists.so' 'mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so'
+    rm -rf temp 
+    mkdir temp
+    cp 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libweneedfreedom.so' 'temp/'
+    mv 'temp/libweneedfreedom.so' 'temp/libdesignersactivists.so'
+    cp -f 'temp/libdesignersactivists.so' 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so'
+    rm -rf temp
+   echo "Applied [Remove v6.4.56 root detection] patch !!!"
+else
+   echo "[UnderlyingVcl.smali] not found! Please clear patched app then unpack again!"
+fi
 
     elif [ "$opt" == 'Add modified resources' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
