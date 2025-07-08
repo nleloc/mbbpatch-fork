@@ -1,3 +1,9 @@
+# # Notice FOR MB Bank developers / securities 
+# WE did NOT made this project just for you to report this to MB Bank development team and fix those patches. This is COMMUNITY PROJECT which patches MB Bank app to remove annoying limitation you've implemented to MB Bank app ! 
+# You may did it for users safety. But we need freedom by rooting android device to get full control !
+
+
+
 # MBCPApp Patcher for MB Bank
 Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://gitlab.com/cuynu) (as a loser) with love <3
 
