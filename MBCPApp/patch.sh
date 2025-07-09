@@ -669,6 +669,7 @@ fi
     mv 'temp/libweneedfreedom.so' 'temp/libdesignersactivists.so'
     cp -f 'temp/libdesignersactivists.so' 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so'
     rm -rf temp
+    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_v6.4.56_root_detection.inf'
    echo "Applied [Remove v6.4.56 root detection] patch !!!"
 else
    echo "[UnderlyingVcl.smali] not found! Please clear patched app then unpack again!"
