@@ -39,7 +39,7 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 | `Remove banner & MiniApp` | Removes the banner and MiniApp on `homeLanding` page when logged in. | v6.4.43 ~ v6.4.56 |
 | `Bypass accessibility & malicious apps check` | Remove the restriction of using the app when an app using accessibility service or "malicious apps" like (HideMyAppList) installed. | v6.4.25 ~ v6.4.54 |
 | `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted". | v6.4.0 ~ v6.4.56 |
-| `Remove new root detection` | Remove the new Zimperium (ZDefend) root detection from app. | v6.4.15 ~ v6.4.56 |
+| `Remove new root detection` | Remove the new Zimperium (ZDefend) root detection from app. | v6.4.15 ~ v6.4.55 |
 | `Remove VPN detection` | Remove the VPN detection that warn users to turn it off on app bundle. Might doesn't works well | v6.4.52 ~ v6.4.56 |
 | `Remove VNPAY VMB20` | Remove the VNPAY Airplane related activities. | v6.4.0 ~ v6.4.56 | 
 | `Add modified resources` | Adds the specific strings for MBCP on eKYC phase, and modify the DigiBank logo. | v6.4.0 ~ v6.4.56 |
