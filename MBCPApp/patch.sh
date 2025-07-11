@@ -172,8 +172,15 @@ do
     sed -i 's|Verification information is invalid, please contact hotline 1900545426 for support|EKYC failed, please go to our Telegram group (@mbbpatch) for details and help !!! |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     echo "INFO : [Verification information is...] strings are modified to [EKYC failed, please go to our Telegram...] !"
 
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/autopatch_strings.inf'
+   # XPE002/XPE003 dialog contents :
+   sed -i 's|MB has detected that the device is currently not secure for performing transactions|This dialog are showing cuz server-side MB changes for rooted devices are enforced.|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+   sed -i 's|MB has detected that the device is currently not secure for performing transactions|This dialog are showing cuz server-side MB changes for rooted devices are enforced.|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "INFO : [MB has detected that the device is...] strings are modified to [This dialog are showing cuz server-side MB changes...] !"
+   sed -i 's|Please try closing and reopening the app, or reinstalling the MBCPApp    from the app store to continue using the service.|If you need to bypass this dialog, please checkout updated version of MBZDefend-Fix on GitLab which contains fixes (soon) |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+   sed -i 's|Please try closing and reopening the app, or reinstalling the MBCPApp    from the app store to continue using the service.|If you need to bypass this dialog, please checkout updated version of MBZDefend-Fix on GitLab which contains fixes (soon) |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "INFO: [Please try closing and reopening the app...] strings are modified to [If you need to bypass this dialog...] !"
 
+    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/autopatch_strings.inf'
     echo "Applied [Autopatch strings] patch !!!"
     
  else
@@ -784,6 +791,7 @@ do
     # Settings
     sed -i 's|Change Noel |Noel 2024   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|Change Noel |Noel 2024   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+
     echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/noel2024_theme.inf'
     echo "INFO : You WON'T be able to use other theme than Noel 2024 on app !"
 
