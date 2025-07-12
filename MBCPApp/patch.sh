@@ -441,7 +441,14 @@ do
       sed -i 's| <action android:name="_vemaybay_payment_paylater"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
 
       cp -f 'patches/remove_vmb20/GeneratedPluginRegistrant.smali' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins'
+      rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/base/partner/img_vnpay.webp'
+      rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/base/partner/img_vna.webp'
+      sed -i 's|vna_flight_landing|broken_vna_ehh_idk|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+      sed -i 's|vna_flight_landing|broken_vna_ehh_idk|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
       
+
+      echp "Applied patch [Remove VNPAY VMB20] !!"
+      echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_vnpay_vmb20.inf'
 
      elif [ "$opt" == 'Revert old eMBee logo' ]; then
      if [ -d ~/mbbpatch/MBCPApp/patches/revert_old_eMBee ]
