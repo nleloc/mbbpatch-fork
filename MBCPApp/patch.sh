@@ -180,6 +180,41 @@ do
    sed -i 's|Please try closing and reopening the app, or reinstalling the MBCPApp    from the app store to continue using the service.|If you need to bypass this dialog, please checkout updated version of MBZDefend-Fix on GitLab which contains fixes (soon) |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
    echo "INFO: [Please try closing and reopening the app...] strings are modified to [If you need to bypass this dialog...] !"
 
+
+   sed -i 's|Set up DigitalOTP|Setup DigitalOTP |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+   sed -i 's|Set up DigitalOTP|Setup DigitalOTP |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "INFO: [Set up DigitalOTP] strings are modified to [Setup DigitalOTP] !"
+
+   sed -i 's|Set up facial authentication|Setup eKYC for transactions |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+   sed -i 's|Set up facial authentication|Setup eKYC for transactions |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "INFO: [Set up facial authentication] strings are modified to [Setup eKYC for transactions] !"
+
+   sed -i 's|facial|seKYC |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+   sed -i 's|facial|seKYC |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "INFO: [facial] strings are modified to [seKYC] !"
+
+   sed -i 's|Dentification|Identifier   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+   sed -i 's|Dentification|Identifier   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "INFO: [Dentification] strings are modified to [Identifier] !"
+
+   sed -i 's|Devices registered with DOTP|Active DigitalOTP devices   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+   sed -i 's|Devices registered with DOTP|Active DigitalOTP devices   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "INFO: [Devices registered with DOTP] strings are modified to [Active DigitalOTP devices] !"
+   
+   sed -i 's|Select Digital OTP Setup / Configuration|3 dots / Setup DigitalOTP / Register    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+   sed -i 's|Select Digital OTP Setup / Configuration|3 dots / Setup DigitalOTP / Register    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "INFO: [Select Digital OTP Setup...] strings are modified to [3 dots / Setup DigitalOTP....] !"
+
+   sed -i 's|Total Balance in VND|Total balance in VND|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+   sed -i 's|Total Balance in VND|Total balance in VND|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "INFO: [Select Digital OTP Setup...] strings are modified to [3 dots / Setup DigitalOTP....] !"
+
+   sed -i 's|Simply enter the DigitalOTP PIN, and the system will Autoally activate to process encryption and transaction authentication.|Simply enter the DigitalOTP PIN, and the VTAP system will activate to process encryption and transaction authentication.    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+   sed -i 's|Simply enter the DigitalOTP PIN, and the system will Autoally activate to process encryption and transaction authentication.|Simply enter the DigitalOTP PIN, and the VTAP system will activate to process encryption and transaction authentication.    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   echo "INFO: [Simply enter the DigitalOTP PIN, and the system...] strings are modified to [Simply enter the DigitalOTP PIN, and the VTAP system....] !"
+
+
+
     echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/autopatch_strings.inf'
     echo "Applied [Autopatch strings] patch !!!"
     
