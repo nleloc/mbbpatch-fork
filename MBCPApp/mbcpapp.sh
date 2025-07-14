@@ -81,8 +81,8 @@ select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack AP
 do
     if [ "$opt" == 'Download tools' ]; then
     cd tools && rm -rf *.jar
-    echo "Downloading apktool_2.11.1.jar..."
-    wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.11.1.jar -q --show-progress 
+    echo "Downloading apktool_2.12.0.jar..."
+    wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar -q --show-progress 
     echo "Downloading APKEditor-1.4.3.jar..."
     wget https://github.com/REAndroid/APKEditor/releases/download/V1.4.3/APKEditor-1.4.3.jar -q --show-progress
     mv *.jar tools/
@@ -99,9 +99,9 @@ do
     echo APK already unpacked, no need to unpack again !
     else
     # Check if apktool exists or not
-    if [ -f ~/mbbpatch/MBCPApp/tools/apktool_2.11.1.jar ]
+    if [ -f ~/mbbpatch/MBCPApp/tools/apktool_2.12.0.jar ]
 then
-    java -jar tools/apktool_2.11.1.jar d mbapk/*.apk -o mbapk/mbapk_unpacked
+    java -jar tools/apktool_2.12.0.jar d mbapk/*.apk -o mbapk/mbapk_unpacked
     echo "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
@@ -148,7 +148,7 @@ fi
  then
     echo "Repacking APK..."
     echo "This app are compiled by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). "That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
-    java -jar tools/apktool_2.11.1.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk
+    java -jar tools/apktool_2.12.0.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk
     echo "Processing APK signature scheme v2/v3..."
     rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
     java -jar tools/APKEditor-1.4.3.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
