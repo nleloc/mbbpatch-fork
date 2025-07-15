@@ -16,7 +16,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Remove app from launcher' 'Add modified resources' 'Add anime resources' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Remove app from launcher' 'Set targetSdkVersion to 35' 'Add modified resources' 'Add anime resources' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -590,6 +590,15 @@ fi
    echo "Applied [Add anime resources] patch !"
  else
    echo "[anime_resources] not found !"
+ fi
+
+   elif [ "$opt" == 'Set targetSdkVersion to 35' ]; then
+   if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
+ then
+   echo "Applying patch..."
+   sed -i 's|targetSdkVersion: 34|targetSdkVersion: 35|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/apktool.yml
+ else
+   echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
  fi
 
      elif [ "$opt" == 'Remove animated QR background' ]; then
