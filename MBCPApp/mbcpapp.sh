@@ -314,18 +314,51 @@ done
     rm -rf mbapk/mbapk_unpacked
     echo "Cleared !"
 
+ 
     elif [ "$opt" == 'Install patched app' ]; then
-    if [ -f ~/mbbpatch/MBCPApp/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
- then
-    echo "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
-    echo "You must have connected Android device with USB debugging turned on in order to install !!!"
-    adb kill-server
-    adb start-server
-    adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
-    adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
- else
-    echo "Repacked app not found! Did you repacked apk?"
- fi
+    echo Select your patched version to continue
+    PS3='Select patched version to continue, or [3] to quit : '
+    select opt in 'App patched with newer version [v6.4.56 or higher]' 'App patched with older version [v6.4.55 or lower]' 'Exit'
+do
+    	if [ "$opt" == 'App patched with newer version [v6.4.56 or higher]' ]; then
+        if [ -f ~/mbbpatch/MBCPApp/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
+    then 
+        echo "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
+        echo "You must have connected Android device with USB debugging turned on in order to install !!!"
+        adb kill-server
+        adb start-server
+        adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+        echo "ATTENTION : Network traffic will be redirected to [medium.com] for 20 seconds !!!"
+        adb shell su -c iptables -t nat -A OUTPUT -p tcp -d 0/0 -j DNAT --to-destination 162.159.153.4:443
+        adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
+        sleep 20
+        echo "Restoring network traffic"
+        adb shell su -c iptables -t nat -F OUTPUT
+        echo "Press [Try again] after got 1005/1007 error on MB, so it's can skip device not secure dialog !"
+    else
+        echo "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
+    fi
+        
+        elif [ "$opt" == 'App patched with older version [v6.4.55 or lower]' ]; then
+        if [ -f ~/mbbpatch/MBCPApp/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
+    then 
+        echo "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
+        echo "You must have connected Android device with USB debugging turned on in order to install !!!"
+        adb kill-server
+        adb start-server
+        adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+        adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
+    else
+        echo "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
+    fi
+
+
+        elif [ "$opt" == 'Exit' ]; then
+        clear
+        sh mbcpapp.sh
+       break
+        	fi
+done
 
 
     elif [ "$opt" == 'Exit' ]; then
