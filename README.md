@@ -44,6 +44,7 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 | `Remove VNPAY VMB20` | Remove the VNPAY Airplane related activities. | v6.4.0 ~ v6.4.57 | 
 | `Add modified resources` | Adds the specific strings for MBCP on eKYC phase, and modify the DigiBank logo. | v6.4.0 ~ v6.4.57 |
 | `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.4.57 |
+| `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.4.57 |
 | `Bypass signature check` | Not implemented | v6.4.0 ~ v6.4.21 |
 | `Bypass 1200 error` | Workaround for 1200 error that happening on original MB app with specific version, now discontinued. | v6.4.45 |
 </details>

@@ -16,7 +16,7 @@ fi
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Add modified resources' 'Add anime resources' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Remove app from launcher' 'Add modified resources' 'Add anime resources' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -239,6 +239,17 @@ do
  else
    echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
  fi  
+
+
+   elif [ "$opt" == 'Remove app from launcher' ]; then
+    if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
+ then
+   echo "Applying patch [Remove app from launcher]..."
+   echo "Patching [AndroidManifest.xml]..."
+   sed -i 's|<category android:name="android.intent.category.LAUNCHER"/>||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+ else
+   echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
+ fi
 
     elif [ "$opt" == 'Bypass accessibility & malicious apps check' ]; then
     if [ -d ~/mbbpatch/MBCPApp/patches/bypass_accessibility_applist ]
