@@ -498,7 +498,7 @@ do
       sed -i 's|vna_flight_landing|broken_vna_ehh_idk|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
       
 
-      echp "Applied patch [Remove VNPAY VMB20] !!"
+      echo "Applied patch [Remove VNPAY VMB20] !!"
       echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_vnpay_vmb20.inf'
 
      elif [ "$opt" == 'Revert old eMBee logo' ]; then
