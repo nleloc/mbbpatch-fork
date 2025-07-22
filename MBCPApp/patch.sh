@@ -118,7 +118,7 @@ do
    sed_libapp 's|Total Balance in VND|Total balance in VND|g'
    sed_libapp 's|Simply enter the DigitalOTP PIN, and the system will Autoally activate to process encryption and transaction authentication.|Simply enter the DigitalOTP PIN, and the VTAP system will activate to process encryption and transaction authentication.    |g'
 
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/autopatch_strings.inf'
+    patch_finish "autopatch_strings"
     echo "Applied [Autopatch strings] patch !!!"
     
  else
@@ -132,7 +132,7 @@ do
     echo "Applying patch [Force portrait screen]..."
     echo "Patching [AndroidManifest.xml]..."
     sed -i 's|fullSensor|portrait|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/force_portrait_screen.inf'
+    patch_finish "force_portrait_screen"
     echo "Applied [Force portrait screen] patch !!!"
  else
    echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
@@ -163,7 +163,7 @@ do
       sed -i 's|PackageName|packageMBBB|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so   
       sed -i 's|packageName|packageMBBa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
       sed -i 's|packageName|packageMBBa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so   
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/bypass_accessibility_malicious_app_check.inf'
+    patch_finish "bypass_accessibility_malicious_app_check"
     echo "Applied [Bypass accessibility & malicious apps check] patch !!!"
  else
     echo "Patch not found ! Aborting :)"
@@ -181,7 +181,7 @@ do
     manifest_remove "com.vtap.MaintenanceActivity"
     manifest_remove "com.mbmobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
     manifest_remove "com.vkey.android.vguard.VGDialogActivity"
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_garbage_permission_and_activities.inf'
+    patch_finish "remove_garbage_permission_and_activities"
     echo "Applied [Remove garbage permission and activities] patch !!!" 
 
  else
@@ -219,7 +219,7 @@ do
      rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/eMBee_img_headerNew.webp'
      rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/eMBee_img_loginSupport.webp'
 
-     echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_embee.inf'
+     patch_finish "remove_embee"
 
      echo "Applied [Remove eMBee] patch !!!"
 
@@ -398,7 +398,7 @@ do
       
 
       echo "Applied patch [Remove VNPAY VMB20] !!"
-      echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_vnpay_vmb20.inf'
+      patch_finish "remove_vnpay_vmb20"
 
      elif [ "$opt" == 'Revert old eMBee logo' ]; then
      if [ -d ~/mbbpatch/MBCPApp/patches/revert_old_eMBee ]
@@ -430,7 +430,7 @@ do
      cp -f 'patches/revert_old_eMBee/homeLanding_img_avatarDefault.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority'
 
 
-     echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/revert_old_embee.inf'
+     patch_finish "revert_old_embee"
      echo "Applied [Revert old eMBee logo] patch !!!"
 
    else
@@ -446,7 +446,7 @@ do
      rm -f 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins/MBBHomeWidgetQR.smali'
      cp -f 'patches/noinvoke/MainActivity.smali' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins'
      cp -f 'patches/noinvoke/MBBHomeWidgetQR.smali' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins'
-     echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_invoke_to_mbshield.inf'
+     patch_finish "remove_invoke_to_mbshield"
      echo "Applied [Remove invoke to mbshield] patch !!!"
    else
      echo "noinvoke patch not found!"
@@ -462,7 +462,7 @@ then
    cp -f 'patches/restore_oldreg/onboarding_illus_featureShield.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
    cp -f 'patches/restore_oldreg/onboarding_img_referLinkNoneCoin.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
    cp -f 'patches/restore_oldreg/onboarding_img_referLinkPersonalCoin.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
-   echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/restore_old_registration_resources.inf'
+   patch_finish "restore_old_registration_resources"
    echo "Applied [Restore old registration resources] patch !!!"
 else
    echo "[restore_oldreg] not found !"
@@ -473,7 +473,7 @@ fi
    echo "Applying patch..."
       sed -i 's|vpn|app|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
       sed -i 's|vpn|app|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-      echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_vpn_detection.inf'
+      patch_finish "remove_vpn_detection"
    echo "Applied [Remove VPN detection patch] !!!"
 
    elif [ "$opt" == 'Add anime resources' ]; then
@@ -485,7 +485,7 @@ fi
    cp -f 'patches/anime_resources/rating_illus_threeStar.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/'
    cp -f 'patches/anime_resources/rating_illus_twoStar.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/'
    cp -f 'patches/anime_resources/rating_illus_oneStar.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/'
-   echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/add_anime_resources.inf'
+   patch_finish "add_anime_resources"
    echo "Applied [Add anime resources] patch !"
  else
    echo "[anime_resources] not found !"
@@ -509,7 +509,7 @@ then
    echo "Copying new static white background..."
    mv 'patches/qr_white/150.png' 'patches/qr_white/homeLanding_bg_qrCode.gif' > /dev/null 2>&1
    cp -f 'patches/qr_white/homeLanding_bg_qrCode.gif' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static'
-   echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_animated_qr_background.inf'
+   patch_finish "remove_animated_qr_background"
    echo "Applied [Remove animated QR background] patch !!!"
 else
    echo "[qr_white] not found !"
@@ -559,7 +559,7 @@ fi
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/poster_cyberrisk_noti.webp'
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding/ads_banner_borigin.webp'
 
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_banner_miniapp.inf'
+    patch_finish "remove_banner_miniapp"
    
     echo "Applied [Remove banners & MiniApp] patch !!!"
 
@@ -604,7 +604,7 @@ fi
     echo "Patching [AndroidManifest.xml]"
     manifest_remove 'android:authorities="com.mbmobile.honor.essence.enter'
     manifest_remove 'android:authorities="com.mbmobile.inserted.thumbzilla.ireland'
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_new_root_detection.inf'
+    patch_finish "remove_new_root_detection"
     echo "Applied [Remove new root detection] patch !!!"
 
  else
@@ -618,7 +618,7 @@ fi
     echo "Copying modified resources..."
     cp -r -f 'patches/resources/raw' 'mbapk/mbapk_unpacked/res/'
     cp -f 'patches/resources/strings-vi/strings.xml' 'mbapk/mbapk_unpacked/res/values-vi/'
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/add_modified_resources.inf'
+    patch_finish "add_modified_resources"
     echo "Applied [Add modified resources] patch !!!"
  else
     echo "[mbapk_unpacked] not found ! Please unpack APK first !"
@@ -661,7 +661,7 @@ elif [ "$opt" == 'Remove bulit-in fonts' ]; then
     cp -f 'patches/resources/font/bold.ttf' 'mbapk/mbapk_unpacked/res/font/'
     cp -f 'patches/resources/font/medium.ttf' 'mbapk/mbapk_unpacked/res/font/'
     cp -f 'patches/resources/font/regular.ttf' 'mbapk/mbapk_unpacked/res/font/'
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_bulitin_fonts.inf'
+    patch_finish "remove_bulitin_fonts"
     echo "Applied [Remove bulit-in fonts] patch !!!"
  else
     echo "[mbapk_unpacked] not found ! Please unpack APK first !"
@@ -699,7 +699,7 @@ do
     echo Cleaning...
     rm -rf 'patches/semipriority/priority'
     sleep 2
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/semipriority_theme.inf'
+    patch_finish "semipriority_theme"
     echo "Applied [MBCP SemiPriority] theme."
 
 
@@ -722,7 +722,7 @@ do
     sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenHomeClassic.png|https://gitlab.com/-/project/56341767/uploads/1d7fcf300167e87440220a6f0d28b8c1/mbcp_lobby.png?aaa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbclassic_theme.inf'
+    patch_finish "mbclassic_theme"
     echo Applied [MBCP MBClassic] theme.
 
     elif [ "$opt" == 'Noel 2024' ]; then
@@ -758,7 +758,7 @@ do
     sed -i 's|Change Noel |Noel 2024   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|Change Noel |Noel 2024   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
 
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/noel2024_theme.inf'
+    patch_finish "noel2024_theme"
     echo "INFO : You WON'T be able to use other theme than Noel 2024 on app !"
 
     echo "Applied [Noel 2024] theme."
@@ -800,7 +800,7 @@ then
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/change_app_logo.inf'
+        patch_finish "change_app_logo"
         echo Applied selected logo !
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
@@ -826,7 +826,7 @@ then
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/change_app_logo.inf'
+        patch_finish "change_app_logo"
         echo Applied selected logo !
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
@@ -852,7 +852,7 @@ then
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/change_app_logo.inf'
+        patch_finish "change_app_logo"
         echo Applied selected logo !
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
@@ -873,7 +873,7 @@ then
          cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/valentine/mipmap-xhdpi mbapk/mbapk_unpacked/res
          cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/valentine/mipmap-xxhdpi mbapk/mbapk_unpacked/res
          cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/valentine/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-         echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/change_app_logo.inf'
+         patch_finish "change_app_logo"
          echo "Applied selected logo !"
       else 
          ehco "[mbapk_unpacked] not found ! Please unpack APK first !"
@@ -894,7 +894,7 @@ then
          cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/summer2025/mipmap-xhdpi mbapk/mbapk_unpacked/res
          cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/summer2025/mipmap-xxhdpi mbapk/mbapk_unpacked/res
          cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/summer2025/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-         echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/change_app_logo.inf'
+         patch_finish "change_app_logo"
          echo "Applied selected logo !"
       else 
          ehco "[mbapk_unpacked] not found ! Please unpack APK first !"
@@ -921,7 +921,7 @@ then
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
-        echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/change_app_logo.inf'
+        patch_finish "change_app_logo"
         echo Applied selected logo !
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
@@ -953,7 +953,7 @@ done
     cp -f 'patches/bypass_rootold/VGThreatResponse.smali' 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/vguard/model/'
     # Test crash fixes for some Android 13 devices
     sed -i 's|invoke-virtual {v5, v12}, Lcom/vkey/android/vguard/model/VGThreatResponse;->setUsingLegacyMessage(Z)V| |g' 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/eg.smali'
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/hide_vtap_root_detection_activity.inf'
+    patch_finish "hide_vtap_root_detection_activity"
     echo "Applied [Hide VTAP root detection activity & dialog] patch !!!"
  else
     echo "Patch not found ! Aborting :)"
