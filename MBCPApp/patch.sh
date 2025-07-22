@@ -158,7 +158,7 @@ do
     elif [ "$opt" == 'Bypass accessibility & malicious apps check' ]; then
     if [ -d ~/mbbpatch/MBCPApp/patches/bypass_accessibility_applist ]
  then
-    echo "This will trigger device not secure dialog on v6.4.56, do not apply if you have v6.4.56!"
+    if [ $(get_mb_ver) -lt 54 ] ; then
     echo "Applying patch [Bypass accessibility & malicious apps check]..."
     echo 'Copying patched code [MbbankUtilitiesPlugin]...'
     cp -r -f 'patches/bypass_accessibility_applist/com' 'mbapk/mbapk_unpacked/smali_classes3'
@@ -171,6 +171,9 @@ do
       sed -i 's|packageName|packageMBBa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so   
     patch_finish "bypass_accessibility_malicious_app_check"
     echo "Applied [Bypass accessibility & malicious apps check] patch !!!"
+    else
+        echo "WARN : This patch is only applicable for v6.4.54 and lower"
+    fi
  else
     echo "Patch not found ! Aborting :)"
  fi
