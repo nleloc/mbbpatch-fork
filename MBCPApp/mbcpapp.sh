@@ -4,27 +4,11 @@
 # A tinkerer, not developer xD
 # You might see this line but ignore it then continues calling me a developer, but after all, i just a loser :D
 
-
 # Initial startup
-if [ -d ~/mbbpatch/MBCPApp/mbapk ]
-then
-    clear
-else 
-    mkdir ~/mbbpatch/MBCPApp/mbapk
-    fi
-
-if [ -d ~/mbbpatch/MBCPApp/mbcpapp_apk ]
-then
-    clear
-else 
-    mkdir ~/mbbpatch/MBCPApp/mbcpapp_apk
-fi  
-if [ -d ~/mbbpatch/MBCPApp/tools ]
-    then
-    clear 
-else 
-    mkdir ~/mbbpatch/MBCPApp/tools
-    fi
+mkdir -p ~/mbbpatch/MBCPApp/mbapk
+mkdir -p ~/mbbpatch/MBCPApp/mbcpapp_apk
+mkdir -p ~/mbbpatch/MBCPApp/tools
+clear
 
 # Check if user runs on actual Linux environment
 if [[ $(grep -i Linux /proc/version) ]]; then
