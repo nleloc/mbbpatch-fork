@@ -32,7 +32,6 @@ fi
 
 COMMIT='git rev-parse --short HEAD'
 
-
 # Check if java exists on /usr/bin/java
 echo Checking if Java exists...
 if java -version ; then
@@ -50,7 +49,7 @@ echo "Patching-tool for MB Bank app with Flutter engine (v6.4.0+)"
 echo "Original APK path must be inside [mbapk] folder !"
 echo "IMPORTANT : Script must be run on [~/mbbpatch/MBCPApp] !"
 echo -------------------------------------------------------------
-echo "Current commit :" $(git rev-parse --short HEAD) '(dev)'
+echo "Current commit : $COMMIT (dev)"
 echo "Source code : https://gitlab.com/mbcp/mbbpatch"
 echo "Made possible by Cuynu with love <3"
 echo -------------------------------------------------------------   
@@ -126,7 +125,7 @@ fi
      if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
     echo "Repacking APK..."
-    echo "This app are compiled by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). "That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
+    echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
     java -jar tools/apktool_2.12.0.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk
     echo "Processing APK signature scheme v2/v3..."
     rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
