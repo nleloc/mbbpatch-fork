@@ -35,6 +35,11 @@ sed_libapp() {
     ) && echo "INFO : [$target] -> [$replacement]" || echo "WARN : replacing [$target] failed !"
 }
 
+
+manifest_remove() {
+    sed -i "/$1/d" ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
+}
+
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
