@@ -230,6 +230,7 @@ do
      echo "Applied [Remove eMBee] patch !!!"
 
      elif [ "$opt" == 'Remove VNPAY VMB20' ]; then
+     if [ $(get_mb_ver) -gt 56 ] ; then
      echo "Applying patch..."
      rm -rf 'mbapk/mbapk_unpacked/smali_classes4/com/vnpay'
      rm -rf 'mbapk/mbapk_unpacked/smali_classes4/com/d5'
@@ -342,6 +343,9 @@ do
 
       echo "Applied patch [Remove VNPAY VMB20] !!"
       patch_finish "remove_vnpay_vmb20"
+      else
+          echo "WARN : This patch is only applicable for v6.4.56+"
+     fi
 
      elif [ "$opt" == 'Revert old eMBee logo' ]; then
      if [ -d ~/mbbpatch/MBCPApp/patches/revert_old_eMBee ]
