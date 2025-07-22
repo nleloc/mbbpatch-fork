@@ -30,7 +30,7 @@ else
     FIGLET=:
 fi
 
-COMMIT='git rev-parse --short HEAD'
+COMMIT="$(git rev-parse --short HEAD)"
 
 # Check if java exists on /usr/bin/java
 echo 'Checking if Java exists...'
