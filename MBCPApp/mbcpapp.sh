@@ -11,8 +11,8 @@ mkdir -p ~/mbbpatch/MBCPApp/tools
 clear
 
 # Check if user runs on actual Linux environment
-if [[ $(grep -i Linux /proc/version) ]]; then
-echo "INFO : You have Linux environment :)"
+if uname -a | grep -i Linux ; then
+    echo "INFO : You have Linux environment :)"
 fi
 
 # Check if user trying to run under HyperV (Windows Subsystem For Linux)
