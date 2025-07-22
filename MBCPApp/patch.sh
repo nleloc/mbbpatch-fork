@@ -200,10 +200,10 @@ do
      elif [ "$opt" == 'Remove eMBee' ]; then
      echo "WARNING : Remove eMBee also remove customer support and any other options on eMBee Helper !"
      echo "Removing eMBee Customer support function..."
-     sed_libapp 's|group_button_support|itsnotworthittouseem|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-     sed_libapp 's|group_button_support|itsnotworthittouseem|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-     sed_libapp 's|Customer support|                |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-     sed_libapp 's|Customer support|                |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+     sed_libapp 's|group_button_support|itsnotworthittouseem|g'
+     sed_libapp 's|group_button_support|itsnotworthittouseem|g'
+     sed_libapp 's|Customer support|                |g'
+     sed_libapp 's|Customer support|                |g'
      echo "Removing eMBee..."
      rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_page.webp'
      rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_header.webp'
@@ -421,8 +421,8 @@ fi
    # Test remove VPN detection function from bundle, that showing notice warn users to turn off VPN.
    elif [ "$opt" == 'Remove VPN detection' ]; then
    echo "Applying patch..."
-      sed_libapp 's|vpn|app|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-      sed_libapp 's|vpn|app|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+      sed_libapp 's|vpn|app|g'
+      sed_libapp 's|vpn|app|g'
       patch_finish "remove_vpn_detection"
    echo "Applied [Remove VPN detection patch] !!!"
 
@@ -470,11 +470,10 @@ fi
  then
     echo "Applying patch [Remove banners & MiniApp]..."
     echo 'Removing banner links from [libapp.so]...'
-    sed_libapp 's|banner|remove|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed_libapp 's|banner|remove|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    sed_libapp 's|marketplacehome|removemarketapp|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed_libapp 's|marketplacehome|removemarketapp|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-
+    sed_libapp 's|banner|remove|g' 
+    sed_libapp 's|banner|remove|g'
+    sed_libapp 's|marketplacehome|removemarketapp|g' 
+    sed_libapp 's|marketplacehome|removemarketapp|g'
     echo 'Removing related resources...'
     rm -rf 'mbapk/mbapk_unpacked/assets/flutter_assets/packages'
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/billing_img_defaultBanner.webp'
