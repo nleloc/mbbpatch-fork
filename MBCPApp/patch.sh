@@ -615,7 +615,6 @@ do
     if [ "$opt" == 'MBCP SemiPriority' ]; then
     echo Moving [priority] folder...
     mv 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority' 'patches/semipriority/'
-    sleep 2
     echo Modifying QR background...
     rm -f 'patches/semipriority/priority/qr_img_ThemeDefalut.webp'
     mv 'patches/semipriority/priority/a_background_image.webp' 'patches/semipriority/priority/qr_img_ThemeDefalut.webp'
@@ -623,19 +622,16 @@ do
     mv 'patches/semipriority/priority' 'patches/semipriority/base'
     echo Copying to [flutter_assets/assets/images/dynamic/base]
     cp -r -f 'patches/semipriority/base' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic' 
-    sleep 2
     echo Renaming back to [priority]
     mv 'patches/semipriority/base' 'patches/semipriority/priority'
     echo Copying back to [flutter_assets]...
     cp -r -f 'patches/semipriority/priority' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic' 
-    sleep 2
     echo Copying [ic_logo_mb_text.svg]...
     cp -f 'patches/semipriority/ic_logo_mb_text.svg' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/svgs/'
     echo Copying [welcom_img_eMbee.webp]...
     cp -f 'patches/semipriority/welcom_img_eMbee.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
     echo Cleaning...
     rm -rf 'patches/semipriority/priority'
-    sleep 2
     patch_finish "semipriority_theme"
     echo "Applied [MBCP SemiPriority] theme."
 
