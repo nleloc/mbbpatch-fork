@@ -177,7 +177,7 @@ fi
      elif [ "$opt" == 'Patch App' ]; then
      if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
  then
-    ./patch.sh
+    bash ./patch.sh
 else 
     echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
     fi
@@ -185,7 +185,7 @@ else
     elif [ "$opt" == 'Legacy patches' ]; then
      if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
  then
-    ./legacy_patch.sh
+    bash ./legacy_patch.sh
 else 
     echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
     fi
@@ -262,7 +262,7 @@ else
 
         elif [ "$opt" == 'Exit' ]; then
         clear
-        sh mbcpapp.sh
+        bash mbcpapp.sh
        break
         	fi
 done
@@ -333,7 +333,7 @@ do
 
         elif [ "$opt" == 'Exit' ]; then
         clear
-        sh mbcpapp.sh
+        bash mbcpapp.sh
        break
         	fi
 done
