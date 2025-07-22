@@ -158,7 +158,7 @@ do
     elif [ "$opt" == 'Bypass accessibility & malicious apps check' ]; then
     if [ -d ~/mbbpatch/MBCPApp/patches/bypass_accessibility_applist ]
  then
-    if [ $(get_mb_ver) -lt 54 ] ; then
+    if [ $(get_mb_ver) -lt 55 ] ; then
     echo "Applying patch [Bypass accessibility & malicious apps check]..."
     echo 'Copying patched code [MbbankUtilitiesPlugin]...'
     cp -r -f 'patches/bypass_accessibility_applist/com' 'mbapk/mbapk_unpacked/smali_classes3'
