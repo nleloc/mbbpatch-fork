@@ -40,6 +40,11 @@ manifest_remove() {
     sed -i "/$1/d" ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
 }
 
+
+patch_finish() {
+    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/assets/mbcp_info/$1.inf"
+}
+
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
