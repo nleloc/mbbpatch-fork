@@ -13,6 +13,28 @@ echo "INFO : Trying to remove WSL detection code might make script not works pro
 exit
 fi
 
+if [[ $OSTYPE == 'darwin'* ]]; then
+  echo "INFO : You have macOS environment, which is not supported !"
+    exit
+fi
+
+# imported from https://github.com/dylanaraps/pure-bash-bible
+bb_split() {
+    # Usage: split "string" "delimiter"
+    IFS=$'\n' read -d "" -ra arr <<< "${1//$2/$'\n'}"
+    # printf '%s\n' "${arr[@]}"
+    printf '%s\n' "${arr[$3]}"
+}
+
+sed_libapp() {
+    target=$(bb_split "$1" '|' '1')
+    replacement=$(bb_split "$1" '|' '2')
+    (
+        sed -i "$1" ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+        sed -i "$1" ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    ) && echo "INFO : [$target] -> [$replacement]" || echo "WARN : replacing [$target] failed !"
+}
+
 echo ---------------------------
 echo Patch list for MBCPApp :   
 PS3='Select patch options : '
