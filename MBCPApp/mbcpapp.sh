@@ -23,9 +23,8 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
 fi
 
 # Check if figlet exists or not
-if [ -x /usr/bin/figlet ]
-then
-    FIGLET=/usr/bin/figlet
+if command -v figlet ; then
+    FIGLET=figlet
 else
     echo "WARN : figlet not found, ignoring banner !"
     FIGLET=:
@@ -36,16 +35,12 @@ COMMIT='git rev-parse --short HEAD'
 
 # Check if java exists on /usr/bin/java
 echo Checking if Java exists...
-if [ -x /usr/bin/java ]
-then
-    JAVA=/usr/bin/java
+if java -version ; then
     clear
 else
-    echo "ERROR : Java not found on [/usr/bin/java] !!!"
+    echo "ERROR : Java not found !!!"
     echo "INFO : Please install Java for your Linux distribution ! "
-    echo "INFO : If you have different JDK location, be sure link it"
-    exit
-    JAVA=:
+    exit 127
 fi
 
 # Banner 
