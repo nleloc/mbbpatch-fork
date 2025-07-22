@@ -46,7 +46,7 @@ patch_finish() {
 }
 
 echo ---------------------------
-echo Patch list for MBCPApp :   
+echo 'Patch list for MBCPApp :'
 PS3='Select patch options : '
 select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Remove app from launcher' 'Set targetSdkVersion to 35' 'Add modified resources' 'Add anime resources' 'Exit'
 do
@@ -154,11 +154,11 @@ do
  then
     echo "This will trigger device not secure dialog on v6.4.56, do not apply if you have v6.4.56!"
     echo "Applying patch [Bypass accessibility & malicious apps check]..."
-    echo Copying patched code [MbbankUtilitiesPlugin]...
+    echo 'Copying patched code [MbbankUtilitiesPlugin]...'
     cp -r -f 'patches/bypass_accessibility_applist/com' 'mbapk/mbapk_unpacked/smali_classes3'
-    echo Patching [AndroidManifest.xml]...
+    echo 'Patching [AndroidManifest.xml]...'
     sed -i 's|<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>| |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml 
-    echo Patching [libapp.so]...  
+    echo 'Patching [libapp.so]...'
       sed -i 's|PackageName|packageMBBB|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
       sed -i 's|PackageName|packageMBBB|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so   
       sed -i 's|packageName|packageMBBa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
@@ -456,13 +456,13 @@ fi
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
     echo "Applying patch [Remove banners & MiniApp]..."
-    echo Removing banner links from [libapp.so]...
+    echo 'Removing banner links from [libapp.so]...'
     sed -i 's|banner|remove|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|banner|remove|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     sed -i 's|marketplacehome|removemarketapp|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|marketplacehome|removemarketapp|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
 
-    echo Removing related resources...
+    echo 'Removing related resources...'
     rm -rf 'mbapk/mbapk_unpacked/assets/flutter_assets/packages'
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/billing_img_defaultBanner.webp'
     rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/billing_img_defaultBanner.private.webp'
@@ -508,19 +508,19 @@ fi
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
  then
     echo "Applying [Remove new root detection] patch..."
-    echo Removing [libZDefend.so]...
+    echo 'Removing [libZDefend.so]...'
     rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libZDefend.so'
     rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libZDefend.so'
-    echo Removing [libvvb2060.so]...
+    echo 'Removing [libvvb2060.so]...'
     rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libvvb2060.so'
     rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libvvb2060.so'
-    echo Removing [libtoolChecker.so]...
+    echo 'Removing [libtoolChecker.so]...'
     rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libtoolChecker.so'
     rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libtoolChecker.so'
-    echo Removing [libdesignersactivists.so]...
+    echo 'Removing [libdesignersactivists.so]...'
     rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so'
     rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so'
-    echo Removing related files...
+    echo 'Removing related files...'
     sleep 3
     rm -rf 'mbapk/mbapk_unpacked/assets/zfiles'
     rm -f 'mbapk/mbapk_unpacked/assets/dlangV5.dat'
@@ -593,7 +593,7 @@ elif [ "$opt" == 'Remove bulit-in fonts' ]; then
     touch 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/fonts/AvertaStdCY-Regular.otf' 
     # Placeholder to prevent compiling resource fail
     touch 'mbapk/mbapk_unpacked/res/font/avenir_next_bold.ttf'
-    echo Copying fix fonts...
+    echo 'Copying fix fonts...'
     # NFC scanning phase requires actual font in order to not throw exception
     cp -f 'patches/resources/font/bold.ttf' 'mbapk/mbapk_unpacked/res/font/'
     cp -f 'patches/resources/font/medium.ttf' 'mbapk/mbapk_unpacked/res/font/'
@@ -613,24 +613,24 @@ elif [ "$opt" == 'Modify app theme' ]; then
 select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Exit'
 do
     if [ "$opt" == 'MBCP SemiPriority' ]; then
-    echo Moving [priority] folder...
+    echo 'Moving [priority] folder...'
     mv 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority' 'patches/semipriority/'
-    echo Modifying QR background...
+    echo 'Modifying QR background...'
     rm -f 'patches/semipriority/priority/qr_img_ThemeDefalut.webp'
     mv 'patches/semipriority/priority/a_background_image.webp' 'patches/semipriority/priority/qr_img_ThemeDefalut.webp'
-    echo Renaming to [base]...
+    echo 'Renaming to [base]...'
     mv 'patches/semipriority/priority' 'patches/semipriority/base'
-    echo Copying to [flutter_assets/assets/images/dynamic/base]
+    echo 'Copying to [flutter_assets/assets/images/dynamic/base]'
     cp -r -f 'patches/semipriority/base' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic' 
-    echo Renaming back to [priority]
+    echo 'Renaming back to [priority]'
     mv 'patches/semipriority/base' 'patches/semipriority/priority'
-    echo Copying back to [flutter_assets]...
+    echo 'Copying back to [flutter_assets]...'
     cp -r -f 'patches/semipriority/priority' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic' 
-    echo Copying [ic_logo_mb_text.svg]...
+    echo 'Copying [ic_logo_mb_text.svg]...'
     cp -f 'patches/semipriority/ic_logo_mb_text.svg' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/svgs/'
-    echo Copying [welcom_img_eMbee.webp]...
+    echo 'Copying [welcom_img_eMbee.webp]...'
     cp -f 'patches/semipriority/welcom_img_eMbee.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
-    echo Cleaning...
+    echo 'Cleaning...'
     rm -rf 'patches/semipriority/priority'
     patch_finish "semipriority_theme"
     echo "Applied [MBCP SemiPriority] theme."
@@ -656,7 +656,7 @@ do
     sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
     sed -i 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     patch_finish "mbclassic_theme"
-    echo Applied [MBCP MBClassic] theme.
+    echo 'Applied [MBCP MBClassic] theme.'
 
     elif [ "$opt" == 'Noel 2024' ]; then
     echo "Ensure that you did NOT applied SemiPriority theme before apply this theme !"
@@ -716,25 +716,25 @@ do
     	if [ "$opt" == '30/4-1/5' ]; then
          if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
 then
-        echo Removing old logos...
+        echo 'Removing old logos...'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-hdpi
-        echo INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-mdpi
-        echo INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-        echo INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-        echo INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
-        echo INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !
-        echo Copying new logos to [mbapk_unpacked/res] !!!
+        echo 'INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !'
+        echo 'Copying new logos to [mbapk_unpacked/res] !!!'
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-hdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-mdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/thongnhatVN/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
         patch_finish "change_app_logo"
-        echo Applied selected logo !
+        echo 'Applied selected logo !'
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
@@ -742,25 +742,25 @@ then
         elif [ "$opt" == 'MB Classic' ]; then
          if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
 then
-        echo Removing old logos...
+        echo 'Removing old logos...'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-hdpi
-        echo INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-mdpi
-        echo INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-        echo INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-        echo INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
-        echo INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !
-        echo Copying new logos to [mbapk_unpacked/res] !!!
+        echo 'INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !'
+        echo 'Copying new logos to [mbapk_unpacked/res] !!!'
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-hdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-mdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/normal/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
         patch_finish "change_app_logo"
-        echo Applied selected logo !
+        echo 'Applied selected logo !'
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
@@ -768,25 +768,25 @@ then
         elif [ "$opt" == 'Tet' ]; then
          if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
 then
-        echo Removing old logos...
+        echo 'Removing old logos...'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-hdpi
-        echo INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-mdpi
-        echo INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-        echo INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-        echo INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
-        echo INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !
-        echo Copying new logos to [mbapk_unpacked/res] !!!
+        echo 'INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !'
+        echo 'Copying new logos to [mbapk_unpacked/res] !!!'
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-hdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-mdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/tet/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
         patch_finish "change_app_logo"
-        echo Applied selected logo !
+        echo 'Applied selected logo !'
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
@@ -837,25 +837,25 @@ then
         elif [ "$opt" == 'Noel' ]; then
          if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
 then
-        echo Removing old logos...
+        echo 'Removing old logos...'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-hdpi
-        echo INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-mdpi
-        echo INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-        echo INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-        echo INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !
+        echo 'INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !'
         rm -rf ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
-        echo INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !
-        echo Copying new logos to [mbapk_unpacked/res] !!!
+        echo 'INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !'
+        echo 'Copying new logos to [mbapk_unpacked/res] !!!'
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-hdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-mdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xxhdpi mbapk/mbapk_unpacked/res
         cp -r -f ~/mbbpatch/MBCPApp/mbcpicons/noel/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
         patch_finish "change_app_logo"
-        echo Applied selected logo !
+        echo 'Applied selected logo !'
     else
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
     fi
