@@ -704,7 +704,7 @@ do
 
     echo "Applied [Noel 2024] theme."
      elif [ "$opt" == 'Exit' ]; then
-        sh patch.sh
+        bash patch.sh
         break
     fi
 done
@@ -870,7 +870,7 @@ then
 
 
         elif [ "$opt" == 'Exit' ]; then
-        sh patch.sh
+        bash patch.sh
 
         break
     fi
