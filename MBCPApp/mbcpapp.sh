@@ -33,7 +33,7 @@ fi
 COMMIT='git rev-parse --short HEAD'
 
 # Check if java exists on /usr/bin/java
-echo Checking if Java exists...
+echo 'Checking if Java exists...'
 if java -version ; then
     clear
 else
@@ -74,7 +74,7 @@ do
     # Check if apk is unpacked or not
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
     then
-    echo APK already unpacked, no need to unpack again !
+    echo 'APK already unpacked, no need to unpack again !'
     else
     # Check if apktool exists or not
     if [ -f ~/mbbpatch/MBCPApp/tools/apktool_2.12.0.jar ]
@@ -167,7 +167,7 @@ fi
     echo "Converting apks to apk..."
     java -jar tools/APKEditor-1.4.3.jar m -i mbapk/*.apks
     mv mbapk/*.apk mbapk/MBOriginal.apk
-    echo Cleaning left over [apks] files...
+    echo 'Cleaning left over [apks] files...'
     rm -f mbapk/*.apks
     echo "You probably can continue to unpack APK!"
  else
@@ -192,8 +192,8 @@ else
 
 
     elif [ "$opt" == 'Extract assets [ROOT]' ]; then
-    echo To extract encrypted assets [if current app has MBShield protection] you need rooted device 
-    echo And trigger a bulit-in app assets extraction !
+    echo 'To extract encrypted assets [if current app has MBShield protection] you need rooted device'
+    echo 'And trigger a bulit-in app assets extraction !'
     echo -------------------------------------------
     echo -------------------------------------------
     PS3='Select options continue, or [3] to quit : '
@@ -201,17 +201,17 @@ else
 do
     	if [ "$opt" == 'Launch MBCPApp/MBBank' ]; then
         adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
-        echo After app started, you MUST need to trigger assets extraction
-        echo By trigger eKYC authetication with reset account password option or register DigitalOTP
-        echo After you got into eKYC screen, close the app, then use Extract assets option to extract assets.
+        echo 'After app started, you MUST need to trigger assets extraction'
+        echo 'By trigger eKYC authetication with reset account password option or register DigitalOTP'
+        echo 'After you got into eKYC screen, close the app, then use Extract assets option to extract assets.'
         elif [ "$opt" == 'Extract assets' ]; then
         if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
 then
         if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]  
 then
         echo "INFO : MBShield found ! Continuing !!!"
-        echo You MUST grant root access to [com.android.shell] in order to extract assets !
-        echo Trying to extract assets...
+        echo 'You MUST grant root access to [com.android.shell] in order to extract assets !'
+        echo 'Trying to extract assets...'
         adb shell am force-stop com.mbmobile
         adb shell rm -rf /sdcard/assets
         adb shell mkdir /sdcard/assets
@@ -247,7 +247,7 @@ then
         adb shell su -c cp -f /data/user/0/com.mbmobile/files/version.json /sdcard/assets
         adb shell su -c cp -f /data/user/0/com.mbmobile/files/vkeylicensepack /sdcard/assets
         adb shell su -c cp -f /data/user/0/com.mbmobile/files/voscodesign.vky /sdcard/assets
-        echo Copying assets...
+        echo 'Copying assets...'
         sleep 2
         adb pull /sdcard/assets mbapk/mbapk_unpacked/
         sleep 5
@@ -294,7 +294,7 @@ done
 
  
     elif [ "$opt" == 'Install patched app' ]; then
-    echo Select your patched version to continue
+    echo 'Select your patched version to continue'
     PS3='Select patched version to continue, or [3] to quit : '
     select opt in 'App patched with newer version [v6.4.56 or higher]' 'App patched with older version [v6.4.55 or lower]' 'Exit'
 do
