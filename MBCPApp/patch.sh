@@ -47,200 +47,66 @@ do
     echo "Patching strings in [libapp.so], please wait..."
     # App embedded links
     # App update button url
-    sed -i 's|market://details?id=com.mbmobile|https://t.me/mbbpatch/2?ref=mbcp|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|market://details?id=com.mbmobile|https://t.me/mbbpatch/2?ref=mbcp|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    sed_libapp 's|market://details?id=com.mbmobile|https://t.me/mbbpatch/2?ref=mbcp|g'
     # Facebook button url
-    sed -i 's|https://www.facebook.com/VietnamMBBank?mibextid=LQQJ4d|https://gitlab.com/cuynu/mbbpatch/?                   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|https://www.facebook.com/VietnamMBBank?mibextid=LQQJ4d|https://gitlab.com/cuynu/mbbpatch/?                   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+    sed_libapp 's|https://www.facebook.com/VietnamMBBank?mibextid=LQQJ4d|https://gitlab.com/cuynu/mbbpatch/?                   |g'
     # VNeID download url
-    sed -i 's|https://play.google.com/store/apps/details?id=com.vnid|https://www.apkmirror.com/uploads/?appcategory=vneid??|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|https://play.google.com/store/apps/details?id=com.vnid|https://www.apkmirror.com/uploads/?appcategory=vneid??|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-
-    echo "INFO : Related links are modified !"
+    sed_libapp 's|https://play.google.com/store/apps/details?id=com.vnid|https://www.apkmirror.com/uploads/?appcategory=vneid??|g'
 
     # App embedded strings
-    sed -i -e 's/online OTP/DigitalOTP/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i -e 's/online OTP/DigitalOTP/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [online OTP] strings are modified to [DigitalOTP] !"
-
-    sed -i -e 's/Online OTP/DigitalOTP/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i -e 's/Online OTP/DigitalOTP/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Online OTP] strings are modified to [DigitalOTP] !"
-
-    sed -i -e 's/MB Bank/MBCPApp/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i -e 's/MB Bank/MBCPApp/g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [MB Bank] strings are modified to [MBCPApp] !"
-
-    sed -i -e 's|The lastest version|TG/GitLab: mbbpatch|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i -e 's|The lastest version|TG/GitLab: mbbpatch|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [The lastest version] strings are modified to [TG/GitLab: mbbpatch] !"
-
-    sed -i 's|User profile|View profile|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|User profile|View profile|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [User profile] strings are modified to [View profile] !"
-
-    sed -i 's|User ID|Phone  |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|User ID|Phone  |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [User ID] strings are modified to [Phone  ] !"
-
-    sed -i 's|MB Membership Package|MB Membership        |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|MB Membership Package|MB Membership        |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [MB Membership Package] strings are modified to [MB Membership        ] !"
-
-    sed -i 's|email information|Email information|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|email information|Email information|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [email information] strings are modified to [Email information] !"
-
-    sed -i 's|Premium Account Number|Open new lucky account|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Premium Account Number|Open new lucky account|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Premium Account Number] strings are modified to [Open new lucky account] !"
-
-    sed -i 's|Cashback 150K|             |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Cashback 150K|             |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Cashback 150K] strings are modified to [] !"
-
-    sed -i 's|Request for supplying password|Request for new password      |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Request for supplying password|Request for new password      |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Request for supplying password] strings are modified to [Request for new password] !"
-
-    sed -i 's|ID card/ID card|Old/New ID card|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|ID card/ID card|Old/New ID card|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [ID card/ID card] strings are modified to [Old/New ID card] !"
-
-    sed -i 's|Number of document|Number of id card |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Number of document|Number of id card |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Number of document] strings are modified to [Number of id card] !"
-
-    sed -i 's|Your device will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to be reissued.|Your account will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to reset pw...|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Your device will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to be reissued.|Your account will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to reset pw...|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Your device will be locked...] strings are modified to [Your account will be locked...] !"
-
-    sed -i 's|Introduction to receive money|Invite using MB              |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Introduction to receive money|Invite using MB              |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Introduction to receive money] strings are modified to [Invite using MB] !"
-
-    sed -i 's|Shopping-  Entertainment- Investment|Flutter embedded MiniApps           |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Shopping-  Entertainment- Investment|Flutter embedded MiniApps           |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Shopping-  Entertainment- Investment] strings are modified to [Flutter embedded MiniApps] !"
-
-    sed -i 's|Downloaded themes|Your owned themes|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Downloaded themes|Your owned themes|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Downloaded themes] strings are modified to [Your owned themes] !"
-
-    sed -i 's|Coming soon|Placeholder|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Coming soon|Placeholder|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Coming soon] strings are modified to [Placeholder] !"
-
-    sed -i 's|Coming Soon|Placeholder|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Coming Soon|Placeholder|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Coming Soon] strings are modified to [Placeholder] !"
-
-    sed -i 's|MBBank app|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|MBBank app|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [MBBank app] strings are modified to [MBCPApp] !"
+    sed_libapp 's|online OTP|DigitalOTP|g'
+    sed_libapp 's|Online OTP|DigitalOTP|g'
+    sed_libapp 's|MB Bank|MBCPApp|g'
+    sed_libapp 's|The lastest version|TG/GitLab: mbbpatch|g'
+    sed_libapp 's|User profile|View profile|g'
+    sed_libapp 's|User ID|Phone  |g'
+    sed_libapp 's|MB Membership Package|MB Membership        |g'
+    sed_libapp 's|email information|Email information|g'
+    sed_libapp 's|Premium Account Number|Open new lucky account|g'
+    sed_libapp 's|Cashback 150K|             |g'
+    sed_libapp 's|Request for supplying password|Request for new password      |g'
+    sed_libapp 's|ID card/ID card|Old/New ID card|g'
+    sed_libapp 's|Number of document|Number of id card |g'
+    sed_libapp 's|Your device will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to be reissued.|Your account will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to reset pw...|g'
+    sed_libapp 's|Introduction to receive money|Invite using MB              |g'
+    sed_libapp 's|Shopping-  Entertainment- Investment|Flutter embedded MiniApps           |g'
+    sed_libapp 's|Downloaded themes|Your owned themes|g'
+    sed_libapp 's|Coming soon|Placeholder|g'
+    sed_libapp 's|Coming Soon|Placeholder|g'
+    sed_libapp 's|MBBank app|MBCPApp   |g'
     
     # Adapt for v6.4.56+
-    sed -i 's|MBBank APP|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|MBBank APP|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [MBBank APP] strings are modified to [MBCPApp] !"
-
+    sed_libapp 's|MBBank APP|MBCPApp   |g'
     # Adapt for v6.4.56+
-    sed -i 's|APP MBBank|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|APP MBBank|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [APP MBBank] strings are modified to [MBCPApp] !"
+    sed_libapp 's|APP MBBank|MBCPApp   |g'
+    sed_libapp 's|MBBank App|MBCPApp   |g'
+    sed_libapp 's|App MBBank|MBCPApp   |g'
+    sed_libapp 's|get notifications|Get notifications|g'
+    sed_libapp 's|Read the announcement|Notify with voice    |g'
 
-    sed -i 's|MBBank App|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|MBBank App|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [MBBank App] strings are modified to [MBCPApp] !"    
-
-    sed -i 's|App MBBank|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|App MBBank|MBCPApp   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [App MBBank] strings are modified to [MBCPApp] !"
-
-    sed -i 's|get notifications|Get notifications|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|get notifications|Get notifications|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [get notifications] strings are modified to [Get notifications] !"
-
-    sed -i 's|Read the announcement|Notify with voice    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Read the announcement|Notify with voice    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Read the announcement] strings are modified to [Notify with voice] !"
-
-
-    sed -i 's|Viettel post|Viettel Post|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Viettel post|Viettel Post|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Viettel post] strings are modified to [Viettel Post] !"
-
-    sed -i 's|This service has been upgraded, please update the app to continue using the service|This app version are expired, please update or repatch with newer version. (GW525) |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|This service has been upgraded, please update the app to continue using the service|This app version are expired, please update or repatch with newer version. (GW525) |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [This service has been upgraded...] strings are modified to [This app version are expired...] !"
-
-    sed -i 's|Welcome to the MBBank APP!|Thanks for login to MBCP~ |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Welcome to the MBBank APP!|Thanks for login to MBCP~ |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Welcome to the MBBank APP!] strings are modified to [Thanks for login to MBCP~] !"
-
-    sed -i 's|There is no device registered for DOTP|No active DigitalOTP device found  :> |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|There is no device registered for DOTP|No active DigitalOTP device found  :> |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [There is no device registered for DOTP] strings are modified to [No active DigitalOTP device found  :> ] !"
-
-    sed -i 's|Transaction authentication code (OTP) has been sent to your phone number|DigitalOTP registration code (OTP) has been sent to your phone number : |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Transaction authentication code (OTP) has been sent to your phone number|DigitalOTP registration code (OTP) has been sent to your phone number : |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Transaction authentication code...] strings are modified to [DigitalOTP registration code...] !"
-
-    sed -i 's|You can request a new code later|You can request a new code after|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|You can request a new code later|You can request a new code after|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [You can request a new code later] strings are modified to [You can request a new code after] !"
-
-    sed -i 's|Verification information is invalid, please contact hotline 1900545426 for support|EKYC failed, please go to our Telegram group (@mbbpatch) for details and help !!! |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-    sed -i 's|Verification information is invalid, please contact hotline 1900545426 for support|EKYC failed, please go to our Telegram group (@mbbpatch) for details and help !!! |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-    echo "INFO : [Verification information is...] strings are modified to [EKYC failed, please go to our Telegram...] !"
-
+    sed_libapp 's|Viettel post|Viettel Post|g'
+    sed_libapp 's|This service has been upgraded, please update the app to continue using the service|This app version are expired, please update or repatch with newer version. (GW525) |g'
+    sed_libapp 's|Welcome to the MBBank APP!|Thanks for login to MBCP~ |g'
+    sed_libapp 's|There is no device registered for DOTP|No active DigitalOTP device found  :> |g'
+    sed_libapp 's|Transaction authentication code (OTP) has been sent to your phone number|DigitalOTP registration code (OTP) has been sent to your phone number : |g'
+    sed_libapp 's|You can request a new code later|You can request a new code after|g'
+    sed_libapp 's|Verification information is invalid, please contact hotline 1900545426 for support|EKYC failed, please go to our Telegram group (@mbbpatch) for details and help !!! |g'
    # XPE002/XPE003 dialog contents :
-   sed -i 's|MB has detected that the device is currently not secure for performing transactions|This dialog are showing cuz server-side MB changes for rooted devices are enforced.|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|MB has detected that the device is currently not secure for performing transactions|This dialog are showing cuz server-side MB changes for rooted devices are enforced.|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-   echo "INFO : [MB has detected that the device is...] strings are modified to [This dialog are showing cuz server-side MB changes...] !"
-   sed -i 's|Please try closing and reopening the app, or reinstalling the MBCPApp    from the app store to continue using the service.|If you need to bypass this dialog, please checkout updated version of MBZDefend-Fix on GitLab which contains fixes (soon) |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|Please try closing and reopening the app, or reinstalling the MBCPApp    from the app store to continue using the service.|If you need to bypass this dialog, please checkout updated version of MBZDefend-Fix on GitLab which contains fixes (soon) |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-   echo "INFO: [Please try closing and reopening the app...] strings are modified to [If you need to bypass this dialog...] !"
+   sed_libapp 's|MB has detected that the device is currently not secure for performing transactions|This dialog are showing cuz server-side MB changes for rooted devices are enforced.|g'
+   sed_libapp 's|Please try closing and reopening the app, or reinstalling the MBCPApp    from the app store to continue using the service.|If you need to bypass this dialog, please checkout updated version of MBZDefend-Fix on GitLab which contains fixes (soon) |g'
 
-
-   sed -i 's|Set up DigitalOTP|Setup DigitalOTP |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|Set up DigitalOTP|Setup DigitalOTP |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-   echo "INFO: [Set up DigitalOTP] strings are modified to [Setup DigitalOTP] !"
-
-   sed -i 's|Set up facial authentication|Setup eKYC for transactions |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|Set up facial authentication|Setup eKYC for transactions |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-   echo "INFO: [Set up facial authentication] strings are modified to [Setup eKYC for transactions] !"
-
-   sed -i 's|facial|seKYC |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|facial|seKYC |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-   echo "INFO: [facial] strings are modified to [seKYC] !"
-
-   sed -i 's|Dentification|Identifier   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|Dentification|Identifier   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-   echo "INFO: [Dentification] strings are modified to [Identifier] !"
+   sed_libapp 's|Set up DigitalOTP|Setup DigitalOTP |g'
+   sed_libapp 's|Set up facial authentication|Setup eKYC for transactions |g'
+   sed_libapp 's|facial|seKYC |g'
+   sed_libapp 's|Dentification|Identifier   |g'
    
-   sed -i 's|The data synchronization process was not successful, please restart the MBCPApp    or redownload it on the app market|Unable to connect to MB server or VTAP isnt properly working. Please restart MBCPApp and try to login again.         |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|The data synchronization process was not successful, please restart the MBCPApp    or redownload it on the app market|Unable to connect to MB server or VTAP isnt properly working. Please restart MBCPApp and try to login again.         |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+   sed_libapp 's|The data synchronization process was not successful, please restart the MBCPApp    or redownload it on the app market|Unable to connect to MB server or VTAP isnt properly working. Please restart MBCPApp and try to login again.         |g'
 
-   echo "INFO: [The data synchronization] strings are modified to [Unable to connect to MB server....] !"
-
-   sed -i 's|Devices registered with DOTP|Active DigitalOTP devices   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|Devices registered with DOTP|Active DigitalOTP devices   |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-   echo "INFO: [Devices registered with DOTP] strings are modified to [Active DigitalOTP devices] !"
+   sed_libapp 's|Devices registered with DOTP|Active DigitalOTP devices   |g'
    
-   sed -i 's|Select Digital OTP Setup / Configuration|3 dots / Setup DigitalOTP / Register    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|Select Digital OTP Setup / Configuration|3 dots / Setup DigitalOTP / Register    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-   echo "INFO: [Select Digital OTP Setup...] strings are modified to [3 dots / Setup DigitalOTP....] !"
-
-   sed -i 's|Total Balance in VND|Total balance in VND|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|Total Balance in VND|Total balance in VND|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-   echo "INFO: [Select Digital OTP Setup...] strings are modified to [3 dots / Setup DigitalOTP....] !"
-
-   sed -i 's|Simply enter the DigitalOTP PIN, and the system will Autoally activate to process encryption and transaction authentication.|Simply enter the DigitalOTP PIN, and the VTAP system will activate to process encryption and transaction authentication.    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-   sed -i 's|Simply enter the DigitalOTP PIN, and the system will Autoally activate to process encryption and transaction authentication.|Simply enter the DigitalOTP PIN, and the VTAP system will activate to process encryption and transaction authentication.    |g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
-   echo "INFO: [Simply enter the DigitalOTP PIN, and the system...] strings are modified to [Simply enter the DigitalOTP PIN, and the VTAP system....] !"
-
-
+   sed_libapp 's|Select Digital OTP Setup / Configuration|3 dots / Setup DigitalOTP / Register    |g'
+   sed_libapp 's|Total Balance in VND|Total balance in VND|g'
+   sed_libapp 's|Simply enter the DigitalOTP PIN, and the system will Autoally activate to process encryption and transaction authentication.|Simply enter the DigitalOTP PIN, and the VTAP system will activate to process encryption and transaction authentication.    |g'
 
     echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/autopatch_strings.inf'
     echo "Applied [Autopatch strings] patch !!!"
