@@ -233,8 +233,8 @@ do
      rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/y4'
      rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/z4'
      rm -rf 'mbapk/mbapk_unpacked/smali/com/a5'
-     rm -rf 'mbapk/mbapk_unpacked/smali/com/ay4
-     rm -rf 'mbapk/mbapk_unpacked/smali/com/az4
+     rm -rf 'mbapk/mbapk_unpacked/smali/com/ay4'
+     rm -rf 'mbapk/mbapk_unpacked/smali/com/az4'
      rm -rf 'mbapk/mbapk_unpacked/smali/com/c5'
      rm -rf 'mbapk/mbapk_unpacked/smali/com/d5'
      for i in {9..82}; do
