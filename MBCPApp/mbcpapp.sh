@@ -69,7 +69,7 @@ do
 
     elif [ "$opt" == 'Unpack APK' ]; then
     # Check if *.apk exists
-    if [ -f ~/mbbpatch/MBCPApp/mbapk/*.apk ]
+    if ls ~/mbbpatch/MBCPApp/mbapk/*.apk >/dev/null 2>&1
  then
     # Check if apk is unpacked or not
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
@@ -162,7 +162,7 @@ fi
 
 
     elif [ "$opt" == 'Convert apks to apk' ]; then
-    if [ -f ~/mbbpatch/MBCPApp/mbapk/*.apks ]
+    if ls ~/mbbpatch/MBCPApp/mbapk/*.apks >/dev/null 2>&1
  then
     echo "Converting apks to apk..."
     java -jar tools/APKEditor-1.4.3.jar m -i mbapk/*.apks
