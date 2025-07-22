@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# Fun fact is this project made with
-# A tinkerer, not developer xD
-# You might see this line but ignore it then continues calling me a developer, but after all, i just a loser :D
+# Fun fact is this project made by
+# a tinkerer, not developer xD
+# You might see this line but still ignore it then continue calling me a developer, but after all, i'm just a loser :D
 
-# Check if user trying to run under HyperV (Windows Subsystem For Linux)
-# Remove this detection part to bypass WSL detection might lead project development to be STOPPED, You've warned !
+# Check if user is trying to run under WSL (Windows Subsystem for Linux)
+# Removing this detection part might cause project development to be STOPPED, You've been warned !
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
-echo "Detected WSL (Windows Subsystem for Linux) in current Linux environment !!"
+echo "Detected WSL (Windows Subsystem for Linux) in current environment !!"
 echo "INFO : MBCPApp Patcher must be run on actual or virtualized (non-WSL) Linux environment instead !!!"
-echo "INFO : Trying to remove WSL detection code might make script not works properly  !"
+echo "INFO : Trying to remove WSL detection code might make the script malfunction !"
 exit
 fi
 
