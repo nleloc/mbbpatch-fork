@@ -34,13 +34,13 @@ COMMIT="$(git rev-parse --short HEAD)"
 
 # Check if java exists on /usr/bin/java
 echo 'Checking if Java exists...'
-if java -version ; then
-    clear
-else
+if ! java -version ; then
     echo "ERROR : Java not found !!!"
     echo "INFO : Please install Java for your Linux distribution ! "
     exit 127
 fi
+
+clear
 
 # Banner 
 $FIGLET "MBCPApp Patcher"
