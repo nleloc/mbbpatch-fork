@@ -394,6 +394,13 @@ do
      rm -f 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins/MBBHomeWidgetQR.smali'
      cp -f 'patches/noinvoke/MainActivity.smali' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins'
      cp -f 'patches/noinvoke/MBBHomeWidgetQR.smali' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins'
+     echo "Removing left over files..."
+     for i in {0..83}; do
+        case $i in
+            *) rm -f "mbapk/mbapk_unpacked/smali_classes5/mbshield/EP$i.smali" ;;
+        esac
+     done
+
      patch_finish "remove_invoke_to_mbshield"
      echo "Applied [Remove invoke to mbshield] patch !!!"
    else
