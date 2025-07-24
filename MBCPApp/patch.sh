@@ -124,6 +124,8 @@ do
    sed_libapp 's|Total Balance in VND|Total balance in VND|g'
    sed_libapp 's|Simply enter the DigitalOTP PIN, and the system will Autoally activate to process encryption and transaction authentication.|Simply enter the DigitalOTP PIN, and the VTAP system will activate to process encryption and transaction authentication.    |g'
 
+   sed_libapp 's|productionrn|mbcpreleases|g'
+
     patch_finish "autopatch_strings"
     echo "Applied [Autopatch strings] patch !!!"
     
