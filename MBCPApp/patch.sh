@@ -37,6 +37,17 @@ sed_libapp() {
     ) && echo "INFO : [$target] -> [$replacement]" || echo "WARN : replacing [$target] failed !"
 }
 
+# libdesignersactivists.so are former known as libZDefend.so
+# MB moved it to libdesignersactivists.so since v6.4.48+
+# this currently is placeholder, and will be implemented later
+sed_libzdefend() {
+    target=$(bb_split "$1" '|' '1')
+    replacement=$(bb_split "$1" '|' '2')
+    (
+        sed -i "$1" ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so
+        sed -i "$1" ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so
+    ) && echo "INFO : [$target] -> [$replacement]" || echo "WARN : replacing [$target] failed !"
+}
 
 manifest_remove() {
     sed -i "/$1/d" ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/AndroidManifest.xml
