@@ -260,7 +260,7 @@ do
      rm -f 'mbapk/mnapk_unpacked/res/drawable-xxhdpi/logo_vnairline.png'
      echo "Removing resources..."
 
-     cd ~/mbbpatch/MBCPApp
+     cd ~/mbbpatch/MBCPApp || exit 127
 
       # Remove activity
       manifest_remove 'android:name="com.vnpay.ticketlib.Activity.VMB20BlankActivity"'
