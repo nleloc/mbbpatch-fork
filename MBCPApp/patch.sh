@@ -538,8 +538,7 @@ fi
  fi
 
     elif [ "$opt" == 'Remove new root detection' ]; then
-    if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
- then
+    if [ $(get_mb_ver) -lt 59 ] ; then
     echo "Applying [Remove new root detection] patch..."
     echo 'Removing [libZDefend.so]...'
     rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libZDefend.so'
@@ -576,9 +575,8 @@ fi
     manifest_remove 'android:authorities="com.mbmobile.inserted.thumbzilla.ireland'
     patch_finish "remove_new_root_detection"
     echo "Applied [Remove new root detection] patch !!!"
-
  else
-    echo "[mbapk_unpacked] not found ! Please unpack APK first ! "
+    echo "WARN : This patch is only applicable for v6.4.58 and lower"
  fi
 
     elif [ "$opt" == 'Add modified resources' ]; then
