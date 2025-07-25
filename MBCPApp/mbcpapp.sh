@@ -63,6 +63,8 @@ do
     wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar -q --show-progress 
     echo "Downloading APKEditor-1.4.3.jar..."
     wget https://github.com/REAndroid/APKEditor/releases/download/V1.4.3/APKEditor-1.4.3.jar -q --show-progress
+    echo "Downloading APKEditor-1.4.4.jar..."
+    wget https://github.com/REAndroid/APKEditor/releases/download/V1.4.3/APKEditor-1.4.4.jar -q --show-progress
     mv *.jar tools/
     cd ..
     echo "You can now continue with other operations"
@@ -129,9 +131,9 @@ fi
     java -jar tools/apktool_2.12.0.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk
     echo "Processing APK signature scheme v2/v3..."
     rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
-    java -jar tools/APKEditor-1.4.3.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
+    java -jar tools/APKEditor-1.4.4.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
     cp -r 'mbsig/signatures' 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml/'
-    java -jar tools/APKEditor-1.4.3.jar b -i 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
+    java -jar tools/APKEditor-1.4.4.jar b -i 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
     mv 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml_out.apk' 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
     rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
     rm 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
@@ -165,7 +167,7 @@ fi
     if ls ~/mbbpatch/MBCPApp/mbapk/*.apks >/dev/null 2>&1
  then
     echo "Converting apks to apk..."
-    java -jar tools/APKEditor-1.4.3.jar m -i mbapk/*.apks
+    java -jar tools/APKEditor-1.4.4.jar m -i mbapk/*.apks
     mv mbapk/*.apk mbapk/MBOriginal.apk
     echo 'Cleaning left over [apks] files...'
     rm -f mbapk/*.apks

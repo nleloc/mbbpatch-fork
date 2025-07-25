@@ -58,6 +58,7 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
 | `Bypass signature check` | Not implemented | v6.4.0 ~ v6.4.21 |
+| `[TEST] Remove v6.4.56 root detection` | New workaround that removes new Zimperium (ZDefend) root detection from app. | v6.4.56 |
 | `Bypass 1200 error` | Workaround for 1200 error that happening on original MB app with specific version, now discontinued. | v6.4.45 |
 </details>
 
