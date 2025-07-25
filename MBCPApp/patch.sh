@@ -538,7 +538,7 @@ fi
  fi
 
     elif [ "$opt" == 'Remove new root detection' ]; then
-    if [ $(get_mb_ver) -lt 59 ] ; then
+    if [ "$(get_mb_ver)" -lt 59 ] ; then
     echo "Applying [Remove new root detection] patch..."
     echo 'Removing [libZDefend.so]...'
     rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libZDefend.so'
