@@ -910,10 +910,7 @@ done
  fi
 
     elif [ "$opt" == 'Exit' ]; then
-        clear
-        ./mbcpapp.sh
         exit
-		break
 	fi
 done
 
