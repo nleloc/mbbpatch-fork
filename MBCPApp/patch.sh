@@ -111,7 +111,7 @@ do
     sed_libapp 's|Verification information is invalid, please contact hotline 1900545426 for support|EKYC failed, please go to our Telegram group (@mbbpatch) for details and help !!! |g'
    # XPE002/XPE003 dialog contents :
    sed_libapp 's|MB has detected that the device is currently not secure for performing transactions|This dialog are showing cuz server-side MB changes for rooted devices are enforced.|g'
-   sed_libapp 's|Please try closing and reopening the app, or reinstalling the MBCPApp    from the app store to continue using the service.|If you need to bypass this dialog, please checkout updated version of MBZDefend-Fix on GitLab which contains fixes (soon) |g'
+   sed_libapp 's|Please try closing and reopening the app, or reinstalling the MBCPApp    from the app store to continue using the service.|If you are patching via Patcher with v6.4.59+ or newer, please repatch and dont include [Remove new root detection] patch.|g'
 
    sed_libapp 's|Set up DigitalOTP|Setup DigitalOTP |g'
    sed_libapp 's|Set up facial authentication|Setup eKYC for transactions |g'
@@ -127,6 +127,11 @@ do
    sed_libapp 's|Simply enter the DigitalOTP PIN, and the system will Autoally activate to process encryption and transaction authentication.|Simply enter the DigitalOTP PIN, and the VTAP system will activate to process encryption and transaction authentication.    |g'
 
    sed_libapp 's|productionrn|mbcpreleases|g'
+
+   sed_libapp 's|Momo|MoMo|g'
+   sed_libapp 's|Zalo Pay|ZolaPay |g'
+   sed_libapp 's|MB membership|MB Membership|g'
+
 
     patch_finish "autopatch_strings"
     echo "Applied [Autopatch strings] patch !!!"
