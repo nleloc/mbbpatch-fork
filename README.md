@@ -1,8 +1,3 @@
-# # Notice FOR MB Bank developers / securities 
-# WE did NOT made this project just for you to report this to MB Bank development team and fix those patches. This is COMMUNITY PROJECT which patches MB Bank app to remove annoying limitation you've implemented to MB Bank app ! 
-# You may did it for users safety. But we need freedom by rooting android device to get full control !
-
-
 
 # MBCPApp Patcher for MB Bank
 Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://gitlab.com/cuynu) (as a loser) with love <3
@@ -15,9 +10,10 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 - Licensed as MIT License : [View license.](https://gitlab.com/cuynu/mbbpatch/-/blob/mbflutter/LICENSE)
 
 ## Introduction 
-- This project was made to remove or limit annoying features & root detection & accessibility detection that implemented by the development team of "MB Bank" Android app with additional feature such as custom themes. It's not PoC project.
-- [MBCP (MBBank CorePatch)](https://t.me/mbbpatch) are closed source before, and many people don't like it cuz worry about security & privacy issues. 
-- In order to support community and make MBCP open source, We spend days to rewritten whole `MBCPApp` patches in Bash and open it so you can patch it yourself on (Bare metal, not WSL) Linux environment (where we used to patch `MBCP`) 
+- This project was made to remove or limit annoying features & root detection & accessibility detection that implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability,etc. It's not PoC project.
+- [MBCP](https://t.me/mbbpatch) are closed source before, and many people don't like it cuz worry about security & privacy issues. 
+- In order to support community, we spend days to rewritten `MBCP` patches once again in Bash and open sourced it so you can patch yourself from original app on (Bare metal, not WSL) Linux environment
+- Note : MBCP are "MBBank CorePatch" but shorter and `MBCP` or `MBCPApp` are the same thing as `MBCP`.
 
 ## Patches list :
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
@@ -80,14 +76,14 @@ cd ~/mbbpatch/MBCPApp
 ```
 
 - Since MB Bank are now using split APK (*.apks) since `v5.3 (135)` so you have to convert it to regular APK first
-- Grab MB Bank apks from [eMBee APKs](https://t.me/embeeapks) and copy it to `~/mbbpatch/MBCPApp/mbapk`
+- Grab MB Bank apks from [eMBee APKs](https://t.me/embeeapks) or [Lotus Chat](https://lotuschat.vn/w/+anSH1BbDbAYn54JC9nIC9A) if you don't have access to Telegram and copy it to `~/mbbpatch/MBCPApp/mbapk` 
 
 - Run bash `mbcpapp.sh` script
 ```
 cd ~/mbbpatch/MBCPApp
 ./mbcpapp.sh
 ```
-- Download necessary tools first with `Download tools` function (otherwise other function are unlikely to work!)
+- Download necessary tools first with `Download tools` function (otherwise other functions are unlikely to work!) 
 - Convert apks to apk first using `Convert apks to apk` function
 - Unpack apk with `Unpack apk` function
 - Check if MBShield present on unpacked APK with `Check MBShield` function 
@@ -107,5 +103,8 @@ MBCPApp Patcher project won't be possible without those external projects !!
 - [MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3 (in the past)
 - [Zhaxia CN](https://t.me/zhaxia_cn) for sticker packs (Add anime resources)
 
+## Contributors
+- [Cuynu](https://gitlab.com/cuynu) - MBCP project maintainer
+- [fukiame](https://gitlab.com/fukiame) - other improvements to project
 
 
