@@ -162,7 +162,7 @@ do
     elif [ "$opt" == 'Bypass accessibility & malicious apps check' ]; then
     if [ -d ~/mbbpatch/MBCPApp/patches/bypass_accessibility_applist ]
  then
-    if [ $(get_mb_ver) -lt 55 ] ; then
+    if [ "$(get_mb_ver)" -lt 55 ] ; then
     echo "Applying patch [Bypass accessibility & malicious apps check]..."
     echo 'Copying patched code [MbbankUtilitiesPlugin]...'
     cp -r -f 'patches/bypass_accessibility_applist/com' 'mbapk/mbapk_unpacked/smali_classes3'
@@ -233,7 +233,7 @@ do
      echo "Applied [Remove eMBee] patch !!!"
 
      elif [ "$opt" == 'Remove VNPAY VMB20' ]; then
-     if [ $(get_mb_ver) -gt 56 ] ; then
+     if [ "$(get_mb_ver)" -gt 56 ] ; then
      echo "Applying patch..."
      rm -rf 'mbapk/mbapk_unpacked/smali_classes4/com/vnpay'
      rm -rf 'mbapk/mbapk_unpacked/smali_classes4/com/d5'
