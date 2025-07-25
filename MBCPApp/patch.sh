@@ -45,8 +45,8 @@ manifest_remove() {
 
 get_mb_ver() {
     a="$(grep -m1 'versionName' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/apktool.yml)"
-    a=$(bb_split "$a" ':' '1')
-    echo $(bb_split "$a" '.' '2')
+    a="$(bb_split "$a" ':' '1')"
+    bb_split "$a" '.' '2'
 }
 
 patch_finish() {
