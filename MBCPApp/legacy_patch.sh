@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Fun fact is this project made with
-# A tinkerer, not developer xD
-# You might see this line but ignore it then continues calling me a developer, but after all, i just a loser :D
+# Fun fact is this project made by
+# a tinkerer, not developer xD
+# You might see this line but still ignore it then continue calling me a developer, but after all, i'm just a loser :D
 
 echo "Legacy patches list for MBCPApp :"
 PS3='Select patch options :'
