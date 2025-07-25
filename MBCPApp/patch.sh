@@ -1,4 +1,6 @@
 #!/bin/bash
+# vim: expandtab tabstop=4 shiftwidth=4
+# shellcheck disable=SC2016
 
 # Fun fact is this project made by
 # a tinkerer, not developer xD
