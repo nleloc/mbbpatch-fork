@@ -157,6 +157,11 @@ do
    sed_libapp 's|I understand|OKAY        |g'
    sed_libapp 's|Authentication with DigitalOTP|DigitalOTP authentication     |g'
    sed_libapp 's|DigitalOTP information|DigitalOTP Information|g'
+   sed_libapp 's|Do you want to exit the app?|Back button pressed. Exit ? |g'
+   sed_libapp 's|Exit application|Exit MBCPApp    |g'
+   sed_libapp 's|To use this feature, please install|To use this feature, please setup  |g'
+   sed_libapp 's|Setup D-OTP|Digital OTP|g'
+   sed_libapp 's|Your login session expired|Login session will end :< |g'
    # Placeholder toolbox
    sed_libapp 's|Shopping, entertainment|MBCPApp Toolbox        |g'
     
