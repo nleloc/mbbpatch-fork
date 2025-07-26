@@ -76,7 +76,9 @@ do
     # Check if apk is unpacked or not
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
     then
-    echo 'APK already unpacked, no need to unpack again !'
+    echo "APK already unpacked, removing unpacked app..."
+    rm -rf 'mbapk/mbapk_unpacked'
+    echo "Please unpack APK again !"
     else
     # Check if apktool exists or not
     if [ -f ~/mbbpatch/MBCPApp/tools/apktool_2.12.0.jar ]
