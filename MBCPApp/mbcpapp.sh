@@ -85,7 +85,7 @@ do
     # Check if apktool exists or not
     if [ -f ~/mbbpatch/MBCPApp/tools/apktool.jar ]
 then
-    java -jar tools/apktool.jar d mbapk/*.apk -o mbapk/mbapk_unpacked
+    java -jar tools/apktool.jar d mbapk/*.apk -o mbapk/mbapk_unpacked -j$(nproc)
     echo "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
@@ -132,12 +132,12 @@ fi
  then
     echo "Repacking APK..."
     echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
-    java -jar tools/apktool.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk
+    java -jar tools/apktool.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk -j$(nproc)
     echo "Processing APK signature scheme v2/v3..."
     rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
-    java -jar tools/apkeditor.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
+    java -jar tools/apkeditor.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk' -j$(nproc)
     cp -r 'mbsig/signatures' 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml/'
-    java -jar tools/apkeditor.jar b -i 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
+    java -jar tools/apkeditor.jar b -i 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml' -j$(nproc)
     mv 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml_out.apk' 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
     rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
     rm 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
@@ -171,7 +171,7 @@ fi
     if ls ~/mbbpatch/MBCPApp/mbapk/*.apks >/dev/null 2>&1
  then
     echo "Converting apks to apk..."
-    java -jar tools/apkeditor.jar m -i mbapk/*.apks
+    java -jar tools/apkeditor.jar m -i mbapk/*.apks -j$(nproc)
     mv mbapk/*.apk mbapk/MBOriginal.apk
     echo 'Cleaning left over [apks] files...'
     rm -f mbapk/*.apks

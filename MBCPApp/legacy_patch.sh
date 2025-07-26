@@ -16,8 +16,8 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
      		wget https://github.com/ghclonenah1/mbbpatch_release/releases/download/a/embee_v6.4.47_arm64-v8a_armeabi-v7a.apks -q --show-progress
 		mv *.apks bypass1200/
      		echo "Unpacking..."
-     		java -jar tools/apkeditor.jar m -i bypass1200/*.apks
-     		java -jar tools/apktool.jar d bypass1200/*.apk -o bypass1200/unpacked
+     		java -jar tools/apkeditor.jar m -i bypass1200/*.apks -j$(nproc)
+     		java -jar tools/apktool.jar d bypass1200/*.apk -o bypass1200/unpacked -j$(nproc)
      		mv bypass1200/unpacked/lib/arm64-v8a/libapp.so mbapk/mbapk_unpacked/lib/arm64-v8a/ 
      		mv bypass1200/unpacked/lib/armeabi-v7a/libapp.so mbapk/mbapk_unpacked/lib/armeabi-v7a/ 
      		mv bypass1200/unpacked/lib/arm64-v8a/libflutter.so mbapk/mbapk_unpacked/lib/arm64-v8a/ 
