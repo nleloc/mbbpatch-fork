@@ -143,6 +143,24 @@ do
    sed_libapp 's|Zalo Pay|ZolaPay |g'
    sed_libapp 's|MB membership|MB Membership|g'
 
+   sed_libapp 's|Open account ice number|Open new account number|g'
+   sed_libapp 's|Link Management|Link management|g'
+   sed_libapp 's|Set as Default Account|Set as default account|g'
+   sed_libapp 's|Account Balance|Account balance|g'
+   sed_libapp 's|New release|Features   |g'
+   sed_libapp 's|Challenge to receive gifts|Others                    |g'
+   sed_libapp 's|MB will Autoally transfer the entire remaining balance to the account you have selected|MB will transfer the balance from the closed account to the account you have selected. |g'
+   sed_libapp 's|You have not registered for D-OTP|DigitalOTP are not registered    |g'
+   sed_libapp 's|Please register for D-OTP to use this feature|DigitalOTP are required for this feature.    |g'
+   sed_libapp 's|Register D-OTP|Register now  |g'
+   sed_libapp 's|The login session expired. Please login again|Login session are expired. Please login again|g'
+   sed_libapp 's|I understand|OKAY        |g'
+   sed_libapp 's|Authentication with DigitalOTP|DigitalOTP authentication     |g'
+   sed_libapp 's|DigitalOTP information|DigitalOTP Information|g'
+   # Placeholder toolbox
+   sed_libapp 's|Shopping, entertainment|MBCPApp Toolbox        |g'
+    
+
 
     patch_finish "autopatch_strings"
     echo "Applied [Autopatch strings] patch !!!"
