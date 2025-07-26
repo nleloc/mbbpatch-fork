@@ -1,8 +1,9 @@
 #!/bin/bash
+# vim: expandtab tabstop=4 shiftwidth=4
 
-# Fun fact is this project made with
+# Fun fact is this project made by
 # A tinkerer, not developer xD
-# You might see this line but ignore it then continues calling me a developer, but after all, i just a loser :D
+# You might see this line but still ignore it then continues calling me a developer, but after all, i'm just a loser :D
 
 # Initial startup
 mkdir -p ~/mbbpatch/MBCPApp/mbapk
@@ -15,8 +16,8 @@ if uname -a | grep -i Linux ; then
     echo "INFO : You have Linux environment :)"
 fi
 
-# Check if user trying to run under HyperV (Windows Subsystem For Linux)
-# Remove this detection part to bypass WSL detection might lead project development to be STOPPED, You've warned !
+# Check if user is trying to run under WSL (Windows Subsystem for Linux)
+# Removing this detection part might cause project development to be STOPPED, You've been warned !
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
     echo "Detected WSL (Windows Subsystem for Linux) in current Linux environment !!"
     echo "Warn : You won't be supported for any issues under WSL environment !!"
