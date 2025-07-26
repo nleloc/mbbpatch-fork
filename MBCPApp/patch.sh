@@ -457,6 +457,7 @@ fi
     sed_libzdefend 's|com.zimperium.threat.get|app.zimperiam.nonpop.all|g'
     sed_libzdefend 's|detection|freedom..|g'
     echo "App data clear are mandatory in order to make app to not trigger root detect screen"
+    patch_finish "bypass_new_zimperium_detection"
     echo "Applied [Bypass new zimperium detection] patch !!!"
 else
    echo "[UnderlyingVcl.smali] not found! Please clear patched app then unpack again!"
