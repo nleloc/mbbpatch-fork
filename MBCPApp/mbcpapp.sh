@@ -225,42 +225,40 @@ then
         adb shell am force-stop com.mbmobile
         adb shell rm -rf /sdcard/assets
         adb shell mkdir /sdcard/assets
-        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/flutter_assets /sdcard/assets
-        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/dexopt /sdcard/assets
-        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/font /sdcard/assets
-        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/mbshield /sdcard/assets
-        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/media_init_data /sdcard/assets
-        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/mlkit_barcode_models /sdcard/assets
-        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/models_bundled /sdcard/assets
-        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/mwebview /sdcard/assets
-        adb shell su -c cp -r -f /data/user/0/com.mbmobile/files/zfiles /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/crashlytics-build.properties /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/firmware /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/insider.ttf /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/dlangV5.dat /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/dlangV5.en.dat /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy0 /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy1 /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy2 /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy3 /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy4 /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy5 /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy6 /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy8 /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policy9 /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/policym /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/profile /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/rulesV5.dat /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/sgprofile /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/signature /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/smart_ekyc_finall.zip /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/version.json /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/vkeylicensepack /sdcard/assets
-        adb shell su -c cp -f /data/user/0/com.mbmobile/files/voscodesign.vky /sdcard/assets
+        copy_assets flutter_assets
+        copy_assets dexopt
+        copy_assets font
+        copy_assets mbshield
+        copy_assets media_init_data
+        copy_assets mlkit_barcode_models
+        copy_assets models_bundled
+        copy_assets mwebview
+        copy_assets zfiles
+        copy_assets crashlytics-build.properties
+        copy_assets firmware
+        copy_assets insider.ttf
+        copy_assets dlangV5.dat
+        copy_assets dlangV5.en.dat
+        copy_assets policy0
+        copy_assets policy1
+        copy_assets policy2
+        copy_assets policy3
+        copy_assets policy4
+        copy_assets policy5
+        copy_assets policy6
+        copy_assets policy8
+        copy_assets policy9
+        copy_assets policym
+        copy_assets profile
+        copy_assets rulesV5.dat
+        copy_assets sgprofile
+        copy_assets signature
+        copy_assets smart_ekyc_finall.zip
+        copy_assets version.json
+        copy_assets vkeylicensepack
+        copy_assets voscodesign.vky
         echo 'Copying assets...'
-        sleep 2
         adb pull /sdcard/assets mbapk/mbapk_unpacked/
-        sleep 5
         adb shell rm -rf /sdcard/assets
         else
         echo "INFO : MBShield not found ! No need to extract assets !"
