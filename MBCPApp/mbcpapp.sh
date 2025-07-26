@@ -57,7 +57,26 @@ copy_assets() {
     adb shell su -c cp -rf "/data/user/0/com.mbmobile/files/$1" /sdcard/assets
 }
 
+is_unpacked() { [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ] ; }
+is_unpacked_lib() {
+    [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ] || {
+        echo "ERROR : [mbapk_unpacked/lib] folder not found ! Please unpack APK first !" ; exit 127
+    }
+}
+apktool_exist() {
+    [ -f ~/mbbpatch/MBCPApp/tools/apktool.jar ] || { echo "ERROR : apktool not found" ; exit 127 ; }
+}
+mb_apk_exist() {
+    ls ~/mbbpatch/MBCPApp/mbapk/*.apk >/dev/null 2>&1 || {
+        echo "No *.apk found in [mbapk] folder, please copy apk to [mbapk] folder !"
+        echo "If you got apks from eMBee APKs, use [Convert apks to apk] option !"
+    }
+}
+
 unpack_mbcp() {
+    local - ; set -e
+    apktool_exist && mb_apk_exist
+    is_unpacked && rm -rf 'mbapk/mbapk_unpacked' || :
     java -jar tools/apktool.jar d mbapk/*.apk -o mbapk/mbapk_unpacked -j$(nproc) || { echo "ERROR : Unpacking failed !" ; exit 1  ; }
     echo "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
@@ -92,7 +111,8 @@ unpack_mbcp() {
 }
 
 repack_mbcp() {
-    [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ] || { echo "ERROR : [mbapk_unpacked] folder not found ! Please unpack APK first !" ; exit 127 ; }
+    apktool_exist
+    is_unpacked || { echo "ERROR : [mbapk_unpacked] folder not found ! Please unpack APK first !" ; exit 127 ; }
     echo "Repacking APK..."
     echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
     (
@@ -111,6 +131,14 @@ repack_mbcp() {
         echo 'Install and trying to open it when ಠ‿ಠ'
         echo 'If you are facing issues, report it on Telegram [@mbbpatch] or GitLab : mbbpatch !!'
     } || echo 'ERROR : Repacking failed !'
+}
+
+run_patcher() {
+    is_unpacked_lib && bash ./patch.sh
+}
+
+run_legacy_patcher() {
+    is_unpacked_lib && bash ./legacy_patch.sh
 }
 
 # Banner 
@@ -132,33 +160,10 @@ do
     download_tools
 
     elif [ "$opt" == 'Unpack APK' ]; then
-    # Check if *.apk exists
-    if ls ~/mbbpatch/MBCPApp/mbapk/*.apk >/dev/null 2>&1
- then
-    # Check if apk is unpacked or not
-    if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
-    then
-    echo "APK already unpacked, removing unpacked app..."
-    rm -rf 'mbapk/mbapk_unpacked'
-    echo "Please unpack APK again !"
-    else
-    # Check if apktool exists or not
-    if [ -f ~/mbbpatch/MBCPApp/tools/apktool.jar ]
-then
     unpack_mbcp
-else
-    echo "Please download apktool first !"
-fi
-    fi 
-  else
-    echo "Where is *.apk file?"
-    # APK not found ?
-    echo "*.apk not found on [mbapk] folder, please copy apk to [mbapk] folder !"
-    echo "If you got apks from eMBee APKs, use [Convert apks to apk] option !"
-    fi
 
-     elif [ "$opt" == 'Repack APK' ]; then
-     repack_mbcp
+    elif [ "$opt" == 'Repack APK' ]; then
+    repack_mbcp
 
     elif [ "$opt" == 'MBShield Check' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
@@ -191,21 +196,11 @@ fi
     echo "APKs missing, cannot continue !"
  fi
 
-     elif [ "$opt" == 'Patch App' ]; then
-     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
- then
-    bash ./patch.sh
-else 
-    echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
-    fi
+    elif [ "$opt" == 'Patch App' ]; then
+    run_patcher
 
     elif [ "$opt" == 'Legacy patches' ]; then
-     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
- then
-    bash ./legacy_patch.sh
-else 
-    echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
-    fi
+    run_legacy_patcher
 
 
     elif [ "$opt" == 'Extract assets [ROOT]' ]; then
