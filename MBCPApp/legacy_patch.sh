@@ -27,7 +27,7 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
      		## MB Forced update to 658, it must be spoofed!
      		echo "Patching [apktool.yml]..."
      		sed -i 's|658|700|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/apktool.yml
-     		echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(date). > 'mbapk/mbapk_unpacked/assets/mbcp_info/bypass_1200_error.inf'
+     		echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(git show -s --format=%cd HEAD). > 'mbapk/mbapk_unpacked/assets/mbcp_info/bypass_1200_error.inf'
 
 
 		# Placeholder  patch, not yet implemented 
@@ -40,18 +40,18 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
  	then
     	echo "INFO : MBShield found on unpacked APK ! Bypass signature checks won't be possible if MBShield is present on current unpacked APK !"
     	echo "INFO : Please use supported version !!!"
-   	echo For React Native : MBBank/MB Lite v1.0 up to v6.3.11
-    	echo For Flutter : MBBank v6.4.0 up to v6.4.21
-    	echo Some specific version has no MBShield can also be used :
-    	echo MBBank v6.4.24 [versionCode : 624]
-   	echo MBBank v6.4.26 [versionCode : 626]
-    	echo MBBank v6.4.45 [versionCode : 658]
+   	echo "For React Native : MBBank/MB Lite v1.0 up to v6.3.11"
+    	echo "For Flutter : MBBank v6.4.0 up to v6.4.21"
+    	echo "Some specific version has no MBShield can also be used :"
+    	echo "MBBank v6.4.24 [versionCode : 624]"
+   	echo "MBBank v6.4.26 [versionCode : 626]"
+    	echo "MBBank v6.4.45 [versionCode : 658]"
     else
     echo "Function not yet implemented due to issues with original repo, check back later !"
    
     fi
     else
-    echo APK are not unpacked ! Please unpack APK first !
+    echo "APK are not unpacked ! Please unpack APK first !"
 fi
 
 	elif [ "$opt" == '[TEST] Remove v6.4.56 root detection' ]; then
