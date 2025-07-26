@@ -315,11 +315,11 @@ do
         adb start-server
         adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
         echo "ATTENTION : Network traffic will be redirected to [medium.com] for 20 seconds !!!"
-        adb shell su -c iptables -t nat -A OUTPUT -p tcp -d 0/0 -j DNAT --to-destination 162.159.153.4:443
+        adb shell su -c 'iptables -t nat -A OUTPUT -p tcp -d 0/0 -j DNAT --to-destination 162.159.153.4:443'
         adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
         sleep 20
         echo "Restoring network traffic"
-        adb shell su -c iptables -t nat -F OUTPUT
+        adb shell su -c 'iptables -t nat -F OUTPUT'
         echo "Press [Try again] after got 1005/1007 error on MB, so it's can skip device not secure dialog !"
     else
         echo "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
