@@ -43,6 +43,16 @@ fi
 
 clear
 
+download_tools() {
+    apktool_link="https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar"
+    apkeditor_link="https://github.com/REAndroid/APKEditor/releases/download/V1.4.4/APKEditor-1.4.4.jar"
+
+    cd tools && rm -rf *.jar
+    wget -q --show-progress -O apktool.jar "$apktool_link" || echo "ERROR : downloading apktool failed"
+    wget -q --show-progress -O apkeditor.jar "$apkeditor_link" || echo "ERROR : downloading apkeditor failed"
+    cd .. && echo "You can now continue with other operations !"
+}
+
 # Banner 
 $FIGLET "MBCPApp Patcher"
 echo -------------------------------------------------------------
@@ -59,16 +69,7 @@ PS3='Please select options to continue : '
 select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'MBShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
 do
     if [ "$opt" == 'Download tools' ]; then
-    cd tools && rm -rf *.jar
-    echo "Downloading apktool_2.12.0.jar..."
-    wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar -q --show-progress 
-    echo "Downloading APKEditor-1.4.3.jar..."
-    wget https://github.com/REAndroid/APKEditor/releases/download/V1.4.3/APKEditor-1.4.3.jar -q --show-progress
-    echo "Downloading APKEditor-1.4.4.jar..."
-    wget https://github.com/REAndroid/APKEditor/releases/download/V1.4.4/APKEditor-1.4.4.jar -q --show-progress
-    mv *.jar tools/
-    cd ..
-    echo "You can now continue with other operations"
+    download_tools
 
     elif [ "$opt" == 'Unpack APK' ]; then
     # Check if *.apk exists
@@ -82,9 +83,9 @@ do
     echo "Please unpack APK again !"
     else
     # Check if apktool exists or not
-    if [ -f ~/mbbpatch/MBCPApp/tools/apktool_2.12.0.jar ]
+    if [ -f ~/mbbpatch/MBCPApp/tools/apktool.jar ]
 then
-    java -jar tools/apktool_2.12.0.jar d mbapk/*.apk -o mbapk/mbapk_unpacked
+    java -jar tools/apktool.jar d mbapk/*.apk -o mbapk/mbapk_unpacked
     echo "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
@@ -131,12 +132,12 @@ fi
  then
     echo "Repacking APK..."
     echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
-    java -jar tools/apktool_2.12.0.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk
+    java -jar tools/apktool.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk
     echo "Processing APK signature scheme v2/v3..."
     rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
-    java -jar tools/APKEditor-1.4.4.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
+    java -jar tools/apkeditor.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
     cp -r 'mbsig/signatures' 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml/'
-    java -jar tools/APKEditor-1.4.4.jar b -i 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
+    java -jar tools/apkeditor.jar b -i 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
     mv 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml_out.apk' 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
     rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
     rm 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
@@ -170,7 +171,7 @@ fi
     if ls ~/mbbpatch/MBCPApp/mbapk/*.apks >/dev/null 2>&1
  then
     echo "Converting apks to apk..."
-    java -jar tools/APKEditor-1.4.4.jar m -i mbapk/*.apks
+    java -jar tools/apkeditor.jar m -i mbapk/*.apks
     mv mbapk/*.apk mbapk/MBOriginal.apk
     echo 'Cleaning left over [apks] files...'
     rm -f mbapk/*.apks
