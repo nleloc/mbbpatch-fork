@@ -64,7 +64,7 @@ do
     echo "Downloading APKEditor-1.4.3.jar..."
     wget https://github.com/REAndroid/APKEditor/releases/download/V1.4.3/APKEditor-1.4.3.jar -q --show-progress
     echo "Downloading APKEditor-1.4.4.jar..."
-    wget https://github.com/REAndroid/APKEditor/releases/download/V1.4.3/APKEditor-1.4.4.jar -q --show-progress
+    wget https://github.com/REAndroid/APKEditor/releases/download/V1.4.4/APKEditor-1.4.4.jar -q --show-progress
     mv *.jar tools/
     cd ..
     echo "You can now continue with other operations"
