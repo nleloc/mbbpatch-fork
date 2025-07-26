@@ -456,6 +456,8 @@ fi
     sed_libzdefend 's|com.zimperium.command|app.zimperiam.commall|g'
     sed_libzdefend 's|com.zimperium.threat.get|app.zimperiam.nonpop.all|g'
     sed_libzdefend 's|detection|freedom..|g'
+    echo "Patching [AndroidManifest.xml]..."
+    manifest_remove 'android:name="android.permission.QUERY_ALL_PACKAGES"'
     echo "App data clear are mandatory in order to make app to not trigger root detect screen"
     patch_finish "bypass_new_zimperium_detection"
     echo "Applied [Bypass new zimperium detection] patch !!!"
