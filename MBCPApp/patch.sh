@@ -67,7 +67,7 @@ patch_finish() {
 echo ---------------------------
 echo 'Patch list for MBCPApp :'
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Remove app from launcher' 'Set targetSdkVersion to 35' 'Add modified resources' 'Add anime resources' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Bypass new zimperium detection' 'Remove app from launcher' 'Set targetSdkVersion to 35' 'Add modified resources' 'Add anime resources' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -439,6 +439,27 @@ then
    echo "Applied [Restore old registration resources] patch !!!"
 else
    echo "[restore_oldreg] not found !"
+fi
+
+  elif [ "$opt" == 'Bypass new zimperium detection' ]; then
+    if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali ]
+ then
+    echo "Applying patch..."
+    echo "Removing checksum from provider..."
+    sed -i 's|e1a14adc915d7ad159edf2668b0dfcb359cf86538642de0e425d027f66eb07b2||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|ca168a2ad00a92b8010d6801c3ca43e6df9f3701f084f6864399eaa4bbfaf56d||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|5c9a139e42e6e6032ddbc1092af9831b8142e4e5ae89700fc7828f5bd62e1671||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|c0a161a71738083df4298a0f03b0c54abf5bfda97c7d230875d97593733226ec||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali 
+    echo "Patching [libdesignersactivists.so]..."
+    sed_libzdefend 's|zimperium.c|zimperium.x|g'
+    sed_libzdefend 's|com.zimperium.threat.new|app.zimperiam.nonpop.all|g'
+    sed_libzdefend 's|com.zimperium.command|app.zimperiam.commall|g'
+    sed_libzdefend 's|com.zimperium.threat.get|app.zimperiam.nonpop.all|g'
+    sed_libzdefend 's|detection|freedom..|g'
+    echo "App data clear are mandatory in order to make app to not trigger root detect screen"
+    echo "Applied [Bypass new zimperium detection] patch !!!"
+else
+   echo "[UnderlyingVcl.smali] not found! Please clear patched app then unpack again!"
 fi
 
    # Test remove VPN detection function from bundle, that showing notice warn users to turn off VPN.
