@@ -57,6 +57,28 @@ copy_assets() {
     adb shell su -c cp -rf "/data/user/0/com.mbmobile/files/$1" /sdcard/assets
 }
 
+repack_mbcp() {
+    [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ] || { echo "ERROR : [mbapk_unpacked] folder not found ! Please unpack APK first !" ; exit 127 ; }
+    echo "Repacking APK..."
+    echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
+    (
+        set -e
+        java -jar tools/apktool.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk -j$(nproc)
+        echo "Processing APK signature scheme v2/v3..."
+        rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
+        java -jar tools/apkeditor.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk' -j$(nproc)
+        cp -r 'mbsig/signatures' 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml/'
+        java -jar tools/apkeditor.jar b -i 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml' -j$(nproc)
+        mv 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml_out.apk' 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+        rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
+        rm 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
+    ) && {
+        echo 'Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!'
+        echo 'Install and trying to open it when ಠ‿ಠ'
+        echo 'If you are facing issues, report it on Telegram [@mbbpatch] or GitLab : mbbpatch !!'
+    } || echo 'ERROR : Repacking failed !'
+}
+
 # Banner 
 $FIGLET "MBCPApp Patcher"
 echo -------------------------------------------------------------
@@ -132,26 +154,7 @@ fi
     fi
 
      elif [ "$opt" == 'Repack APK' ]; then
-     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
- then
-    echo "Repacking APK..."
-    echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
-    java -jar tools/apktool.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk -j$(nproc)
-    echo "Processing APK signature scheme v2/v3..."
-    rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
-    java -jar tools/apkeditor.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk' -j$(nproc)
-    cp -r 'mbsig/signatures' 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml/'
-    java -jar tools/apkeditor.jar b -i 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml' -j$(nproc)
-    mv 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml_out.apk' 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
-    rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
-    rm 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
-    echo "Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!"
-    echo "Install and trying to open it when ಠ‿ಠ"
-    echo "If you are facing issues, report it on Telegram [@mbbpatch] or GitLab : mbbpatch !!"
-
-else
-    echo "[mbapk_unpacked] folder not found ! Please unpack APK first !"
-    fi
+     repack_mbcp
 
     elif [ "$opt" == 'MBShield Check' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
