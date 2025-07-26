@@ -53,6 +53,10 @@ download_tools() {
     cd .. && echo "You can now continue with other operations !"
 }
 
+copy_assets() {
+    adb shell su -c cp -rf "/data/user/0/com.mbmobile/files/$1" /sdcard/assets
+}
+
 # Banner 
 $FIGLET "MBCPApp Patcher"
 echo -------------------------------------------------------------
