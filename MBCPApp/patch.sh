@@ -468,6 +468,12 @@ fi
     if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali ]
  then
     echo "Applying patch..."
+    echo 'Removing [libvvb2060.so]...'
+    rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libvvb2060.so'
+    rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libvvb2060.so'
+    echo 'Removing [libtoolChecker.so]...'
+    rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libtoolChecker.so'
+    rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libtoolChecker.so'
     echo "Removing checksum from provider..."
     sed -i 's|e1a14adc915d7ad159edf2668b0dfcb359cf86538642de0e425d027f66eb07b2||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
     sed -i 's|ca168a2ad00a92b8010d6801c3ca43e6df9f3701f084f6864399eaa4bbfaf56d||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
