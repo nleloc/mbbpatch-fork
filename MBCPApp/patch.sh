@@ -191,13 +191,33 @@ do
        if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
    then
        echo "Apply patch [Remove protection shield]..."
-       sed_libapp 's|get_protective_cyber_risk|get_protective_cyber_none|g'
+       sed_libapp 's|get-protective-cyber_risk|get_protective_cyber_none|g'
        sed_libapp 's|Activate for Protection|Protection are disabled|g'
-       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_*.webp'
-       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_*.webp'
+       echo "Removing resources..."
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_img_pending.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_img_actived.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_img_empty.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_illus_pending.webp'
+
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_hoadon.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_muasam.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_offline.webp'
+
+       # Private exclusive
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_hoadon.private.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_muasam.private.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_img_offline.private.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_illus_pending.private.webp'
+
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_img_pending.private.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_img_actived.private.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_img_empty.private.webp'
+
+
        # Priority exclusive
-       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_*.webp'
-       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_*.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/shield_img_pending.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/shield_img_empty.webp'
+
        echo "NOTE : This doesn't remove the app protection shield, it just disable and remove the MB Protection Shield, which literally is the MIC Shield !"
        echo "Applied [Remove protection shield] patch !"
    else
