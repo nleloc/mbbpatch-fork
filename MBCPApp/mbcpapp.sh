@@ -43,6 +43,14 @@ fi
 
 clear
 
+mbshield_found='MBShield found on [mbapk_unpacked/assets/mbshield.szip] !!!
+Patching operation is limited due to MBShield :(
+You need to extract assets from Android device for some patching operation to works properly !!!'
+
+mbshield_not_found='MBShield NOT found on [mbapk_unpacked/assets/]
+Patching operation are all not limited at all !
+Asset extraction are not needed :)'
+
 download_tools() {
     apktool_link="https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar"
     apkeditor_link="https://github.com/REAndroid/APKEditor/releases/download/V1.4.4/APKEditor-1.4.4.jar"
@@ -156,34 +164,26 @@ echo -------------------------------------------------------------
 PS3='Please select options to continue : '
 select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'MBShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
 do
-    if [ "$opt" == 'Download tools' ]; then
-    download_tools
-
-    elif [ "$opt" == 'Unpack APK' ]; then
-    unpack_mbcp
-
-    elif [ "$opt" == 'Repack APK' ]; then
-    repack_mbcp
-
-    elif [ "$opt" == 'MBShield Check' ]; then
+    case "$opt" in
+        'Download tools' )   download_tools ;;
+        'Unpack APK' )       unpack_mbcp ;;
+        'Repack APK' )       repack_mbcp ;;
+        'Patch App' )        run_patcher ;;
+        'Legacy patches' )   run_legacy_patcher ;;
+        'MBShield Check' )
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
 then
     if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]
 then
-    echo "MBShield found on [mbapk_unpacked/assets/mbshield.szip]" !!!
-    echo "Patching operation is limited due to MBShield :("
-    echo "You need to extract assets from Android device for some patching operation to works properly !!!"
+    echo "$mbshield_found"
 else
-    echo "MBShield NOT found on [mbapk_unpacked/assets/]"
-    echo "Patching operation are all not limited at all !"
-    echo "Asset extraction is not needed :)"
-    fi
+    echo "$mbshield_not_found"
+fi
 else 
     echo "[mbapk_unpacked] not found ! Please unpack APK first !"
 fi
-
-
-    elif [ "$opt" == 'Convert apks to apk' ]; then
+        ;;
+        'Convert apks to apk' )
     if ls ~/mbbpatch/MBCPApp/mbapk/*.apks >/dev/null 2>&1
  then
     echo "Converting apks to apk..."
@@ -195,15 +195,8 @@ fi
  else
     echo "APKs missing, cannot continue !"
  fi
-
-    elif [ "$opt" == 'Patch App' ]; then
-    run_patcher
-
-    elif [ "$opt" == 'Legacy patches' ]; then
-    run_legacy_patcher
-
-
-    elif [ "$opt" == 'Extract assets [ROOT]' ]; then
+        ;;
+        'Extract assets [ROOT]' )
     echo 'To extract encrypted assets [if current app has MBShield protection] you need rooted device'
     echo 'And trigger a bulit-in app assets extraction !'
     echo -------------------------------------------
@@ -276,34 +269,35 @@ else
        break
         	fi
 done
-
-    elif [ "$opt" == 'Clear MBCPApp/MBBank app data' ]; then
-    echo "Clearing [com.mbmobile] data..."
-    adb shell pm clear com.mbmobile
-    adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
-    echo "INFO : Current logged in account will remain present, even if app data is cleared !"
-
-    elif [ "$opt" == 'Pull latest commit' ]; then
-    git pull origin dev
-    echo "Please run patcher again !"
-    exit
-
-    elif [ "$opt" == 'Launch MBCPApp/MBBank' ]; then
-    adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
-    elif [ "$opt" == 'Force close MBCPApp/MBBank' ]; then
-    adb shell am force-stop com.mbmobile
-
-    elif [ "$opt" == 'Clean patched app' ]; then
-    echo "Cleaning, please wait..." 
-    rm -f mbcpapp_apk/*.apk
-    rm -f mbcpapp_apk/*.zip
-    rm -f mbapk/*.apk
-    rm -f mbapk/*.apks
-    rm -rf mbapk/mbapk_unpacked
-    echo "Cleared !"
-
- 
-    elif [ "$opt" == 'Install patched app' ]; then
+        ;;
+        'Clear MBCPApp/MBBank app data' )
+            echo "Clearing [com.mbmobile] data..."
+            adb shell pm clear com.mbmobile
+            adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
+            echo "INFO : Current logged in account will remain present, even if app data is cleared !"
+        ;;
+    
+        'Pull latest commit' )
+            git pull origin mbflutter
+            echo "Please run patcher again !"
+            exit
+        ;;
+        'Launch MBCPApp/MBBank' )
+            adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
+        ;;
+        'Force close MBCPApp/MBBank' )
+            adb shell am force-stop com.mbmobile
+        ;;
+        'Clean patched app' )
+            echo "Cleaning, please wait..." 
+            rm -f mbcpapp_apk/*.apk
+            rm -f mbcpapp_apk/*.zip
+            rm -f mbapk/*.apk
+            rm -f mbapk/*.apks
+            rm -rf mbapk/mbapk_unpacked
+            echo "Cleared !"
+        ;;
+        'Install patched app' )
     echo 'Select your patched version to continue'
     PS3='Select patched version to continue, or [3] to quit : '
     select opt in 'App patched with newer version [v6.4.56 or higher]' 'App patched with older version [v6.4.55 or lower]' 'Exit'
@@ -347,11 +341,8 @@ do
        break
         	fi
 done
-
-
-    elif [ "$opt" == 'Exit' ]; then
-		exit
-		break
-	fi
+        ;;
+        'Exit' ) exit ;;
+    esac
 done
 
