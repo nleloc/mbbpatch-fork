@@ -2,9 +2,7 @@
 # vim: expandtab tabstop=4 shiftwidth=4
 # shellcheck disable=SC2016
 
-# Fun fact is this project made by
-# a tinkerer, not developer xD
-# You might see this line but still ignore it then continue calling me a developer, but after all, i'm just a loser :D
+
 
 # Check if user is trying to run under WSL (Windows Subsystem for Linux)
 # Removing this detection part might cause project development to be STOPPED, You've been warned !

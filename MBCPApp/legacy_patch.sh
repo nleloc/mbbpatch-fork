@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Fun fact is this project made by
-# a tinkerer, not developer xD
-# You might see this line but still ignore it then continue calling me a developer, but after all, i'm just a loser :D
-
 echo "Legacy patches list for MBCPApp :"
 PS3='Select patch options :'
 select opt in 'Bypass 1200 error [v6.4.45]' 'Bypass signature check' '[TEST] Remove v6.4.56 root detection' 'Exit'

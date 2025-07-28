@@ -1,11 +1,6 @@
 #!/bin/bash
 # vim: expandtab tabstop=4 shiftwidth=4
 
-# Fun fact is this project made by
-# A tinkerer, not developer xD
-# You might see this line but still ignore it then continues calling me a developer, but after all, i'm just a loser :D
-
-# Initial startup
 mkdir -p ~/mbbpatch/MBCPApp/mbapk
 mkdir -p ~/mbbpatch/MBCPApp/mbcpapp_apk
 mkdir -p ~/mbbpatch/MBCPApp/tools
