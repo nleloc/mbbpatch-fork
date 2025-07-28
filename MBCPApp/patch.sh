@@ -67,7 +67,7 @@ patch_finish() {
 echo ---------------------------
 echo 'Patch list for MBCPApp :'
 PS3='Select patch options : '
-select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Bypass new zimperium detection' 'Remove app from launcher' 'Set targetSdkVersion to 35' 'Add modified resources' 'Add anime resources' 'Exit'
+select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Bypass new zimperium detection' 'Remove app from launcher' 'Remove protection shield' 'Set targetSdkVersion to 35' 'Add modified resources' 'Add anime resources' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
     if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ]
@@ -186,6 +186,23 @@ do
  else
    echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
  fi  
+
+   elif [ "$opt" == 'Remove protection shield' ]; then
+       if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
+   then
+       echo "Apply patch [Remove protection shield]..."
+       sed_libapp 's|get_protective_cyber_risk|get_protective_cyber_none|g'
+       sed_libapp 's|Activate for Protection|Protection are disabled|g'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/khien_*.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_*.webp'
+       # Priority exclusive
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/priority/khien_*.webp'
+       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_*.webp'
+       echo "NOTE : This doesn't remove the app protection shield, it just disable and remove the MB Protection Shield, which literally is the MIC Shield !"
+       echo "Applied [Remove protection shield] patch !"
+   else
+       echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
+   fi
 
 
    elif [ "$opt" == 'Remove app from launcher' ]; then

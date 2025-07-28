@@ -39,6 +39,7 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 | `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted". | v6.4.0 ~ v6.4.59 |
 | `Remove new root detection` | Remove the new Zimperium (ZDefend) root detection from app. (Now requires workaround for v6.4.56+) | v6.4.15 ~ v6.4.58 |
 | `Bypass new zimperium detection` | Bypass the root check from Zimperium within app. | v6.4.56 ~ v6.4.59 |
+| `Remove protection shield` | Remove the MIC protection shield on profile picture and login screen. (not app protection) | v6.4.0 ~ v6.4.59 |
 | `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.4.59 |
 | `Set targetSdkVersion to 35` | Set the `targetSdkVersion` to 35 (Android 15). | v6.4.10 ~ v6.4.59 |
 | `Add modified resources` | Adds the specific strings for MBCP on eKYC phase, and modify the DigiBank logo. | v6.4.0 ~ v6.4.59 |
