@@ -187,7 +187,7 @@ fi
     if ls ~/mbbpatch/MBCPApp/mbapk/*.apks >/dev/null 2>&1
  then
     echo "Converting apks to apk..."
-    java -jar tools/apkeditor.jar m -i mbapk/*.apks -j$(nproc)
+    java -jar tools/apkeditor.jar m -i mbapk/*.apks 
     mv mbapk/*.apk mbapk/MBOriginal.apk
     echo 'Cleaning left over [apks] files...'
     rm -f mbapk/*.apks
