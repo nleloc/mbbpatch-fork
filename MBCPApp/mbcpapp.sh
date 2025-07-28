@@ -74,6 +74,9 @@ is_unpacked_lib() {
 apktool_exist() {
     [ -f ~/mbbpatch/MBCPApp/tools/apktool.jar ] || { echo "ERROR : apktool not found" ; exit 127 ; }
 }
+apkeditor_exist() {
+    [ -f ~/mbbpatch/MBCPApp/tools/apkeditor.jar ] || { echo "ERROR : apkeditor not found" ; exit 127 ; }
+}
 mb_apk_exist() {
     ls ~/mbbpatch/MBCPApp/mbapk/*.apk >/dev/null 2>&1 || {
         echo "No *.apk found in [mbapk] folder, please copy apk to [mbapk] folder !"
@@ -141,6 +144,34 @@ repack_mbcp() {
     } || echo 'ERROR : Repacking failed !'
 }
 
+check_mbshield() {
+    is_unpacked || {
+        echo "[mbapk_unpacked] not found ! Please unpack APK first !"
+        return 1
+    }
+    if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]
+    then
+        echo "$mbshield_found"
+    else
+        echo "$mbshield_not_found"
+    fi
+}
+
+convert_apks() {
+    local - ; set -e
+    ls ~/mbbpatch/MBCPApp/mbapk/*.apks >/dev/null 2>&1 || {
+        echo "APKs missing, cannot continue !"
+        return 1
+    }
+    apkeditor_exist
+    echo "Converting apks to apk..."
+    java -jar tools/apkeditor.jar m -i mbapk/*.apks 
+    mv mbapk/*.apk mbapk/MBOriginal.apk
+    echo 'Cleaning left over [apks] files...'
+    rm -f mbapk/*.apks
+    echo "You probably can continue to unpack APK!"
+}
+
 run_patcher() {
     is_unpacked_lib && bash ./patch.sh
 }
@@ -170,32 +201,8 @@ do
         'Repack APK' )       repack_mbcp ;;
         'Patch App' )        run_patcher ;;
         'Legacy patches' )   run_legacy_patcher ;;
-        'MBShield Check' )
-    if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
-then
-    if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]
-then
-    echo "$mbshield_found"
-else
-    echo "$mbshield_not_found"
-fi
-else 
-    echo "[mbapk_unpacked] not found ! Please unpack APK first !"
-fi
-        ;;
-        'Convert apks to apk' )
-    if ls ~/mbbpatch/MBCPApp/mbapk/*.apks >/dev/null 2>&1
- then
-    echo "Converting apks to apk..."
-    java -jar tools/apkeditor.jar m -i mbapk/*.apks 
-    mv mbapk/*.apk mbapk/MBOriginal.apk
-    echo 'Cleaning left over [apks] files...'
-    rm -f mbapk/*.apks
-    echo "You probably can continue to unpack APK!"
- else
-    echo "APKs missing, cannot continue !"
- fi
-        ;;
+        'MBShield Check' )   check_mbshield ;;
+        'Convert apks to apk' ) convert_apks ;;
         'Extract assets [ROOT]' )
     echo 'To extract encrypted assets [if current app has MBShield protection] you need rooted device'
     echo 'And trigger a bulit-in app assets extraction !'
