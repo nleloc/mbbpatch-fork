@@ -53,7 +53,7 @@ download_tools() {
     cd tools && rm -rf *.jar
     wget -q --show-progress -O apktool.jar "$apktool_link" || echo "ERROR : downloading apktool failed"
     wget -q --show-progress -O apkeditor.jar "$apkeditor_link" || echo "ERROR : downloading apkeditor failed"
-    cd .. && echo "You can now continue with other operations !"
+    cd .. 
 }
 
 copy_assets() {
