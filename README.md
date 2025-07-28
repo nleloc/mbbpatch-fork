@@ -1,11 +1,12 @@
-
 # MBCPApp Patcher for MB Bank
-Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://gitlab.com/cuynu) (as a loser) with love <3
 
 <img src="https://gitlab.com/mbcp/mbbpatch/-/raw/mbflutter/MBCPApp/mbcpicons/summer2025/mipmap-hdpi/ic_launcher_round.png?ref_type=heads&inline=false" style="width: 72px;" alt="2025_logo">
 
 ![GitLab Forks](https://img.shields.io/gitlab/forks/65209567?gitlab_url=https%3A%2F%2Fgitlab.com&style=for-the-badge&logo=gitlab)
 ![GitLab Stars](https://img.shields.io/gitlab/stars/65209567?gitlab_url=https%3A%2F%2Fgitlab.com&style=for-the-badge&logo=gitlab)
+
+
+Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://gitlab.com/cuynu).
 
 - Licensed as MIT License : [View license.](https://gitlab.com/cuynu/mbbpatch/-/blob/mbflutter/LICENSE)
 
@@ -88,9 +89,7 @@ cd ~/mbbpatch/MBCPApp
 - Download necessary tools first with `Download tools` function (otherwise other functions are unlikely to work!) 
 - Convert apks to apk first using `Convert apks to apk` function
 - Unpack apk with `Unpack apk` function
-- Check if MBShield present on unpacked APK with `Check MBShield` function 
-(if MBShield present then you may need to extract assets from Android device with `Extract assets [ROOT]`)
-- After extracted assets (if MBShield present), use `Patch App` function and select the patches you want to apply to unpacked app
+- Use `Patch App` function and select the patches you want to apply to unpacked app
 - When done, use `Repack APK` function to recompile patched app
 - Patched app will be `MBCP_Flutter_SelfPatched.apk` on `~/mbbpatch/MBCPApp/mbcpapp_apk/`
 - Install it to your device (requires [MBCP Helper](https://gitlab.com/cuynu/mbcp-helper/-/releases) / [CorePatch](https://github.com/lsposed/corepatch/releases) ) with enabled "Disable digest verify" option.
