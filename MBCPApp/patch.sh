@@ -78,7 +78,7 @@ do
     # App update button url
     sed_libapp 's|market://details?id=com.mbmobile|https://t.me/mbbpatch/2?ref=mbcp|g'
     # Facebook button url
-    sed_libapp 's|https://www.facebook.com/VietnamMBBank?mibextid=LQQJ4d|https://gitlab.com/cuynu/mbbpatch/?                   |g'
+    sed_libapp 's|https://www.facebook.com/VietnamMBBank?mibextid=LQQJ4d|https://gitlab.com/mbcp/mbbpatch/?                    |g'
     # VNeID download url
     sed_libapp 's|https://play.google.com/store/apps/details?id=com.vnid|https://www.apkmirror.com/uploads/?appcategory=vneid??|g'
 
@@ -96,7 +96,7 @@ do
     sed_libapp 's|Request for supplying password|Request for new password      |g'
     sed_libapp 's|ID card/ID card|Old/New ID card|g'
     sed_libapp 's|Number of document|Number of id card |g'
-    sed_libapp 's|Your device will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to be reissued.|Your account will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to reset pw...|g'
+    sed_libapp 's|Your device will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to be reissued.|Your account will be locked if you enter incorrect password more tham 5 times. Please try again or use the "Forgot password" feature to reset. |g'
     sed_libapp 's|Introduction to receive money|Invite using MB              |g'
     sed_libapp 's|Shopping-  Entertainment- Investment|Flutter embedded MiniApps           |g'
     sed_libapp 's|Downloaded themes|Your owned themes|g'
@@ -114,7 +114,7 @@ do
     sed_libapp 's|Read the announcement|Notify with voice    |g'
 
     sed_libapp 's|Viettel post|Viettel Post|g'
-    sed_libapp 's|This service has been upgraded, please update the app to continue using the service|This app version are expired, please update or repatch with newer version. (GW525) |g'
+    sed_libapp 's|This service has been upgraded, please update the app to continue using the service|This app version is expired, please update or repatch with newer version. (GW525)  |g'
     sed_libapp 's|Welcome to the MBBank APP!|Thanks for login to MBCP~ |g'
     sed_libapp 's|There is no device registered for DOTP|No active DigitalOTP device found  :> |g'
     sed_libapp 's|Transaction authentication code (OTP) has been sent to your phone number|DigitalOTP registration code (OTP) has been sent to your phone number : |g'
@@ -150,8 +150,8 @@ do
    sed_libapp 's|New release|Features   |g'
    sed_libapp 's|Challenge to receive gifts|Others                    |g'
    sed_libapp 's|MB will Autoally transfer the entire remaining balance to the account you have selected|MB will transfer the balance from the closed account to the account you have selected. |g'
-   sed_libapp 's|You have not registered for D-OTP|DigitalOTP are not registered    |g'
-   sed_libapp 's|Please register for D-OTP to use this feature|DigitalOTP are required for this feature.    |g'
+   sed_libapp 's|You have not registered for D-OTP|DigitalOTP is not registered     |g'
+   sed_libapp 's|Please register for D-OTP to use this feature|DigitalOTP is required for this feature.     |g'
    sed_libapp 's|Register D-OTP|Register now  |g'
    sed_libapp 's|The login session expired. Please login again|Login session are expired. Please login again|g'
    sed_libapp 's|I understand|OKAY        |g'
