@@ -191,7 +191,7 @@ do
        if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
    then
        echo "Apply patch [Remove protection shield]..."
-       sed_libapp 's|get-protective-cyber_risk|get_protective_cyber_none|g'
+       sed_libapp 's|get-protective-cyber-risk|get_protective_cyber_none|g'
        sed_libapp 's|Activate for Protection|Protection are disabled|g'
        echo "Removing resources..."
        rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/shield_img_pending.webp'
