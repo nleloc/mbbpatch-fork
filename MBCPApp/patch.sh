@@ -2,8 +2,6 @@
 # vim: expandtab tabstop=4 shiftwidth=4
 # shellcheck disable=SC2016
 
-
-
 # Check if user is trying to run under WSL (Windows Subsystem for Linux)
 # Removing this detection part might cause project development to be STOPPED, You've been warned !
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
@@ -30,8 +28,8 @@ sed_libapp() {
     target=$(bb_split "$1" '|' '1')
     replacement=$(bb_split "$1" '|' '2')
     (
-        sed -i "$1" $DIRPATH/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-        sed -i "$1" $DIRPATH/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     ) && echo "INFO : [$target] -> [$replacement]" || echo "WARN : replacing [$target] failed !"
 }
 
@@ -42,18 +40,18 @@ sed_libzdefend() {
     target=$(bb_split "$1" '|' '1')
     replacement=$(bb_split "$1" '|' '2')
     (
-        sed -i "$1" $DIRPATH/mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so
-        sed -i "$1" $DIRPATH/mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so
+        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so
+        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so
     ) && echo "INFO : [$target] -> [$replacement]" || echo "WARN : replacing [$target] failed !"
 }
 
 manifest_remove() {
-    sed -i "/$1/d" $DIRPATH/mbapk/mbapk_unpacked/AndroidManifest.xml
+    sed -i "/$1/d" "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
 }
 
 
 get_mb_ver() {
-    a="$(grep -m1 'versionName' $DIRPATH/mbapk/mbapk_unpacked/apktool.yml)"
+    a="$(grep -m1 'versionName' "$DIRPATH"/mbapk/mbapk_unpacked/apktool.yml)"
     a="$(bb_split "$a" ':' '1')"
     bb_split "$a" '.' '2'
 }
@@ -68,7 +66,7 @@ PS3='Select patch options : '
 select opt in 'Autopatch strings' 'Change app logo' 'Force portrait screen' 'Remove invoke to mbshield' 'Remove bulit-in fonts' 'Modify app theme' 'Remove garbage permission and activities' 'Remove eMBee' 'Revert old eMBee logo' 'Remove animated QR background' 'Remove banners & MiniApp'  'Remove VPN detection' 'Remove VNPAY VMB20' 'Restore old registration resources' 'Bypass accessibility & malicious apps check' 'Hide VTAP root detection activity & dialog' 'Remove new root detection' 'Bypass new zimperium detection' 'Remove app from launcher' 'Remove protection shield' 'Set targetSdkVersion to 35' 'Add modified resources' 'Add anime resources' 'Exit'
 do
 	if [ "$opt" == 'Autopatch strings' ]; then
-    if [ -d $DIRPATH/mbapk/mbapk_unpacked/lib ]
+    if [ -d "$DIRPATH"/mbapk/mbapk_unpacked/lib ]
  then
     echo "Applying [Autopatch strings] patch..."
     echo "Patching strings in [libapp.so], please wait..."
@@ -174,11 +172,11 @@ do
  fi 
 
    elif [ "$opt" == 'Force portrait screen' ]; then
-    if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+    if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  then
     echo "Applying patch [Force portrait screen]..."
     echo "Patching [AndroidManifest.xml]..."
-    sed -i 's|fullSensor|portrait|g' $DIRPATH/mbapk/mbapk_unpacked/AndroidManifest.xml
+    sed -i 's|fullSensor|portrait|g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
     patch_finish "force_portrait_screen"
     echo "Applied [Force portrait screen] patch !!!"
  else
@@ -186,7 +184,7 @@ do
  fi  
 
    elif [ "$opt" == 'Remove protection shield' ]; then
-       if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+       if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
    then
        echo "Apply patch [Remove protection shield]..."
        sed_libapp 's|get-protective-cyber-risk|get_protective_cyber_none|g'
@@ -224,24 +222,24 @@ do
 
 
    elif [ "$opt" == 'Remove app from launcher' ]; then
-    if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+    if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  then
    echo "Applying patch [Remove app from launcher]..."
    echo "Patching [AndroidManifest.xml]..."
-   sed -i 's|<category android:name="android.intent.category.LAUNCHER"/>||g' $DIRPATH/mbapk/mbapk_unpacked/AndroidManifest.xml
+   sed -i 's|<category android:name="android.intent.category.LAUNCHER"/>||g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
  else
    echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
  fi
 
     elif [ "$opt" == 'Bypass accessibility & malicious apps check' ]; then
-    if [ -d $DIRPATH/patches/bypass_accessibility_applist ]
+    if [ -d "$DIRPATH"/patches/bypass_accessibility_applist ]
  then
     if [ "$(get_mb_ver)" -lt 55 ] ; then
     echo "Applying patch [Bypass accessibility & malicious apps check]..."
     echo 'Copying patched code [MbbankUtilitiesPlugin]...'
     cp -r -f 'patches/bypass_accessibility_applist/com' 'mbapk/mbapk_unpacked/smali_classes3'
     echo 'Patching [AndroidManifest.xml]...'
-    sed -i 's|<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>| |g' $DIRPATH/mbapk/mbapk_unpacked/AndroidManifest.xml
+    sed -i 's|<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>| |g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
     echo 'Patching [libapp.so]...'
       sed_libapp 's|PackageName|packageMBBB|g'
       sed_libapp 's|packageName|packageMBBa|g'
@@ -255,11 +253,11 @@ do
  fi
 
     elif [ "$opt" == 'Remove garbage permission and activities' ]; then
-    if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+    if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  then
     echo "Applying patch [Remove garbage permission and activities]..."
     echo "Patching [AndroidManifest.xml]..."
-    sed -i 's|android:protectionLevel="signature"|android:protectionLevel="normal"|g' $DIRPATH/mbapk/mbapk_unpacked/AndroidManifest.xml
+    sed -i 's|android:protectionLevel="signature"|android:protectionLevel="normal"|g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
     manifest_remove 'android:name="com.android.vending.CHECK_LICENSE"'
     manifest_remove 'android:name="com.google.android.gms.permission.AD_ID"'
     manifest_remove "com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"
@@ -334,7 +332,7 @@ do
      rm -f 'mbapk/mnapk_unpacked/res/drawable-xxhdpi/logo_vnairline.png'
      echo "Removing resources..."
 
-     cd $DIRPATH || exit 127
+     cd "$DIRPATH" || exit 127
 
       # Remove activity
       manifest_remove 'android:name="com.vnpay.ticketlib.Activity.VMB20BlankActivity"'
@@ -406,7 +404,7 @@ do
       manifest_remove 'android:name="com.vnpay.ticketlib.Activity.contact.VMBAddInfoActivity"'
 
       # stub
-      sed -i 's|<activity android:exported="false" android:name="com.vnpay.air.ticket.vnpay_air_ticket.PaymentActivity">|<activity android:exported="false" android:name="test.app">|g' $DIRPATH/mbapk/mbapk_unpacked/AndroidManifest.xml
+      sed -i 's|<activity android:exported="false" android:name="com.vnpay.air.ticket.vnpay_air_ticket.PaymentActivity">|<activity android:exported="false" android:name="test.app">|g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
       manifest_remove 'android:name="_vemaybay_payment"'
       manifest_remove 'android:name="_vemaybay_payment_without_paymentcode"'
       manifest_remove 'android:name="_vemaybay_payment_paylater"'
@@ -414,8 +412,8 @@ do
       cp -f 'patches/remove_vmb20/GeneratedPluginRegistrant.smali' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins'
       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/base/partner/img_vnpay.webp'
       rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/base/partner/img_vna.webp'
-      sed -i 's|vna_flight_landing|broken_vna_ehh_idk|g' $DIRPATH/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-      sed -i 's|vna_flight_landing|broken_vna_ehh_idk|g' $DIRPATH/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+      sed -i 's|vna_flight_landing|broken_vna_ehh_idk|g' "$DIRPATH"/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
+      sed -i 's|vna_flight_landing|broken_vna_ehh_idk|g' "$DIRPATH"/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
       
 
       echo "Applied patch [Remove VNPAY VMB20] !!"
@@ -425,7 +423,7 @@ do
      fi
 
      elif [ "$opt" == 'Revert old eMBee logo' ]; then
-     if [ -d $DIRPATH/patches/revert_old_eMBee ]
+     if [ -d "$DIRPATH"/patches/revert_old_eMBee ]
    then
      echo "Removing new eMBee logo..."
      rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/customerService_img_avatarChat.webp'
@@ -462,7 +460,7 @@ do
    fi
 
      elif [ "$opt" == 'Remove invoke to mbshield' ]; then
-     if [ -d $DIRPATH/patches/noinvoke ]
+     if [ -d "$DIRPATH"/patches/noinvoke ]
    then
      echo "Currently only support remove invoke mbshield to [io.flutter.plugins.MainActivity] and [MBBHomeWidgetQR] !!!"
      echo "Copying..."
@@ -484,7 +482,7 @@ do
    fi
 
    elif [ "$opt" == 'Restore old registration resources' ]; then
-   if [ -d $DIRPATH/patches/restore_oldreg ]
+   if [ -d "$DIRPATH"/patches/restore_oldreg ]
 then
    echo "Applying patch..."
    cp -f 'patches/restore_oldreg/onboarding_illus_featureAccount.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/onboarding'
@@ -500,7 +498,7 @@ else
 fi
 
   elif [ "$opt" == 'Bypass new zimperium detection' ]; then
-    if [ -f $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali ]
+    if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali ]
  then
     echo "Applying patch..."
     echo 'Removing [libvvb2060.so]...'
@@ -510,10 +508,10 @@ fi
     rm -f 'mbapk/mbapk_unpacked/lib/arm64-v8a/libtoolChecker.so'
     rm -f 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libtoolChecker.so'
     echo "Removing checksum from provider..."
-    sed -i 's|e1a14adc915d7ad159edf2668b0dfcb359cf86538642de0e425d027f66eb07b2||g' $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
-    sed -i 's|ca168a2ad00a92b8010d6801c3ca43e6df9f3701f084f6864399eaa4bbfaf56d||g' $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
-    sed -i 's|5c9a139e42e6e6032ddbc1092af9831b8142e4e5ae89700fc7828f5bd62e1671||g' $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
-    sed -i 's|c0a161a71738083df4298a0f03b0c54abf5bfda97c7d230875d97593733226ec||g' $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|e1a14adc915d7ad159edf2668b0dfcb359cf86538642de0e425d027f66eb07b2||g' "$DIRPATH"/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|ca168a2ad00a92b8010d6801c3ca43e6df9f3701f084f6864399eaa4bbfaf56d||g' "$DIRPATH"/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|5c9a139e42e6e6032ddbc1092af9831b8142e4e5ae89700fc7828f5bd62e1671||g' "$DIRPATH"/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|c0a161a71738083df4298a0f03b0c54abf5bfda97c7d230875d97593733226ec||g' "$DIRPATH"/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
     echo "Patching [libdesignersactivists.so]..."
     sed_libzdefend 's|zimperium.c|zimperium.x|g'
     sed_libzdefend 's|com.zimperium.threat.new|app.zimperiam.nonpop.all|g'
@@ -537,7 +535,7 @@ fi
    echo "Applied [Remove VPN detection patch] !!!"
 
    elif [ "$opt" == 'Add anime resources' ]; then
-   if [ -d $DIRPATH/patches/anime_resources ]
+   if [ -d "$DIRPATH"/patches/anime_resources ]
  then
    echo "Applying patch..."
    cp -f 'patches/anime_resources/rating_illus_fiveStar.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/'
@@ -552,16 +550,16 @@ fi
  fi
 
    elif [ "$opt" == 'Set targetSdkVersion to 35' ]; then
-   if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+   if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  then
    echo "Applying patch..."
-   sed -i 's|targetSdkVersion: 34|targetSdkVersion: 35|g' $DIRPATH/mbapk/mbapk_unpacked/apktool.yml
+   sed -i 's|targetSdkVersion: 34|targetSdkVersion: 35|g' "$DIRPATH"/mbapk/mbapk_unpacked/apktool.yml
  else
    echo "ERROR : [mbapk_unpacked] folder not found, please unpack APK first !"
  fi
 
      elif [ "$opt" == 'Remove animated QR background' ]; then
-   if [ -d $DIRPATH/patches/qr_white ]
+   if [ -d "$DIRPATH"/patches/qr_white ]
 then
    echo "This will remove animated QR on bottom navigation bar and replace with white background !"
    echo "Removing animated QR..."
@@ -576,7 +574,7 @@ else
 fi     
 
      elif [ "$opt" == 'Remove banners & MiniApp' ]; then
-    if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+    if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  then
     echo "Applying patch [Remove banners & MiniApp]..."
     echo 'Removing banner links from [libapp.so]...'
@@ -668,7 +666,7 @@ fi
  fi
 
     elif [ "$opt" == 'Add modified resources' ]; then
-    if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+    if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  then
     echo "Applying patch [Add modified resources]..."
     echo "Copying modified resources..."
@@ -681,7 +679,7 @@ fi
     fi
 
 elif [ "$opt" == 'Remove bulit-in fonts' ]; then
-    if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+    if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  then
     echo "Applying patch [Remove bulit-in fonts]..."
     echo "Removing..."
@@ -725,7 +723,7 @@ elif [ "$opt" == 'Remove bulit-in fonts' ]; then
 
 
 elif [ "$opt" == 'Modify app theme' ]; then 
-    if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+    if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  then 
     echo In order to modify app theme, you must extract assets first if current unpacked APK has MBShield!
     PS3='Select themes : '
@@ -833,25 +831,25 @@ elif [ "$opt" == 'Change app logo' ]; then
     select opt in 'MB Classic' 'Tet' 'Valentine 2025' '30/4-1/5' 'Summer 2025' 'Noel' 'Exit'
 do
     	if [ "$opt" == '30/4-1/5' ]; then
-         if [ -d $DIRPATH/mbapk/mbapk_unpacked/ ]
+         if [ -d "$DIRPATH"/mbapk/mbapk_unpacked/ ]
 then
         echo 'Removing old logos...'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-hdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-hdpi
         echo 'INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-mdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-mdpi
         echo 'INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xhdpi
         echo 'INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
         echo 'INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
         echo 'INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !'
         echo 'Copying new logos to [mbapk_unpacked/res] !!!'
-        cp -r -f $DIRPATH/mbcpicons/thongnhatVN/mipmap-hdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/thongnhatVN/mipmap-mdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/thongnhatVN/mipmap-xhdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/thongnhatVN/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/thongnhatVN/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/thongnhatVN/mipmap-hdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/thongnhatVN/mipmap-mdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/thongnhatVN/mipmap-xhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/thongnhatVN/mipmap-xxhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/thongnhatVN/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
         patch_finish "change_app_logo"
         echo 'Applied selected logo !'
     else
@@ -859,25 +857,25 @@ then
     fi
 
         elif [ "$opt" == 'MB Classic' ]; then
-         if [ -d $DIRPATH/mbapk/mbapk_unpacked/ ]
+         if [ -d "$DIRPATH"/mbapk/mbapk_unpacked/ ]
 then
         echo 'Removing old logos...'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-hdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-hdpi
         echo 'INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-mdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-mdpi
         echo 'INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xhdpi
         echo 'INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
         echo 'INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
         echo 'INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !'
         echo 'Copying new logos to [mbapk_unpacked/res] !!!'
-        cp -r -f $DIRPATH/mbcpicons/normal/mipmap-hdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/normal/mipmap-mdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/normal/mipmap-xhdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/normal/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/normal/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/normal/mipmap-hdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/normal/mipmap-mdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/normal/mipmap-xhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/normal/mipmap-xxhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/normal/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
         patch_finish "change_app_logo"
         echo 'Applied selected logo !'
     else
@@ -885,25 +883,25 @@ then
     fi
 
         elif [ "$opt" == 'Tet' ]; then
-         if [ -d $DIRPATH/mbapk/mbapk_unpacked/ ]
+         if [ -d "$DIRPATH"/mbapk/mbapk_unpacked/ ]
 then
         echo 'Removing old logos...'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-hdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-hdpi
         echo 'INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-mdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-mdpi
         echo 'INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xhdpi
         echo 'INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
         echo 'INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
         echo 'INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !'
         echo 'Copying new logos to [mbapk_unpacked/res] !!!'
-        cp -r -f $DIRPATH/mbcpicons/tet/mipmap-hdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/tet/mipmap-mdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/tet/mipmap-xhdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/tet/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/tet/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/tet/mipmap-hdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/tet/mipmap-mdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/tet/mipmap-xhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/tet/mipmap-xxhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/tet/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
         patch_finish "change_app_logo"
         echo 'Applied selected logo !'
     else
@@ -911,20 +909,20 @@ then
     fi
 
       elif [ "$opt" == 'Valentine 2025' ]; then
-         if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+         if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
       then
          echo "Removing old logos..."
-         rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-hdpi
-         rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-mdpi
-         rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-         rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-         rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
+         rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-hdpi
+         rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-mdpi
+         rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xhdpi
+         rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
+         rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
          echo "Copying new logos to [mbapk_unpakced/res] !!!"
-         cp -r -f $DIRPATH/mbcpicons/valentine/mipmap-hdpi mbapk/mbapk_unpacked/res
-         cp -r -f $DIRPATH/mbcpicons/valentine/mipmap-mdpi mbapk/mbapk_unpacked/res
-         cp -r -f $DIRPATH/mbcpicons/valentine/mipmap-xhdpi mbapk/mbapk_unpacked/res
-         cp -r -f $DIRPATH/mbcpicons/valentine/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-         cp -r -f $DIRPATH/mbcpicons/valentine/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
+         cp -r -f "$DIRPATH"/mbcpicons/valentine/mipmap-hdpi mbapk/mbapk_unpacked/res
+         cp -r -f "$DIRPATH"/mbcpicons/valentine/mipmap-mdpi mbapk/mbapk_unpacked/res
+         cp -r -f "$DIRPATH"/mbcpicons/valentine/mipmap-xhdpi mbapk/mbapk_unpacked/res
+         cp -r -f "$DIRPATH"/mbcpicons/valentine/mipmap-xxhdpi mbapk/mbapk_unpacked/res
+         cp -r -f "$DIRPATH"/mbcpicons/valentine/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
          patch_finish "change_app_logo"
          echo "Applied selected logo !"
       else 
@@ -932,20 +930,20 @@ then
       fi
 
       elif [ "$opt" == 'Summer 2025' ]; then
-         if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
+         if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
       then
          echo "Removing old logos..."
-         rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-hdpi
-         rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-mdpi
-         rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-         rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-         rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
+         rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-hdpi
+         rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-mdpi
+         rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xhdpi
+         rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
+         rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
          echo "Copying new logos to [mbapk_unpakced/res] !!!"
-         cp -r -f $DIRPATH/mbcpicons/summer2025/mipmap-hdpi mbapk/mbapk_unpacked/res
-         cp -r -f $DIRPATH/mbcpicons/summer2025/mipmap-mdpi mbapk/mbapk_unpacked/res
-         cp -r -f $DIRPATH/mbcpicons/summer2025/mipmap-xhdpi mbapk/mbapk_unpacked/res
-         cp -r -f $DIRPATH/mbcpicons/summer2025/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-         cp -r -f $DIRPATH/mbcpicons/summer2025/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
+         cp -r -f "$DIRPATH"/mbcpicons/summer2025/mipmap-hdpi mbapk/mbapk_unpacked/res
+         cp -r -f "$DIRPATH"/mbcpicons/summer2025/mipmap-mdpi mbapk/mbapk_unpacked/res
+         cp -r -f "$DIRPATH"/mbcpicons/summer2025/mipmap-xhdpi mbapk/mbapk_unpacked/res
+         cp -r -f "$DIRPATH"/mbcpicons/summer2025/mipmap-xxhdpi mbapk/mbapk_unpacked/res
+         cp -r -f "$DIRPATH"/mbcpicons/summer2025/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
          patch_finish "change_app_logo"
          echo "Applied selected logo !"
       else 
@@ -954,25 +952,25 @@ then
 
 
         elif [ "$opt" == 'Noel' ]; then
-         if [ -d $DIRPATH/mbapk/mbapk_unpacked/ ]
+         if [ -d "$DIRPATH"/mbapk/mbapk_unpacked/ ]
 then
         echo 'Removing old logos...'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-hdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-hdpi
         echo 'INFO : tries removed [mipmap-hdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-mdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-mdpi
         echo 'INFO : tries removed [mipmap-mdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xhdpi
         echo 'INFO : tries removed [mipmap-xhdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
         echo 'INFO : tries removed [mipmap-xxhdpi] on [mbapk_unpacked/res] !'
-        rm -rf $DIRPATH/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
+        rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
         echo 'INFO : tries removed [mipmap-xxxhdpi] on [mbapk_unpacked/res] !'
         echo 'Copying new logos to [mbapk_unpacked/res] !!!'
-        cp -r -f $DIRPATH/mbcpicons/noel/mipmap-hdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/noel/mipmap-mdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/noel/mipmap-xhdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/noel/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-        cp -r -f $DIRPATH/mbcpicons/noel/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/noel/mipmap-hdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/noel/mipmap-mdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/noel/mipmap-xhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/noel/mipmap-xxhdpi mbapk/mbapk_unpacked/res
+        cp -r -f "$DIRPATH"/mbcpicons/noel/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
         patch_finish "change_app_logo"
         echo 'Applied selected logo !'
     else
@@ -988,17 +986,17 @@ then
 done
 
    elif [ "$opt" == 'Hide VTAP root detection activity & dialog' ]; then
-    if [ -d $DIRPATH/patches/skip_maintainscreen ]
+    if [ -d "$DIRPATH"/patches/skip_maintainscreen ]
  then
     echo "Applying [Hide VTAP root detection activity & dialog]..."
     # Adapt with v6.4.53+
-    sed -i 's|Lcom/vtap/MaintenanceActivity;|Lio/flutter/plugins/MainActivity;|g' $DIRPATH/mbapk/mbapk_unpacked/smali_classes4/com/vtap/d.smali > /dev/null 2>&1
+    sed -i 's|Lcom/vtap/MaintenanceActivity;|Lio/flutter/plugins/MainActivity;|g' "$DIRPATH"/mbapk/mbapk_unpacked/smali_classes4/com/vtap/d.smali > /dev/null 2>&1
 
-    sed -i 's|Lcom/vtap/MaintenanceActivity;|Lio/flutter/plugins/MainActivity;|g' $DIRPATH/mbapk/mbapk_unpacked/smali_classes4/com/vtap/VTapSetupPlugin.smali  > /dev/null 2>&1
+    sed -i 's|Lcom/vtap/MaintenanceActivity;|Lio/flutter/plugins/MainActivity;|g' "$DIRPATH"/mbapk/mbapk_unpacked/smali_classes4/com/vtap/VTapSetupPlugin.smali  > /dev/null 2>&1
     rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity.smali'
     rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vtap/MaintenanceActivity$1.smali'
     rm -f 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/vguard/VGDialogActivity.smali'
-    sed -i 's|Lcom/vkey/android/vguard/VGDialogActivity;|Lio/flutter/plugins/MainActivity;|g' $DIRPATH/mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/dy.smali
+    sed -i 's|Lcom/vkey/android/vguard/VGDialogActivity;|Lio/flutter/plugins/MainActivity;|g' "$DIRPATH"/mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/dy.smali
     # Bypass VKey root check that throw VGFullScreenDialogActivity then exit :)
     cp -f 'patches/bypass_rootold/BasicThreatInfo.smali' 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/internal/vguard/engine/'
     cp -f 'patches/bypass_rootold/VGThreatAppInfo.smali' 'mbapk/mbapk_unpacked/smali_classes4/com/vkey/android/vguard/model/'
