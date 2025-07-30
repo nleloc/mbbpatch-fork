@@ -16,7 +16,7 @@ do
       info 'Modifying QR background...'
       cp 'blob_patches/semipriority/priority/a_background_image.webp' 'blob_patches/semipriority/priority/qr_img_ThemeDefalut.webp'
       info 'Copying to [flutter_assets/assets/images/dynamic/base]'
-      cp -r -f 'blob_patches/semipriority/priority/*' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base' 
+      cp -r -f 'blob_patches/semipriority/priority/'* 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base' 
       info 'Copying [ic_logo_mb_text.svg]...'
       cp -f 'blob_patches/semipriority/ic_logo_mb_text.svg' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/svgs/'
       info 'Copying [welcom_img_eMbee.webp]...'
