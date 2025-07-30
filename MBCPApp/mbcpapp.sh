@@ -184,7 +184,6 @@ $FIGLET "MBCPApp Patcher"
 echo -------------------------------------------------------------
 echo "Patching tool for MB Bank app with Flutter engine (v6.4.0+)"
 echo "Original APK must be inside [mbapk] folder !"
-echo "IMPORTANT : Script must be run at [$DIRPATH] !"
 echo -------------------------------------------------------------
 echo "Current commit : $COMMIT (dev)"
 echo "Source code : https://gitlab.com/mbcp/mbbpatch"
