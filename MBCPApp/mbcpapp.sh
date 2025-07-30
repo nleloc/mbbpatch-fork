@@ -1,6 +1,10 @@
 #!/bin/bash
 # vim: expandtab tabstop=4 shiftwidth=4
 
+FILEPATH=$(readlink -f "$0")
+export DIRPATH=$(dirname "$FILEPATH")
+
+# Initial startup
 mkdir -p ~/mbbpatch/MBCPApp/mbapk
 mkdir -p ~/mbbpatch/MBCPApp/mbcpapp_apk
 mkdir -p ~/mbbpatch/MBCPApp/tools
