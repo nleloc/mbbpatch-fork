@@ -2,7 +2,8 @@
 # vim: expandtab tabstop=4 shiftwidth=4
 
 FILEPATH=$(readlink -f "$0")
-export DIRPATH=$(dirname "$FILEPATH")
+DIRPATH=$(dirname "$FILEPATH")
+export DIRPATH
 
 # Initial startup
 mkdir -p "$DIRPATH"/mbapk
@@ -54,7 +55,7 @@ download_tools() {
     apktool_link="https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar"
     apkeditor_link="https://github.com/REAndroid/APKEditor/releases/download/V1.4.4/APKEditor-1.4.4.jar"
 
-    cd tools && rm -rf *.jar
+    cd tools && rm -rf ./*.jar
     wget -q --show-progress -O apktool.jar "$apktool_link" || echo "ERROR : downloading apktool failed"
     wget -q --show-progress -O apkeditor.jar "$apkeditor_link" || echo "ERROR : downloading apkeditor failed"
     cd .. 
@@ -86,8 +87,8 @@ mb_apk_exist() {
 unpack_mbcp() {
     local - ; set -e
     apktool_exist && mb_apk_exist
-    is_unpacked && rm -rf 'mbapk/mbapk_unpacked' || :
-    java -jar tools/apktool.jar d mbapk/*.apk -o mbapk/mbapk_unpacked -j$(nproc) || { echo "ERROR : Unpacking failed !" ; exit 1  ; }
+    rm -rf 'mbapk/mbapk_unpacked'
+    java -jar tools/apktool.jar d mbapk/*.apk -o mbapk/mbapk_unpacked -j"$(nproc)" || { echo "ERROR : Unpacking failed !" ; return 1 ; }
     echo "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
@@ -127,7 +128,7 @@ repack_mbcp() {
     echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
     (
         set -e
-        java -jar tools/apktool.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk -j$(nproc)
+        java -jar tools/apktool.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk -j"$(nproc)"
         echo "Processing APK signature scheme v2/v3..."
         rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
         java -jar tools/apkeditor.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk' 
