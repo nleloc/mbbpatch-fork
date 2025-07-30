@@ -22,17 +22,17 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
      		rm -rf bypass1200
      		## MB Forced update to 658, it must be spoofed!
      		echo "Patching [apktool.yml]..."
-     		sed -i 's|658|700|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/apktool.yml
+		sed -i 's|658|700|g' $DIRPATH/mbapk/mbapk_unpacked/apktool.yml
      		echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(git show -s --format=%cd HEAD). > 'mbapk/mbapk_unpacked/assets/mbcp_info/bypass_1200_error.inf'
 
 
 		# Placeholder  patch, not yet implemented 
     	elif [ "$opt" == 'Bypass signature check' ]; then
     		echo "Applying patch [Bypass signature check]..."
-    		if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ]
+		if [ -d $DIRPATH/mbapk/mbapk_unpacked ]
  	then 
     		# Checks for MBShield, if exists then exit function
-    	if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]
+	if [ -f $DIRPATH/mbapk/mbapk_unpacked/assets/mbshield.szip ]
  	then
     	echo "INFO : MBShield found on unpacked APK ! Bypass signature checks won't be possible if MBShield is present on current unpacked APK !"
     	echo "INFO : Please use supported version !!!"
@@ -51,16 +51,16 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
 fi
 
 	elif [ "$opt" == '[TEST] Remove v6.4.56 root detection' ]; then
-    if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali ]
+    if [ -f $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali ]
  then
 
     echo "Applying patch..."
     echo "Removing checksum from provider..."
-    sed -i 's|e1a14adc915d7ad159edf2668b0dfcb359cf86538642de0e425d027f66eb07b2||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
-    sed -i 's|ca168a2ad00a92b8010d6801c3ca43e6df9f3701f084f6864399eaa4bbfaf56d||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
-    sed -i 's|5c9a139e42e6e6032ddbc1092af9831b8142e4e5ae89700fc7828f5bd62e1671||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
-    sed -i 's|c0a161a71738083df4298a0f03b0c54abf5bfda97c7d230875d97593733226ec||g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
-    sed -i 's|designersactivists                                                                     |weneedfreedom|g' ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|e1a14adc915d7ad159edf2668b0dfcb359cf86538642de0e425d027f66eb07b2||g' $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|ca168a2ad00a92b8010d6801c3ca43e6df9f3701f084f6864399eaa4bbfaf56d||g' $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|5c9a139e42e6e6032ddbc1092af9831b8142e4e5ae89700fc7828f5bd62e1671||g' $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|c0a161a71738083df4298a0f03b0c54abf5bfda97c7d230875d97593733226ec||g' $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
+    sed -i 's|designersactivists                                                                     |weneedfreedom|g' $DIRPATH/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali
     echo "Patching [libdesignersactivists.so]..."
     sed -i 's|com.zimperium|app.dontfixew|g' 'mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so'
     sed -i 's|detection|freedom..|g' 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so'

@@ -5,9 +5,9 @@ FILEPATH=$(readlink -f "$0")
 export DIRPATH=$(dirname "$FILEPATH")
 
 # Initial startup
-mkdir -p ~/mbbpatch/MBCPApp/mbapk
-mkdir -p ~/mbbpatch/MBCPApp/mbcpapp_apk
-mkdir -p ~/mbbpatch/MBCPApp/tools
+mkdir -p $DIRPATH/mbapk
+mkdir -p $DIRPATH/mbcpapp_apk
+mkdir -p $DIRPATH/tools
 clear
 
 # Check if user runs on actual Linux environment
@@ -64,20 +64,20 @@ copy_assets() {
     adb shell su -c cp -rf "/data/user/0/com.mbmobile/files/$1" /sdcard/assets
 }
 
-is_unpacked() { [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked ] ; }
+is_unpacked() { [ -d $DIRPATH/mbapk/mbapk_unpacked ] ; }
 is_unpacked_lib() {
-    [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/lib ] || {
-        echo "ERROR : [mbapk_unpacked/lib] folder not found ! Please unpack APK first !" ; exit 127
+    [ -d $DIRPATH/mbapk/mbapk_unpacked/lib ] || {
+        echo "ERROR : [mbapk_unpacked/lib] folder not found ! Please unpack APK first !" ; return 127
     }
 }
 apktool_exist() {
-    [ -f ~/mbbpatch/MBCPApp/tools/apktool.jar ] || { echo "ERROR : apktool not found" ; exit 127 ; }
+    [ -f $DIRPATH/tools/apktool.jar ] || { echo "ERROR : apktool not found" ; return 127 ; }
 }
 apkeditor_exist() {
-    [ -f ~/mbbpatch/MBCPApp/tools/apkeditor.jar ] || { echo "ERROR : apkeditor not found" ; exit 127 ; }
+    [ -f $DIRPATH/tools/apkeditor.jar ] || { echo "ERROR : apkeditor not found" ; return 127 ; }
 }
 mb_apk_exist() {
-    ls ~/mbbpatch/MBCPApp/mbapk/*.apk >/dev/null 2>&1 || {
+    ls $DIRPATH/mbapk/*.apk >/dev/null 2>&1 || {
         echo "No *.apk found in [mbapk] folder, please copy apk to [mbapk] folder !"
         echo "If you got apks from eMBee APKs, use [Convert apks to apk] option !"
     }
@@ -148,7 +148,7 @@ check_mbshield() {
         echo "[mbapk_unpacked] not found ! Please unpack APK first !"
         return 1
     }
-    if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]
+    if [ -f $DIRPATH/mbapk/mbapk_unpacked/assets/mbshield.szip ]
     then
         echo "$mbshield_found"
     else
@@ -158,7 +158,7 @@ check_mbshield() {
 
 convert_apks() {
     local - ; set -e
-    ls ~/mbbpatch/MBCPApp/mbapk/*.apks >/dev/null 2>&1 || {
+    ls $DIRPATH/mbapk/*.apks >/dev/null 2>&1 || {
         echo "APKs missing, cannot continue !"
         return 1
     }
@@ -182,9 +182,9 @@ run_legacy_patcher() {
 # Banner 
 $FIGLET "MBCPApp Patcher"
 echo -------------------------------------------------------------
-echo "Patching-tool for MB Bank app with Flutter engine (v6.4.0+)"
-echo "Original APK path must be inside [mbapk] folder !"
-echo "IMPORTANT : Script must be run on [~/mbbpatch/MBCPApp] !"
+echo "Patching tool for MB Bank app with Flutter engine (v6.4.0+)"
+echo "Original APK must be inside [mbapk] folder !"
+echo "IMPORTANT : Script must be run at [$DIRPATH] !"
 echo -------------------------------------------------------------
 echo "Current commit : $COMMIT (dev)"
 echo "Source code : https://gitlab.com/mbcp/mbbpatch"
@@ -216,9 +216,9 @@ do
         echo 'By trigger eKYC authetication with reset account password option or register DigitalOTP'
         echo 'After you got into eKYC screen, close the app, then use Extract assets option to extract assets.'
         elif [ "$opt" == 'Extract assets' ]; then
-        if [ -d ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/ ]  
+        if [ -d $DIRPATH/mbapk/mbapk_unpacked/ ]
 then
-        if [ -f ~/mbbpatch/MBCPApp/mbapk/mbapk_unpacked/assets/mbshield.szip ]  
+        if [ -f $DIRPATH/mbapk/mbapk_unpacked/assets/mbshield.szip ]
 then
         echo "INFO : MBShield found ! Continuing !!!"
         echo 'You MUST grant root access to [com.android.shell] in order to extract assets !'
@@ -309,7 +309,7 @@ done
     select opt in 'App patched with newer version [v6.4.56 or higher]' 'App patched with older version [v6.4.55 or lower]' 'Exit'
 do
     	if [ "$opt" == 'App patched with newer version [v6.4.56 or higher]' ]; then
-        if [ -f ~/mbbpatch/MBCPApp/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
+        if [ -f $DIRPATH/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
     then 
         echo "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
         echo "You must have connected Android device with USB debugging turned on in order to install !!!"
@@ -328,7 +328,7 @@ do
     fi
         
         elif [ "$opt" == 'App patched with older version [v6.4.55 or lower]' ]; then
-        if [ -f ~/mbbpatch/MBCPApp/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
+        if [ -f $DIRPATH/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
     then 
         echo "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
         echo "You must have connected Android device with USB debugging turned on in order to install !!!"
