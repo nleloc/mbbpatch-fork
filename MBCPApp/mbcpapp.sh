@@ -65,7 +65,11 @@ copy_assets() {
     adb shell su -c cp -rf "/data/user/0/com.mbmobile/files/$1" /sdcard/assets
 }
 
-is_unpacked() { [ -d "$DIRPATH"/mbapk/mbapk_unpacked ] ; }
+is_unpacked() {
+    [ -d "$DIRPATH"/mbapk/mbapk_unpacked ] || {
+        echo "ERROR : [mbapk_unpacked] not found ! Please unpack APK first !" ; return 127
+    }
+}
 is_unpacked_lib() {
     [ -d "$DIRPATH"/mbapk/mbapk_unpacked/lib ] || {
         echo "ERROR : [mbapk_unpacked/lib] folder not found ! Please unpack APK first !" ; return 127
@@ -122,8 +126,7 @@ unpack_mbcp() {
 }
 
 repack_mbcp() {
-    apktool_exist
-    is_unpacked || { echo "ERROR : [mbapk_unpacked] folder not found ! Please unpack APK first !" ; exit 127 ; }
+    apktool_exist && is_unpacked
     echo "Repacking APK..."
     echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
     (
@@ -145,10 +148,7 @@ repack_mbcp() {
 }
 
 check_mbshield() {
-    is_unpacked || {
-        echo "[mbapk_unpacked] not found ! Please unpack APK first !"
-        return 1
-    }
+    is_unpacked
     if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
     then
         echo "$mbshield_found"
