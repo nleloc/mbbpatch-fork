@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "Legacy patches list for MBCPApp :"
 PS3='Select patch options :'

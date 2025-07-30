@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # vim: expandtab tabstop=4 shiftwidth=4
 
 FILEPATH=$(readlink -f "$0")
