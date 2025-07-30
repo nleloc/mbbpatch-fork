@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# PATCHNAME: 
+# MAXVER:
+# MINVER:
+# shellcheck disable=SC1091
+. "$DIRPATH"/common.sh

@@ -34,8 +34,8 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
     		# Checks for MBShield, if exists then exit function
 	if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
  	then
-    	echo "INFO : MBShield found on unpacked APK ! Bypass signature checks won't be possible if MBShield is present on current unpacked APK !"
-    	echo "INFO : Please use supported version !!!"
+    	info "MBShield found on unpacked APK ! Bypass signature checks won't be possible if MBShield is present on current unpacked APK !"
+    	info "Please use supported version !!!"
    	echo "For React Native : MBBank/MB Lite v1.0 up to v6.3.11"
     	echo "For Flutter : MBBank v6.4.0 up to v6.4.21"
     	echo "Some specific version has no MBShield can also be used :"

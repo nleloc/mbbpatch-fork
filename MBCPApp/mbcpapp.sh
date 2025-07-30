@@ -13,7 +13,7 @@ clear
 
 # Check if user runs on actual Linux environment
 if uname -a | grep -i Linux ; then
-    echo "INFO : You have Linux environment :)"
+    info "You have Linux environment :)"
 fi
 
 # Check if user is trying to run under WSL (Windows Subsystem for Linux)
@@ -27,20 +27,21 @@ fi
 if command -v figlet ; then
     FIGLET=figlet
 else
-    echo "WARN : figlet not found, ignoring banner !"
+    warn "figlet not found, ignoring banner !"
     FIGLET=:
 fi
 
-COMMIT="$(git rev-parse --short HEAD)"
+. "$DIRPATH/common.sh"
 
-# Check if java exists on /usr/bin/java
+# Check if java exists
 echo 'Checking if Java exists...'
 if ! java -version ; then
-    echo "ERROR : Java not found !!!"
-    echo "INFO : Please install Java for your Linux distribution ! "
+    err "Java not found !!!"
+    info "Please install Java for your Linux distribution ! "
     exit 127
 fi
 
+COMMIT="$(git rev-parse --short HEAD)"
 clear
 
 mbshield_found='MBShield found on [mbapk_unpacked/assets/mbshield.szip] !!!
@@ -56,8 +57,8 @@ download_tools() {
     apkeditor_link="https://github.com/REAndroid/APKEditor/releases/download/V1.4.4/APKEditor-1.4.4.jar"
 
     cd tools && rm -rf ./*.jar
-    wget -q --show-progress -O apktool.jar "$apktool_link" || echo "ERROR : downloading apktool failed"
-    wget -q --show-progress -O apkeditor.jar "$apkeditor_link" || echo "ERROR : downloading apkeditor failed"
+    wget -q --show-progress -O apktool.jar "$apktool_link" || err "downloading apktool failed"
+    wget -q --show-progress -O apkeditor.jar "$apkeditor_link" || err "downloading apkeditor failed"
     cd .. 
 }
 
@@ -67,19 +68,19 @@ copy_assets() {
 
 is_unpacked() {
     [ -d "$DIRPATH"/mbapk/mbapk_unpacked ] || {
-        echo "ERROR : [mbapk_unpacked] not found ! Please unpack APK first !" ; return 127
+        err "[mbapk_unpacked] not found ! Please unpack APK first !" ; return 127
     }
 }
 is_unpacked_lib() {
     [ -d "$DIRPATH"/mbapk/mbapk_unpacked/lib ] || {
-        echo "ERROR : [mbapk_unpacked/lib] folder not found ! Please unpack APK first !" ; return 127
+        err "[mbapk_unpacked/lib] folder not found ! Please unpack APK first !" ; return 127
     }
 }
 apktool_exist() {
-    [ -f "$DIRPATH"/tools/apktool.jar ] || { echo "ERROR : apktool not found" ; return 127 ; }
+    [ -f "$DIRPATH"/tools/apktool.jar ] || { err "apktool not found" ; return 127 ; }
 }
 apkeditor_exist() {
-    [ -f "$DIRPATH"/tools/apkeditor.jar ] || { echo "ERROR : apkeditor not found" ; return 127 ; }
+    [ -f "$DIRPATH"/tools/apkeditor.jar ] || { err "apkeditor not found" ; return 127 ; }
 }
 mb_apk_exist() {
     ls "$DIRPATH"/mbapk/*.apk >/dev/null 2>&1 || {
@@ -92,7 +93,7 @@ unpack_mbcp() {
     local - ; set -e
     { apktool_exist && mb_apk_exist ; } || return 1
     rm -rf 'mbapk/mbapk_unpacked'
-    java -jar tools/apktool.jar d mbapk/*.apk -o mbapk/mbapk_unpacked -j"$(nproc)" || { echo "ERROR : Unpacking failed !" ; return 1 ; }
+    java -jar tools/apktool.jar d mbapk/*.apk -o mbapk/mbapk_unpacked -j"$(nproc)" || { err "Unpacking failed !" ; return 1 ; }
     echo "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
@@ -173,7 +174,7 @@ convert_apks() {
 }
 
 run_patcher() {
-    is_unpacked_lib && bash ./patch.sh
+    is_unpacked_lib && bash ./parse.sh && bash ./patch.sh
 }
 
 run_legacy_patcher() {
@@ -220,7 +221,7 @@ do
 then
         if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
 then
-        echo "INFO : MBShield found ! Continuing !!!"
+        info "MBShield found ! Continuing !!!"
         echo 'You MUST grant root access to [com.android.shell] in order to extract assets !'
         echo 'Trying to extract assets...'
         adb shell am force-stop com.mbmobile
@@ -262,10 +263,10 @@ then
         adb pull /sdcard/assets mbapk/mbapk_unpacked/
         adb shell rm -rf /sdcard/assets
         else
-        echo "INFO : MBShield not found ! No need to extract assets !"
+        info "MBShield not found ! No need to extract assets !"
         fi
 else
-        echo "ERROR : Can't find [mbapk/mbapk_unpacked] folder, cannot continue ! "
+        err "Can't find [mbapk/mbapk_unpacked] folder, cannot continue ! "
         echo "Please unpack APK first !"
         fi
 
@@ -280,7 +281,7 @@ done
             echo "Clearing [com.mbmobile] data..."
             adb shell pm clear com.mbmobile
             adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
-            echo "INFO : Current logged in account will remain present, even if app data is cleared !"
+            info "Current logged in account will remain present, even if app data is cleared !"
         ;;
     
         'Pull latest commit' )

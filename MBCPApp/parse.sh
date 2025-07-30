@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+# shellcheck disable=SC2295
+# vim: expandtab tabstop=4 shiftwidth=4
+
+[ -n "$DIRPATH" ] || {
+    echo 'ERROR : $DIRPATH not set, script ran standalone?'
+    exit 1
+}
+
+. "$DIRPATH/common.sh"
+
+echo '#!/usr/bin/env bash
+
+[ -n "$DIRPATH" ] || {
+    err "DIRPATH not set, script ran standalone?"
+    exit 1
+}
+
+[ -d "$DIRPATH"/mbapk/mbapk_unpacked ] || {
+    err "[mbapk_unpacked] folder not found, please unpack APK first !"
+    exit 127
+}
+
+. "$DIRPATH/common.sh"
+
+applyPatch() {
+    good "Applying patch [$opt]"
+    if bash "$2" ; then
+        good "Patch [$opt] applied successfully"
+        echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/assets/mbcp_info/$1.inf"
+    else
+        err "Patch [$opt] failed"
+    fi
+}
+
+echo "--------------------------
+Patch list for MBCPApp :"
+PS3="Select patch options : "' > patch.sh
+
+for f in patches/*.sh ; do
+    # name without suffix and prefix
+    n="$(rstrip "$f" '.sh')"
+    n="$(lstrip "$n" 'patches/')"
+
+    # patch infos
+    pname="$(getvar "2" "# PATCHNAME: " "$f")"
+    maxver="$(getvar "3" "# MAXVER: " "$f")"
+    minver="$(getvar "4" "# MINVER: " "$f")"
+
+    pname=${pname//[^a-zA-Z0-9_& ]/}
+    minver="${minver//[^0-9.]/}"
+    maxver="${maxver//[^0-9.]/}"
+
+    #echo "$f|$pname|$minver|$maxver"
+
+    [ -n "$pname" ] || {
+        warn "[parser] $f missing PATCHNAME, not adding"
+        continue
+    }
+    [ -n "$minver" ] && {
+        [ "$(get_mb_ver)" -gt "$minver" ] || {
+        info "[parser] skipping [$pname] as current version is lower than patch version clamp"
+        continue ; }
+    } || :
+    [ -n "$maxver" ] && {
+        [ "$(get_mb_ver)" -lt "$maxver" ] || {
+        info "[parser] skipping [$pname] as current version is higher than patch version clamp"
+        continue ; }
+    } || :
+
+    opts_arr+=" '$pname'"
+    append+="    '$pname') applyPatch $n $f ;;
+"
+done
+
+opts_arr+=" 'Exit'"
+#echo "$opts_arr"
+echo "select opt in $opts_arr" >> patch.sh
+echo 'do
+  case "$opt" in' >> patch.sh
+echo "$append
+    'Exit' ) exit ;;
+  esac
+done" >> patch.sh
