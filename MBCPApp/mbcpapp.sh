@@ -6,6 +6,7 @@ DIRPATH=$(dirname "$FILEPATH")
 export DIRPATH
 
 # Initial startup
+cd "$DIRPATH"
 mkdir -p "$DIRPATH"/mbapk
 mkdir -p "$DIRPATH"/mbcpapp_apk
 mkdir -p "$DIRPATH"/tools
