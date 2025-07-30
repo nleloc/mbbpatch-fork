@@ -90,7 +90,7 @@ mb_apk_exist() {
 
 unpack_mbcp() {
     local - ; set -e
-    apktool_exist && mb_apk_exist
+    { apktool_exist && mb_apk_exist ; } || return 1
     rm -rf 'mbapk/mbapk_unpacked'
     java -jar tools/apktool.jar d mbapk/*.apk -o mbapk/mbapk_unpacked -j"$(nproc)" || { echo "ERROR : Unpacking failed !" ; return 1 ; }
     echo "Cleaning useless files..."
@@ -126,7 +126,7 @@ unpack_mbcp() {
 }
 
 repack_mbcp() {
-    apktool_exist && is_unpacked
+    { apktool_exist && is_unpacked ; } || return 1
     echo "Repacking APK..."
     echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
     (
@@ -148,7 +148,7 @@ repack_mbcp() {
 }
 
 check_mbshield() {
-    is_unpacked
+    is_unpacked || return 1
     if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
     then
         echo "$mbshield_found"
