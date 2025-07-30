@@ -16,14 +16,13 @@ do
       info 'Modifying QR background...'
       cp 'blob_patches/semipriority/priority/a_background_image.webp' 'blob_patches/semipriority/priority/qr_img_ThemeDefalut.webp'
       info 'Copying to [flutter_assets/assets/images/dynamic/base]'
-      cp -r -f 'blob_patches/semipriority/priority/'* 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base' 
+      cp -r -f 'blob_patches/semipriority/priority/'* 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
       info 'Copying [ic_logo_mb_text.svg]...'
       cp -f 'blob_patches/semipriority/ic_logo_mb_text.svg' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/svgs/'
       info 'Copying [welcom_img_eMbee.webp]...'
       cp -f 'blob_patches/semipriority/welcom_img_eMbee.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
       info 'Cleaning...'
       rm -rf 'blob_patches/semipriority/priority'
-      patch_finish "semipriority_theme"
       good "Applied [MBCP SemiPriority] theme."
     ;;
     'MBCP MBClassic')
@@ -43,7 +42,6 @@ do
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenHomeClassic.png|https://gitlab.com/-/project/56341767/uploads/1d7fcf300167e87440220a6f0d28b8c1/mbcp_lobby.png?aaa|g' 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g' 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g'
-      patch_finish "mbclassic_theme"
       good 'Applied [MBCP MBClassic] theme.'
     ;;
     'Noel 2024')
