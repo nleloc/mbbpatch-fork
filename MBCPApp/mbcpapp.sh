@@ -135,6 +135,7 @@ repack_mbcp() {
         set -e
         java -jar tools/apktool.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk -j"$(nproc)"
         info "Processing APK signature scheme v2/v3..."
+        rm 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
         java -jar tools/apkeditor.jar b -t sig -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk' -sig 'mbsig/signatures' -o 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
         rm 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
     ) && {
