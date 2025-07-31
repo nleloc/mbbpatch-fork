@@ -12,6 +12,8 @@ sed_libapp 's|market://details?id=com.mbmobile|https://t.me/mbbpatch/2?ref=mbcp|
 sed_libapp 's|https://www.facebook.com/VietnamMBBank?mibextid=LQQJ4d|https://gitlab.com/mbcp/mbbpatch/?                    |g'
 # VNeID download url
 sed_libapp 's|https://play.google.com/store/apps/details?id=com.vnid|https://www.apkmirror.com/uploads/?appcategory=vneid??|g'
+# Accessibility url
+sed_libapp 's|https://mbstore.mbbank.com.vn/accessibility/index.html|https://gitlab.com/mbcp/info/-/wikis/accessibility?ref|g'
 
 # App embedded strings
 sed_libapp 's|online OTP|DigitalOTP|g'
