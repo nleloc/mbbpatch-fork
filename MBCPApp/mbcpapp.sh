@@ -12,7 +12,9 @@ mkdir -p "$DIRPATH"/mbcpapp_apk
 mkdir -p "$DIRPATH"/tools
 clear
 
-# Check if user runs on actual Linux environment
+. "$DIRPATH/common.sh"
+
+# Check if user is running on an actual Linux environment
 if uname -a | grep -i Linux ; then
     info "You have Linux environment :)"
 fi
@@ -31,8 +33,6 @@ else
     warn "figlet not found, ignoring banner !"
     FIGLET=:
 fi
-
-. "$DIRPATH/common.sh"
 
 # Check if java exists
 echo 'Checking if Java exists...'
