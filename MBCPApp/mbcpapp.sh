@@ -343,9 +343,8 @@ do
 
 
         elif [ "$opt" == 'Exit' ]; then
-        clear
-        bash mbcpapp.sh
-       break
+            PS3='Please select options to continue : '
+            break
         	fi
 done
         ;;
