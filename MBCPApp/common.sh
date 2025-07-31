@@ -33,8 +33,8 @@ sed_libapp() {
     target=$(bb_split "$1" '|' '1')
     replacement=$(bb_split "$1" '|' '2')
     (
-        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so
-        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
+        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so \
+            "$DIRPATH"/mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so
     ) && info "[sed_libapp] [$target] -> [$replacement]" || warn "[sed_libapp] replacing [$target] failed !"
 }
 
@@ -45,8 +45,8 @@ sed_libzdefend() {
     target=$(bb_split "$1" '|' '1')
     replacement=$(bb_split "$1" '|' '2')
     (
-        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so
-        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so
+        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so \
+            "$DIRPATH"/mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so
     ) && info "[sed_libzdefend] [$target] -> [$replacement]" || warn "[sed_libzdefend] replacing [$target] failed !"
 }
 
