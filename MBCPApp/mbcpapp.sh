@@ -35,7 +35,7 @@ else
 fi
 
 # Check if java exists
-echo 'Checking if Java exists...'
+info 'Checking if Java exists...'
 if ! java -version ; then
     err "Java not found !!!"
     info "Please install Java for your Linux distribution ! "
@@ -85,8 +85,8 @@ apkeditor_exist() {
 }
 mb_apk_exist() {
     ls "$DIRPATH"/mbapk/*.apk >/dev/null 2>&1 || {
-        echo "No *.apk found in [mbapk] folder, please copy apk to [mbapk] folder !"
-        echo "If you got apks from eMBee APKs, use [Convert apks to apk] option !"
+        err "No *.apk found in [mbapk] folder, please copy apk to [mbapk] folder !"
+        err "If you got apks from eMBee APKs, use [Convert apks to apk] option !"
     }
 }
 
@@ -95,7 +95,7 @@ unpack_mbcp() {
     { apktool_exist && mb_apk_exist ; } || return 1
     rm -rf 'mbapk/mbapk_unpacked'
     java -jar tools/apktool.jar d mbapk/*.apk -o mbapk/mbapk_unpacked -j"$(nproc)" || { err "Unpacking failed !" ; return 1 ; }
-    echo "Cleaning useless files..."
+    info "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
     rm -rf 'mbapk/mbapk_unpacked/assets/2GcdAWdkXGgxPfHSIhzLkrkf2LU6Z_cuZfUWnczoEHw_'
@@ -116,25 +116,25 @@ unpack_mbcp() {
     rm -rf 'mbapk/mbapk_unpacked/assets/t8_bY_8ibDPQ9rngMwnd7WFI_uqoPlht9nBi26_llbw_'
     rm -rf 'mbapk/mbapk_unpacked/assets/VipqZ50mSUd28eIlPS_2t31IZ6tY24fl8sSl5YsQrbI_'
     rm -rf 'mbapk/mbapk_unpacked/assets/vLpH08bnGzkpsq_MmUdHqkh3bjrVN5tutp6s4jscm3w_'
-    rm -rf 'mbapk/mbapk_unpacked/assets/WZ7CC4mxgoVWzgm8AO7rbOneE6TkqXwT2YV3htdswEQ_'
-    rm -rf 'mbapk/mbapk_unpacked/assets/x_uYtCXdh_oYw_XLfZQkX10Bcqq2HFK3q7v1dJVw3zM_'
-    rm -rf 'mbapk/mbapk_unpacked/assets/Y83jllvBi79vZIh2_UNtyo3_Lvd94lqie_q1dc5O3j0_'
-    rm -rf 'mbapk/mbapk_unpacked/assets/ZN6CRAqtR7CKp7LFoivhHDbCS6iAtrEW6_sLvrfWgEM_'
-    rm -rf 'mbapk/mbapk_unpacked/assets/ZOKOK1a6XCiqYb_a8bYPE9c0rjUf7_n7k77YxX5Ypdw_'
-    rm -rf 'mbapk/mbapk_unpacked/assets/zxHdhL4_ZEQLQeo8R2DzSYl9PGss_cKSCQTcZGBtVmU_'
-    rm -rf 'mbapk/mbapk_unpacked/assets/jNMI79raTvV7VHN5Vrzw4Xs66YP_a1ftP9SmUB24DYg_'
-    echo "Creating [mbcp_info] folder..."
+    rm -rf 'mbapk/mbapk_unpacked/assets/WZ7CC4mxgoVWzgm8AO7rbOneE6TkqXwT2YV3htdswEQ_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/x_uYtCXdh_oYw_XLfZQkX10Bcqq2HFK3q7v1dJVw3zM_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/Y83jllvBi79vZIh2_UNtyo3_Lvd94lqie_q1dc5O3j0_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/ZN6CRAqtR7CKp7LFoivhHDbCS6iAtrEW6_sLvrfWgEM_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/ZOKOK1a6XCiqYb_a8bYPE9c0rjUf7_n7k77YxX5Ypdw_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/zxHdhL4_ZEQLQeo8R2DzSYl9PGss_cKSCQTcZGBtVmU_' 
+    rm -rf 'mbapk/mbapk_unpacked/assets/jNMI79raTvV7VHN5Vrzw4Xs66YP_a1ftP9SmUB24DYg_' 
+    info "Creating [mbcp_info] folder..."
     mkdir 'mbapk/mbapk_unpacked/assets/mbcp_info/'
 }
 
 repack_mbcp() {
     { apktool_exist && is_unpacked ; } || return 1
-    echo "Repacking APK..."
+    info "Repacking APK..."
     echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
     (
         set -e
         java -jar tools/apktool.jar b mbapk/mbapk_unpacked -o mbcpapp_apk/MBCP_Flutter_TMP.apk -j"$(nproc)"
-        echo "Processing APK signature scheme v2/v3..."
+        info "Processing APK signature scheme v2/v3..."
         rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
         java -jar tools/apkeditor.jar d -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk' 
         cp -r 'mbsig/signatures' 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml/'
@@ -143,35 +143,35 @@ repack_mbcp() {
         rm -rf 'mbcpapp_apk/MBCP_Flutter_TMP_decompile_xml'
         rm 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
     ) && {
-        echo 'Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!'
-        echo 'Install and trying to open it when ಠ‿ಠ'
-        echo 'If you are facing issues, report it on Telegram [@mbbpatch] or GitLab : mbbpatch !!'
-    } || echo 'ERROR : Repacking failed !'
+        good 'Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!'
+        good 'Install and trying to open it when ಠ‿ಠ'
+        good 'If you are facing issues, report it on Telegram [@mbbpatch] or GitLab : mbbpatch !!' 
+    } || err 'ERROR : Repacking failed !'
 }
 
 check_mbshield() {
     is_unpacked || return 1
     if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
     then
-        echo "$mbshield_found"
+        info "$mbshield_found"
     else
-        echo "$mbshield_not_found"
+        info "$mbshield_not_found"
     fi
 }
 
 convert_apks() {
     local - ; set -e
     ls "$DIRPATH"/mbapk/*.apks >/dev/null 2>&1 || {
-        echo "APKs missing, cannot continue !"
+        err "APKs missing, cannot continue !"
         return 1
     }
     apkeditor_exist
-    echo "Converting apks to apk..."
+    info "Converting apks to apk..."
     java -jar tools/apkeditor.jar m -i mbapk/*.apks 
     mv mbapk/*.apk mbapk/MBOriginal.apk
-    echo 'Cleaning left over [apks] files...'
+    info 'Cleaning left over [apks] files...'
     rm -f mbapk/*.apks
-    echo "You probably can continue to unpack APK!"
+    info "You probably can continue to unpack APK!"
 }
 
 run_patcher() {
@@ -205,26 +205,25 @@ do
         'MBShield Check' )   check_mbshield ;;
         'Convert apks to apk' ) convert_apks ;;
         'Extract assets [ROOT]' )
-    echo 'To extract encrypted assets [if current app has MBShield protection] you need rooted device'
-    echo 'And trigger a bulit-in app assets extraction !'
-    echo -------------------------------------------
+    info 'To extract encrypted assets [if current app has MBShield protection] you need rooted device'
+    info 'And trigger a bulit-in app assets extraction !'
     echo -------------------------------------------
     PS3='Select options continue, or [3] to quit : '
     select opt in 'Launch MBCPApp/MBBank' 'Extract assets' 'Exit'
 do
     	if [ "$opt" == 'Launch MBCPApp/MBBank' ]; then
         adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
-        echo 'After app started, you MUST need to trigger assets extraction'
-        echo 'By trigger eKYC authetication with reset account password option or register DigitalOTP'
-        echo 'After you got into eKYC screen, close the app, then use Extract assets option to extract assets.'
+        info 'After app started, you MUST need to trigger assets extraction'
+        info 'By trigger eKYC authetication with reset account password option or register DigitalOTP'
+        info 'After you got into eKYC screen, close the app, then use Extract assets option to extract assets.'
         elif [ "$opt" == 'Extract assets' ]; then
         if [ -d "$DIRPATH"/mbapk/mbapk_unpacked/ ]
 then
         if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
 then
         info "MBShield found ! Continuing !!!"
-        echo 'You MUST grant root access to [com.android.shell] in order to extract assets !'
-        echo 'Trying to extract assets...'
+        warn 'You MUST grant root access to [com.android.shell] in order to extract assets !'
+        info 'Trying to extract assets...'
         adb shell am force-stop com.mbmobile
         adb shell rm -rf /sdcard/assets
         adb shell mkdir /sdcard/assets
@@ -260,7 +259,7 @@ then
         copy_assets version.json
         copy_assets vkeylicensepack
         copy_assets voscodesign.vky
-        echo 'Copying assets...'
+        info 'Copying assets...'
         adb pull /sdcard/assets mbapk/mbapk_unpacked/
         adb shell rm -rf /sdcard/assets
         else
@@ -268,7 +267,7 @@ then
         fi
 else
         err "Can't find [mbapk/mbapk_unpacked] folder, cannot continue ! "
-        echo "Please unpack APK first !"
+        err "Please unpack APK first !"
         fi
 
         elif [ "$opt" == 'Exit' ]; then
@@ -279,7 +278,7 @@ else
 done
         ;;
         'Clear MBCPApp/MBBank app data' )
-            echo "Clearing [com.mbmobile] data..."
+            info "Clearing [com.mbmobile] data..."
             adb shell pm clear com.mbmobile
             adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
             info "Current logged in account will remain present, even if app data is cleared !"
@@ -287,7 +286,7 @@ done
     
         'Pull latest commit' )
             git pull origin mbflutter
-            echo "Please run patcher again !"
+            info "Please run patcher again !"
             exit
         ;;
         'Launch MBCPApp/MBBank' )
@@ -297,49 +296,49 @@ done
             adb shell am force-stop com.mbmobile
         ;;
         'Clean patched app' )
-            echo "Cleaning, please wait..." 
+            info "Cleaning, please wait..." 
             rm -f mbcpapp_apk/*.apk
             rm -f mbcpapp_apk/*.zip
             rm -f mbapk/*.apk
             rm -f mbapk/*.apks
             rm -rf mbapk/mbapk_unpacked
-            echo "Cleared !"
+            info "Cleared !"
         ;;
         'Install patched app' )
-    echo 'Select your patched version to continue'
+    info 'Select your patched version to continue'
     PS3='Select patched version to continue, or [3] to quit : '
     select opt in 'App patched with newer version [v6.4.56 or higher]' 'App patched with older version [v6.4.55 or lower]' 'Exit'
 do
     	if [ "$opt" == 'App patched with newer version [v6.4.56 or higher]' ]; then
         if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
     then 
-        echo "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
-        echo "You must have connected Android device with USB debugging turned on in order to install !!!"
+        warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
+        warn "You must have connected Android device with USB debugging turned on in order to install !!!"
         adb kill-server
         adb start-server
         adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
-        echo "ATTENTION : Network traffic will be redirected to [medium.com] for 20 seconds !!!"
+        warn "ATTENTION : Network traffic will be redirected to [medium.com] for 20 seconds !!!"
         adb shell su -c 'iptables -t nat -A OUTPUT -p tcp -d 0/0 -j DNAT --to-destination 162.159.153.4:443'
         adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
         sleep 20
-        echo "Restoring network traffic"
+        info "Restoring network traffic"
         adb shell su -c 'iptables -t nat -F OUTPUT'
-        echo "Press [Try again] after got 1005/1007 error on MB, so it's can skip device not secure dialog !"
+        info "Press [Try again] after got 1005/1007 error on MB, so it's can skip device not secure dialog !"
     else
-        echo "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
+        err "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
     fi
         
         elif [ "$opt" == 'App patched with older version [v6.4.55 or lower]' ]; then
         if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
     then 
-        echo "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
-        echo "You must have connected Android device with USB debugging turned on in order to install !!!"
+        warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
+        warn "You must have connected Android device with USB debugging turned on in order to install !!!"
         adb kill-server
         adb start-server
         adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
         adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
     else
-        echo "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
+        err "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
     fi
 
 
