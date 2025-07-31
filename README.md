@@ -10,6 +10,9 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 
 - Licensed as MIT License : [View license.](https://gitlab.com/cuynu/mbbpatch/-/blob/mbflutter/LICENSE)
 
+# DISCLAIMER 
+We are not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical users only and not criminal. 
+
 ## Introduction 
 - This project was made to remove or limit annoying features & root detection & accessibility detection that implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability,etc. It's not PoC project.
 - [MBCP](https://t.me/mbbpatch) are closed source before, and many people don't like it cuz worry about security & privacy issues. 
