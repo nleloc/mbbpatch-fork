@@ -5,13 +5,14 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
-PS3='Select app icon variant to continue, or [7] to quit : '
-select opt in 'MB Classic' 'Tet' 'Valentine 2025' '30/4-1/5' 'Summer 2025' 'Noel' 'Exit'
+PS3='Select app icon variant to continue : '
+select opt in 'MB Classic' 'Tet' 'Valentine 2025' 'SemiMonet' '30/4-1/5' 'Summer 2025' 'Noel' 'Exit'
 do
     case "$opt" in
         'MB Classic') variant="normal" ;;
         'Tet') variant="tet" ;;
         'Valentine 2025') variant="valentine" ;;
+	'SemiMonet') variant="semimonet" ;;
         '30/4-1/5') variant="thongnhatVN" ;;
         'Summer 2025') variant="summer2025" ;;
         'Noel') variant="noel" ;;
