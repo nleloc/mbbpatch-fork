@@ -95,5 +95,7 @@ sed_libapp 's|Exit application|Exit MBCPApp    |g'
 sed_libapp 's|To use this feature, please install|To use this feature, please setup  |g'
 sed_libapp 's|Setup D-OTP|Digital OTP|g'
 sed_libapp 's|Your login session expired|Login session will end :< |g'
+sed_libapp 's|Please turn off the "Accessibility" feature in the "Settings" section on your phone, or remove the following apps before logging in|Accessibility bypass are currently broken on v6.4.55+. If you want to use MBCP with accessibility app, click "View detail" for info|g'	
+sed_libapp 's|For details please contact 1900545426 or see instructions for more information|For bypass progress, please go to Telegram @mbbpatch or gitlab for more info !|g'
 # Placeholder toolbox
 sed_libapp 's|Shopping, entertainment|MBCPApp Toolbox        |g'
