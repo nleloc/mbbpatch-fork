@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout android:background="@color/ekycTokenWhite" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:id="@id/sgt_contentFragment" android:layout_width="fill_parent" android:layout_height="fill_parent" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <com.singalarity.ekyc.ui.core.SGTImageView android:id="@id/sgt_singalarity_customer_logo" android:layout_width="@dimen/_64sdp" android:layout_height="wrap_content" android:layout_marginTop="@dimen/ekycTokenSpacing08" android:src="@raw/top_logo_partner" android:scaleType="fitCenter" android:adjustViewBounds="true" app:eivEnableClickEffect="true" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+    <com.singalarity.ekyc.ui.core.navigation.SGTNavigationBar android:id="@id/sgt_navigation_video" android:layout_width="0.0dip" android:layout_height="wrap_content" app:enbBackType="back" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
