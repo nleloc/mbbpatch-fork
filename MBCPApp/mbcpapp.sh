@@ -303,9 +303,23 @@ done
         'Install patched app' )
     info 'Select your patched version to continue'
     PS3='Select patched version to continue, or [3] to quit : '
-    select opt in 'App patched with newer version [v6.4.56 or higher]' 'App patched with older version [v6.4.55 or lower]' 'Exit'
+    select opt in 'App patched with newer version [v6.4.59+]' 'App patched with specific version [v6.4.56 ~ v6.4.58]' 'App patched with older version [v6.4.55 or lower]' 'Exit'
 do
-    	if [ "$opt" == 'App patched with newer version [v6.4.56 or higher]' ]; then
+
+        if [ "$opt" == 'App patched with newer version [v6.4.59+]' ]; then
+        if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
+    then 
+        warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
+        warn "You must have connected Android device with USB debugging turned on in order to install !!!"
+        adb kill-server
+        adb start-server
+        adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+        adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
+    else
+        err "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
+    fi
+
+    	elif [ "$opt" == 'App patched with specific version [v6.4.56 ~ v6.4.58]' ]; then
         if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
     then 
         warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
