@@ -15,6 +15,9 @@ sed_libapp 's|https://play.google.com/store/apps/details?id=com.vnid|https://www
 # Accessibility url
 sed_libapp 's|https://mbstore.mbbank.com.vn/accessibility/index.html|https://gitlab.com/mbcp/info/-/wikis/accessibility?ref|g'
 
+# Frequently asked questions
+sed_libapp 's|https://miniapp.mbbank.com.vn/emb-helper/|https://gitlab.com/mbcp/info/-/wikis/faq?|g'
+
 # App embedded strings
 sed_libapp 's|online OTP|DigitalOTP|g'
 sed_libapp 's|Online OTP|DigitalOTP|g'
