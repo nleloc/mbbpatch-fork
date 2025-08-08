@@ -302,7 +302,7 @@ done
         ;;
         'Install patched app' )
     info 'Select your patched version to continue'
-    PS3='Select patched version to continue, or [3] to quit : '
+    PS3='Select patched version to continue, or [4] to quit : '
     select opt in 'App patched with newer version [v6.4.59+]' 'App patched with specific version [v6.4.56 ~ v6.4.58]' 'App patched with older version [v6.4.55 or lower]' 'Exit'
 do
 
