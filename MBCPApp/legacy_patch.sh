@@ -67,6 +67,8 @@ fi
     echo "Moving from [libdesignersactivists.so] to [libweneedfreedom.so]..."
     mv 'mbapk/mbapk_unpacked/lib/arm64-v8a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/lib/arm64-v8a/libweneedfreedom.so'
     mv 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libweneedfreedom.so'
+    # Fixes EKYC3002-MS6998 (DF16246.6) error on devices with randomized apps
+    sed -i 's|<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>||g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
     # Prevent "MB detected that the device is currently not secure for peforming transactions" dialog
     echo "Creating placeholder lib"
     rm -rf temp
