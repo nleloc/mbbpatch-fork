@@ -6,18 +6,7 @@
 . "$DIRPATH"/common.sh
 
 info "Removing smali..."
-rm -rf 'mbapk/mbapk_unpacked/smali_classes4/com/vnpay'
-rm -rf 'mbapk/mbapk_unpacked/smali_classes4/com/d5'
-rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/u4'
-rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/v4'
-rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/x2'
-rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/y4'
-rm -rf 'mbapk/mbapk_unpacked/smali_classes5/com/z4'
-rm -rf 'mbapk/mbapk_unpacked/smali/com/a5'
-rm -rf 'mbapk/mbapk_unpacked/smali/com/ay4'
-rm -rf 'mbapk/mbapk_unpacked/smali/com/az4'
-rm -rf 'mbapk/mbapk_unpacked/smali/com/c5'
-rm -rf 'mbapk/mbapk_unpacked/smali/com/d5'
+rm -f 'mbapk/mbapk_unpacked/smali_classes3/com/vnpay/ticketlib/Activity/VMB20MainActivity.smali'
 for i in {9..82}; do
    # skip 77, 78, 79
    case $i in
@@ -107,7 +96,7 @@ manifest_remove 'android:name="_vemaybay_payment"'
 manifest_remove 'android:name="_vemaybay_payment_without_paymentcode"'
 manifest_remove 'android:name="_vemaybay_payment_paylater"'
 
-cp -f 'blob_patches/remove_vmb20/GeneratedPluginRegistrant.smali' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/plugins'
+
 rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/base/partner/img_vnpay.webp'
 rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/base/partner/img_vna.webp'
 sed_libapp 's|vna_flight_landing|broken_vna_ehh_idk|g'
