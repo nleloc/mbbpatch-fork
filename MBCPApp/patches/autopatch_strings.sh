@@ -72,6 +72,7 @@ sed_libapp 's|Devices registered with DOTP|Active DigitalOTP devices   |g'
 sed_libapp 's|Select Digital OTP Setup / Configuration|3 dots / Setup DigitalOTP / Register    |g'
 sed_libapp 's|Total Balance in VND|Total balance in VND|g'
 sed_libapp 's|Simply enter the DigitalOTP PIN, and the system will Autoally activate to process encryption and transaction authentication.|Simply enter the DigitalOTP PIN, and the VTAP system will activate to process encryption and transaction authentication.    |g'
+sed_libapp 's|PIN Digital OTP| DigitalOTP PIN|g'
 
 sed_libapp 's|productionrn|mbcpreleases|g'
 
