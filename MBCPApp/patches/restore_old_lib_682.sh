@@ -19,4 +19,4 @@ mv old682/unpacked/lib/armeabi-v7a/libflutter.so mbapk/mbapk_unpacked/lib/armeab
 echo "Cleaning..."   
 rm -rf old682
 echo "WARNING : Any changes to [libapp.so] like Autopatch strings are reverted, please apply again if you want to !"
-echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(git show -s --format=%cd HEAD). > 'mbapk/mbapk_unpacked/assets/mbcp_info/bypass_1200_error.inf'
+echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(git show -s --format=%cd HEAD). > 'mbapk/mbapk_unpacked/assets/mbcp_info/restore_old_682_lib.inf'
