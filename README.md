@@ -33,6 +33,7 @@ We are not responsible for any illegal action if criminal abuse this patch to do
 | `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.62 |
 | `Remove bulit-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.4.62 |
 | `Modify app theme` | Modify the app theme in app from original one to others. Currently have MBClassic and SemiPriority. | v6.4.30 ~ v6.4.62 |
+| `Restore old 682 lib` | Restore old v6.4.61 `libapp.so` to prevent enforced `quockhanh` theme changes on v6.4.62. | v6.4.62 |
 | `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.4.62 |
 | `Remove eMBee` | Removes eMBee options in app, alongside with Customer support. | v6.4.43 ~ v6.4.62 |
 | `Revert old eMBee logo` | Revert old eMBee logo, specially on product consultation options. | v6.4.53 ~ v6.4.62 |
