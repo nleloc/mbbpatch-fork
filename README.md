@@ -1,6 +1,6 @@
 # MBCPApp Patcher for MB Bank
 
-<img src="https://gitlab.com/mbcp/mbbpatch/-/raw/mbflutter/MBCPApp/mbcpicons/summer2025/mipmap-hdpi/ic_launcher_round.png?ref_type=heads&inline=false" style="width: 72px;" alt="2025_logo">
+<img src="https://gitlab.com/mbcp/mbbpatch/-/raw/mbflutter/MBCPApp/mbcpicons/thongnhatVN/mipmap-hdpi/ic_launcher_round.png?ref_type=heads&inline=false" style="width: 72px;" alt="2025_logo">
 
 ![GitLab Forks](https://img.shields.io/gitlab/forks/65209567?gitlab_url=https%3A%2F%2Fgitlab.com&style=for-the-badge&logo=gitlab)
 ![GitLab Stars](https://img.shields.io/gitlab/stars/65209567?gitlab_url=https%3A%2F%2Fgitlab.com&style=for-the-badge&logo=gitlab)
