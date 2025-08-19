@@ -9,20 +9,21 @@
 # App update button url
 sed_libapp 's|market://details?id=com.mbmobile|https://t.me/mbbpatch/2?ref=mbcp|g'
 # Facebook button url
-sed_libapp 's|https://www.facebook.com/VietnamMBBank?mibextid=LQQJ4d|https://gitlab.com/mbcp/mbbpatch/?                    |g'
+sed_libapp 's|https://www.facebook.com/VietnamMBBank?mibextid=LQQJ4d|https://git.disroot.org/mbcp/mbbpatch?ref=mbcpapp_oss1|g'
 # VNeID download url
 sed_libapp 's|https://play.google.com/store/apps/details?id=com.vnid|https://www.apkmirror.com/uploads/?appcategory=vneid??|g'
 # Accessibility url
-sed_libapp 's|https://mbstore.mbbank.com.vn/accessibility/index.html|https://gitlab.com/mbcp/info/-/wikis/accessibility?ref|g'
+sed_libapp 's|https://mbstore.mbbank.com.vn/accessibility/index.html|https://git.disroot.org/mbcp/info/wiki/accessibility?r|g'
 
 # Frequently asked questions
-sed_libapp 's|https://miniapp.mbbank.com.vn/emb-helper/|https://gitlab.com/mbcp/info/-/wikis/faq?|g'
+sed_libapp 's|https://miniapp.mbbank.com.vn/emb-helper/login/mb/user?|https://git.disroot.org/mbcp/info/wiki/faq?ref=mbcpossg|g'
+sed_libapp 's|https://miniapp.mbbank.com.vn/emb-helper/login/guest|https://git.disroot.org/mbcp/info/wiki/faq?ref=mbcpg|g'
 
 # App embedded strings
 sed_libapp 's|online OTP|DigitalOTP|g'
 sed_libapp 's|Online OTP|DigitalOTP|g'
 sed_libapp 's|MB Bank|MBCPApp|g'
-sed_libapp 's|The lastest version|TG/GitLab: mbbpatch|g'
+sed_libapp 's|The lastest version|TG/Disroot:mbbpatch|g'
 sed_libapp 's|User profile|View profile|g'
 sed_libapp 's|User ID|Phone  |g'
 sed_libapp 's|MB Membership Package|MB Membership        |g'
@@ -32,7 +33,7 @@ sed_libapp 's|Cashback 150K|             |g'
 sed_libapp 's|Request for supplying password|Request for new password      |g'
 sed_libapp 's|ID card/ID card|Old/New ID card|g'
 sed_libapp 's|Number of document|Number of id card |g'
-sed_libapp 's|Your device will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to be reissued.|Your account will be locked if you enter incorrect password more tham 5 times. Please try again or use the "Forgot password" feature to reset. |g'
+sed_libapp 's|Your device will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to be reissued.|Your account will be locked if you enter incorrect password more than 5 times. Please try again or use the "Forgot password" feature to reset. |g'
 sed_libapp 's|Introduction to receive money|Invite using MB              |g'
 sed_libapp 's|Shopping-  Entertainment- Investment|Flutter embedded MiniApps           |g'
 sed_libapp 's|Downloaded themes|Your owned themes|g'
@@ -100,6 +101,6 @@ sed_libapp 's|To use this feature, please install|To use this feature, please se
 sed_libapp 's|Setup D-OTP|Digital OTP|g'
 sed_libapp 's|Your login session expired|Login session will end :< |g'
 sed_libapp 's|Please turn off the "Accessibility" feature in the "Settings" section on your phone, or remove the following apps before logging in|Accessibility bypass are currently broken on v6.4.55+. If you want to use MBCP with accessibility app, click "View detail" for info|g'	
-sed_libapp 's|For details please contact 1900545426 or see instructions for more information|For bypass progress, please go to Telegram @mbbpatch or gitlab for more info !|g'
+sed_libapp 's|For details please contact 1900545426 or see instructions for more information|For bypass progress, please go to Telegram @mbbpatch or Disroot for more info!|g'
 # Placeholder toolbox
 sed_libapp 's|Shopping, entertainment|MBCPApp Toolbox        |g'
