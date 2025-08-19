@@ -185,7 +185,7 @@ echo "Patching tool for MB Bank app with Flutter engine (v6.4.0+)"
 echo "Original APK must be inside [mbapk] folder !"
 echo -------------------------------------------------------------
 echo "Current commit : $COMMIT (dev)"
-echo "Source code : https://gitlab.com/mbcp/mbbpatch"
+echo "Source code : https://git.disroot.org/mbcp/mbbpatch.git"
 echo "Made possible by Cuynu with love <3"
 echo -------------------------------------------------------------   
 # Main functions      
