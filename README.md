@@ -1,14 +1,10 @@
 # MBCPApp Patcher for MB Bank
 
-<img src="https://gitlab.com/mbcp/mbbpatch/-/raw/mbflutter/MBCPApp/mbcpicons/thongnhatVN/mipmap-hdpi/ic_launcher_round.png?ref_type=heads&inline=false" style="width: 72px;" alt="2025_logo">
+<img src="https://git.disroot.org/mbcp/mbbpatch/raw/branch/mbflutter/MBCPApp/mbcpicons/thongnhatVN/mipmap-xxxhdpi/ic_launcher_round.png" style="width: 72px;" alt="2025_logo">
 
-![GitLab Forks](https://img.shields.io/gitlab/forks/65209567?gitlab_url=https%3A%2F%2Fgitlab.com&style=for-the-badge&logo=gitlab)
-![GitLab Stars](https://img.shields.io/gitlab/stars/65209567?gitlab_url=https%3A%2F%2Fgitlab.com&style=for-the-badge&logo=gitlab)
+Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://git.disroot.org/cuynu).
 
-
-Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://gitlab.com/cuynu).
-
-- Licensed as MIT License : [View license.](https://gitlab.com/cuynu/mbbpatch/-/blob/mbflutter/LICENSE)
+- Licensed as MIT License : [View license.](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
 
 # DISCLAIMER 
 We are not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical users only and not criminal. 
@@ -80,7 +76,7 @@ We are not responsible for any illegal action if criminal abuse this patch to do
 - Go to home directory, then clone repository first
 ```
 cd ~
-git clone https://gitlab.com/cuynu/mbbpatch.git
+git clone https://git.disroot.org/cuynu/mbbpatch.git
 cd ~/mbbpatch/MBCPApp
 ```
 
@@ -98,7 +94,7 @@ cd ~/mbbpatch/MBCPApp
 - Use `Patch App` function and select the patches you want to apply to unpacked app
 - When done, use `Repack APK` function to recompile patched app
 - Patched app will be `MBCP_Flutter_SelfPatched.apk` on `~/mbbpatch/MBCPApp/mbcpapp_apk/`
-- Install it to your device (requires [MBCP Helper](https://gitlab.com/cuynu/mbcp-helper/-/releases) / [CorePatch](https://github.com/lsposed/corepatch/releases) ) with enabled "Disable digest verify" option.
+- Install it to your device (requires [MBCP Helper](https://git.disroot.org/cuynu/mbcp-helper/releases) / [CorePatch](https://github.com/lsposed/corepatch/releases) ) with enabled "Disable digest verify" option.
 - Profit :)
 
 ## TODO
@@ -111,7 +107,7 @@ MBCPApp Patcher project won't be possible without those external projects !!
 - [Zhaxia CN](https://t.me/zhaxia_cn) for sticker packs (Add anime resources)
 
 ## Contributors
-- [Cuynu](https://gitlab.com/cuynu) - MBCP project maintainer
-- [fukiame](https://gitlab.com/fukiame) - other improvements to project
+- [Cuynu](https://git.disroot.org/cuynu) - MBCP project author/maintainer
+- [fukiame](https://git.disroot.org/fukiame) - other improvements to project
 
 
