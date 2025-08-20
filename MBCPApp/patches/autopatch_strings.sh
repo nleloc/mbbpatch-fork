@@ -62,13 +62,16 @@ sed_libapp 's|APP MBBank|MBCPApp   |g'
 sed_libapp 's|MBBank App|MBCPApp   |g'
 sed_libapp 's|App MBBank|MBCPApp   |g'
 
+# Withdraw cash at MB ATM
+sed_libapp 's|Intruction|How-to    |g'
+sed_libapp 's|MBBank will send the withdrawal verification code to the APP instead of SMS on the phone.|MB Bank will send the withdrawal verification code to MBCPApp instead of SMS as before.  |g'
 
 # Latest version check 
 sed_libapp 's|The lastest version|TG/Disroot:mbbpatch|g'
 
 # Profile section 
 sed_libapp 's|User profile|View profile|g'
-sed_libapp 's|User ID|Phone  |g'
+#sed_libapp 's|User ID|Phone  |g' (Commented as it's must be not modified)
 sed_libapp 's|MB Membership Package|MB Membership        |g'
 sed_libapp 's|email information|Email information|g'
 
@@ -97,6 +100,7 @@ sed_libapp 's|Shopping-  Entertainment- Investment|Flutter embedded MiniApps    
 sed_libapp 's|Downloaded themes|Your owned themes|g'
 sed_libapp 's|Coming soon|Placeholder|g'
 sed_libapp 's|Coming Soon|Placeholder|g'
+sed_libapp 's|Please come back later for more new themes!|Tips: Unofficial themes are on Disroot/TG !|g'
 
 # Balance fluctuations notifications (Configuration -> Balance fluctuations notifications) 
 sed_libapp 's|get notifications|Get notifications|g'
