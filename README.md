@@ -94,7 +94,7 @@ cd ~/mbbpatch/MBCPApp
 - Use `Patch App` function and select the patches you want to apply to unpacked app
 - When done, use `Repack APK` function to recompile patched app
 - Patched app will be `MBCP_Flutter_SelfPatched.apk` on `~/mbbpatch/MBCPApp/mbcpapp_apk/`
-- Install it to your device (requires [MBCP Helper](https://git.disroot.org/cuynu/mbcp-helper/releases) / [CorePatch](https://github.com/lsposed/corepatch/releases) ) with enabled "Disable digest verify" option.
+- Install it to your device (requires [MBCP Helper](https://git.disroot.org/mbcp/mbcp-helper/releases) / [CorePatch](https://github.com/lsposed/corepatch/releases) ) with enabled "Disable digest verify" option.
 - Profit :)
 
 ## TODO
