@@ -34,7 +34,7 @@ sed_libapp 's|QR receive|My QR     |g'
 # Digital OTP related 
 sed_libapp 's|online OTP|DigitalOTP|g'
 sed_libapp 's|Online OTP|DigitalOTP|g'
-sed_libapp 's|D-OTP Verification|DigitalOTP        |g'
+#sed_libapp 's|D-OTP Verification|DigitalOTP        |g' (as of request)
 sed_libapp 's|You have not registered for DigitalOTP|DigitalOTP is not registered          |g'
 sed_libapp 's|There is no device registered for DOTP|No active DigitalOTP device found  :> |g'
 sed_libapp 's|Transaction authentication code (OTP) has been sent to your phone number|DigitalOTP registration code (OTP) has been sent to your phone number : |g'
