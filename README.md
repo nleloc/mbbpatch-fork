@@ -76,7 +76,7 @@ We are not responsible for any illegal action if criminal abuse this patch to do
 - Go to home directory, then clone repository first
 ```
 cd ~
-git clone https://git.disroot.org/cuynu/mbbpatch.git
+git clone https://git.disroot.org/mbcp/mbbpatch.git
 cd ~/mbbpatch/MBCPApp
 ```
 
