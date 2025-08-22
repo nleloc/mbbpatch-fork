@@ -44,7 +44,7 @@ We are not responsible for any illegal action if criminal abuse this patch to do
 | `Bypass new zimperium detection` | Bypass the root check from Zimperium within app. | v6.4.56 ~ v6.4.63 |
 | `Remove protection shield` | Remove the MIC protection shield on profile picture and login screen. (not app protection) | v6.4.0 ~ v6.4.63 |
 | `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.4.63 |
-| `Set targetSdkVersion to 35` | Set the `targetSdkVersion` to 35 (Android 15). | v6.4.10 ~ v6.4.63 |
+| `Set targetSdkVersion to 36` | Set the `targetSdkVersion` to 36 (Android 16). | v6.4.10 ~ v6.4.63 |
 | `Add modified resources` | Adds the specific strings for MBCP on eKYC phase, and modify the DigiBank logo. | v6.4.0 ~ v6.4.63 |
 | `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.4.63 |
 
