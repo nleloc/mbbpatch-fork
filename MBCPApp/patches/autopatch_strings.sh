@@ -178,6 +178,14 @@ sed_libapp 's|Your login session expired|Login session will end :< |g'
 sed_libapp 's|Please turn off the "Accessibility" feature in the "Settings" section on your phone, or remove the following apps before logging in|Accessibility bypass are currently broken on v6.4.55+. If you want to use MBCP with accessibility app, click "View detail" for info|g'	
 sed_libapp 's|For details please contact 1900545426 or see instructions for more information|For bypass progress, please go to Telegram @mbbpatch or Disroot for more info!|g'
 
+# FAQ (eMBee Helper)
+sed_libapp 's|Frequently asked questions|MB/MBCP FAQ (Disroot)     |g'
+
+# eMBee Helper -> Completed
+sed_libapp 's|Closing date|Closed date |g'
+
+# eMBee Helper
+sed_libapp 's|Customer support|eMBee Helper    |g'
 
 # Placeholder toolbox	
 sed_libapp 's|Shopping, entertainment|MBCPApp Toolbox        |g'
