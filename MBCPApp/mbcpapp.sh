@@ -14,20 +14,20 @@ clear
 
 . "$DIRPATH/common.sh"
 
-# Check if user is running on an actual Linux environment
-if uname -a | grep -i Linux ; then
-    info "You have Linux environment :)"
-fi
-
 # Check if user is trying to run under WSL (Windows Subsystem for Linux)
 # Removing this detection part might cause project development to be STOPPED, You've been warned !
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop* ]; then
-    echo "Detected WSL (Windows Subsystem for Linux) in current Linux environment !!"
-    echo "Warn : You won't be supported for any issues under WSL environment !!"
+   echo "WSL is not allowed. Sorry."
+   exit 
 fi
 # Workaround for another WSL debian
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop-late ]; then
+    echo "WSL is not allowed. Sorry."
     exit
+fi
+
+if uname -a | grep -i Linux ; then
+    info "You have Linux environment :)"
 fi
 
 # Check if figlet exists or not
