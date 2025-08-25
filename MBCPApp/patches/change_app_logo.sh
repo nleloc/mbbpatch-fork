@@ -6,7 +6,7 @@
 . "$DIRPATH"/common.sh
 
 PS3='Select app icon variant to continue : '
-select opt in 'MB Classic' 'Tet' 'Valentine 2025' 'SemiMonet' '30/4-1/5' 'Summer 2025' 'Noel' 'Exit'
+select opt in 'MB Classic' 'Tet' 'Valentine 2025' 'SemiMonet' '30/4-1/5' '19/8-2/9 2025' 'Summer 2025' 'Noel' 'Exit'
 do
     case "$opt" in
         'MB Classic') variant="normal" ;;
