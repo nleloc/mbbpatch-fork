@@ -14,6 +14,7 @@ do
         'Valentine 2025') variant="valentine" ;;
 	'SemiMonet') variant="semimonet" ;;
         '30/4-1/5') variant="thongnhatVN" ;;
+	'19/8-2/9 2025') variant="quockhanh2025" ;;
         'Summer 2025') variant="summer2025" ;;
         'Noel') variant="noel" ;;
         'Exit') exit ;;
