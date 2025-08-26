@@ -16,6 +16,19 @@ We are not responsible for any illegal action if criminal abuse this patch to do
 - In order to support community, we spend days to rewritten `MBCP` patches once again in Bash and open sourced it so you can patch yourself from original app on (Bare metal, not WSL) Linux environment
 - Note : MBCP are "MBBank CorePatch" but shorter and `MBCP` or `MBCPApp` are the same thing as `MBCP`.
 
+## Proprietary code
+- This project probably won't meet FOSS requirements due to contains proprietary code extracted from MB app that has been modified to bypass something else.
+- It's applies for following folder :
+- 1. `blob_patches/bypass_apptampering`
+- 2. `blob_patches/noadjust_volume_sekyc`
+- 3. `blob_patches/skip_maintainscreen`
+- 4. `blob_patches/bypass_accessibility_applist`
+- 5. `blob_patches/bypass_rootold`
+- 6. `blob_patches/fix_df16211`
+
+- Under `mbsig` directory, it contains MB original dumped signature, which is needed to make app works after patching process.
+- Everything including that listed above code are all licensed under MIT license, but except `mbsig` folder as it contain original app signature, it's can be consider as reverse engineered code :>
+
 ## Patches list :
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
