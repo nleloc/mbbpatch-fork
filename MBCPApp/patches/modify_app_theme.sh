@@ -23,6 +23,7 @@ do
       cp -f 'blob_patches/semipriority/welcom_img_eMbee.webp' 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base'
       info 'Cleaning...'
       rm -rf 'blob_patches/semipriority/priority'
+      echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/assets/mbcp_info/semipriority_theme.inf"
       good "Applied [MBCP SemiPriority] theme."
     ;;
     'MBCP MBClassic')
@@ -42,6 +43,7 @@ do
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenHomeClassic.png|https://gitlab.com/-/project/56341767/uploads/1d7fcf300167e87440220a6f0d28b8c1/mbcp_lobby.png?aaa|g' 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g' 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g'
+      echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/assets/mbcp_info/mbclassic_theme.inf"
       good 'Applied [MBCP MBClassic] theme.'
     ;;
     'Noel 2024')
@@ -77,6 +79,7 @@ do
       sed_libapp 's|Change Noel |Noel 2024   |g'
 
       warn "You WON'T be able to use other theme than Noel 2024 on app !"
+      echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/assets/mbcp_info/noel2024_theme.inf"
       good "Applied [Noel 2024] theme."
     ;;
     'Exit') exit ;;
