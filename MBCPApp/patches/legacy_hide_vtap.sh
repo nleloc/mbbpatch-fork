@@ -3,11 +3,15 @@
 # MAXVER:
 # MINVER:
 # shellcheck disable=SC1091,SC2016
+if [[ -f 'mbapk/mbapk_unpacked/assets/mbcp_info/hide_vtap_root_detection_activity.inf' ]]; then
+	. "$DIRPATH"/common.sh
+	warn "[Hide VTAP root detection activity & dialog] patch already applied, cannot apply this patch due to conflict !"
+	exit 1
+fi
 . "$DIRPATH"/common.sh
 
 
 # Adapt with v6.4.64+
-
 warn "Use cases : Some devices that crashes with standard hide VTAP patch"
 warn "It is better to use the standard hide VTAP patch, so you don't have to hide anything"
 warn "This will only prevent the VGFullScreenDialogActivity from being shown, and the app inside will throw GW908 error when trying to signing in."
