@@ -140,7 +140,7 @@ sed_libapp 's|Verification information is invalid, please contact hotline 190054
 
 # XPE002/XPE003 dialog :
 sed_libapp 's|MB has detected that the device is currently not secure for performing transactions|This dialog are showing cuz server-side MB changes for rooted devices are enforced.|g'
-sed_libapp 's|Please try closing and reopening the app, or reinstalling the MBCPApp    from the app store to continue using the service.|If you are patching via Patcher with v6.4.59+ or newer, please repatch and dont include [Remove new root detection] patch.|g'
+sed_libapp 's|Please try closing and reopening the app, or reinstalling the MBCPApp    from the app store to continue using the service.|If you got this after comes from unpatched app, install MBtoMBCP module on Disroot : mbcp/mbtombcp_fix to fix this issue. |g'
 
 # Settings
 sed_libapp 's|Set up facial authentication|Setup eKYC for transactions |g'
