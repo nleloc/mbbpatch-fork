@@ -52,6 +52,14 @@ sed_libapp 's|Authentication with DigitalOTP|DigitalOTP authentication     |g'
 sed_libapp 's|DigitalOTP information|DigitalOTP Information|g'
 sed_libapp 's|Setup D-OTP|Digital OTP|g'
 sed_libapp 's|Setup D-OTP|Digital OTP|g'
+sed_libapp 's|Please remember the PIN to authenticate transactions through the MBBank APP on this device|Please remember the PIN to authenticate transactions through the MBCPApp on this device...|g'
+
+# Notification via MB Bank app
+sed_libapp 's|Receive balance change notifications via the MBBank APP for free|Receive balance change notifications via the MBCPApp are free.  |g'
+sed_libapp 's|You switch to a completely new device (on which you have never logged into the MBBank App before)|You switch to a completely new device (which you have never logged into the MB/MBCP App before)  |g'
+
+# 10 million++ (on invite using MB)
+sed_libapp 's|10 million++|Earn benefit|g'
 
 # App name
 sed_libapp 's|MB Bank|MBCPApp|g'
@@ -62,6 +70,15 @@ sed_libapp 's|APP MBBank|MBCPApp   |g'
 sed_libapp 's|MBBank App|MBCPApp   |g'
 sed_libapp 's|App MBBank|MBCPApp   |g'
 
+# Register screen
+sed_libapp 's|Conditions for registering to use MBCPApp   |MB Bank Terms Of Use (Vietnamese)           |g'
+sed_libapp 's|Please read carefully and agree to the terms below|If you dont agree to the terms, please close app. |g'
+sed_libapp 's|Register an Account|Register MB account|g'
+sed_libapp 's|SIGN UP IN ONE MINUTE|REGISTER IN MINUTES  |g'
+
+# Send gift
+sed_libapp 's|You want to send a gift for the occasion?|You want to send a gift for the someone ?|g'
+
 # Withdraw cash at MB ATM
 sed_libapp 's|Intruction|How-to    |g'
 sed_libapp 's|MBBank will send the withdrawal verification code to the APP instead of SMS on the phone.|MB Bank will send the withdrawal verification code to MBCPApp instead of SMS as before.  |g'
@@ -71,7 +88,6 @@ sed_libapp 's|The lastest version|TG/Disroot:mbbpatch|g'
 
 # Profile section 
 sed_libapp 's|User profile|View profile|g'
-#sed_libapp 's|User ID|Phone  |g' (Commented as it's must be not modified)
 sed_libapp 's|MB Membership Package|MB Membership        |g'
 sed_libapp 's|email information|Email information|g'
 
@@ -186,6 +202,9 @@ sed_libapp 's|Closing date|Closed date |g'
 
 # eMBee Helper
 sed_libapp 's|Customer support|eMBee Helper    |g'
+
+# Digital signature
+sed_libapp 's|Online signature|Intrust CA certs|g'
 
 # Placeholder toolbox	
 sed_libapp 's|Shopping, entertainment|MBCPApp Toolbox        |g'
