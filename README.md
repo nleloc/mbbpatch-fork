@@ -39,9 +39,11 @@ That applies for following folder :
 | `Block adjust volume on sEKYC` | Prevent the device volume from being adjusted when entering eKYC activity. | v6.4.0 ~ v6.4.64 |
 | `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.64 |
 | `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.4.64 |
+| `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. | v6.4.0 ~ v6.4.64 |
 | `Force portrait screen` | Force the screen always portrait on app, espcially when launching. | v6.4.0 ~ v6.4.64 |
 | `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.64 |
 | `Remove bulit-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.4.64 |
+| `Remove custom profile picture` | Force the use of default profile picture instead of your current one on MB's server side. | v6.4.0 ~ v6.4.64|
 | `Modify app theme` | Modify the app theme in app from original one to others. Currently have MBClassic and SemiPriority. | v6.4.30 ~ v6.4.64 |
 | `Restore old 682 lib` | Restore old v6.4.61 `libapp.so` to prevent enforced `quockhanh` theme changes on v6.4.62. | v6.4.62 |
 | `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.4.64 |
@@ -59,7 +61,7 @@ That applies for following folder :
 | `Bypass new zimperium detection` | Bypass the root check from Zimperium within app. | v6.4.56 ~ v6.4.64 |
 | `Remove protection shield` | Remove the MIC protection shield on profile picture and login screen. (not app protection) | v6.4.0 ~ v6.4.64 |
 | `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.4.64 |
-| `Set targetSdkVersion to 36` | Set the `targetSdkVersion` to 36 (Android 16). | v6.4.10 ~ v6.4.64 |
+| `Set targetSdkVersion to 34` | Set the `targetSdkVersion` to 34 (Android 14). | v6.4.10 ~ v6.4.64 |
 | `Add modified resources` | Adds the specific strings for MBCP on eKYC phase, and modify the DigiBank logo. | v6.4.0 ~ v6.4.64 |
 | `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.4.64 |
 

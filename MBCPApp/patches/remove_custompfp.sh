@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# PATCHNAME: Remove custom profile picture 
+# MAXVER:
+# MINVER:
+# shellcheck disable=SC1091
+. "$DIRPATH"/common.sh
+
+warn "This will force the default app profile picture instead of the one you already set before on the MB server-side!"
+
+sed_libapp 's|getPhoto|nonPhoto|g'
+sed_libapp 's|savePhoto|nonePhoto|g'
+
+info "In order to force this, you can just remove *.png files from [/data/data/com.mbmobile/cache] where contain your current profile picture, or clear the app data !"
