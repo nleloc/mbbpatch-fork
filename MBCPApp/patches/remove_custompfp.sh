@@ -10,4 +10,4 @@ warn "This will force the default app profile picture instead of the one you alr
 sed_libapp 's|getPhoto|nonPhoto|g'
 sed_libapp 's|savePhoto|nonePhoto|g'
 
-info "In order to force this, you can just remove *.png files from [/data/data/com.mbmobile/cache] where contain your current profile picture, or clear the app data !"
+info "In order to force this, you can just remove *.png or *.jpg files from [/data/data/com.mbmobile/cache] where contain your current profile picture, or clear the app data !"
