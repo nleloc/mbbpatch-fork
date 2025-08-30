@@ -8,6 +8,10 @@
 sed_libapp 's|banner|remove|g'
 sed_libapp 's|marketplacehome|removemarketapp|g'
 
+info 'Moving links...'
+sed_libapp 's|https://miniappgw.mbbank.com.vn/homebox/webview/auth?|https://git.disroot.org/mbcp/info/wiki/MiniApp?ref=mb|g'
+sed_libapp 's|https://miniappgw-uat.mbbank.com.vn/homebox-public/|https://git.disroot.org/mbcp/info/wiki/MiniApp?refs|g'
+
 info 'Removing related resources...'
 rm -rf 'mbapk/mbapk_unpacked/assets/flutter_assets/packages'
 rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/dynamic/base/billing_img_defaultBanner.webp'
