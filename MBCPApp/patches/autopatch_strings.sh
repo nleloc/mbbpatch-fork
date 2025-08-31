@@ -206,5 +206,8 @@ sed_libapp 's|Customer support|eMBee Helper    |g'
 # Digital signature
 sed_libapp 's|Online signature|Intrust CA certs|g'
 
+# Changed theme toast
+sed_libapp 's|Theme Changed Successfully|Applied selected theme :) |g'
+
 # Placeholder toolbox	
 sed_libapp 's|Shopping, entertainment|MBCPApp Toolbox        |g'
