@@ -8,7 +8,7 @@
 # App embedded links
 
 # App update button url
-sed_libapp 's|market://details?id=com.mbmobile|https://t.me/mbbpatch/2?ref=mbcp|g'
+sed_libapp 's|market://details?id=com.mbmobile|https://tinyurl.com/mbcpupdate??|g'
 # Facebook button url
 sed_libapp 's|https://www.facebook.com/VietnamMBBank?mibextid=LQQJ4d|https://git.disroot.org/mbcp/mbbpatch?ref=mbcpapp_oss1|g'
 # VNeID download url
