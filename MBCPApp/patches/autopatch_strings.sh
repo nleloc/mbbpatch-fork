@@ -157,7 +157,8 @@ sed_libapp 's|Account Balance|Account balance|g'
 sed_libapp 's|Set as Default Account|Set as default account|g'
 
 # App log header info (client.log)
-sed_libapp 's|productionrn|mbcpreleases|g'
+#sed_libapp 's|productionrn|mbcpreleases|g'
+sed_libapp 's|Open app MBCPApp|Open app MB Bank|g'
 
 # Wallet (Link management)
 sed_libapp 's|Link Management|Link management|g'

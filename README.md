@@ -2,7 +2,7 @@
 
 <img src="https://git.disroot.org/mbcp/mbbpatch/raw/branch/mbflutter/MBCPApp/mbcpicons/normal/mipmap-hdpi/ic_launcher_round.png" style="width: 72px;" alt="2025_logo">
 
-Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://git.disroot.org/cuynu).
+Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://git.disroot.org/cuynu) without any use of AI.
 
 - Licensed as MIT License : [View license.](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
 
