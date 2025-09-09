@@ -12,10 +12,10 @@ mv *.apks old682/
 echo "Unpacking..."
 java -jar tools/apkeditor.jar m -i old682/*.apks 
 java -jar tools/apktool.jar d old682/*.apk -o old682/unpacked -j$(nproc)
-mv old682/unpacked/lib/arm64-v8a/libapp.so mbapk/mbapk_unpacked/lib/arm64-v8a/ 
-mv old682/unpacked/lib/armeabi-v7a/libapp.so mbapk/mbapk_unpacked/lib/armeabi-v7a/ 
-mv old682/unpacked/lib/arm64-v8a/libflutter.so mbapk/mbapk_unpacked/lib/arm64-v8a/ 
-mv old682/unpacked/lib/armeabi-v7a/libflutter.so mbapk/mbapk_unpacked/lib/armeabi-v7a/   
+mv old682/unpacked/lib/arm64-v8a/libapp.so mbapk/mbapk_unpacked/root/lib/arm64-v8a/ 
+mv old682/unpacked/lib/armeabi-v7a/libapp.so mbapk/mbapk_unpacked/root/lib/armeabi-v7a/ 
+mv old682/unpacked/lib/arm64-v8a/libflutter.so mbapk/mbapk_unpacked/root/lib/arm64-v8a/ 
+mv old682/unpacked/lib/armeabi-v7a/libflutter.so mbapk/mbapk_unpacked/root/lib/armeabi-v7a/   
 echo "Cleaning..."   
 rm -rf old682
 echo "WARNING : Any changes to [libapp.so] like Autopatch strings are reverted, please apply again if you want to !"

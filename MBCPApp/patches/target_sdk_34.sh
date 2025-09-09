@@ -5,4 +5,4 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
-sed -i 's|targetSdkVersion: 35|targetSdkVersion: 34|g' "$DIRPATH"/mbapk/mbapk_unpacked/apktool.yml
+sed -i 's|targetSdkVersion: 35|targetSdkVersion: 34|g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml

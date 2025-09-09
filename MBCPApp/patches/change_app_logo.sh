@@ -21,17 +21,17 @@ do
     esac
 
     info 'Removing old logos...'
-    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-hdpi
-    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-mdpi
-    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xhdpi
-    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxhdpi
-    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/res/mipmap-xxxhdpi
+    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/resources/package_1/res/mipmap-hdpi
+    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/resources/package_1/res/mipmap-mdpi
+    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/resources/package_1/res/mipmap-xhdpi
+    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/resources/package_1/res/mipmap-xxhdpi
+    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/resources/package_1/res/mipmap-xxxhdpi
     
     info 'Copying new logos to [mbapk_unpacked/res]...'
-    cp -r -f "$DIRPATH"/mbcpicons/"$variant"/mipmap-hdpi mbapk/mbapk_unpacked/res
-    cp -r -f "$DIRPATH"/mbcpicons/"$variant"/mipmap-mdpi mbapk/mbapk_unpacked/res
-    cp -r -f "$DIRPATH"/mbcpicons/"$variant"/mipmap-xhdpi mbapk/mbapk_unpacked/res
-    cp -r -f "$DIRPATH"/mbcpicons/"$variant"/mipmap-xxhdpi mbapk/mbapk_unpacked/res
-    cp -r -f "$DIRPATH"/mbcpicons/"$variant"/mipmap-xxxhdpi mbapk/mbapk_unpacked/res
+    cp -r -f "$DIRPATH"/mbcpicons/"$variant"/mipmap-hdpi mbapk/mbapk_unpacked/resources/package_1/res
+    cp -r -f "$DIRPATH"/mbcpicons/"$variant"/mipmap-mdpi mbapk/mbapk_unpacked/resources/package_1/res
+    cp -r -f "$DIRPATH"/mbcpicons/"$variant"/mipmap-xhdpi mbapk/mbapk_unpacked/resources/package_1/res
+    cp -r -f "$DIRPATH"/mbcpicons/"$variant"/mipmap-xxhdpi mbapk/mbapk_unpacked/resources/package_1/res
+    cp -r -f "$DIRPATH"/mbcpicons/"$variant"/mipmap-xxxhdpi mbapk/mbapk_unpacked/resources/package_1/res
 
 done

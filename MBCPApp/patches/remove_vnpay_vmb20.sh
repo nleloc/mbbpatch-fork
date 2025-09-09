@@ -6,20 +6,20 @@
 . "$DIRPATH"/common.sh
 
 info "Removing smali..."
-rm -f 'mbapk/mbapk_unpacked/smali_classes3/com/vnpay/ticketlib/Activity/VMB20MainActivity.smali'
+rm -f 'mbapk/mbapk_unpacked/smali/classes3/com/vnpay/ticketlib/Activity/VMB20MainActivity.smali'
 for i in {9..82}; do
    # skip 77, 78, 79
    case $i in
        77 | 78 | 79 | 81 ) :; ;;
-       *) rm -f "mbapk/mbapk_unpacked/smali_classes5/mbshield/EP$i.smali" ;;
+       *) rm -f "mbapk/mbapk_unpacked/smali/classes5/mbshield/EP$i.smali" ;;
    esac
 done
 
 info "Removing resources..."
-rm -f 'mbapk/mnapk_unpacked/res/drawable-xhdpi/ic_home_vna.png'
-rm -f 'mbapk/mnapk_unpacked/res/drawable-xhdpi/logo_vnairline.png'
-rm -f 'mbapk/mnapk_unpacked/res/drawable-xxhdpi/ic_home_vna.png'
-rm -f 'mbapk/mnapk_unpacked/res/drawable-xxhdpi/logo_vnairline.png'
+rm -f 'mbapk/mnapk_unpacked/resources/package_1/res/drawable-xhdpi/ic_home_vna.png'
+rm -f 'mbapk/mnapk_unpacked/resources/package_1/res/drawable-xhdpi/logo_vnairline.png'
+rm -f 'mbapk/mnapk_unpacked/resources/package_1/res/drawable-xxhdpi/ic_home_vna.png'
+rm -f 'mbapk/mnapk_unpacked/resources/package_1/res/drawable-xxhdpi/logo_vnairline.png'
 
 # Remove activity
 manifest_remove 'android:name="com.vnpay.ticketlib.Activity.VMB20BlankActivity"'
@@ -97,6 +97,6 @@ manifest_remove 'android:name="_vemaybay_payment_without_paymentcode"'
 manifest_remove 'android:name="_vemaybay_payment_paylater"'
 
 
-rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/base/partner/img_vnpay.webp'
-rm -f 'mbapk/mbapk_unpacked/assets/flutter_assets/assets/images/static/base/partner/img_vna.webp'
+rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_vnpay.webp'
+rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_vna.webp'
 sed_libapp 's|vna_flight_landing|broken_vna_ehh_idk|g'

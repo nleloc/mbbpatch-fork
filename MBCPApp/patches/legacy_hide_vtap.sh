@@ -3,13 +3,10 @@
 # MAXVER:
 # MINVER:
 # shellcheck disable=SC1091,SC2016
-if [[ -f 'mbapk/mbapk_unpacked/assets/mbcp_info/hide_vtap_root_detection_activity.inf' ]]; then
-	. "$DIRPATH"/common.sh
-	warn "[Hide VTAP root detection activity & dialog] patch already applied, cannot apply this patch due to conflict !"
-	exit 1
-fi
+
 . "$DIRPATH"/common.sh
 
+checkVtap .
 
 # Adapt with v6.4.64+
 warn "Use cases : Some devices that crashes with standard hide VTAP patch"
@@ -17,8 +14,8 @@ warn "It is better to use the standard hide VTAP patch, so you don't have to hid
 warn "This will only prevent the VGFullScreenDialogActivity from being shown, and the app inside will throw GW908 error when trying to signing in."
 warn "You have to hide root with some method for that, like freeze Magisk app with App Manager."
 info "Forcing flutter activity..."
-sed -i 's|const-class v1, Lcom/vkey/android/vguard/VGFullScreenDialogActivity;|const-class v1, Lio/flutter/plugins/MainActivity;|g' "$DIRPATH"/mbapk/mbapk_unpacked/smali_classes3/com/vkey/android/ep.smali && info "Done!"
+sed -i 's|const-class v1, Lcom/vkey/android/vguard/VGFullScreenDialogActivity;|const-class v1, Lio/flutter/plugins/MainActivity;|g' "$DIRPATH"/mbapk/mbapk_unpacked/smali/classes3/com/vkey/android/ep.smali && info "Done!"
 info "Removing VGFullScreenDialogActivity..."
-rm -f 'mbapk/mbapk_unpacked/smali_classes3/com/vkey/android/vguard/VGFullScreenDialogActivity.smali' && info "Done!"
+rm -f 'mbapk/mbapk_unpacked/smali/classes3/com/vkey/android/vguard/VGFullScreenDialogActivity.smali' && info "Done!"
 
 

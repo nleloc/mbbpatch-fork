@@ -27,7 +27,7 @@ applyPatch() {
     good "Applying patch [$opt]"
     if bash "$2" ; then
         good "Patch [$opt] applied successfully"
-        echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/assets/mbcp_info/$1.inf"
+        echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/$1.inf"
     else
         err "Patch [$opt] failed"
     fi
@@ -57,16 +57,6 @@ for f in patches/*.sh ; do
         warn "[parser] $f missing PATCHNAME, not adding"
         continue
     }
-    [ -n "$minver" ] && {
-        [ "$(get_mb_ver)" -gt "$minver" ] || {
-        info "[parser] skipping [$pname] as current version is lower than patch version clamp"
-        continue ; }
-    } || :
-    [ -n "$maxver" ] && {
-        [ "$(get_mb_ver)" -lt "$maxver" ] || {
-        info "[parser] skipping [$pname] as current version is higher than patch version clamp"
-        continue ; }
-    } || :
 
     opts_arr+=" '$pname'"
     append+="    '$pname') applyPatch $n $f ;;
