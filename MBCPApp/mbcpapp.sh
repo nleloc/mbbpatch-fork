@@ -107,7 +107,7 @@ unpack_mbcp() {
 repack_mbcp() {
     { apktool_exist && is_unpacked ; } || return 1
     info "Repacking APK..."
-    echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/assets/mbcp_info/mbcpinfo.txt'
+    echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/root/assets/mbcp_info/mbcpinfo.txt'
     (
         set -e
         java -jar tools/apkeditor.jar b -i 'mbapk/mbapk_unpacked' -o mbcpapp_apk/MBCP_Flutter_TMP.apk
@@ -124,7 +124,7 @@ repack_mbcp() {
 
 check_mbshield() {
     is_unpacked || return 1
-    if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
+    if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/mbshield.szip ]
     then
         info "$mbshield_found"
     else
@@ -192,7 +192,7 @@ do
         elif [ "$opt" == 'Extract assets' ]; then
         if [ -d "$DIRPATH"/mbapk/mbapk_unpacked/ ]
 then
-        if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
+        if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/mbshield.szip ]
 then
         info "MBShield found ! Continuing !!!"
         warn 'You MUST grant root access to [com.android.shell] in order to extract assets !'
@@ -233,7 +233,7 @@ then
         copy_assets vkeylicensepack
         copy_assets voscodesign.vky
         info 'Copying assets...'
-        adb pull /sdcard/assets mbapk/mbapk_unpacked/
+        adb pull /sdcard/assets mbapk/mbapk_unpacked/root/
         adb shell rm -rf /sdcard/assets
         else
         info "MBShield not found ! No need to extract assets !"
