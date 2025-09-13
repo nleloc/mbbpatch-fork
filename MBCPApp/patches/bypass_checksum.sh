@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PATCHNAME: Bypass GW934 checksum 
+# PATCHNAME: Bypass GW934 checksum
 # MAXVER:
 # MINVER:
 # shellcheck disable=SC1091
@@ -28,7 +28,7 @@ sed -i 's|android:icon="@mipmap/ic_launcher"|android:icon="@mipmap/ic_launcher" 
 
 info "Moving code..."
 cp -r 'blob_patches/bypass_apptampering/bin' 'mbapk/mbapk_unpacked/smali/classes5'
-cp -r 'blob_patches/bypass_apptampering/org' 'mbapk/mbapk_unpacked/smali/classes5'
+cp -r 'blob_patches/bypass_apptampering/org/lsposed/hiddenapibypass' 'mbapk/mbapk_unpacked/smali/classes5/org/lsposed/hiddenapibypass'
 
 info "Unpacking [MBOriginal.apk]..."
 rm -rf 'tools/bypass/tmp'
@@ -70,6 +70,9 @@ cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libapp.so' 'mbapk/mbapk_unpacked/ro
 cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/'
 cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/'
 
+cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libestimateddistributions.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/'
+cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libestimateddistributions.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a'
+
 info "Removing unnecessary files from unpacked [MBOriginal.apk]..."
 rm -rf 'tools/bypass/tmp/root/lib'
 rm -rf 'tools/bypass/tmp/root/assets'
@@ -77,3 +80,7 @@ rm -rf 'tools/bypass/tmp/root/assets'
 info "Repacking APK... [not MBCP app itself!]"
 rm -rf 'mbapk/mbapk_unpacked/assets/mbhook'
 java -jar tools/apkeditor.jar b -i 'tools/bypass/tmp' -o 'mbapk/mbapk_unpacked/root/assets/mbhook'
+
+warn "DO NOT APPLY ANY OTHER PATCHES AFTER APPLIED THIS !!!"
+warn "OTHERWISE, GW934 ERROR MIGHT APPEARS AGAIN !!!"
+warn "YOU'VE WARNED !!!!"
