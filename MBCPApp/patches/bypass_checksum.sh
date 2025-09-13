@@ -12,23 +12,23 @@ info "Downloading pre-compiled ApkSignatureKillerEx..."
 wget -q --show-progress -O 'tools/bypass/app-debug.apk' 'https://git.disroot.org/cuynu/ApkSignatureKillerEx/releases/download/1.0/app-debug.apk'
 info "Extracting [app-debug.apk]..."
 unzip -o 'tools/bypass/app-debug.apk' -d 'tools/bypass'
-mv 'tools/bypass/lib/arm64-v8a/libSignatureKiller.so' 'tools/bypass/lib/arm64-v8a/libmodft3.so'
+mv 'tools/bypass/lib/arm64-v8a/libSignatureKiller.so' 'tools/bypass/lib/arm64-v8a/libmodft3.so' 
 mv 'tools/bypass/lib/armeabi-v7a/libSignatureKiller.so' 'tools/bypass/lib/armeabi-v7a/libmodft3.so'
 info "Moving libraries..."
-mv 'tools/bypass/lib/arm64-v8a/libmodft3.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a'
-mv 'tools/bypass/lib/armeabi-v7a/libmodft3.so' 'mbapk_unpacked/mbapk_unpacked/root/lib/armeabi-v7a'
+mv 'tools/bypass/lib/arm64-v8a/libmodft3.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a' 
+mv 'tools/bypass/lib/armeabi-v7a/libmodft3.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a' 
 
-mv 'mbapk/mbapk_unpacked/lib/arm64-v8a/libapp.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbcp.so'
-mv 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libapp.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbcp.so'
+mv 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbcp.so'
+mv 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libapp.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbcp.so'
 
 info "Moving usages..."
-sed -i 's|libapp.so|libmbcp.so|g' 'mbapk/mbapk_unpacked/smali_classes4/io/flutter/embedding/engine/loader/FlutterApplicationInfo.smali'
+sed -i 's|libapp.so|libmbcp.so|g' 'mbapk/mbapk_unpacked/smali/classes4/io/flutter/embedding/engine/loader/FlutterApplicationInfo.smali'
+sed -i 's|android:name="bin.mt.signature.KillerApplication"||g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|android:icon="@mipmap/ic_launcher"|android:icon="@mipmap/ic_launcher" android:name="bin.mt.signature.KillerApplication"|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 
 info "Moving code..."
-mkdir 'mbapk/mbapk_unpacked/smali_classes6'
-cp -r 'blob_patches/bypass_apptampering/bin' 'mbapk/mbapk_unpacked/smali/classes6'
-cp -r 'blob_patches/bypass_apptampering/org' 'mbapk/mbapk_unpacked/smali/classes6'
+cp -r 'blob_patches/bypass_apptampering/bin' 'mbapk/mbapk_unpacked/smali/classes5'
+cp -r 'blob_patches/bypass_apptampering/org' 'mbapk/mbapk_unpacked/smali/classes5'
 
 info "Unpacking [MBOriginal.apk]..."
 rm -rf 'tools/bypass/tmp'
@@ -67,7 +67,7 @@ info "Moving libraries..."
 cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libapp.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a'
 cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libapp.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a'
 
-cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/arm64/'
+cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/'
 cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/'
 
 info "Removing unnecessary files from unpacked [MBOriginal.apk]..."
@@ -75,4 +75,5 @@ rm -rf 'tools/bypass/tmp/root/lib'
 rm -rf 'tools/bypass/tmp/root/assets'
 
 info "Repacking APK... [not MBCP app itself!]"
+rm -rf 'mbapk/mbapk_unpacked/assets/mbhook'
 java -jar tools/apkeditor.jar b -i 'tools/bypass/tmp' -o 'mbapk/mbapk_unpacked/root/assets/mbhook'
