@@ -100,6 +100,63 @@ unpack_mbcp() {
     rm -rf 'mbapk/mbapk_unpacked'
     java -jar tools/apkeditor.jar d -i mbapk/*.apk -o mbapk/mbapk_unpacked || { err "Unpacking failed !" ; return 1 ; }
     info "Cleaning useless files..."
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/2GcdAWdkXGgxPfHSIhzLkrkf2LU6Z_cuZfUWnczoEHw_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/BiLlLhV4LAy_y_rvwmD82q_4yN_liwgN1X0mfwfqTeE_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/c7uFHgsHzlQ_T524_4N3h9neXvtcUg0m1ERhEjFpPI8_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/ccBu4aSM_mSaMBpFvr14pizu6EGMvwRiZltU_zVJMz0_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/DcM3z3tolULDhbn8YrUE7hxOlxZx2oFC5yNQFG1SX9k_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/fPGzhQFvISia1NiVGU8vQx9IpRm63E4_1Xv0Z2ypWUE_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/g9x205p_On9_RR4kI_GdsoQ2pfSrV_OQXSopshyhYVk_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/GXNv8xc5IcVF6TyUgjJpyYFeyHGqUqN7ZS0X_2WRbEE_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/H8leCCp85eX0YRvo4WCzqF5MEuj2_9ix6zL2bjnj6hk_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/Hput_BfAb8ftOt8hvazec24Eqk0gC5DDY6qALJMLtcI_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/MZuOOtdhO6pcGnZ5_kqMPh56hL3LqawBZd05vfIivww_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/noNmNoHJ0EUpV0TiKtyRPIVWI0im6K1RPIq3N_q0ho0_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/oOot9yCPD3GFqBix7JXjoz4Uui3k3NrwI8wHRlOpn4s_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/rqfr7ucXEZM4vIIYYPHXlo6IG1iEad_H61Z4bbEMR3s_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/Sje9R7eg_A4wlgbLNHwXS5xNFmS5qaoPnJ6Vg0RnIQ8_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/t8_bY_8ibDPQ9rngMwnd7WFI_uqoPlht9nBi26_llbw_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/VipqZ50mSUd28eIlPS_2t31IZ6tY24fl8sSl5YsQrbI_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/vLpH08bnGzkpsq_MmUdHqkh3bjrVN5tutp6s4jscm3w_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/WZ7CC4mxgoVWzgm8AO7rbOneE6TkqXwT2YV3htdswEQ_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/x_uYtCXdh_oYw_XLfZQkX10Bcqq2HFK3q7v1dJVw3zM_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/Y83jllvBi79vZIh2_UNtyo3_Lvd94lqie_q1dc5O3j0_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/ZN6CRAqtR7CKp7LFoivhHDbCS6iAtrEW6_sLvrfWgEM_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/ZOKOK1a6XCiqYb_a8bYPE9c0rjUf7_n7k77YxX5Ypdw_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/zxHdhL4_ZEQLQeo8R2DzSYl9PGss_cKSCQTcZGBtVmU_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/jNMI79raTvV7VHN5Vrzw4Xs66YP_a1ftP9SmUB24DYg_'
+    # New zimperium for v6.4.66+
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/2GcdAWdkXGgxPfHSIhzLkrkf2LU6Z_cuZfUWnczoEHw_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/5ZgPqFnAWhQNY00pFq2V1t1CQ2Pu_v5fmZ1z_J8mpRc_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/BiLlLhV4LAy_y_rvwmD82q_4yN_liwgN1X0mfwfqTeE_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/ccBu4aSM_mSaMBpFvr14pizu6EGMvwRiZltU_zVJMz0_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/DcM3z3tolULDhbn8YrUE7hxOlxZx2oFC5yNQFG1SX9k_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/eB0ZLvEtv8_qoOAcmcB19tx0pnT_RXKn5WU3rOVgK4k_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/fPGzhQFvISia1NiVGU8vQx9IpRm63E4_1Xv0Z2ypWUE_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/g9x205p_On9_RR4kI_GdsoQ2pfSrV_OQXSopshyhYVk_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/GXNv8xc5IcVF6TyUgjJpyYFeyHGqUqN7ZS0X_2WRbEE_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/H8leCCp85eX0YRvo4WCzqF5MEuj2_9ix6zL2bjnj6hk_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/jNMI79raTvV7VHN5Vrzw4Xs66YP_a1ftP9SmUB24DYg_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/L99mUhn96s4yqqm5R9PfAaEKDqXeeymBiZ6LXsL7Q6g_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/MZuOOtdhO6pcGnZ5_kqMPh56hL3LqawBZd05vfIivww_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/noNmNoHJ0EUpV0TiKtyRPIVWI0im6K1RPIq3N_q0ho0_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/PFG4UoVDN_g9I8eyvXTlS_1wTyyW7MSBQgALLx3oais_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/rqfr7ucXEZM4vIIYYPHXlo6IG1iEad_H61Z4bbEMR3s_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/VipqZ50mSUd28eIlPS_2t31IZ6tY24fl8sSl5YsQrbI_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/Vk2u994oKcVWweAMd1MiPV1CqM_arKjtcMTiEstc_tQ_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/WZ7CC4mxgoVWzgm8AO7rbOneE6TkqXwT2YV3htdswEQ_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/x_uYtCXdh_oYw_XLfZQkX10Bcqq2HFK3q7v1dJVw3zM_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/Y83jllvBi79vZIh2_UNtyo3_Lvd94lqie_q1dc5O3j0_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/yUIRfgijg_pUl2cxzI4uUChxQx0eaY_KqL0HkZDq9_8_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/zK8ofKgkgZpE0H2lDulbI7VQeUuxZFk7PXXPHT1fQqE_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/ZN6CRAqtR7CKp7LFoivhHDbCS6iAtrEW6_sLvrfWgEM_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/ZOKOK1a6XCiqYb_a8bYPE9c0rjUf7_n7k77YxX5Ypdw_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/zxHdhL4_ZEQLQeo8R2DzSYl9PGss_cKSCQTcZGBtVmU_'
+
+
     info "Creating [mbcp_info] folder..."
     mkdir 'mbapk/mbapk_unpacked/root/assets/mbcp_info/'
 }
@@ -163,9 +220,10 @@ echo "Original APK must be inside [mbapk] folder !"
 echo -------------------------------------------------------------
 echo "Current commit : $COMMIT (dev)"
 echo "Source code : https://git.disroot.org/mbcp/mbbpatch.git"
-echo "Made possible by Cuynu with love <3"
-echo -------------------------------------------------------------   
-# Main functions      
+echo "Made possible by Cuynu's brain with love <3"
+echo -------------------------------------------------------------
+
+# Main functions
 PS3='Please select options to continue : '
 select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'MBShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
 do
