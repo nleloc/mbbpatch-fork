@@ -84,8 +84,8 @@ That applies for following folder :
 </details>
 
 ## Requirements
-- Any actual Linux environment (Arch Linux based recommended) or Termux
-- Termux are barely works, but there is no support if you have issues if the app is patched under Termux.
+- Any actual Linux x86_64 environment (Arch Linux based recommended) or Termux (not recommended)
+- Termux are barely works, but there is no support if you have issues with the app that is patched with Termux.
 - WSL are not supported due to compiling issue & macOS support are dropped as MB development team are working with it.
 - Little knowledge about terminal commands
 - `android-tools` `wget` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based
