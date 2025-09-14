@@ -21,6 +21,12 @@ rstrip() {
     printf '%s\n' "${1%%$2}"
 }
 
+# imported from https://github.com/dylanaraps/pure-bash-bible
+strip_all() {
+    # Usage: strip_all "string" "pattern"
+    printf '%s\n' "${1//$2}"
+}
+
 getvar() {
     # Usage: getline "n" "pattern" "file"
     while IFS= read -r line; do
@@ -57,7 +63,12 @@ sed_libzdefend() {
 ##        warn "[manifest_remove] removing $1 failed"
 ##}
 
-
+get_mb_ver() {
+    a="$(grep -m1 'android:versionName' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml)"
+    a="$(bb_split "$a" '=' '1')"
+    a="$(strip_all "$a" '"')"
+    bb_split "$a" '.' '2'
+}
 
 checkVtap() {
     if [[ -f "mbapk/mbapk_unpacked/assets/mbcp_info/hide_vtap*.inf" ]]; then
