@@ -56,12 +56,11 @@ sed_libzdefend() {
     ) && info "[sed_libzdefend] [$target] -> [$replacement]" || warn "[sed_libzdefend] replacing [$target] failed !"
 }
 
-## currently causing crashes after migration to apkeditor, waiting for fukiame to fix
-## manifest_remove() {
-##    sed -i "/$1/d" "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml && \
-##        info "[manifest_remove] removing $1" || \
-##        warn "[manifest_remove] removing $1 failed"
-##}
+manifest_remove() {
+    sed -i "/$1/d" "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml && \
+        info "[manifest_remove] removing $1" || \
+        warn "[manifest_remove] removing $1 failed"
+}
 
 get_mb_ver() {
     a="$(grep -m1 'android:versionName' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml | tr ' ' '\n' | grep -m1 'android:versionName')"
