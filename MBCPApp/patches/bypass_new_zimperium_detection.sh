@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Bypass new zimperium detection
-# MAXVER:
+# MAXVER: 63
 # MINVER:
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
