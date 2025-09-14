@@ -46,6 +46,12 @@ if ! java -version ; then
     exit 127
 fi
 
+# Check if xmlstarlet exists
+if ! xmlstarlet --version ; then
+    err "xmlstarlet not found, please install it"
+    exit 127
+fi
+
 COMMIT="$(git rev-parse --short HEAD)"
 clear
 
