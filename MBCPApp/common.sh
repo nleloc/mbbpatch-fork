@@ -64,7 +64,7 @@ sed_libzdefend() {
 ##}
 
 get_mb_ver() {
-    a="$(grep -m1 'android:versionName' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml)"
+    a="$(grep -m1 'android:versionName' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml | tr ' ' '\n' | grep -m1 'android:versionName')"
     a="$(bb_split "$a" '=' '1')"
     a="$(strip_all "$a" '"')"
     bb_split "$a" '.' '2'

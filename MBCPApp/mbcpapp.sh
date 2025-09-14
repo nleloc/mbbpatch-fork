@@ -156,9 +156,12 @@ unpack_mbcp() {
     rm -rf 'mbapk/mbapk_unpacked/root/assets/ZOKOK1a6XCiqYb_a8bYPE9c0rjUf7_n7k77YxX5Ypdw_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/zxHdhL4_ZEQLQeo8R2DzSYl9PGss_cKSCQTcZGBtVmU_'
 
-
     info "Creating [mbcp_info] folder..."
     mkdir 'mbapk/mbapk_unpacked/root/assets/mbcp_info/'
+
+    info "Reformatting AndroidManifest.xml with xmlstarlet..."
+    mv "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml.orig
+    xmlstarlet fo "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml.orig > "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
 }
 
 repack_mbcp() {

@@ -91,6 +91,7 @@ That applies for following folder :
 - `git` installed
 - `java` or `jdk-openjdk` installed
 - `figlet` for showing banner (optional)
+- `xmlstarlet` for reformatting AndroidManifest after unpacking
 
 ## Usage
 - Go to home directory, then clone repository first
