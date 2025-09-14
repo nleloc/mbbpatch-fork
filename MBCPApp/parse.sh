@@ -28,6 +28,8 @@ applyPatch() {
     if bash "$2" ; then
         good "Patch [$opt] applied successfully"
         echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/$1.inf"
+    elif [ "$?" -eq "69" ] ; then
+        warn "Patch [$opt] was cancelled by the user"
     else
         err "Patch [$opt] failed"
     fi
