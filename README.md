@@ -84,10 +84,10 @@ That applies for following folder :
 </details>
 
 ## Requirements
-- Actual Linux environment (not on virtualized environment like WSL) and any compatible distro (Arch Linux based recommended)
-- Little knowledge about `bash` commands
-- `android-tools` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based 
-- For macOS, you need `openjdk` `gnu-sed` `wget` `android-platform-tools` installed with brew (both need to be added to PATH first!) 
+- Any actual Linux environment (Arch Linux based recommended) or Termux
+- WSL are not supported due to compiling issue & macOS support are dropped as MB development team are working with it.
+- Little knowledge about terminal commands
+- `android-tools` `wget` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based
 - `git` installed
 - `java` or `jdk-openjdk` installed
 - `figlet` for showing banner (optional)
