@@ -91,3 +91,12 @@ warn() {
 err() {
     echo -e "\033[31m[$(date +"%H:%M:%S:%2N")] [ERROR] $1\033[0m"
 }
+
+confirm() {
+    read -rp "$1
+Press Y to confirm, press any other keys to cancel: " val
+    case "$val" in
+        Y|y|yes|Yes) : ;;
+        *) return 69 ;;
+    esac
+}
