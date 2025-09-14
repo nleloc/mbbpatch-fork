@@ -231,6 +231,10 @@ echo "Current commit : $COMMIT (dev)"
 echo "Source code : https://git.disroot.org/mbcp/mbbpatch.git"
 echo "Made possible by Cuynu's brain with love <3"
 echo -------------------------------------------------------------
+if [[ -f /data/data/com.termux/files/usr/bin/termux-setup-storage ]]; then
+    warn "Termux environment detected !"
+    warn "Patcher continue to runs, but don't report any issues if the app is patched with Termux!"
+fi
 
 # Main functions
 PS3='Please select options to continue : '
