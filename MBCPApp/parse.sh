@@ -57,6 +57,16 @@ for f in patches/*.sh ; do
         warn "[parser] $f missing PATCHNAME, not adding"
         continue
     }
+    [ -n "$minver" ] && {
+        [ "$(get_mb_ver)" -gt "$minver" ] || {
+        info "[parser] skipping [$pname] as current version is lower than patch version clamp"
+        continue ; }
+    } || :
+    [ -n "$maxver" ] && {
+        [ "$(get_mb_ver)" -lt "$maxver" ] || {
+        info "[parser] skipping [$pname] as current version is higher than patch version clamp"
+        continue ; }
+    } || :
 
     opts_arr+=" '$pname'"
     append+="    '$pname') applyPatch $n $f ;;
