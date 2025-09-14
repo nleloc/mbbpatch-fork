@@ -7,7 +7,7 @@
 
 info "In order to modify app theme, you must extract assets first if current unpacked APK has MBShield!"
 PS3='Select themes : '
-select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Exit'
+select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Mid-autumn festival' 'Exit'
 do
   case "$opt" in
     'MBCP SemiPriority')
@@ -38,6 +38,30 @@ do
       rm -rf 'blob_patches/semipriority/priority'
       echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/semipriority_theme.inf"
       good "Applied [MBCP SemiPriority] theme."
+
+
+    ;;
+  'Mid-autumn festival')
+    cp -f 'blob_patches/trungthu_theme/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+    cp -f 'blob_patches/trungthu_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+    cp -f 'blob_patches/trungthu_theme/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+    cp -f 'blob_patches/trungthu_theme/homeLanding_img_defaultBanner.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+    cp -f 'blob_patches/trungthu_theme/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+    cp -f 'blob_patches/trungthu_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/images/static/onboarding/onboarding_illus_a80.webp'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/images/static/onboarding/onboarding_img_a80Banner.webp'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/images/static/onboarding/onboarding_img_a80Code.webp'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/images/static/onboarding/onboarding_bg_a80Landing.webp'
+
+    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_thumbnail_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/227ca0fc0dd1b5b3973690c3f9031c27/thumb.png?app=mbcp11|g'
+    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLoading_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/27f934ed3f55c3214185bc193cfdfe2b/preview1.png?app=mbcpapp|g'
+    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLogin_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/4f5f5398f57ce629b195f0fa6eb21f2a/preview2.png?ref=mbcp1|g'
+    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenHome_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/b0b35d05a0752b6eec0dd19d50f15afd/preview3.png?ref=mbcp|g'
+    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccess_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/c61050db4674a181978b6f868c100aa6/preview4.png?ref=mbcpapp|g'
+    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenShare_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/2bd471b0b9ef7f96b05020bb4af304ed/preview5.png?ref=mbcp1|g'
+    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/midautumn_theme.inf"
+      good "Applied [Mid-autumn festival] theme."
+
     ;;
     'MBCP MBClassic')
       info "Ensure that SemiPriority theme is not applied before this !"
