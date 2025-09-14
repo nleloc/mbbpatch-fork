@@ -113,8 +113,8 @@ cd ~/mbbpatch/MBCPApp
 - Download necessary tools first with `Download tools` function (otherwise other functions are unlikely to work!) 
 - Convert apks to apk first using `Convert apks to apk` function
 - Unpack apk with `Unpack apk` function
-- Use `Patch App` function and select the patches you want to apply to unpacked app
-- When done, use `Repack APK` function to recompile patched app
+- Use `Patch App` function and select the patches you want to apply to unpacked app except [Bypss GW934 checksum] patch
+- When done, apply the [Bypass GW934 checksum] patch, then use `Repack APK` function to recompile patched app
 - Patched app will be `MBCP_Flutter_SelfPatched.apk` on `~/mbbpatch/MBCPApp/mbcpapp_apk/`
 - Install it to your device (requires [MBCP Helper](https://git.disroot.org/mbcp/mbcp-helper/releases) / [CorePatch](https://github.com/lsposed/corepatch/releases) ) with enabled "Disable digest verify" option.
 - Profit :)
