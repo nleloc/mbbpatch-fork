@@ -50,7 +50,8 @@ do
     cp -f 'blob_patches/trungthu_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
     cp -f 'blob_patches/trungthu_theme/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
     cp -f 'blob_patches/trungthu_theme/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
-    cp -f 'blob_patches/trungthu_theme/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+    cp -f 'blob_patches/trungthu_theme/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+    
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_illus_a80.webp'
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Banner.webp'
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Code.webp'
