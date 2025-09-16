@@ -46,6 +46,13 @@ if ! java -version ; then
     exit 127
 fi
 
+# Check if wget exists
+if ! wget --version ; then
+    err "wget not found !!!"
+    info "Please install wget for your Linux distribution !"
+    exit 127
+fi
+
 # Check if xmlstarlet exists
 if ! xmlstarlet --version ; then
     err "xmlstarlet not found, please install it"
