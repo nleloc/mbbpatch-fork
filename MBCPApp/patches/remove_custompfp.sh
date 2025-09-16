@@ -6,6 +6,7 @@
 . "$DIRPATH"/common.sh
 
 warn "This will force the default app profile picture instead of the one you already set before on the MB server-side!"
+confirm "Are you sure you want to apply this patch?" || exit 69
 
 sed_libapp 's|getPhoto|nonPhoto|g'
 sed_libapp 's|savePhoto|nonePhoto|g'

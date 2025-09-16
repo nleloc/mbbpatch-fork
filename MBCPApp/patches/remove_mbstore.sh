@@ -7,6 +7,7 @@
 
 warn "You won't be able to access MB Store Themes in the change theme section on the app !"
 info "Theme installation like specific theme modules that redirect to MB Store Themes will still work!"
+confirm "Are you sure you want to apply this patch?" || exit 69
 
 info "Removing MB Store Themes banner..."
 rm -f "mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/theme_bg_cuaHang.webp"

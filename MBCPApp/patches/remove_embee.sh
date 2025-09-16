@@ -6,6 +6,8 @@
 . "$DIRPATH"/common.sh
 
 warn "Remove eMBee also remove customer support and any other options on eMBee Helper !"
+confirm "Are you sure you want to apply this patch?" || exit 69
+
 info "Removing eMBee Customer support function..."
 sed_libapp 's|group_button_support|itsnotworthittouseem|g'
 sed_libapp 's|Customer support|                |g'

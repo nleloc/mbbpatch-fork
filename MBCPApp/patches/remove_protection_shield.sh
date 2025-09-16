@@ -5,6 +5,8 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
+confirm "Are you sure you want to apply this patch?" || exit 69
+
 sed_libapp 's|get-protective-cyber-risk|get_protective_cyber_none|g'
 sed_libapp 's|Activate for Protection|Protection are disabled|g'
 info "Removing resources..."

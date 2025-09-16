@@ -5,6 +5,9 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
+warn "This patch will disable the MB Membership function !"
+confirm "Are you sure you want to apply this patch?" || exit 69
+
 warn "You won't be able to use any of Membership benefits if you already subscribed to !"
 
 sed_libapp 's|get-customer-subs|get-customer-apps|g'

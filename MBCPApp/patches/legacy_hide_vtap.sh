@@ -8,6 +8,8 @@
 
 checkVtap .
 
+confirm "Are you sure you want to apply this patch?" || exit 69
+
 # Adapt with v6.4.64+
 warn "Use cases : Some devices that crashes with standard hide VTAP patch"
 warn "It is better to use the standard hide VTAP patch, so you don't have to hide anything"
