@@ -15,13 +15,15 @@ sed_libapp 's|https://www.facebook.com/VietnamMBBank?mibextid=LQQJ4d|https://git
 sed_libapp 's|https://play.google.com/store/apps/details?id=com.vnid|https://www.apkmirror.com/uploads/?appcategory=vneid??|g'
 # Accessibility url
 sed_libapp 's|https://mbstore.mbbank.com.vn/accessibility/index.html|https://git.disroot.org/mbcp/info/wiki/accessibility?r|g'
+# Google Wallet url
+sed_libapp 's|www.android.com/payapp/|www.tinyurl.com/andrmbb|g'
 
 # Frequently asked questions
 sed_libapp 's|https://miniapp.mbbank.com.vn/emb-helper/login/mb/user?|https://git.disroot.org/mbcp/info/wiki/faq?ref=mbcpossg|g'
 sed_libapp 's|https://miniapp.mbbank.com.vn/emb-helper/login/guest|https://git.disroot.org/mbcp/info/wiki/faq?ref=mbcpg|g'
 
 # Goolag Pay
-sed_libapp 's|To add a card to your GPay wallet, please install GPay wallet on your device|This feature is not supported on devices with microG or deGoogled.          |g'
+sed_libapp 's|To add a card to your GPay wallet, please install GPay wallet on your device|Sorry, this feature is not yet supported on devices with microG or deGoogled|g'
 sed_libapp 's|Account Pay|Google Pay |g'
 
 # Permission screen
@@ -34,7 +36,7 @@ sed_libapp 's|QR receive|My QR     |g'
 # Digital OTP related 
 sed_libapp 's|online OTP|DigitalOTP|g'
 sed_libapp 's|Online OTP|DigitalOTP|g'
-#sed_libapp 's|D-OTP Verification|DigitalOTP        |g' (as of request)
+sed_libapp 's|D-OTP Verification|DigitalOTP        |g'
 sed_libapp 's|You have not registered for DigitalOTP|DigitalOTP is not registered          |g'
 sed_libapp 's|There is no device registered for DOTP|No active DigitalOTP device found  :> |g'
 sed_libapp 's|Transaction authentication code (OTP) has been sent to your phone number|DigitalOTP registration code (OTP) has been sent to your phone number : |g'
@@ -53,6 +55,7 @@ sed_libapp 's|DigitalOTP information|DigitalOTP Information|g'
 sed_libapp 's|Setup D-OTP|Digital OTP|g'
 sed_libapp 's|Setup D-OTP|Digital OTP|g'
 sed_libapp 's|Please remember the PIN to authenticate transactions through the MBBank APP on this device|Please remember the PIN to authenticate transactions through the MBCPApp on this device...|g'
+sed_libapp 's|DigitalOTP helps you authenticate online transactions quickly and securely.|DigitalOTP is requried for most action on the MB/MBCP app, please register.|g'
 
 # Notification via MB Bank app
 sed_libapp 's|Receive balance change notifications via the MBBank APP for free|Receive balance change notifications via the MBCPApp are free.  |g'
@@ -100,7 +103,7 @@ sed_libapp 's|Cashback 150K|             |g'
 # Forgot password screen
 sed_libapp 's|Request for supplying password|Request for new password      |g'
 sed_libapp 's|ID card/ID card|Old/New ID card|g'
-sed_libapp 's|Number of document|Number of id card |g'
+sed_libapp 's|Number of document|Number of ID card |g'
 
 # Wrong password dialog 
 sed_libapp 's|Your device will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to be reissued.|Your account will be locked if you enter incorrect password more than 5 times. Please try again or use the "Forgot password" feature to reset. |g'
@@ -117,6 +120,8 @@ sed_libapp 's|Downloaded themes|Your owned themes|g'
 sed_libapp 's|Coming soon|Placeholder|g'
 sed_libapp 's|Coming Soon|Placeholder|g'
 sed_libapp 's|Please come back later for more new themes!|Tips: Unofficial themes are on Disroot/TG !|g'
+sed_libapp 's|Change theme successfully|App theme changed :)     |g'
+sed_libapp 's|Change theme|Store themes|g'
 
 # Balance fluctuations notifications (Configuration -> Balance fluctuations notifications) 
 sed_libapp 's|get notifications|Get notifications|g'
@@ -126,9 +131,9 @@ sed_libapp 's|Read the announcement|Notify with voice    |g'
 sed_libapp 's|This service has been upgraded, please update the app to continue using the service|This app version is expired, please update or repatch with newer version. (GW525)  |g'
 
 # Welcome screen
-sed_libapp 's|Welcome to the MBBank APP!|Thanks for login to MBCP~ |g'
-sed_libapp 's|Breakthrough to bring you an impressive experience|We did respect your freedom and privacy, unlike MB|g'
-sed_libapp "s|Let's start the journey of discovery!|If you have issues, dont shy with us!|g"
+sed_libapp 's|Welcome to the MBCPApp   !|Thanks for login to MBCP~ |g'
+sed_libapp 's|Breakthrough to bring you an impressive experience|We do respect your privacy and freedom, unlike MB |g'
+sed_libapp "s|Let's start the journey of discovery!|If you have issues, report it to us !|g"
 sed_libapp 's|Start journey|Alright !    |g'
 
 # Guide
@@ -136,7 +141,7 @@ sed_libapp 's|Go here to install the app|MBCPApp settings are here |g'
 
 
 # EKYC error dialog 
-sed_libapp 's|Verification information is invalid, please contact hotline 1900545426 for support|EKYC failed, please go to our Telegram group (@mbbpatch) for details and help !!! |g'
+sed_libapp 's|Verification information is invalid, please contact hotline 1900545426 for support|EKYC failed, please go to Telegram group (@mbbpatch_eng) for details and help !!! |g'
 
 # XPE002/XPE003 dialog :
 sed_libapp 's|MB has detected that the device is currently not secure for performing transactions|This dialog are showing cuz server-side MB changes for rooted devices are enforced.|g'
@@ -193,7 +198,7 @@ sed_libapp 's|Your login session expired|Login session will end :< |g'
 
 # Accessibility dialog
 sed_libapp 's|Please turn off the "Accessibility" feature in the "Settings" section on your phone, or remove the following apps before logging in|Accessibility bypass are currently broken on v6.4.55+. If you want to use MBCP with accessibility app, click "View detail" for info|g'	
-sed_libapp 's|For details please contact 1900545426 or see instructions for more information|For bypass progress, please go to Telegram @mbbpatch or Disroot for more info!|g'
+sed_libapp 's|For details please contact 1900545426 or see instructions for more information|For more info, dont be shy, go to Telegram (@mbbpatch_eng) or Disroot :)      |g'
 
 # FAQ (eMBee Helper)
 sed_libapp 's|Frequently asked questions|MB/MBCP FAQ (Disroot)     |g'
@@ -209,6 +214,31 @@ sed_libapp 's|Online signature|Intrust CA certs|g'
 
 # Changed theme toast
 sed_libapp 's|Theme Changed Successfully|Applied selected theme :) |g'
+
+# Autoally typo
+sed_libapp 's|Protection package will be Autoally renewed|Protection package will automatically renew|g'
+sed_libapp 's|If the account balance is insufficient by the end of the day, the service will be Autoally canceled|If the account balance is insufficient by the end of the day, the service will be canceled         |g'
+sed_libapp 's|MB is Autoally depositing accumulated funds into the Accumulation Deposit|MB will auto depositing accumulated funds into the Accumulation Deposit  |g'
+sed_libapp 's|Currently Autoally saving & investing in|Currently auto saving & investing in    |g'
+sed_libapp 's|Autoally renew|Auto renew    |g'
+sed_libapp 's|Autoally processes the transaction|Auto processes the transaction    |g'
+sed_libapp 's|Autoally granted credit card limit|Auto granted credit card limit    |g'
+sed_libapp 's|Account for MB to Autoally collect principal, interest, and fees (if any)|Account for MB to auto collect principal, interest, and fees (if any)    |g'
+sed_libapp 's|Amount exceeding the payment amount will be Autoally deducted for the next tax period|Amount exceeding the payment amount will be auto deducted for the next tax period    |g'
+sed_libapp 's|Conditions for cancellation of cyberisk package Autoally renewed|Conditions for cancellation cyberisk package that auto renewed  |g'
+sed_libapp 's|MB Autoally processes the foreign currency purchase (2 minutes)|MB auto processes the foreign currency purchase (2 minutes)    |g'
+sed_libapp 's|Your membership package Autoally renews from|Your membership package will auto renew from|g'
+sed_libapp 's|Monthly, on the selected day, MB will Autoally transfer the specified amount to the deposit account|Monthly, on the selected day, MB will auto transfer the specified amount to the deposit account    |g'
+sed_libapp 's|Beauty account fee is Autoally debited by MB and the account will be revoked if the payment is not made after 7 working days|Lucky account fee is automatically debited by MB and the account will be revoked if the payment is not made after 7 days    |g'
+sed_libapp 's|The MB Membership package will be Autoally renewed on|MB Membership package will automatically renewed on  |g'
+sed_libapp 's|MB Autoally buys foreign currency|MB auto buys foreign currency    |g'
+sed_libapp 's|Autoally save and invest for effective returns|Auto save and invest for effective returns    |g'
+sed_libapp 's|MB will Autoally round up transactions & transfer the spare change into your Accumulation Deposit Account when the Accumulation Account reaches 50,000 VND|MB will auto round up transactions & transfer the spare change into your Accumulation Deposit Account when the Accumulation Account reaches 50,000 VND    |g'
+sed_libapp 's|The deposit account will Autoally rotate principal and interest when the deposit payment is due|The deposit account will auto rotate principal and interest when the deposit payment is due to |g'
+sed_libapp 's|Autoally accumulate and invest safely|Auto accumulate and invest safely    |g'
+sed_libapp 's|After cancelation, you will not Autoally round-up and accumulate on the checking account or auto-invest.|After cancelation, you will not get auto round-up and accumulate on the checking account or auto-invest.|g'
+sed_libapp 's|Your package will be Autoally renewed from|Your package will be get auto renewed from|g'
+sed_libapp 's|Autoally|get auto|g'
 
 # Placeholder toolbox	
 sed_libapp 's|Shopping, entertainment|MBCPApp Toolbox        |g'
