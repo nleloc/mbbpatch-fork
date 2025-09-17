@@ -24,12 +24,22 @@ echo '#!/usr/bin/env bash
 . "$DIRPATH/common.sh"
 
 applyPatch() {
+    dotinf="mbapk/mbapk_unpacked/root/assets/mbcp_info/$1.inf"
+    cancel_msg="Patch [$opt] was cancelled by the user"
+
+    if [ -f "$dotinf" ]; then
+        confirm "This patch ($opt [$1]) seems to have already been applied, are you sure you want / need to reapply it?" || {
+            warn "$cancel_msg"
+            return 69
+        }
+    fi
+
     good "Applying patch [$opt]"
     if bash "$2" ; then
         good "Patch [$opt] applied successfully"
-        echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/$1.inf"
+        echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "$dotinf"
     elif [ "$?" -eq "69" ] ; then
-        warn "Patch [$opt] was cancelled by the user"
+        warn "$cancel_msg"
     else
         err "Patch [$opt] failed"
     fi
