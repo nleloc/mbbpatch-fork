@@ -53,7 +53,6 @@ sed_libapp 's|Register D-OTP|Register now  |g'
 sed_libapp 's|Authentication with DigitalOTP|DigitalOTP authentication     |g'
 sed_libapp 's|DigitalOTP information|DigitalOTP Information|g'
 sed_libapp 's|Setup D-OTP|Digital OTP|g'
-sed_libapp 's|Setup D-OTP|Digital OTP|g'
 sed_libapp 's|Please remember the PIN to authenticate transactions through the MBBank APP on this device|Please remember the PIN to authenticate transactions through the MBCPApp on this device...|'
 sed_libapp 's|DigitalOTP helps you authenticate online transactions quickly and securely.|DigitalOTP is requried for most action on the MB/MBCP app, please register.|'
 
