@@ -122,7 +122,7 @@ sed_libapp 's|Change theme successfully|App theme changed :)     |'
 sed_libapp 's|Change theme|Store themes|'
 
 # Balance fluctuations notifications (Configuration -> Balance fluctuations notifications) 
-sed_libapp 's|et notifications|Get notifications|g'
+sed_libapp 's|get notifications|Get notifications|g'
 sed_libapp 's|Read the announcement|Notify with voice    |'
 
 # Discontinued version dialog (present on older version or if the current app version is expired from MB side)
