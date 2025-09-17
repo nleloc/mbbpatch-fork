@@ -55,6 +55,7 @@ if ! xmlstarlet --version ; then
 fi
 
 COMMIT="$(git rev-parse --short HEAD)"
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 clear
 
 mbshield_found='MBShield found on [mbapk_unpacked/assets/mbshield.szip] !!!
@@ -229,7 +230,7 @@ echo -------------------------------------------------------------
 echo "Patching tool for MB Bank app with Flutter engine (v6.4.0+)"
 echo "Original APK must be inside [mbapk] folder !"
 echo -------------------------------------------------------------
-echo "Current commit : $COMMIT (dev)"
+echo "Current commit : $COMMIT ($BRANCH)"
 echo "Source code : https://git.disroot.org/mbcp/mbbpatch.git"
 echo "Made possible by Cuynu's brain with love <3"
 echo -------------------------------------------------------------
