@@ -20,12 +20,8 @@ if [ -f /proc/sys/fs/binfmt_misc/WSLInterop* ]; then
    echo "WSL is not allowed. Sorry."
    exit 
 fi
-# Workaround for another WSL debian
-if [ -f /proc/sys/fs/binfmt_misc/WSLInterop-late ]; then
-    echo "WSL is not allowed. Sorry."
-    exit
-fi
 
+# Check if user is running on an actual Linux environment
 if uname -a | grep -i Linux ; then
     info "You have Linux environment :)"
 fi
@@ -39,7 +35,6 @@ else
 fi
 
 # Check if java exists
-info 'Checking if Java exists...'
 if ! java -version ; then
     err "Java not found !!!"
     info "Please install Java for your Linux distribution ! "
