@@ -62,6 +62,11 @@ manifest_remove() {
         warn "[manifest_remove] removing $1 failed"
 }
 
+pblock() {
+    blocker="$DIRPATH/mbapk/mbapk_unpacked/root/assets/mbcp_info/pfi"
+    echo "$1" > "$blocker"
+}
+
 get_mb_ver() {
     a="$(grep -m1 'android:versionName' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml | tr ' ' '\n' | grep -m1 'android:versionName')"
     a="$(bb_split "$a" '=' '1')"
