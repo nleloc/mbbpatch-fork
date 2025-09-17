@@ -90,3 +90,5 @@ java -jar tools/apkeditor.jar b -i 'tools/bypass/tmp' -o 'mbapk/mbapk_unpacked/r
 warn "DO NOT APPLY ANY OTHER PATCHES AFTER APPLIED THIS !!!"
 warn "OTHERWISE, GW934 ERROR MIGHT APPEARS AGAIN !!!"
 warn "YOU'VE WARNED !!!!"
+
+pblock "Bypass GW934 checksum"
