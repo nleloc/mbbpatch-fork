@@ -5,13 +5,17 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
-mkdir tools/bypass
 warn "Source code for [app-debug.apk] are on [https://git.disroot.org/cuynu/ApkSignatureKillerEx]"
 warn "Ensure that you applied all patches you want, and then apply this as the last one!"
 confirm "Are you sure you want to apply this patch?" || exit 69
 
-info "Downloading pre-compiled ApkSignatureKillerEx..."
-wget -q --show-progress -O 'tools/bypass/app-debug.apk' 'https://git.disroot.org/cuynu/ApkSignatureKillerEx/releases/download/1.0/app-debug.apk'
+mkdir -p tools/bypass
+
+if ! [ -f 'tools/bypass/app-debug.apk' ] ; then
+    info "Downloading pre-compiled ApkSignatureKillerEx..."
+    wget -q --show-progress -O 'tools/bypass/app-debug.apk' 'https://git.disroot.org/cuynu/ApkSignatureKillerEx/releases/download/1.0/app-debug.apk'
+fi
+
 info "Extracting [app-debug.apk]..."
 unzip -o 'tools/bypass/app-debug.apk' -d 'tools/bypass'
 mv 'tools/bypass/lib/arm64-v8a/libSignatureKiller.so' 'tools/bypass/lib/arm64-v8a/libmodft3.so' 
