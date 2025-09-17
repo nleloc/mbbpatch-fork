@@ -24,6 +24,13 @@ echo '#!/usr/bin/env bash
 . "$DIRPATH/common.sh"
 
 applyPatch() {
+    blocker="mbapk/mbapk_unpacked/root/assets/mbcp_info/pfi"
+    if [ -f "$blocker" ] ; then
+        block_msg="$(cat $blocker)"
+        err "Further patching is blocked by [$block_msg]. If you want to continue, cleanup the current unpacked apk, patch again from scratch."
+        return 36
+    fi
+
     dotinf="mbapk/mbapk_unpacked/root/assets/mbcp_info/$1.inf"
     cancel_msg="Patch [$opt] was cancelled by the user"
 
