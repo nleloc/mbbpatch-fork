@@ -69,13 +69,6 @@ get_mb_ver() {
     bb_split "$a" '.' '2'
 }
 
-checkVtap() {
-    if [[ -f "mbapk/mbapk_unpacked/assets/mbcp_info/hide_vtap*.inf" ]]; then
-        echo "Hide VTAP patch already applied!"
-        exit 1
-    fi
-}
-
 good() {
     echo -e "\033[32m[$(date +"%H:%M:%S:%2N")] [INFO] $1\033[0m"
 }

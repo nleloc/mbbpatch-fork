@@ -6,8 +6,6 @@
 
 . "$DIRPATH"/common.sh
 
-checkVtap .
-
 confirm "Are you sure you want to apply this patch?" || exit 69
 
 # Adapt with v6.4.64+
