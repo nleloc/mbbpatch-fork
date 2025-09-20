@@ -6,6 +6,10 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 
 - Licensed as MIT License : [View license.](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
 
+# Notice
+- STOP forking this project and fed to AI-tools as i don't like them. Any forks that is doing this thing is literally slowing down project development !!!
+- PLEASE respect the author code !!!
+
 # DISCLAIMER 
 We are not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical users only and not criminal. 
 
