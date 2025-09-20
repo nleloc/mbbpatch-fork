@@ -17,8 +17,8 @@ clear
 # Check if user is trying to run under WSL (Windows Subsystem for Linux)
 # Removing this detection part might cause project development to be STOPPED, You've been warned !
 if [ -f /proc/sys/fs/binfmt_misc/WSLInterop* ]; then
-   echo "WSL is not allowed. Sorry."
-   exit 
+    warn "WSL environment detected !"
+    warn "Patcher continue to runs, but don't report any issues if the app is patched with WSL !"
 fi
 
 # Check if user is running on an actual Linux environment
