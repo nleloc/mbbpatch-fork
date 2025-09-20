@@ -1,6 +1,6 @@
 # MBCPApp Patcher for MB Bank
 
-<img src="https://git.disroot.org/mbcp/mbbpatch/raw/branch/mbflutter/MBCPApp/mbcpicons/trungthu/mipmap-hdpi/ic_launcher_round.png" style="width: 72px;" alt="2025_logo">
+<img src="https://git.disroot.org/cuynu/mbbpatch/raw/branch/mbflutter/MBCPApp/mbcpicons/trungthu/mipmap-hdpi/ic_launcher_round.png" style="width: 72px;" alt="2025_logo">
 
 Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://git.disroot.org/cuynu) without any use of AI.
 
