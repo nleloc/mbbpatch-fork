@@ -14,13 +14,6 @@ clear
 
 . "$DIRPATH/common.sh"
 
-# Check if user is trying to run under WSL (Windows Subsystem for Linux)
-# Removing this detection part might cause project development to be STOPPED, You've been warned !
-if [ -f /proc/sys/fs/binfmt_misc/WSLInterop* ]; then
-    warn "WSL environment detected !"
-    warn "Patcher continue to runs, but don't report any issues if the app is patched with WSL !"
-fi
-
 # Check if user is running on an actual Linux environment
 if uname -a | grep -i Linux ; then
     info "You have Linux environment :)"
@@ -234,9 +227,16 @@ echo "Current commit : $COMMIT ($BRANCH)"
 echo "Source code : https://git.disroot.org/mbcp/mbbpatch.git"
 echo "Made possible by Cuynu's brain with love <3"
 echo -------------------------------------------------------------
+# Check if user runs on Termux
 if [[ -f /data/data/com.termux/files/usr/bin/termux-setup-storage ]]; then
     warn "Termux environment detected !"
     warn "Patcher continue to runs, but don't report any issues if the app is patched with Termux!"
+fi
+# Check if user is trying to run under WSL (Windows Subsystem for Linux)
+# Removing this detection part might cause project development to be STOPPED, You've been warned !
+if [ -f /proc/sys/fs/binfmt_misc/WSLInterop* ]; then
+    warn "WSL environment detected !"
+    warn "Patcher continue to runs, but don't report any issues if the app is patched with WSL !"
 fi
 
 # Main functions
