@@ -89,8 +89,7 @@ That applies for following folder :
 
 ## Requirements
 - Any actual Linux x86_64 environment (Arch Linux based recommended) or Termux (not recommended)
-- Termux are barely works, but there is no support if you have issues with the app that is patched with Termux.
-- WSL are not supported due to compiling issue & macOS support are dropped as MB development team are working with it.
+- Termux/macOS/WSL may work but some function (eg : Unpack APK, sed_libapp on macOS) will not work and i don't want to spend more times just to supporting them. I only developing this project with Linux environment.
 - Little knowledge about terminal commands
 - `android-tools` `wget` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based
 - `git` installed
@@ -124,6 +123,10 @@ cd ~/mbbpatch/MBCPApp
 - Profit :)
 
 ## TODO
+
+- [ ] Bypass the new dex & libraries checksum for MB v6.4.67+
+
+- [ ] Adapt new v6.4.67 zimperium structure
 
 ## External projects 
 MBCPApp Patcher project won't be possible without those external projects !!
