@@ -42,9 +42,9 @@
     <string name="aiFaceMessage_noFaceFound">Hãy đưa mặt của bạn vào chính giữa khung hình~</string>
     <string name="aiFaceMessage_tooManyFace">MBCP phát hiện có vài khuôn mặt, bạn làm ơn ra chỗ vắng người nhé~</string>
     <string name="aiGuidanceBottomSheet_buttonConfirm">Đồng ý</string>
-    <string name="aiGuidanceBottomSheet_line1">Đầu tiên, bạn cần đến nơi có đủ ánh sáng. \\nTháo bỏ mũ, khăn, khẩu trang, kính râm, loại bỏ lớp trang điểm nếu có.</string>
-    <string name="aiGuidanceBottomSheet_line2">Giữ vững khuôn mặt của bạn trong suốt quá trình quay video eKYC~</string>
-    <string name="aiGuidanceBottomSheet_line3">Đọc to và rõ dãy số được hiển thị trên màn hình (Chỉ áp dụng khi đăng ký, KHÔNG áp dụng khi đăng ký Digital OTP, chuyển tiền hoặc đặt lại mật khẩu).</string>
+    <string name="aiGuidanceBottomSheet_line1">Đầu tiên, bạn cần đến nơi có đủ ánh sáng. Tháo bỏ mũ, khăn, khẩu trang, kính râm, loại bỏ lớp trang điểm nếu có.</string>
+    <string name="aiGuidanceBottomSheet_line2">Giữ vững khuôn mặt của bạn trong suốt quá trình quay video eKYC</string>
+    <string name="aiGuidanceBottomSheet_line3">Đọc to và rõ dãy số được hiển thị trên màn hình nha.</string>
     <string name="aiGuidanceBottomSheet_line4">Để điện thoại song song và ngang với gương mặt</string>
     <string name="aiGuidanceBottomSheet_title">Hướng dẫn quay video</string>
     <string name="aiIntro_actionDetail">Quay video khuôn mặt của bạn để xác minh không ai đang mạo danh bạn~</string>
