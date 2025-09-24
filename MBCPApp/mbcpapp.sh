@@ -157,6 +157,19 @@ unpack_mbcp() {
     rm -rf 'mbapk/mbapk_unpacked/root/assets/ZN6CRAqtR7CKp7LFoivhHDbCS6iAtrEW6_sLvrfWgEM_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/ZOKOK1a6XCiqYb_a8bYPE9c0rjUf7_n7k77YxX5Ypdw_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/zxHdhL4_ZEQLQeo8R2DzSYl9PGss_cKSCQTcZGBtVmU_'
+    # New zimperium for v6.4.67+
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/2lclXWtX58GC8tXgJr1E_tmzpvS_K1Q7_0jHeXBaECc_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/EHFtsAf7MYH_M7kQF1YX8LeWfU1_RjdRH62oJRE0v38_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/KZsyhtgSOXgFDPIf88NF5svaDH3xQ8feGsAQiy1c9_s_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/mT0VvAZ00szUCjj1fIELzEtu8jyGYugItWXzMzctw5s_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/nH9wnyFkomjAn0FTQ_yjrJV_GNWjgWxVgbb8jcJP4HY_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/PZQ2Z8TvSXXOMX3cIQ2_GUS5YMkOTffOx4OJGCrspa0_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/Q69Adz_RZ_IeUuPTQYy90NvmZgYOhihkaYyXz_zZShw_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/RqFhgUA_YBZkLQQ_fCTirgXJUoOFPqP97IMjQbilqD4_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/t8NSiy6tAaumDccCfaZJufNIdIbRzIki5BH3ob2WBgY_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/U8M8_vW2i8G_dLkEBAPC1ARUe5wGRu8ebXKFfhZMvOw_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/uEmV2ugmVX1f4hLUo7L5kR4ukfV8Y04sHlpabtch9HE_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/X7Y6j7fmtuE5o33sw4Sh6Z97oMv_uaNPyZJ6PjF6l5M_'
 
     info "Creating [mbcp_info] folder..."
     mkdir 'mbapk/mbapk_unpacked/root/assets/mbcp_info/'
