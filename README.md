@@ -126,7 +126,7 @@ cd ~/mbbpatch/MBCPApp
 
 - [ ] Bypass the new dex & libraries checksum for MB v6.4.67+
 
-- [ ] Adapt new v6.4.67 zimperium structure
+- [x] Adapt new v6.4.67 zimperium structure
 
 ## External projects 
 MBCPApp Patcher project won't be possible without those external projects !!
