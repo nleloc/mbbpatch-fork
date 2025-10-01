@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Hide VTAP root detection activity & dialog
-# MAXVER:
+# MAXVER: 67
 # MINVER:
 # shellcheck disable=SC1091,SC2016
 . "$DIRPATH"/common.sh

@@ -7,8 +7,8 @@
 
 confirm "Are you sure you want to apply this patch?" || exit 69
 
-sed_libapp 's|get-protective-cyber-risk|get_protective_cyber_none|g'
-sed_libapp 's|Activate for Protection|Protection are disabled|g'
+#sed_libapp 's|get-protective-cyber-risk|get_protective_cyber_none|g'
+#sed_libapp 's|Activate for Protection|Protection are disabled|g'
 info "Removing resources..."
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/shield_img_pending.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/shield_img_actived.webp'

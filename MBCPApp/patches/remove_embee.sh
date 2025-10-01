@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Remove eMBee
-# MAXVER:
+# MAXVER: 67
 # MINVER:
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
