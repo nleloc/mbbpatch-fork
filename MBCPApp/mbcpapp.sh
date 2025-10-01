@@ -193,7 +193,7 @@ repack_mbcp() {
     ) && {
         good 'Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!'
         good 'Install and trying to open it when ಠ‿ಠ'
-        good 'If you are facing issues, report it on Telegram [@mbbpatch] or Disroot Forgejo : mbbpatch !!' 
+        good 'If you are facing issues, report it on Telegram [@mbcposs] or Disroot Forgejo : mbbpatch !!'
     } || err 'ERROR : Repacking failed !'
 }
 
@@ -372,7 +372,7 @@ do
         err "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
     fi
 
-    	elif [ "$opt" == 'App patched with specific version [v6.4.56 ~ v6.4.58]' ]; then
+    	elif [ "$opt" == 'App patched with specific version' ]; then
         if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
     then 
         warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
@@ -380,6 +380,17 @@ do
         adb kill-server
         adb start-server
         adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+        # Delete zimperium detection files
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/0*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/1*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/2*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/3*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/4*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/5*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/6*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/7*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/8*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/9*
         warn "ATTENTION : Network traffic will be redirected to [medium.com] for 20 seconds !!!"
         adb shell su -c 'iptables -t nat -A OUTPUT -p tcp -d 0/0 -j DNAT --to-destination 162.159.153.4:443'
         adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
