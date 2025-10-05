@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# PATCHNAME: Spoof app version to v6.4.68
-# MAXVER: 65
+# PATCHNAME: Spoof app version to 698
+# MAXVER: 67
 # MINVER: 
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
