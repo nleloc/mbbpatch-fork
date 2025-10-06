@@ -56,6 +56,7 @@ That applies for following folder :
 | `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.4.68  |
 | `Remove eMBee` | Removes eMBee options in app, alongside with Customer support. | v6.4.43 ~ v6.4.68 |
 | `Revert old eMBee logo` | Revert old eMBee logo, specially on product consultation options. | v6.4.53 ~ v6.4.68 |
+| `Remove useless libraries` | Remove the useless libraries from app, only for v6.4.67+ | v6.4.67 ~ v6.4.69 |
 | `Remove animated QR background` | Remove the animated QR background on bottom navigation bar and replace with white background. | v6.4.43 ~ v6.4.68 | 
 | `Remove banner & MiniApp` | Removes the banner and MiniApp on `homeLanding` page when logged in. | v6.4.43 ~ v6.4.66 |
 | `Remove VPN detection` | Remove the VPN detection that warn users to turn it off on app bundle. | v6.4.52 ~ v6.4.66 |
