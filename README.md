@@ -129,7 +129,7 @@ cd ~/mbbpatch/MBCPApp
 
 - [x] Adapt new v6.4.67 zimperium structure
 
-- [ ] Adapt new v6.4.68 trungthu theme
+- [x] Adapt new v6.4.68 trungthu theme
 
 ## External projects 
 MBCPApp Patcher project won't be possible without those external projects !!
