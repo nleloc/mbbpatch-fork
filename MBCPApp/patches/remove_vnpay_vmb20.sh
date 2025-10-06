@@ -5,15 +5,15 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
-info "Removing smali..."
-rm -f 'mbapk/mbapk_unpacked/smali/classes3/com/vnpay/ticketlib/Activity/VMB20MainActivity.smali'
-for i in {9..82}; do
+#info "Removing smali..."
+#rm -f 'mbapk/mbapk_unpacked/smali/classes3/com/vnpay/ticketlib/Activity/VMB20MainActivity.smali'
+# for i in {9..82}; do
    # skip 77, 78, 79
-   case $i in
-       77 | 78 | 79 | 81 ) :; ;;
-       *) rm -f "mbapk/mbapk_unpacked/smali/classes5/mbshield/EP$i.smali" ;;
-   esac
-done
+#   case $i in
+#       77 | 78 | 79 | 81 ) :; ;;
+#       *) rm -f "mbapk/mbapk_unpacked/smali/classes5/mbshield/EP$i.smali" ;;
+#   esac
+#done
 
 info "Removing resources..."
 rm -f 'mbapk/mnapk_unpacked/resources/package_1/res/drawable-xhdpi/ic_home_vna.png'
@@ -99,4 +99,4 @@ manifest_remove 'android:name="_vemaybay_payment_paylater"'
 
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_vnpay.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_vna.webp'
-sed_libapp 's|vna_flight_landing|broken_vna_ehh_idk|g'
+#sed_libapp 's|vna_flight_landing|broken_vna_ehh_idk|g'
