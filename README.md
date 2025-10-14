@@ -2,33 +2,26 @@
 
 <img src="MBCPApp/mbcpicons/normal/mipmap-hdpi/ic_launcher_round.png" style="width: 72px;" alt="2025_logo">
 
-Lightweight **AI-free, humanity** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted user. mostly written in Bash, made possible by [Cuynu](https://git.disroot.org/cuynu)
+Lightweight **AI-free, humanity** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted user. mostly written in Bash, made possible by [Cuynu](https://git.disroot.org/cuynu) and community.
 
 - Licensed as MIT License : [View license.](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
 
-# Notice
-- STOP forking this project and fed to AI-tools as i don't like them. Any forks that is doing this thing is literally slowing down project development !!!
-- PLEASE respect the author code !!!
-
-# DISCLAIMER 
-We are not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical users only and not criminal. 
+## DISCLAIMER 
+I'm not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical or well-known users only and not criminal. 
 
 ## Introduction 
-- This project was made to remove or limit annoying features & root detection & accessibility detection that implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability,etc. It's not PoC project.
-- It's probably won't meet FOSS requirements due to containing some proprietary smali code (for example: hide VTAP patch)
+- This project was made to remove or limit annoying features & root detection & accessibility detection that implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability,etc. **It's not PoC project**.
+- It's won't meet FOSS requirements due to contains some proprietary smali code (for example: Hide VTAP patch)
 - [MBCP](https://t.me/mbbpatch) are closed source before, and many people don't like it cuz worry about security & privacy issues. 
-- In order to support community, we spend days to rewritten `MBCP` patches once again in Bash and open sourced it so you can patch yourself from original app on (Bare metal, not WSL) Linux environment
+- In order to support community and also satisfy my mindset, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on (Bare metal, not WSL) Linux environment
 - Note : MBCP are "MBBank CorePatch" but shorter and `MBCP` or `MBCPApp` are the same thing as `MBCP`.
 
 ## Documentation
 
-- [Documentation on self-hosted instance](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki) (WIP)
-
-# DISCLAIMER 
-We are not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical users only and not criminal. 
+- [Documentation on self-hosted instance](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki) (WIP/Incomplete)
 
 ## Requirements & Usage & How-to use patcher
-- Follow patcher usage here : [Patcher Usage (self-hosted)](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki/patcher-usage.-) 
+- Follow documentation here : [Patcher Usage (self-hosted)](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki/patcher-usage.-) 
 
 ## Patches list :
 
@@ -141,8 +134,8 @@ cd ~/mbbpatch/MBCPApp
 
 - [x] Adapt new v6.4.68 trungthu theme
 
-## External projects 
-MBCPApp Patcher project won't be possible without those external projects !!
+## Credits
+MBCPApp Patcher project won't be possible without those !!
 - [apktool](https://github.com/iBotPeaches/Apktool)
 - [APKEditor](https://github.com/REAndroid/APKEditor/)
 - [MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3 (in the past)
@@ -150,6 +143,5 @@ MBCPApp Patcher project won't be possible without those external projects !!
 
 ## Contributors
 - [Cuynu](https://git.disroot.org/cuynu) - MBCP project author/maintainer
-- [fukiame](https://git.disroot.org/fukiame) - other improvements to project
-
-
+- [fukiame](https://git.disroot.org/fukiame) - refactor & other improvements
+- [Ngankbakaa](https://github.com/miyukocutee) - contributor
