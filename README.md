@@ -27,18 +27,18 @@ We are not responsible for any illegal action if criminal abuse this patch to do
 # DISCLAIMER 
 We are not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical users only and not criminal. 
 
-## Proprietary code
-- This project probably won't meet FOSS requirements due to contains proprietary code extracted from MB app that has been modified to bypass something else.
-That applies for following folder :
-- 1. `blob_patches/bypass_apptampering`
-- 2. `blob_patches/noadjust_volume_sekyc`
-- 3. `blob_patches/skip_maintainscreen`
-- 4. `blob_patches/bypass_accessibility_applist`
-- 5. `blob_patches/bypass_rootold`
-- 6. `blob_patches/fix_df16211`
+## Requirements
+- Any actual Linux x86_64 environment (Arch Linux based recommended) or Termux (not recommended)
+- Termux/macOS/WSL may work but some function (eg : Unpack APK, sed_libapp on macOS) will not work and i don't want to spend more times just to supporting them. I only developing this project with Linux environment.
+- Little knowledge about terminal commands
+- `android-tools` `wget` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based
+- `git` installed
+- `java` or `jdk-openjdk` installed
+- `figlet` for showing banner (optional)
+- `xmlstarlet` for reformatting AndroidManifest after unpacking
 
-- Under `mbsig` directory, its contain MB original dumped signature, which is necessary to make app works after patching process.
-- Everything including that listed above code are all licensed under MIT license, it's can be considered as reverse engineered code :>
+## Usage & How-to use patch
+- Follow patcher usage here : [Patcher Usage (self-hosted)](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki/patcher-usage.-) 
 
 ## Patches list :
 
@@ -106,15 +106,17 @@ That applies for following folder :
 | `Bypass 1200 error` | Workaround for 1200 error that happening on original MB app with specific version, now discontinued. | v6.4.45 |
 </details>
 
-## Requirements
-- Any actual Linux x86_64 environment (Arch Linux based recommended) or Termux (not recommended)
-- Termux/macOS/WSL may work but some function (eg : Unpack APK, sed_libapp on macOS) will not work and i don't want to spend more times just to supporting them. I only developing this project with Linux environment.
-- Little knowledge about terminal commands
-- `android-tools` `wget` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based
-- `git` installed
-- `java` or `jdk-openjdk` installed
-- `figlet` for showing banner (optional)
-- `xmlstarlet` for reformatting AndroidManifest after unpacking
+## Proprietary code
+- This project probably won't meet FOSS requirements due to contains proprietary code extracted from MB app that has been modified to bypass something else.
+That applies for following folder :
+- 1. `blob_patches/bypass_apptampering`
+- 2. `blob_patches/noadjust_volume_sekyc`
+- 3. `blob_patches/skip_maintainscreen`
+- 4. `blob_patches/bypass_accessibility_applist`
+- 5. `blob_patches/bypass_rootold`
+- 6. `blob_patches/fix_df16211`
+- Under `mbsig` directory, its contain MB original dumped signature, which is necessary to make app works after patching process.
+- Everything including that listed above code are all licensed under MIT license, it's can be considered as reverse engineered code :>
 
 ## Usage
 - Go to home directory, then clone repository first
