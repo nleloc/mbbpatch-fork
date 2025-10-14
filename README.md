@@ -20,9 +20,9 @@ We are not responsible for any illegal action if criminal abuse this patch to do
 - In order to support community, we spend days to rewritten `MBCP` patches once again in Bash and open sourced it so you can patch yourself from original app on (Bare metal, not WSL) Linux environment
 - Note : MBCP are "MBBank CorePatch" but shorter and `MBCP` or `MBCPApp` are the same thing as `MBCP`.
 
-## Doumentation
+## Documentation
 
-- [Doumentation on self-hosted instance](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki) (WIP)
+- [Documentation on self-hosted instance](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki) (WIP)
 
 # DISCLAIMER 
 We are not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical users only and not criminal. 
