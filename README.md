@@ -2,7 +2,7 @@
 
 <img src="MBCPApp/mbcpicons/normal/mipmap-hdpi/ic_launcher_round.png" style="width: 72px;" alt="2025_logo">
 
-Lightweight "open source" tool for patching MB Bank Flutter (Android) app for rooted user, mostly written in Bash, made possible by [Cuynu](https://git.disroot.org/cuynu) without any use of AI.
+Lightweight **AI-free, humanity** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted user. mostly written in Bash, made possible by [Cuynu](https://git.disroot.org/cuynu)
 
 - Licensed as MIT License : [View license.](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
 
@@ -19,6 +19,13 @@ We are not responsible for any illegal action if criminal abuse this patch to do
 - [MBCP](https://t.me/mbbpatch) are closed source before, and many people don't like it cuz worry about security & privacy issues. 
 - In order to support community, we spend days to rewritten `MBCP` patches once again in Bash and open sourced it so you can patch yourself from original app on (Bare metal, not WSL) Linux environment
 - Note : MBCP are "MBBank CorePatch" but shorter and `MBCP` or `MBCPApp` are the same thing as `MBCP`.
+
+## Doumentation
+
+- [Doumentation on self-hosted instance](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki) (WIP)
+
+# DISCLAIMER 
+We are not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical users only and not criminal. 
 
 ## Proprietary code
 - This project probably won't meet FOSS requirements due to contains proprietary code extracted from MB app that has been modified to bypass something else.
