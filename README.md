@@ -27,17 +27,7 @@ We are not responsible for any illegal action if criminal abuse this patch to do
 # DISCLAIMER 
 We are not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical users only and not criminal. 
 
-## Requirements
-- Any actual Linux x86_64 environment (Arch Linux based recommended) or Termux (not recommended)
-- Termux/macOS/WSL may work but some function (eg : Unpack APK, sed_libapp on macOS) will not work and i don't want to spend more times just to supporting them. I only developing this project with Linux environment.
-- Little knowledge about terminal commands
-- `android-tools` `wget` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based
-- `git` installed
-- `java` or `jdk-openjdk` installed
-- `figlet` for showing banner (optional)
-- `xmlstarlet` for reformatting AndroidManifest after unpacking
-
-## Usage & How-to use patch
+## Requirements & Usage & How-to use patcher
 - Follow patcher usage here : [Patcher Usage (self-hosted)](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki/patcher-usage.-) 
 
 ## Patches list :
