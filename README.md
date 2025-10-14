@@ -36,9 +36,13 @@ That applies for following folder :
 ## Patches list :
 
 > [!IMPORTANT]
-> As of MB v6.4.68+, MB compressed `libapp.so` and improved their tampered library & dex check !
+> As of MB v6.4.68+, MB's dev team are finally fight against this project by compressing `libapp.so` and even improved their tampered library & dex check from both server & app-side !
+>
 > This means most important patches that is patching `libapp.so` are now useless and can't be used :(
+>
 > Current situation : `libapp.so` can be decompressed with a [specific hook method](https://t.me/mbbpatch2_chat/99835) described by other dev, but the decompressed `libapp.so` doesn't work if you trying to put it to app.
+>
+> Use MB v6.4.66 or lower for patching instead !
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
