@@ -32,7 +32,7 @@ I'm not responsible for any illegal action if criminal abuse this patch to do il
 >
 > Current situation : `libapp.so` can be decompressed with a [specific hook method](https://t.me/mbbpatch2_chat/99835) described by other dev, but the decompressed `libapp.so` doesn't work if you trying to put it to app.
 >
-> Use MB v6.4.66 or lower for patching instead !
+
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
