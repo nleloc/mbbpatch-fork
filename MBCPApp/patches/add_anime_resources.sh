@@ -10,3 +10,7 @@ cp -f 'blob_patches/anime_resources/rating_illus_fourStar.webp' 'mbapk/mbapk_unp
 cp -f 'blob_patches/anime_resources/rating_illus_threeStar.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/'
 cp -f 'blob_patches/anime_resources/rating_illus_twoStar.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/'
 cp -f 'blob_patches/anime_resources/rating_illus_oneStar.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/'
+cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority'
+cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh/'
+cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/womendayvn'
