@@ -43,7 +43,7 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
    	echo "MBBank v6.4.26 [versionCode : 626]"
     	echo "MBBank v6.4.45 [versionCode : 658]"
     else
-    echo "Function not yet implemented due to issues with original repo, check back later !"
+    echo "This patch are now a part of [Bypass GW934 checksum] patch, please exit legacy patch and continue with normal patch !"
    
     fi
     else
