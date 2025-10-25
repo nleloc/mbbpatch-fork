@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Legacy hide VTAP activity & dialog
-# MAXVER: 67
+# MAXVER: 
 # MINVER:
 # shellcheck disable=SC1091,SC2016
 
