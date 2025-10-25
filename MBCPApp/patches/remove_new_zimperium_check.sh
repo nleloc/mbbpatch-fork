@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Remove new zimperium check 
-# MAXVER: 67
+# MAXVER: 
 # MINVER: 59
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
