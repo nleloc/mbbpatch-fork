@@ -312,8 +312,9 @@ then
         copy_assets vkeylicensepack
         copy_assets voscodesign.vky
         info 'Copying assets...'
-        adb pull /sdcard/assets mbapk/mbapk_unpacked/root/
-        adb shell rm -rf /sdcard/assets
+        adb pull /sdcard/assets mbapk/mbapk_unpacked/root/ && good "Assets copied to [mbapk_unpacked/root/] !" || err "Failed to copy assets ! Please try again." 
+        info 'Removing leftover assets...'
+        adb shell rm -rf /sdcard/assets && good "Removed leftover assets !" || err "Failed to remove leftover assets from device !"
         else
         info "MBShield not found ! No need to extract assets !"
         fi
