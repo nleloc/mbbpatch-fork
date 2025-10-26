@@ -22,5 +22,5 @@ fi
 if [[ -d mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/womendayvn ]]; then
 	cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/womendayvn/'
 else
-	info "[quockhanh] folder not found! skipping"
+	info "[womendayvn] folder not found! skipping"
 fi
