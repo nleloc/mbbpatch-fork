@@ -12,5 +12,15 @@ cp -f 'blob_patches/anime_resources/rating_illus_twoStar.webp' 'mbapk/mbapk_unpa
 cp -f 'blob_patches/anime_resources/rating_illus_oneStar.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/'
 cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/'
 cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/'
-cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh/'
-cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/womendayvn/'
+
+if [[ -d mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh ]]; then
+	cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh/'
+else
+	info "[quockhanh] folder not found! skipping"
+fi
+
+if [[ -d mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/womendayvn ]]; then
+	cp -f 'blob_patches/anime_resources/general_illus_versionUpdate.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/womendayvn/'
+else
+	info "[quockhanh] folder not found! skipping"
+fi
