@@ -170,6 +170,9 @@ unpack_mbcp() {
     rm -rf 'mbapk/mbapk_unpacked/root/assets/U8M8_vW2i8G_dLkEBAPC1ARUe5wGRu8ebXKFfhZMvOw_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/uEmV2ugmVX1f4hLUo7L5kR4ukfV8Y04sHlpabtch9HE_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/X7Y6j7fmtuE5o33sw4Sh6Z97oMv_uaNPyZJ6PjF6l5M_'
+    # New zimperium for v6.4.72+
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/Z1YbTXaPlMjbmWCKXXD0m4wkWyE0I6xxDebGhXz5igk_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/zxwCzUaZ8itWQeAMKtyu52RbljJe1Pd8GuV7H4RPsy4_'
 
     info "Creating [mbcp_info] folder..."
     mkdir 'mbapk/mbapk_unpacked/root/assets/mbcp_info/'
