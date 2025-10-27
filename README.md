@@ -1,9 +1,5 @@
 # MBCPApp Patcher for MB Bank
 
-<div style="width: 0px; height: 0px;">
-    <img src="MBCPApp/mbcpicons/git/test.png" width="8%" height="8%">
-</div>
-
 Lightweight **AI-free, humanity** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted user. mostly written in Bash, made possible by [Cuynu](https://git.disroot.org/cuynu) and community.
 
 - Licensed as MIT License : [View license.](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
