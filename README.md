@@ -133,8 +133,8 @@ cd ~/mbbpatch/MBCPApp
 - [x] Adapt new v6.4.68 trungthu theme
 
 ## Contributing
-- PRs are wekcome, but you are NOT allowed to use any AI-tools for creating PRs to this project even if it's manually reviewed by human, please use your brain and search engine & read documentation (without AI things) !
-- If you wish to use AI-tools, please go ahead and find for another project.  
+- PRs are welcome, but you are NOT allowed to use any AI-tools for creating PRs to this project, even if it's manually reviewed by human. please use your brain and search engine & read documentation (without AI things) !
+- If you wish to use AI-tools, please go ahead and find for another project instead. 
 
 ## Credits
 - [apktool](https://github.com/iBotPeaches/Apktool)
