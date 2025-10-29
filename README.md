@@ -133,11 +133,10 @@ cd ~/mbbpatch/MBCPApp
 - [x] Adapt new v6.4.68 trungthu theme
 
 ## Contributing
-- PRs are wekcome, but you are NOT allowed to use any AI-tools for contribute under this project even if its reviewed manually by human, please use your brain and search engine (without AI things) for that. 
-- If you want to use AI-tools, please go ahead and find for another simlar project.  
+- PRs are wekcome, but you are NOT allowed to use any AI-tools for creating PRs to this project even if it's manually reviewed human, please use your brain and search engine & read documentation (without AI things) !
+- If you wish to use AI-tools, please go ahead and find for another project.  
 
 ## Credits
-MBCPApp Patcher project won't be possible without those !!
 - [apktool](https://github.com/iBotPeaches/Apktool)
 - [APKEditor](https://github.com/REAndroid/APKEditor/)
 - [MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3 (in the past)
