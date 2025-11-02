@@ -9,10 +9,10 @@ sed -i 's|android:protectionLevel="signature"|android:protectionLevel="normal"|g
 manifest_remove 'android:name="com.android.vending.CHECK_LICENSE"'
 manifest_remove 'android:name="com.google.android.gms.permission.AD_ID"'
 manifest_remove "com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"
-#manifest_remove "com.vtap.MaintenanceActivity"
+manifest_remove "com.vtap.MaintenanceActivity"
 manifest_remove "com.mbmobile.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-#manifest_remove "com.vkey.android.vguard.VGDialogActivity"
-#manifest_remove "com.vkey.android.vguard.VGFullScreenDialogActivity"
+manifest_remove "com.vkey.android.vguard.VGDialogActivity"
+manifest_remove "com.vkey.android.vguard.VGFullScreenDialogActivity"
 manifest_remove "com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
 manifest_remove "com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"
 manifest_remove "com.sec.android.provider.badge.permission.READ"
