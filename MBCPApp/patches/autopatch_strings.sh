@@ -5,7 +5,20 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
-# App embedded links
+# Block forced update dialog (does not bypasses GW525)
+sed_libapp 's|version_check_update_config|version_nonapp_check_config'
+sed_libapp 's|currentVersion|currentMBdevsa'
+sed_libapp 's|minVersion|MBDEVSUCKS'
+
+# Bypass blacklist IP hashes
+sed_libapp 's|list_blocked_ip_hash|list_ip_blocked_hash'
+
+# Bypass malicious apps check
+sed_libapp 's|whitelistServices|Servicewhitelist'
+
+# XPE003 error fixes
+sed_libapp 's|isEnableTimeout|isEnableLockout'
+sed_libapp 's|zdefend_config|fua0am0_config'
 
 # App update button url
 sed_libapp 's|market://details?id=com.mbmobile|https://tinyurl.com/mbcpupdate??|'
