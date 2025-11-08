@@ -30,6 +30,11 @@ rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/bas
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_mbai_short_white.webp'
 
 
+# Replace MB AI search button with normal search button
+cp -f 'blob_patches/searchicon/search.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_textLogo.webp'
+cp -f 'blob_patches/searchicon/search.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_textLogo.private.webp'
+
+
 
 
 
