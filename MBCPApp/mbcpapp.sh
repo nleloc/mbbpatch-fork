@@ -100,6 +100,8 @@ unpack_mbcp() {
     local - ; set -e
     { apkeditor_exist && mb_apk_exist ; } || return 1
     rm -rf 'mbapk/mbapk_unpacked'
+    rm -rf 'mbapk/*.apks'
+    rm -rf 'mbapk/*merged.apk'
     java -jar tools/apkeditor.jar d -i mbapk/*.apk -o mbapk/mbapk_unpacked || { err "Unpacking failed !" ; return 1 ; }
     info "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/root/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
