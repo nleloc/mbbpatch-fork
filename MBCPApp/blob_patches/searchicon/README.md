@@ -1,2 +1,2 @@
-Credits : [FlatIcon](https://www.flaticon.com/free-icon/search_10947744?related_id=10947920)
+Credits : [FlatIcon](https://www.flaticon.com/free-icon/search-interface-symbol_54481)
 

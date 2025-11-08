@@ -142,6 +142,7 @@ cd ~/mbbpatch/MBCPApp
 - [APKEditor](https://github.com/REAndroid/APKEditor/)
 - [MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3 (in the past)
 - [Zhaxia CN](https://t.me/zhaxia_cn) for sticker packs (Add anime resources)
+- [FlatIcon](https://flaticon.com) for some icons
 
 ## Contributors
 - [Cuynu](https://git.disroot.org/cuynu) - MBCP project author/maintainer
