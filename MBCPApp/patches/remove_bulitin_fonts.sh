@@ -37,3 +37,14 @@ info 'Copying fix fonts...'
 cp -f 'blob_patches/resources/font/bold.ttf' 'mbapk/mbapk_unpacked/resources/package_1/res/font/'
 cp -f 'blob_patches/resources/font/medium.ttf' 'mbapk/mbapk_unpacked/resources/package_1/res/font/'
 cp -f 'blob_patches/resources/font/regular.ttf' 'mbapk/mbapk_unpacked/resources/package_1/res/font/'
+
+# MB Marketplace (MiniApp) fonts
+rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/packages/market_place/assets/fonts/AvertaStdCy-Bold.ttf'
+rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/packages/market_place/assets/fonts/AvertaStdCY-Regular.ttf'
+rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/packages/market_place/assets/fonts/AvertaStdCy-Semibold.ttf'
+rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/packages/market_place/assets/fonts/Montserrat-Medium.ttf'
+
+
+
+
+
