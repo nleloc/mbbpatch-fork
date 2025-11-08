@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# PATCHNAME: Remove MB AI Bullsh*t resources
+# MAXVER: 
+# MINVER: 73
+# shellcheck disable=SC1091
+. "$DIRPATH"/common.sh
+
+# Currently not possible to completely remove and prevent users from use AI features in MB app.
+# So we remove it's resources instead, so the search icon won't show AI things
+# Need to implement more ASAP in the future
+
+# Mass/Private users
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_short_white.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_textLogo.private.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_textLogo.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_paste.private.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_paste.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_paste2Pay.private.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_paste2Pay.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_search.private.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_search.webp'
+
+# Priority users
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/mbai_img_paste.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/mbai_img_paste2Pay.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/mbai_img_search.webp'
+
+# Other stuff
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_mbai_short.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_mbai_short_white.webp'
+
+
+
+
+
+
+
+
+
+
+
