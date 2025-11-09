@@ -1,6 +1,6 @@
 # MBCPApp Patcher for MB Bank
 
-Lightweight **AI-free, humanity** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted user. mostly written in Bash, made possible by [Cuynu](https://git.disroot.org/cuynu) and community.
+Lightweight **AI-free, humanity** free and open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted user. mostly written in Bash, made possible by @cuynu and community.
 
 - Licensed as MIT License : [View license.](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
 
@@ -98,7 +98,7 @@ I'm not responsible for any illegal action if criminal abuse this patch to do il
 </details>
 
 ## Proprietary code
-- This project probably won't meet FOSS requirements due to contains proprietary code extracted from MB app that has been modified to bypass something else.
+- This project contain some proprietary code extracted from MB's app that has been modified to bypass something else, but the modified proprietary code is completely public and open source, it will be used for patches.
 That applies for following folder :
 - 1. `blob_patches/bypass_apptampering`
 - 2. `blob_patches/noadjust_volume_sekyc`
@@ -145,6 +145,21 @@ cd ~/mbbpatch/MBCPApp
 ## Contributing
 - PRs are welcome, but you are NOT allowed to use any AI-tools for creating PRs to this project, even if it's manually reviewed by human. please use your brain and search engine & read documentation (without AI things) !
 - If you wish to use AI-tools, please go ahead and find for another project instead. 
+
+## Project history
+
+- 05/2023 : MB Bank MOD APK ANDROID project created on Telegram (@mbbmod), providing modified MB Bank APKs since v5.8 with lots of features such as bypassing accessibility check and show a guide to hide root instead of show rooted screen then close the app.
+- 01/2024 : Channel from 2023 is deleted, due to Telegram banning account (@cuynutt)
+- 06/2024 : [MB Android Patched] channel created, providing modified MB Bank Flutter APKs and then MB React Native APKs
+- 01/2025 : Channel renamed to [MBCP Android] due to MB discontinued version that does not requires CorePatch. MBCP Helper also existed since then.
+- 05/2025 : Project is rewritten from closed source (mostly with MT Manager) to open source with `bash` programming language, reduce the trust issues with closed source app before, also allow anyone to patch it manually.
+- 06/2025 : [Hide VTAP root detection activity & dialog] patch was added, enables the ability to use the MBCP app with superuser (root permission) enabled.
+- 08/2025 : @fukiame joining to refactor the project source code, made it easier to maintain in the future, also implement some specific nice logic.
+- 10/2025 : MB discontinued `v6.4.66`, the last version with almost all patches working (except `bypass_accessibility_applist`) with `GW525` error when logging in
+- 11/2025 : After multiple times lying myself and always said that I'm not a developer, ***I embraced and claim myself as a MBCP developer* and still having skill issues, but atleast, I made this project, and solved the issues that MB's development team created to the MB Bank app with `code` that bypassing them.
+- 11/2025 (2) : MB released `v6.4.74` with AI-crap button that replaces legacy search button. I created a patch that force replace it back to old search icon. 
+- ...
+
 
 ## Credits
 - [apktool](https://github.com/iBotPeaches/Apktool)
