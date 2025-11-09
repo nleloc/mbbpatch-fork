@@ -156,7 +156,7 @@ cd ~/mbbpatch/MBCPApp
 - 06/2025 : [Hide VTAP root detection activity & dialog] patch was added, enables the ability to use the MBCP app with superuser (root permission) enabled.
 - 08/2025 : @fukiame joining to refactor the project source code, made it easier to maintain in the future, also implement some specific nice logic.
 - 10/2025 : MB discontinued `v6.4.66`, the last version with almost all patches working (except `bypass_accessibility_applist`) with `GW525` error when logging in
-- 11/2025 : After multiple times lying myself and always said that I'm not a developer, ***I embraced and claim myself as a MBCP developer* and still having skill issues, but atleast, I made this project, and solved the issues that MB's development team created to the MB Bank app with `code` that bypassing them.
+- 11/2025 : After multiple times lying myself and always said that I'm not a developer, ***I embraced and claim myself as a MBCP developer* and still having skill issues, but atleast, I made this project, and solved the issues that MB's development team created to the MB Bank app by writing `code` to bypassing them.
 - 11/2025 (2) : MB released `v6.4.74` with AI-crap button that replaces legacy search button. I created a patch that force replace it back to old search icon. 
 - ...
 
