@@ -70,7 +70,7 @@ download_tools() {
 }
 
 copy_assets() {
-    adb shell su -c cp -rf "/data/user/0/com.mbmobile/files/$1" /sdcard/assets
+    adb shell su -c cp -rf "/data/data/com.mbmobile/files/$1" /sdcard/assets
 }
 
 is_unpacked() {
