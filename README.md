@@ -1,18 +1,18 @@
 # MBCPApp Patcher for MB Bank
 
-Lightweight **AI-free, humanity** free and open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted user. mostly written in Bash, made possible by @cuynu and community.
+Lightweight **AI-free, humanity** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted user (or ROMs with bulit-in CorePatch). mostly written in Bash, made possible by @cuynu and community in Vietnam.
 
-- Licensed as MIT License : [View license.](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
-
-## DISCLAIMER 
-I'm not responsible for any illegal action if criminal abuse this patch to do illegal things, since it's originally made for technical or well-known users only and not criminal. 
+- If you are looking pre-bulit app, here : [MBCP Releases](http://cuynutt.ddns.net/mbcp/mbbpatch/releases) | [Install guide](http://cuynutt.ddns.net/mbcp/info/wiki/mbcpinstall_en.-)
+- Licensed as MIT License : [View license on Disroot](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE) | [View license on Selfhosted](http://cuynutt.ddns.net/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
 
 ## Introduction 
-- This project was made to remove or limit annoying features & root detection & accessibility detection that implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability,etc. **It's not PoC project**.
-- It's won't meet FOSS requirements due to contains some proprietary smali code (for example: Hide VTAP patch)
-- [MBCP](https://t.me/mbbpatch) are closed source before, and many people don't like it cuz worry about security & privacy issues. 
-- In order to support community and also satisfy my mindset, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on (Bare metal, not WSL) Linux environment
-- Note : MBCP are "MBBank CorePatch" but shorter and `MBCP` or `MBCPApp` are the same thing as `MBCP`.
+- This project was made to remove or limit annoying features & root detection & accessibility detection that implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability,etc. **It's not PoC (Proof of Concept) project at all.**.
+- [MBCP](https://t.me/mbbpatch_eng) are closed source before, and many people don't like it because concern about privacy & security issues.
+- In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on (Bare metal, not WSL) Linux environment
+- Note : MBCP are "MBBank CorePatch" but shorter and `MBCP` / `MBCPApp` are the same thing as `MBCP`.
+
+## DISCLAIMER 
+I'm not responsible for any illegal action if someone abuse this patch to do illegal things, since it's originally made for technical or well-known users only.
 
 ## Documentation
 
@@ -62,7 +62,8 @@ I'm not responsible for any illegal action if criminal abuse this patch to do il
 
 ## Old patches
 
-- Those patches are no longer compatible with newer/current app version. It's can't be fixed unless MB decompress the [`libapp.so`].
+> [!IMPORTANT]
+> Those patches are no longer compatible with newer/current app version. It's can't be fixed unless MB decompress the [`libapp.so`] or until I find the method to decompress it manually.
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
@@ -98,15 +99,18 @@ I'm not responsible for any illegal action if criminal abuse this patch to do il
 </details>
 
 ## Proprietary code
-- This project contain some proprietary code extracted from MB's app that has been modified to bypass something else, but the modified proprietary code is completely public and open source, it will be used for patches.
-That applies for following folder :
+> [!WARNING]
+> This project contain some proprietary code extracted from MB's app that has been modified to bypass something else, but the modified proprietary code is completely public and open source, it will be used for patches.
+>
+> That applies for following folder :
+
 - 1. `blob_patches/bypass_apptampering`
 - 2. `blob_patches/noadjust_volume_sekyc`
 - 3. `blob_patches/skip_maintainscreen`
 - 4. `blob_patches/bypass_accessibility_applist`
 - 5. `blob_patches/bypass_rootold`
 - 6. `blob_patches/fix_df16211`
-- Under `mbsig` directory, its contain MB original dumped signature, which is necessary to make app works after patching process.
+- Under `mbsig` directory, its contain original signature from original MB's app, which is necessary to make app works after patching process because the app doesn't work with different APK signature.
 - Everything including that listed above code are all licensed under MIT license, it's can be considered as reverse engineered code :>
 
 ## Usage
@@ -156,7 +160,7 @@ cd ~/mbbpatch/MBCPApp
 - 06/2025 : [Hide VTAP root detection activity & dialog] patch was added, enables the ability to use the MBCP app with superuser (root permission) enabled.
 - 08/2025 : @fukiame joining to refactor the project source code, made it easier to maintain in the future, also implement some specific nice logic.
 - 10/2025 : MB discontinued `v6.4.66`, the last version with almost all patches working (except `bypass_accessibility_applist`) with `GW525` error when logging in
-- 11/2025 : After multiple times lying myself and always said that I'm not a developer, ***I embraced and claim myself as a MBCP developer* and still having skill issues, but atleast, I made this project, and solved the issues that MB's development team created to the MB Bank app by writing `code` to bypassing them.
+- 11/2025 : After multiple times lying myself and always said that I'm not a developer, **I embraced and claim myself as a MBCP developer** and still having skill issues, but atleast, I made this project, and solved the issues that MB's development team created to the MB Bank app by writing `code` to bypassing them.
 - 11/2025 (2) : MB released `v6.4.74` with AI-crap button that replaces legacy search button. I created a patch that force replace it back to old search icon. 
 - ...
 
