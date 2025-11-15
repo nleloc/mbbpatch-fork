@@ -24,3 +24,6 @@ cp -f 'blob_patches/revert_old_eMBee/eMBee_img_loginSupport.webp' 'mbapk/mbapk_u
 cp -f 'blob_patches/revert_old_eMBee/homeLanding_img_avatarDefault.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
 cp -f 'blob_patches/revert_old_eMBee/homeLanding_img_avatarDefault.private.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
 cp -f 'blob_patches/revert_old_eMBee/homeLanding_img_avatarDefault.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority'
+# Replace MB Junior avatars
+cp -f 'blob_patches/revert_old_eMBee/homeLanding_img_avatarDefault.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/junior_img_avatarBoy.webp'
+cp -f 'blob_patches/revert_old_eMBee/homeLanding_img_avatarDefault.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/junior_img_avatarGirl.webp'
