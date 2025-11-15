@@ -397,6 +397,9 @@ do
         adb shell su -c rm -rf /data/data/com.mbmobile/files/7*
         adb shell su -c rm -rf /data/data/com.mbmobile/files/8*
         adb shell su -c rm -rf /data/data/com.mbmobile/files/9*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/KNOV3PN*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/zxpolicyme*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/policyme*
         warn "ATTENTION : Network traffic will be redirected to [medium.com] for 20 seconds !!!"
         adb shell su -c 'iptables -t nat -A OUTPUT -p tcp -d 0/0 -j DNAT --to-destination 162.159.153.4:443'
         adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
