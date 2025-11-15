@@ -47,6 +47,8 @@ sed_libapp 's|To provide the best experience, the MBBank APP needs access to som
 sed_libapp 's|QR receive|My QR     |g'
 
 # Digital OTP related 
+sed_libapp 's|To use transaction authentication feature with Online OTP, please signin APP MB Bank and implement Online OTP registration in the Installation item|DigitalOTP is not currently registered on your MBCP app. In order to use this feature, please login to MBCP and setup DigitalOTP, then try again.  |'
+sed_libapp 's|When transacting via Internet banking or registering Online OTP on other device|Used for transactions via eMB or when registering DigitalOTP on other device   |'
 sed_libapp 's|online OTP|DigitalOTP|g'
 sed_libapp 's|Online OTP|DigitalOTP|g'
 sed_libapp 's|D-OTP Verification|DigitalOTP        |g'
@@ -68,6 +70,7 @@ sed_libapp 's|DigitalOTP information|DigitalOTP Information|g'
 sed_libapp 's|Setup D-OTP|Digital OTP|g'
 sed_libapp 's|Please remember the PIN to authenticate transactions through the MBBank APP on this device|Please remember the PIN to authenticate transactions through the MBCPApp on this device...|'
 sed_libapp 's|DigitalOTP helps you authenticate online transactions quickly and securely.|DigitalOTP is requried for most action on the MB/MBCP app, please register.|'
+
 
 # Notification via MB Bank app
 sed_libapp 's|Receive balance change notifications via the MBBank APP for free|Receive balance change notifications via the MBCPApp are free.  |'
@@ -123,6 +126,7 @@ sed_libapp 's|Your device will be locked if you enter incorrectly more than 5 ti
 # Others section on MB
 sed_libapp 's|Introduction to receive money|Invite using MB              |g'
 sed_libapp 's|Viettel post|Viettel Post|g'
+sed_libapp 's|Scan QR|QR Scan|'
 
 # MiniApp strings on homeLanding
 sed_libapp 's|Shopping-  Entertainment- Investment|Flutter embedded MiniApps           |'
