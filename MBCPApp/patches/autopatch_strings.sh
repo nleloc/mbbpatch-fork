@@ -230,11 +230,14 @@ sed_libapp 's|Online signature|Intrust CA certs|g'
 # Changed theme toast
 sed_libapp 's|Theme Changed Successfully|Applied selected theme :) |'
 
-# MB AI related strings
+# MB AI related strings (Present since v6.4.74+)
 sed_libapp 's|AI analyzes and extracts information|MB analyzes and extract information |'
 sed_libapp 's|Confirm the transfer information extracted by AI to proceed with the transfer|Confirm the transfer information extracted by MB to proceed with the transfer|'
 sed_libapp 's|AI analysis|MB Analysis|'
 sed_libapp 's|AI Money Transfer Paste|                       |'
+sed_libapp 's|AI Suggestion|MB Suggestion|'
+sed_libapp 's|Quick transfer using AI|Quick transfer         |'
+
 
 # Placeholder toolbox	
 sed_libapp 's|Shopping, entertainment|MBCPApp Toolbox        |'
