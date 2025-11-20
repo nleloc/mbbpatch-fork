@@ -12,4 +12,4 @@ blob="$DIRPATH/blob_patches/adaptive_ic_launcher/"
 
 cp -r "$blob"/* "$res"
 
-sed -i '0,/type=.font/s|^.*type="font".*|  <public id="0x7f080365" type="drawable" name="ic_launcher_foreground" />\n&|' "$res"/values/public.xml
+sed -i '0,/type=.font/s|^.*type="font".*|  <public id="0x7f080365" type="drawable" name="ic_launcher_background" />\n  <public id="0x7f080366" type="drawable" name="ic_launcher_foreground" />\n&|' "$res"/values/public.xml
