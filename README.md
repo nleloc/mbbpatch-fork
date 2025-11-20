@@ -34,6 +34,7 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
+| `Adaptive launcher icon` | Adds the adaptive & themed icon support to the app. Thanks to @fukiame ! | v6.4.0 ~ v6.4.75 |
 | `Block adjust volume on sEKYC` | Prevent the device volume from being adjusted when entering eKYC activity. | v6.4.0 ~ v6.4.75 |
 | `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.75 |
 | `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.4.75 |
