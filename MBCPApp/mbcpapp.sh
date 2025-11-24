@@ -182,6 +182,9 @@ unpack_mbcp() {
     info "Reformatting AndroidManifest.xml with xmlstarlet..."
     mv "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml.orig
     xmlstarlet fo "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml.orig > "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
+
+    info "Changing minSdkVersion to 28..."
+    sed -i 's|android:minSdkVersion="24"|android:minSdkVersion="28"|g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml 
 }
 
 repack_mbcp() {
