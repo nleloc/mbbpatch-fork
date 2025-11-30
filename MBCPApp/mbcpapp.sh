@@ -190,7 +190,7 @@ unpack_mbcp() {
 repack_mbcp() {
     { apktool_exist && is_unpacked ; } || return 1
     info "Repacking APK..."
-    echo "Compiled by MBCPApp Patcher on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/root/assets/mbcp_info/mbcpinfo.txt'
+    echo "Compiled with MBCPApp Patcher by $(whoami) on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/root/assets/mbcp_info/mbcpinfo.txt'
     (
         set -e
         java -jar tools/apkeditor.jar b -i 'mbapk/mbapk_unpacked' -o mbcpapp_apk/MBCP_Flutter_TMP.apk
