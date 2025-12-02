@@ -5,7 +5,7 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
-info "In order to modify app theme, you must extract assets first if current unpacked APK has MBShield!"
+iszdefend
 PS3='Select themes : '
 select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Mid-autumn festival' 'Exit'
 do

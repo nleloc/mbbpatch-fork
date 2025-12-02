@@ -56,6 +56,14 @@ sed_libzdefend() {
     ) && info "[sed_libzdefend] [$target] -> [$replacement]" || warn "[sed_libzdefend] replacing [$target] failed !"
 }
 
+iszdefend() {
+    if [[ -f mbapk/mbapk_unpacked/root/lib/arm64-v8a/libZDefend.so ]]; then
+        info "[libZDefend.so] is found! App resources extraction required!"
+    else
+        info "[libZDefend.so] is NOT found! No need app resources extraction :)"
+    fi
+}
+
 manifest_remove() {
     sed -i "/$1/d" "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml && \
         info "[manifest_remove] removing $1" || \
@@ -98,3 +106,5 @@ Press Y to confirm, press any other keys to cancel: " val
         *) return 69 ;;
     esac
 }
+
+

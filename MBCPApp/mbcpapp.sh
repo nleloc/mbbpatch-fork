@@ -210,6 +210,7 @@ check_mbshield() {
     if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/mbshield.szip ]
     then
         info "$mbshield_found"
+        iszdefend
     else
         info "$mbshield_not_found"
     fi
@@ -262,6 +263,7 @@ do
         'MBShield Check' )   check_mbshield ;;
         'Convert apks to apk' ) convert_apks ;;
         'Extract assets [ROOT]' )
+    iszdefend
     info 'To extract encrypted assets [if current app has MBShield protection] you need rooted device'
     info 'And trigger a bulit-in app assets extraction !'
     echo -------------------------------------------
