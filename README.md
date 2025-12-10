@@ -1,6 +1,12 @@
 # MBCPApp Patcher for MB Bank
 
-Lightweight **AI-free, humanity** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted user (or ROMs with bulit-in CorePatch). mostly written in Bash, made possible by @cuynu and community in Vietnam.
+Lightweight **AI-free, human-written** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted user (or ROMs with bulit-in CorePatch). mostly written in Bash, made possible by @cuynu and community in Vietnam.
+
+<img alt="Gitea Release" src="https://img.shields.io/gitea/v/release/mbcp/mbbpatch?gitea_url=http%3A%2F%2Fcuynutt.ddns.net&include_prereleases&display_name=tag&style=for-the-badge&logo=android&label=Latest%20Pre-bulit%20MBCP%20&color=%23CC6699&link=http%3A%2F%2Fcuynutt.ddns.net%2Fmbcp%2Fmbbpatch%2Freleases">
+
+<img alt="Gitea Issues" src="https://img.shields.io/gitea/issues/all/mbcp/mbbpatch?gitea_url=http%3A%2F%2Fcuynutt.ddns.net&style=for-the-badge">
+
+<img alt="Gitea language count" src="https://img.shields.io/gitea/languages/count/mbcp/mbbpatch?gitea_url=http%3A%2F%2Fcuynutt.ddns.net&style=for-the-badge&color=%236750A4">
 
 - If you are looking pre-bulit app, here : [MBCP Releases](http://cuynutt.ddns.net/mbcp/mbbpatch/releases) | [Install guide](http://cuynutt.ddns.net/mbcp/info/wiki/mbcpinstall_en.-)
 - Licensed as MIT License : [View license on Disroot](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE) | [View license on Selfhosted](http://cuynutt.ddns.net/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
@@ -149,6 +155,8 @@ cd ~/mbbpatch/MBCPApp
 
 ## Contributing
 - PRs are welcome, but you are NOT allowed to use any AI-tools for creating PRs to this project, even if it's manually reviewed by human. please use your brain and search engine & read documentation (without AI things) !
+- Even though this project is NOT AI-powered or assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) probably have been filled up with AI-generated code or assisted by AI. While I'm straightly disagree it, theres no escape for that in big 2025 (and also in few next years) so we have to live with that AI-generated & AI-assisted code inside the dependencies, but that doesn't mean I will code or allows AI-generated & AI-assisted code in this project at all. 
+- Remember : Projects that rely on dependencies that already filled up with AI-generated & AI-assisted code or bulit on top of it but written by human and NOT AI doesn't means the project is AI-powered or AI-generated project. 
 - If you wish to use AI-tools, please go ahead and find for another project instead. 
 
 ## Project history
