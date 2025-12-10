@@ -152,7 +152,7 @@ cd ~/mbbpatch/MBCPApp
 
 - [ ] Proper display language under Singalarity eKYC phase
 
-- [ ] Revert old Bee Rich logo
+- [x] Revert old Bee Rich logo
 
 - [x] Adapt new v6.4.67 zimperium structure
 
