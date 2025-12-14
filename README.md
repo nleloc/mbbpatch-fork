@@ -8,12 +8,12 @@ Lightweight **AI-free, human-written** open source tool for patching MB Bank (An
 
 <img alt="Gitea language count" src="https://img.shields.io/gitea/languages/count/mbcp/mbbpatch?gitea_url=http%3A%2F%2Fcuynutt.ddns.net&style=for-the-badge&color=%236750A4">
 
-- If you are looking pre-bulit app, here : [MBCP Releases](http://cuynutt.ddns.net/mbcp/mbbpatch/releases) | [Install guide](http://cuynutt.ddns.net/mbcp/info/wiki/mbcpinstall_en.-)
+- If you are looking pre-bulit app, here : [MBCP Releases](http://cuynutt.ddns.net/mbcp/mbbpatch/releases) | [Install guide](http://cuynutt.ddns.net/mbcp/info_en/wiki/mbcpinstall)
 - Licensed as MIT License : [View license on Disroot](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE) | [View license on Selfhosted](http://cuynutt.ddns.net/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
 
 ## Introduction 
 - This project was made to remove or limit annoying features & root detection & accessibility detection that implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability,etc. **It's not PoC (Proof of Concept) project at all.**.
-- [MBCP](https://t.me/mbbpatch_eng) are closed source before, and many people don't like it because concern about privacy & security issues.
+- [MBCP](https://t.me/mbcposs) are closed source before, and many people don't like it because concern about privacy & security issues.
 - In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on (Bare metal, not WSL) Linux environment
 - Note : MBCP are "MBBank CorePatch" but shorter and `MBCP` / `MBCPApp` are the same thing as `MBCP`.
 
