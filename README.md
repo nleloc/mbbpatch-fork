@@ -40,6 +40,7 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
+| `Add verified badge` | Replaces the MIC protection shield with verified badge to make it looks more cute :3 | v6.4.0 ~ v6.4.79 |
 | `Adaptive launcher icon` | Adds the adaptive & themed icon support to the app. Thanks to @fukiame ! | v6.4.0 ~ v6.4.78 |
 | `Proper notification icon` | Temporary fixes for the app notification icon. Thanks to @fukiame ! | v6.4.0 ~ v6.4.78 |
 | `Block adjust volume on sEKYC` | Prevent the device volume from being adjusted when entering eKYC activity. | v6.4.0 ~ v6.4.78 |
@@ -184,7 +185,7 @@ cd ~/mbbpatch/MBCPApp
 - [APKEditor](https://github.com/REAndroid/APKEditor/)
 - [MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3 (in the past)
 - [Zhaxia CN](https://t.me/zhaxia_cn) for sticker packs (Add anime resources)
-- [FlatIcon](https://flaticon.com) for some icons
+- [FlatIcon](https://flaticon.com) for some icons, including search icon, verified badge
 
 ## Contributors
 - [Cuynu](https://git.disroot.org/cuynu) - MBCP project author/maintainer
