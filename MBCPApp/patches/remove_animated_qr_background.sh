@@ -16,5 +16,5 @@ cp -f 'blob_patches/qr_white/homeLanding_bg_qrCode.gif' 'mbapk/mbapk_unpacked/ro
 # Adapt with v6.4.77+
 cp -f 'blob_patches/qr_white/homeLanding_bg_qrCode.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static'
 # Unknown homeLanding_bg_qrCode
-cp -f 'blob_patches/qr_white/homeLanding_bg_qrCode.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/homeLanding_bg_qrCode.webp'
+cp -f 'blob_patches/qr_white/homeLanding_bg_qrCode.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/homeLanding_bg_qrCode.webp'
 
