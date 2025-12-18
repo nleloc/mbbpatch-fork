@@ -196,4 +196,12 @@
     <string name="tp_loading_spinner_content_desc">Đang tải…</string>
     <string name="v7_preference_off">TẮT</string>
     <string name="v7_preference_on">BẬT</string>
+
+    <string name="text_click_setting_qr">Chạm để cài đặt QR</string>
+    <string name="text_online_loan">Vay online</string>
+    <string name="text_phone_recharge">Nạp tiền điện thoại</string>
+    <string name="text_recharge_phone_short">Nạp ĐT</string>
+    <string name="text_scan_qr">Quét QR</string>
+    <string name="text_transfer">Chuyển tiền</string>
+
 </resources>
