@@ -253,10 +253,10 @@ echo -------------------------------------------------------------
 
 # Main functions
 PS3='Please select options to continue : '
-select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'MBShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download tools' 'Exit'
+select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'MBShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download/update tools' 'Exit'
 do
     case "$opt" in
-        'Download tools' )   download_tools ;;
+        'Download/update tools' )   download_tools ;;
         'Unpack APK' )       unpack_mbcp ;;
         'Repack APK' )       repack_mbcp ;;
         'Patch App' )        run_patcher ;;
