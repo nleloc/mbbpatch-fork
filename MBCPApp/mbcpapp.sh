@@ -61,7 +61,7 @@ Asset extraction are not needed :)'
 
 download_tools() {
     apktool_link="https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar"
-    apkeditor_link="https://github.com/REAndroid/APKEditor/releases/download/V1.4.5/APKEditor-1.4.5.jar"
+    apkeditor_link="https://github.com/REAndroid/APKEditor/releases/download/V1.4.6/APKEditor-1.4.6.jar"
 
     cd tools && rm -rf ./*.jar
     wget -q --show-progress -O apktool.jar "$apktool_link" || err "downloading apktool failed"
