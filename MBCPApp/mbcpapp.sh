@@ -201,7 +201,8 @@ repack_mbcp() {
     ) && {
         good 'Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!'
         good 'Install and trying to open it when ಠ‿ಠ'
-        good 'If you are facing issues, report it on Telegram [@mbcposs] or Disroot Forgejo : mbbpatch !!'
+        good 'If you are facing issues, report it on Telegram [@mbcposs_en] or [@mbcposs] (for Vietnamese users) !!'
+        good 'It is recommended to report issues to [https://git.disroot.org/mbcp/mbbpatch/issues] instead !'
     } || err 'ERROR : Repacking failed !'
 }
 
