@@ -99,4 +99,17 @@ manifest_remove 'android:name="_vemaybay_payment_paylater"'
 
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_vnpay.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_vna.webp'
+
+find 'mbapk/mbapk_unpacked/resources/package_1/res/' -name 'vmb*' -delete
+find 'mbapk/mbapk_unpacked/resources/package_1/res/' -name 'vna*' -delete
+find 'mbapk/mbapk_unpacked/resources/package_1/res/' -name 'vn*' -delete
+find 'mbapk/mbapk_unpacked/resources/package_1/res/' -name 'flight*' -delete
+find 'mbapk/mbapk_unpacked/resources/package_1/res/' -name 'item*' -delete
+find 'mbapk/mbapk_unpacked/resources/package_1/res/' -name 'activity_flight*' -delete
+find 'mbapk/mbapk_unpacked/resources/package_1/res/' -name 'activity_vna*' -delete
+
+
+
+
+
 #sed_libapp 's|vna_flight_landing|broken_vna_ehh_idk|g'
