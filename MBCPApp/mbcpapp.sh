@@ -30,14 +30,14 @@ fi
 # Check if java exists
 if ! java -version ; then
     err "Java not found !!!"
-    info "Please install Java for your Linux distribution ! "
+    info "Please install Java for your system ! "
     exit 127
 fi
 
 # Check if wget exists
 if ! wget --version ; then
     err "wget not found !!!"
-    info "Please install wget for your Linux distribution !"
+    info "Please install wget for your system !"
     exit 127
 fi
 
@@ -69,6 +69,20 @@ download_tools() {
     cd .. 
 }
 
+darwindeps() {
+    PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
+}
+
+darwin() {
+    [ $(brew list | grep gnu-sed) ] && echo "gnu-sed is installed!" && darwindeps || echo "gnu-sed is not installed. Please install it!"
+}
+
+if uname -a | grep -i Darwin ; then
+    info "You have macOS environment :)"
+    darwin
+    clear
+fi
+
 copy_assets() {
     adb shell su -c cp -rf "/data/data/com.mbmobile/files/$1" /sdcard/assets
 }
@@ -97,7 +111,7 @@ mb_apk_exist() {
 }
 
 unpack_mbcp() {
-    local - ; set -e
+    [ $(uname -a | grep Linux) ] && local - ; set -e
     { apkeditor_exist && mb_apk_exist ; } || return 1
     rm -rf 'mbapk/mbapk_unpacked'
     rm -rf 'mbapk/*.apks'
@@ -218,7 +232,7 @@ check_mbshield() {
 }
 
 convert_apks() {
-    local - ; set -e
+    [ $(uname -a | grep Linux) ] && local - ; set -e
     ls "$DIRPATH"/mbapk/*.apks >/dev/null 2>&1 || {
         err "APKs missing, cannot continue !"
         return 1

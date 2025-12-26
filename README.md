@@ -14,7 +14,7 @@ Lightweight **AI-free, human-written** open source tool for patching MB Bank (An
 ## Introduction 
 - This project was made to remove or limit annoying features & root detection & accessibility detection that implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability,etc. **It's not PoC (Proof of Concept) project at all.**.
 - [MBCP](https://t.me/mbcposs) are closed source before, and many people don't like it because concern about privacy & security issues.
-- In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on (Bare metal, not WSL) Linux environment
+- In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment
 - Note : MBCP are "MBBank CorePatch" but shorter and `MBCP` / `MBCPApp` are the same thing as `MBCP`.
 
 ## DISCLAIMER 
