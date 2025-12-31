@@ -111,7 +111,7 @@ mb_apk_exist() {
 }
 
 unpack_mbcp() {
-    [ $(uname -a | grep Linux) ] && local - ; set -e
+    [[ $(uname -a | grep Linux) ]] && local - ; set -e
     { apkeditor_exist && mb_apk_exist ; } || return 1
     rm -rf 'mbapk/mbapk_unpacked'
     rm -rf 'mbapk/*.apks'
@@ -232,7 +232,7 @@ check_mbshield() {
 }
 
 convert_apks() {
-    [ $(uname -a | grep Linux) ] && local - ; set -e
+    [[ $(uname -a | grep Linux) ]] && local - ; set -e
     ls "$DIRPATH"/mbapk/*.apks >/dev/null 2>&1 || {
         err "APKs missing, cannot continue !"
         return 1
