@@ -7,7 +7,7 @@
 
 iszdefend
 PS3='Select themes : '
-select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Mid-autumn festival' 'Exit'
+select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-autumn festival' 'Exit'
 do
   case "$opt" in
     'MBCP SemiPriority')
@@ -176,6 +176,29 @@ do
       warn "You WON'T be able to use other theme than Noel 2024 on app !"
       echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/noel2024_theme.inf"
       good "Applied [Noel 2024] theme."
+;;
+    'Tre trung')
+      info "Applying..."
+      cp -f 'blob_patches/tretrung_theme/login_img_notification.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/'
+      cp -f 'blob_patches/tretrung_theme/login_img_highlightElement.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+      cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+      cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/loading_bg_main.webp'
+      cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/qr_img_ThemeDefalut.webp'
+	
+      rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/customUI_img_noelMode.webp'
+      rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/a_logo_img_addon.webp'
+
+      cp -f 'blob_patches/tretrung_theme/homeLanding_img_PFM.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+      cp -f 'blob_patches/tretrung_theme/homeLanding_img_assetsReport.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+      cp -f 'blob_patches/tretrung_theme/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+      cp -f 'blob_patches/tretrung_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+      cp -f 'blob_patches/tretrung_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/coreBanking_img_successBackground.webp'
+      cp -f 'blob_patches/tretrung_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/bill_background_gold.webp'
+      cp -f 'blob_patches/tretrung_theme/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+      cp -f 'blob_patches/tretrung_theme/cardService_img_cardMKT.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+      cp -f 'blob_patches/tretrung_theme/cardService_bg_cardMKT.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+      cp -f 'blob_patches/tretrung_theme/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+
     ;;
     'Exit') exit ;;
   esac
