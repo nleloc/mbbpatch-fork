@@ -7,8 +7,8 @@
 
 warn "Currently only support remove invoke mbshield to [io.flutter.plugins.MainActivity] and [MBBHomeWidgetQR] !!!"
 info "Copying..."
-if [[ -d mbapk/mbapk_unpacked/smali/classes4/io/flutter ]]; then
-	echo "Flutter found on classes4 !!"
+if [[ -f mbapk/mbapk_unpacked/smali/classes4/io/flutter/plugins/MainActivity.smali ]]; then
+	info "Flutter found on classes4 !!"
 	rm -f 'mbapk/mbapk_unpacked/smali/classes4/io/flutter/plugins/MainAcitivity.smali'
 	rm -f 'mbapk/mbapk_unpacked/smali/classes4/io/flutter/plugins/MBBHomeWidgetQR.smali'
 	cp -f 'blob_patches/noinvoke/MainActivity.smali' 'mbapk/mbapk_unpacked/smali/classes4/io/flutter/plugins'
@@ -23,8 +23,8 @@ else
 fi
 	
 	# Newer dex location (found on v6.4.82+, might present since v6.4.70+)
-if [[ -d mbapk/mbapk_unpacked/smali/classes3/io/flutter ]]; then
-	echo "Flutter found on classes3 !!"
+if [[ -f mbapk/mbapk_unpacked/smali/classes3/io/flutter/plugins/MainActivity.smali ]]; then
+	info "Flutter found on classes3 !!"
 	rm -f 'mbapk/mbapk_unpacked/smali/classes3/io/flutter/plugins/MainAcitivity.smali'
 	rm -f 'mbapk/mbapk_unpacked/smali/classes3/io/flutter/plugins/MBBHomeWidgetQR.smali'
 	cp -f 'blob_patches/noinvoke/MainActivity.smali' 'mbapk/mbapk_unpacked/smali/classes3/io/flutter/plugins'
