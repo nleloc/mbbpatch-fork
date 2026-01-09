@@ -30,12 +30,23 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 ## Patches list :
 
 > [!IMPORTANT]
-> As of MB v6.4.68+, MB's dev team are finally fight against this project by compressing `libapp.so` and even improved their tampered library & dex check from both server & app-side !
+> These patches still can be applied for current/newer app version, but the app will refuse to login with `GW934` error :
+> - Remove invoke to mbshield
+> 
+> - Block adjust volume on sEKYC
+> 
+> - Remove new zimperium check
 >
-> This means most important patches that is patching `libapp.so` are now useless and can't be used :(
+> - Hide VTAP root detection activity & dialog
 >
-> [Block adjust volume on sEKYC], [Remove new zimperium check], [Hide VTAP root detection activity & dialog] patches still works with latest app version, but the app will refuse to login with `GW934` error.
+> It used to works with v6.4.62 and lower (v6.4.63 up to v6.4.66 with workaround).
 >
+> Dex and libraries checksum when logging in seems to be added since v6.4.63+, and likely is implemented from the library side.
+>
+> At the current situation, the workaround for it is still unknown :(
+>
+> Except for experiment or testing, those mentioned patches shouldn't be used for any normal use cases. So for now, avoid it when patching app. 
+> 
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
@@ -75,7 +86,7 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 ## Old patches
 
 > [!IMPORTANT]
-> Those patches are no longer compatible with newer/current app version. It's can't be fixed unless MB decompress the [`libapp.so`] or until I find the method to decompress it manually.
+> These patches are no longer compatible with newer/current app version. It's can't be fixed unless MB decompress the `libapp.so` or until I find the method to decompress it manually.
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
