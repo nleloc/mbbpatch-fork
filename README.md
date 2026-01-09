@@ -8,12 +8,12 @@ Lightweight **AI-free, human-written** open source tool for patching MB Bank (An
 
 <img alt="Gitea language count" src="https://img.shields.io/gitea/languages/count/mbcp/mbbpatch?gitea_url=http%3A%2F%2Fcuynutt.ddns.net&style=for-the-badge&color=%236750A4">
 
-- If you are looking pre-bulit app, here : [MBCP Releases](http://cuynutt.ddns.net/mbcp/mbbpatch/releases) | [Install guide](http://cuynutt.ddns.net/mbcp/info_en/wiki/mbcpinstall)
-- Licensed as MIT License : [View license on Disroot](https://git.disroot.org/mbcp/mbbpatch/src/branch/mbflutter/LICENSE) | [View license on Selfhosted](http://cuynutt.ddns.net/mbcp/mbbpatch/src/branch/mbflutter/LICENSE)
+- If you are looking pre-bulit app, here : [MBCP Releases](/mbcp/mbbpatch/releases) | [Install guide](/mbcp/info_en/wiki/mbcpinstall)
+- Licensed as MIT License.
 
 ## Introduction 
 - This project was made to remove or limit annoying features & root detection & accessibility detection that implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability,etc. **It's not PoC (Proof of Concept) project at all.**.
-- [MBCP](https://t.me/mbcposs) are closed source before, and many people don't like it because concern about privacy & security issues.
+- [MBCP](https://t.me/mbcposs) are closed source before, and many people don't like it and concern with privacy & security issues.
 - In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment
 - Note : MBCP are "MBBank CorePatch" but shorter and `MBCP` / `MBCPApp` are the same thing as `MBCP`.
 
@@ -22,15 +22,15 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 
 ## Documentation
 
-- [Documentation on self-hosted instance](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki) (WIP/Incomplete)
+- [MBCPApp Pathcer Documentation](/mbcp/mbbpatch/wiki)
 
 ## Requirements & Usage & How-to use patcher
-- Follow documentation here : [Patcher Usage (self-hosted)](http://cuynutt.ddns.net/mbcp/mbbpatch/wiki/patcher-usage.-) 
+- Follow documentation here : [Patcher Usage](/mbcp/mbbpatch/wiki/patcher-usage.-)
 
 ## Patches list :
 
 > [!IMPORTANT]
-> These patches still can be applied for current/newer app version, but the app will refuse to login with `GW934` error :
+> These patches can be applied for current/newer app version, but the app will refuse to login with `GW934` error :
 > - Remove invoke to mbshield
 > 
 > - Block adjust volume on sEKYC
@@ -41,11 +41,11 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 >
 > It used to works with v6.4.62 and lower (v6.4.63 up to v6.4.66 with workaround).
 >
-> Dex and libraries checksum when logging in seems to be added since v6.4.63+, and likely is implemented from the library side.
+> Dex and libraries checksum when logging in seems to be added since v6.4.63+, and is likely implemented from the library side.
 >
 > At the current situation, the workaround for it is still unknown :(
 >
-> Except for experiment or testing, those mentioned patches shouldn't be used for any normal use cases. So for now, avoid it when patching app. 
+> Except for testing, those mentioned patches shouldn't be used for any normal use cases. So for now, avoid it when patching app. 
 > 
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
@@ -86,7 +86,7 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 ## Old patches
 
 > [!IMPORTANT]
-> These patches are no longer compatible with newer/current app version. It's can't be fixed unless MB decompress the `libapp.so` or until I find the method to decompress it manually.
+> These patches are no longer compatible with newer/current app version. It can't be fixed unless MB decompress the `libapp.so` (which will never happen) or until I find the method to decompress it manually.
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
@@ -122,9 +122,9 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 
 ## Proprietary code
 > [!WARNING]
-> This project contain some proprietary code extracted from MB's app that has been modified to bypass something else, but the modified proprietary code is completely public and open source, it will be used for patches.
+> This project contains some proprietary code extracted from MB's app that has been modified to bypass something in the app, but the modified proprietary code is completely public and open source, it will be used for some patches.
 >
-> That applies for following folder :
+> Proprietary code exists in following folder :
 
 - 1. `blob_patches/bypass_apptampering`
 - 2. `blob_patches/noadjust_volume_sekyc`
@@ -132,8 +132,10 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 - 4. `blob_patches/bypass_accessibility_applist`
 - 5. `blob_patches/bypass_rootold`
 - 6. `blob_patches/fix_df16211`
-- Under `mbsig` directory, its contain original signature from original MB's app, which is necessary to make app works after patching process because the app doesn't work with different APK signature.
-- Everything including that listed above code are all licensed under MIT license, it's can be considered as reverse engineered code :>
+- 7. `blob_patches/noinvoke`
+
+- Under `mbsig` directory, it contains original signature from original MB's app, which is necessary to make app works after patching process because the app doesn't work with different APK signature.
+- Everything including that listed above code are all licensed under MIT license, it can be considered as reverse engineered code :>
 
 ## Usage
 - Go to home directory, then clone repository first
@@ -162,9 +164,9 @@ cd ~/mbbpatch/MBCPApp
 
 ## TODO
 
-- [ ] Bypass the new dex & libraries checksum for MB v6.4.67+
+- [ ] Bypass the new dex & libraries checksum for MB v6.4.67+ (hardcore challenge)
 
-- [ ] Proper display language under Singalarity eKYC phase
+- [ ] Proper display language under Singalarity eKYC phase 
 
 - [x] Revert old Bee Rich logo
 
@@ -172,25 +174,28 @@ cd ~/mbbpatch/MBCPApp
 
 - [x] Adapt new v6.4.68 trungthu theme
 
-## Contributing
-- PRs are welcome, but you are NOT allowed to use any AI-tools for creating PRs to this project, even if it's manually reviewed by human. please use your brain and search engine & read documentation (without AI things) !
-- Even though this project is NOT AI-powered or assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) probably have been filled up with AI-generated code or assisted by AI. While I'm straightly disagree it, theres no escape for that in big 2025 (and also in few next years) so we have to live with that AI-generated & AI-assisted code inside the dependencies, but that doesn't mean I will code or allows AI-generated & AI-assisted code in this project at all. 
-- Remember : Projects that rely on dependencies that already filled up with AI-generated & AI-assisted code or bulit on top of it but written by human and NOT AI doesn't means the project is AI-powered or AI-generated project. 
-- If you wish to use AI-tools, please go ahead and find for another project instead. 
+## Contribute to project
+- PRs are welcome, but you are NOT allowed to use any AI-tools for creating PRs with AI-generated/AI-assisted code to this project, even if it's manually reviewed by human. please use your brain and search engine & read documentation for that !
+<details>
+- Even though this project is NOT AI-powered or assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) may have been filled up with AI-generated code or assisted by AI. While I'm straightly disagree it, theres no escape for that in big 2025 (and also in few next years) so we have to live with that AI-generated & AI-assisted code inside the dependencies, but that doesn't mean I will code or allows AI-generated & AI-assisted code in this project at all. 
+- Remember : Projects that rely on dependencies that is already filled up with AI-generated & AI-assisted code or bulit on top of it but written by human and NOT AI doesn't means the project is AI-powered or AI-generated project. 
+- If you wish to use AI-tools for contributing, please go ahead and find for another project instead. 
+</details>
 
 ## Project history
-
+<details>
 - 05/2023 : MB Bank MOD APK ANDROID project created on Telegram (@mbbmod), providing modified MB Bank APKs since v5.8 with lots of features such as bypassing accessibility check and show a guide to hide root instead of show rooted screen then close the app.
 - 01/2024 : Channel from 2023 is deleted, due to Telegram banning account (@cuynutt)
 - 06/2024 : [MB Android Patched] channel created, providing modified MB Bank Flutter APKs and then MB React Native APKs
 - 01/2025 : Channel renamed to [MBCP Android] due to MB discontinued version that does not requires CorePatch. MBCP Helper also existed since then.
 - 05/2025 : Project is rewritten from closed source (mostly with MT Manager) to open source with `bash` programming language, reduce the trust issues with closed source app before, also allow anyone to patch it manually.
 - 06/2025 : [Hide VTAP root detection activity & dialog] patch was added, enables the ability to use the MBCP app with superuser (root permission) enabled.
-- 08/2025 : @fukiame joining to refactor the project source code, made it easier to maintain in the future, also implement some specific nice logic.
+- 08/2025 : @fukiame joining to refactor the project source code, make it easier to maintain in the future, also implement good logic.
 - 10/2025 : MB discontinued `v6.4.66`, the last version with almost all patches working (except `bypass_accessibility_applist`) with `GW525` error when logging in
-- 11/2025 : After multiple times lying myself and always said that I'm not a developer, **I embraced and claim myself as a MBCP developer** and still having skill issues, but atleast, I made this project, and solved the issues that MB's development team created to the MB Bank app by writing `code` to bypassing them.
+- 11/2025 : After multiple times lying myself and always said that I'm not a developer, **I embraced and claim myself as a MBCP developer** and still having skill issues, but atleast, I made this project, and solved the issues that MB's development team created to the MB Bank app by writing code to bypass them.
 - 11/2025 (2) : MB released `v6.4.74` with AI-crap button that replaces legacy search button. I created a patch that force replace it back to old search icon. 
 - ...
+</details>
 
 
 ## Credits
@@ -201,6 +206,7 @@ cd ~/mbbpatch/MBCPApp
 - [FlatIcon](https://flaticon.com) for some icons, including search icon, verified badge
 
 ## Contributors
-- [Cuynu](https://git.disroot.org/cuynu) - MBCP project author/maintainer
-- [fukiame](https://git.disroot.org/fukiame) - refactor & other improvements
+- [Cuynu](/cuynu) - MBCP project author/dev/maintainer
+- [fukiame](/fukiame) - refactor & other improvements
 - [Ngankbakaa](https://github.com/miyukocutee) - contributor
+
