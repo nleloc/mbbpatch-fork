@@ -117,6 +117,7 @@ unpack_mbcp() {
     rm -rf 'mbapk/*.apks'
     rm -rf 'mbapk/*merged.apk'
     java -jar tools/apkeditor.jar d -i mbapk/*.apk -o mbapk/mbapk_unpacked || { err "Unpacking failed !" ; return 1 ; }
+    touch 'mbapk/mbapk_unpacked/isreal_unpacked'
     info "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/root/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
@@ -220,6 +221,16 @@ repack_mbcp() {
     } || err 'ERROR : Repacking failed !'
 }
 
+successunpack() {
+    if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/isreal_unpacked ]
+    then
+        echo -e "\033[32m"Unpacked."$1\033[0m"
+
+    else
+        echo -e "\033[31m"Not yet unpacked or not found."$1\033[0m"    
+    fi
+}
+
 check_mbshield() {
     is_unpacked || return 1
     if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/mbshield.szip ]
@@ -264,10 +275,11 @@ echo "Current commit : $COMMIT ($BRANCH)"
 echo "Source code : https://git.disroot.org/mbcp/mbbpatch.git"
 echo "Made possible by Cuynu's brain with love <3"
 echo -------------------------------------------------------------
-
+echo App status : $(successunpack)
+echo -------------------------------------------------------------
 # Main functions
 PS3='Please select options to continue : '
-select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'MBShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download/update tools' 'Exit'
+select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'MBShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download/update tools' 'Restart script' 'Exit'
 do
     case "$opt" in
         'Download/update tools' )   download_tools ;;
@@ -352,13 +364,15 @@ else
         	fi
 done
         ;;
+        'Restart script' ) 
+        bash mbcpapp.sh
+        ;;
         'Clear MBCPApp/MBBank app data' )
             info "Clearing [com.mbmobile] data..."
             adb shell pm clear com.mbmobile
             adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
             info "Current logged in account will remain present, even if app data is cleared !"
         ;;
-    
         'Pull latest commit' )
             git pull origin mbflutter
             info "Please run patcher again !"
@@ -451,7 +465,7 @@ do
         	fi
 done
         ;;
-        'Exit' ) exit ;;
+        'Exit' ) exit ;; 
     esac
 done
 
