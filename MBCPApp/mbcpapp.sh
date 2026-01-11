@@ -246,7 +246,7 @@ convert_apks() {
     [[ $(uname -a | grep Linux) ]] && local - ; set -e
     ls "$DIRPATH"/mbapk/*.apks >/dev/null 2>&1 || {
         err "APKs missing, cannot continue !"
-        return 1
+        return 0
     }
     apkeditor_exist
     info "Converting apks to apk..."
