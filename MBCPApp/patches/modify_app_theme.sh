@@ -5,6 +5,18 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
+prioritylogo() { 
+	if [ -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/a_logo_img_addon.webp' ]
+then
+	warn "App newer than v6.4.79+ ! Using enforced logo instead"
+	info "Copying [ic_logo_mb_text_enforced.svg]...
+	cp -f 'blob_patches/semipriority/ic_logo_mb_text_enforced.svg' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/svgs/ic_logo_mb_text.svg'
+else
+	info 'Copying [ic_logo_mb_text.svg]...'
+	cp -f 'blob_patches/semipriority/ic_logo_mb_text.svg' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/svgs/'
+fi
+}
+
 iszdefend
 PS3='Select themes : '
 select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-autumn festival' 'Exit'
@@ -17,8 +29,7 @@ do
       cp 'blob_patches/semipriority/priority/a_background_image.webp' 'blob_patches/semipriority/priority/qr_img_ThemeDefalut.webp'
       info 'Copying to [flutter_assets/assets/images/dynamic/base]'
       cp -r -f 'blob_patches/semipriority/priority/'* 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      info 'Copying [ic_logo_mb_text.svg]...'
-      cp -f 'blob_patches/semipriority/ic_logo_mb_text.svg' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/svgs/'
+      prioritylogo
       info 'Copying [welcom_img_eMbee.webp]...'
       cp -f 'blob_patches/semipriority/welcom_img_eMbee.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
 
