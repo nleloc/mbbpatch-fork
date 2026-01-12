@@ -44,6 +44,18 @@ sed_libapp() {
     ) && info "[sed_libapp] [$target] -> [$replacement]" || warn "[sed_libapp] replacing [$target] failed !"
 }
 
+prioritylogo() { 
+	if [ -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/a_logo_img_addon.webp' ]
+then
+	warn "App newer than v6.4.79+ ! Using enforced logo instead"
+	info "Copying [ic_logo_mb_text_enforced.svg]..."
+	cp -f 'blob_patches/semipriority/ic_logo_mb_text_enforced.svg' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/svgs/ic_logo_mb_text.svg'
+else
+	info 'Copying [ic_logo_mb_text.svg]...'
+	cp -f 'blob_patches/semipriority/ic_logo_mb_text.svg' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/svgs/'
+fi
+}
+
 # libdesignersactivists.so are former known as libZDefend.so
 # MB moved it to libdesignersactivists.so since v6.4.48+
 # this currently is placeholder, and will be implemented later
