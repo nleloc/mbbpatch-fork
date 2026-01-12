@@ -12,6 +12,12 @@ Lightweight **AI-free, human-written** open source tool for patching MB Bank (An
 - Project FAQ : [Read here](/mbcp/info_en/wiki/faq)
 - Licensed as MIT License.
 
+## Current situation
+
+- Project is used to almost DEAD, due to MB's measure to modified dex & libraries from the server-side with GW934 error when logging in. Luckily, I have a way to bypass the [Zimperium check](/mbcp/mbzdefend-fix), that's why the project still alive till nowadays with other patches.
+
+- The GW934 error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error (MB has detected that your device is not secure for performing transactions. Please uninstall the App and reinstall it from the app store). The other function (eg: DigitalOTP) that works without logging in still works.
+
 ## Introduction
 - Note : "MBCP" / "MBCPApp" = "MBBank CorePatch"
 - This project was made to remove or limit annoying features & root detection & accessibility detection that is implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability, device font, etc (see more in patches list). **It's not PoC (Proof of Concept) project at all.**
