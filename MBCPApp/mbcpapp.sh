@@ -70,7 +70,7 @@ download_tools() {
 }
 
 darwindeps() {
-    PATH="$HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin:$PATH"
+    PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 }
 
 darwin() {
