@@ -12,7 +12,7 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
      		wget https://github.com/ghclonenah1/mbbpatch_release/releases/download/a/embee_v6.4.47_arm64-v8a_armeabi-v7a.apks -q --show-progress
 		mv *.apks bypass1200/
      		echo "Unpacking..."
-     		java -jar tools/apkeditor.jar m -i bypass1200/*.apks -j$(nproc)
+     		java -jar tools/apkeditor.jar m -i bypass1200/*.apks
      		java -jar tools/apktool.jar d bypass1200/*.apk -o bypass1200/unpacked -j$(nproc)
      		mv bypass1200/unpacked/lib/arm64-v8a/libapp.so mbapk/mbapk_unpacked/root/lib/arm64-v8a/ 
      		mv bypass1200/unpacked/lib/armeabi-v7a/libapp.so mbapk/mbapk_unpacked/root/lib/armeabi-v7a/ 
@@ -22,14 +22,14 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
      		rm -rf bypass1200
      		## MB Forced update to 658, it must be spoofed!
      		echo "Patching [apktool.yml]..."
-		sed -i 's|658|700|g' "$DIRPATH"/mbapk/mbapk_unpacked/apktool.yml
+		sed -i 's|658|700|g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
      		echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(git show -s --format=%cd HEAD). > 'mbapk/mbapk_unpacked/root/assets/mbcp_info/bypass_1200_error.inf'
 
 
-		# Placeholder  patch, not yet implemented 
-    	elif [ "$opt" == 'Bypass signature check' ]; then
+		# Use bypass gw934 checksum for this patch instead
+	elif [ "$opt" == 'Bypass signature check' ]; then
     		echo "Applying patch [Bypass signature check]..."
-		if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
+	if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  	then 
     		# Checks for MBShield, if exists then exit function
 	if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
@@ -43,8 +43,7 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
    	echo "MBBank v6.4.26 [versionCode : 626]"
     	echo "MBBank v6.4.45 [versionCode : 658]"
     else
-    echo "This patch are now a part of [Bypass GW934 checksum] patch, please exit legacy patch and continue with normal patch !"
-   
+    echo "This patch is now a part of [Bypass GW934 checksum] patch, please exit legacy patch and continue with normal patch !"
     fi
     else
     echo "APK are not unpacked ! Please unpack APK first !"
@@ -96,9 +95,8 @@ fi
 
 	elif [ "$opt" == 'Exit' ]; then
         clear
-        ./mbcpapp.sh
-        exit
-		break
+	exit
+	break
 	fi
 done
 
