@@ -112,7 +112,7 @@ mb_apk_exist() {
 
 unpack_mbcp() {
     [[ $(uname -a | grep Linux) ]] && local - ; set -e
-    { apkeditor_exist && mb_apk_exist ; } || return 1
+    { apkeditor_exist && mb_apk_exist ; } || return 0
     rm -rf 'mbapk/mbapk_unpacked'
     rm -rf 'mbapk/*.apks'
     rm -rf 'mbapk/*merged.apk'
@@ -203,7 +203,7 @@ unpack_mbcp() {
 }
 
 repack_mbcp() {
-    { apktool_exist && is_unpacked ; } || return 1
+    { apktool_exist && is_unpacked ; } || return 0
     info "Repacking APK..."
     echo "Compiled with MBCPApp Patcher by $(whoami) on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/root/assets/mbcp_info/mbcpinfo.txt'
     (
