@@ -14,9 +14,12 @@ Lightweight **AI-free, human-written** open source tool for patching MB Bank (An
 
 ## Current situation
 
-- Project is used to almost DEAD, due to MB's measure to modified dex & libraries from the server-side with GW934 error when logging in. Luckily, I have a way to bypass the [Zimperium check](/mbcp/mbzdefend-fix), that's why the project still alive till nowadays with other patches.
+- Project is used to almost DEAD, due to MB's measure to modified dex & libraries from the server-side with GW934 error (`getSHFiles`) when logging in. Luckily, I have a way to bypass the [Zimperium check](/mbcp/mbzdefend-fix), that's why the project still alive till nowadays with other patches.
 
+- More information about GW934 measure :
+<details>
 - The GW934 error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error (MB has detected that your device is not secure for performing transactions. Please uninstall the App and reinstall it from the app store). The other function (eg: DigitalOTP) that works without logging in still works.
+</details>
 
 ## Introduction
 - Note : "MBCP" / "MBCPApp" = "MBBank CorePatch"
@@ -25,16 +28,20 @@ Lightweight **AI-free, human-written** open source tool for patching MB Bank (An
 - In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment. All MBCP pre-bulit releases from v6.4.47+ are all bulit with this open source project with the commit ID at the end of the file name.
 
 ## DISCLAIMER 
-I'm not responsible for any illegal action if someone abuse this patch to do illegal things, since it's originally made for technical or well-known users only.
+I'm not responsible if someone abuse this patch to do illegal things, since it's originally made for technical or well-known users only.
 
 ## Documentation
 
-- [MBCPApp Pathcer Documentation](/mbcp/mbbpatch/wiki)
+- [MBCPApp Patcher Documentation](/mbcp/mbbpatch/wiki)
 
 ## Requirements & Usage & How-to use patcher
 - Follow usage docs here : [Patcher Usage](/mbcp/mbbpatch/wiki/patcher-usage.-)
 
 ## Patches list :
+
+- Important notice (must read!) : 
+
+<details>
 
 > [!IMPORTANT]
 > These patches can be applied for current/newer app version, but the app will refuse to login with `GW934` error :
@@ -55,6 +62,8 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 > Except for testing, those mentioned patches shouldn't be used for any normal use cases. So for now, avoid it when patching app. 
 > 
 
+</details>
+
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
 
@@ -72,19 +81,19 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 | `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.82 |
 | `Remove new zimperium check` | Remove the new Zimperium (ZDefend) root detection from app. Picked up from Legacy Patch. | v6.4.60 ~ v6.4.82 | 
 | `Remove bulit-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.4.82 |
-| `Modify app theme` | Modify the app theme in app from original one to others. Currently have MBClassic and SemiPriority. | v6.4.30 ~ v6.4.82 |
+| `Modify app theme` | Modify the bulit-in app theme from original one to other themes. | v6.4.30 ~ v6.4.82 |
 | `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.4.82 |
-| `Revert old eMBee logo` | Revert old eMBee logo, specially on product consultation options. | v6.4.53 ~ v6.4.82 |
+| `Revert old eMBee logo` | Revert old eMBee logo, especially on product consultation options. | v6.4.53 ~ v6.4.82 |
 | `Remove useless libraries` | Remove the useless libraries from app, only for v6.4.67+ | v6.4.67 ~ v6.4.82 |
-| `Remove animated QR background` | Remove the animated QR background on bottom navigation bar and replace with white background. | v6.4.43 ~ v6.4.82 |
+| `Remove animated QR background` | Remove the animated QR background from bottom navigation bar and replace with white background. | v6.4.43 ~ v6.4.82 |
 | `Remove VNPAY VMB20` | Remove the VNPAY Airplane related activities. | v6.4.55 ~ v6.4.82 |
 | `Restore old registration resources` | Restore old resources on `onboarding` page. | v6.4.48 ~ v6.4.82 |
-| `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted" (might have issues on some HyperOS ROMs). | v6.4.0 ~ v6.4.82 |
-| `Legacy hide VTAP activity & dialog` | Hide the first root detection screen with dialog showing "Device is rooted" but not bypassing it. (GW908 will present, unlike standard `Hide VTAP root detection activity & dialog` patch). Only use for some ugly ROMs which crashing with standard patch. | v6.4.53 ~ v6.4.82 |
+| `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted" (might have issues with some HyperOS ROMs). | v6.4.0 ~ v6.4.82 |
+| `Legacy hide VTAP activity & dialog` | Hide the first root detection screen with dialog showing "Device is rooted" but not bypassing it. (GW908 will present, unlike standard `Hide VTAP root detection activity & dialog` patch). Only use for some ugly ROMs which is crashing with standard patch. | v6.4.53 ~ v6.4.82 |
 | `Remove protection shield` | Remove the MIC protection shield on profile picture and login screen. (not app protection) | v6.4.0 ~ v6.4.82 |
 | `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.4.82 |
 | `Set targetSdkVersion to 34` | Set the `targetSdkVersion` to 34 (Android 14) to prevent UI issues on some activities. | v6.4.10 ~ v6.4.82 |
-| `Add modified resources` | Adds the specific strings for MBCP on eKYC phase, and modify the DigiBank logo. | v6.4.0 ~ v6.4.82 |
+| `Add modified resources` | Adds the specific strings for MBCP on eKYC phases, and modify the DigiBank logo. | v6.4.0 ~ v6.4.82 |
 | `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.4.82 |
 
 
@@ -116,13 +125,13 @@ I'm not responsible for any illegal action if someone abuse this patch to do ill
 
 
 ## Legacy patches
-- Those patches are not implemented or outdated, which is used for discontinued MB app version.
+- These patches are not implemented or outdated, which is used for discontinued MB app version.
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
 
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
-| `Bypass signature check` | Not implemented | v6.4.0 ~ v6.4.21 |
+| `Bypass signature check` | Not implemented (Use bypass GW934 checksum instead) | v6.4.0 ~ v6.4.21 |
 | `[TEST] Remove v6.4.56 root detection` | New workaround that removes new Zimperium (ZDefend) root detection from app. | v6.4.56 |
 | `Bypass 1200 error` | Workaround for 1200 error that happening on original MB app with specific version, now discontinued. | v6.4.45 |
 </details>
@@ -228,7 +237,7 @@ cd ~/mbbpatch/MBCPApp
 - [FlatIcon](https://flaticon.com) for some icons, including search icon, verified badge
 
 ## Contributors
-- [Cuynu](/cuynu) - MBCP project author/dev/maintainer
+- [Cuynu](/cuynu) - ~~dev (im not deserve it)~~ maintainer 
 - [fukiame](/fukiame) - refactor & other improvements
 - [Ngankbakaa](https://github.com/miyukocutee) - contributor
 
