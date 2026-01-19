@@ -73,6 +73,7 @@ I'm not responsible if someone abuse this patch to do illegal things, since it's
 | `Adaptive launcher icon` | Adds the adaptive & themed icon support to the app. Thanks to @fukiame ! | v6.4.0 ~ v6.4.83 |
 | `Proper notification icon` | Temporary fixes for the app notification icon. Thanks to @fukiame ! | v6.4.0 ~ v6.4.83 |
 | `Block adjust volume on sEKYC` | Prevent the device volume from being adjusted when entering eKYC activity. | v6.4.0 ~ v6.4.83 |
+| `Better custom background screen` | Replace the preview custom background from awful to useful. | v6.4.84 |
 | `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.83 |
 | `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.4.83 |
 | `Force portrait screen` | Force the screen always portrait on app, espcially when launching. | v6.4.0 ~ v6.4.83 |
