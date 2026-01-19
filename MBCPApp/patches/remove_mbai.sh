@@ -21,6 +21,9 @@ rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/ba
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_search.webp'
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/coreBanking_illus_p2p.webp'
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/coreBanking_illus_p2p.private.webp'
+# Tet binh ngo 
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/coreBanking_illus_p2p.webp'
+
 
 # Priority users
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/mbai_img_paste.webp'
