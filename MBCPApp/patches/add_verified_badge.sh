@@ -30,3 +30,12 @@ rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/ba
 
 # Processing shield for private users
 cp -f 'blob_patches/verified_badge/tick-mark.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_shield_processing.webp'
+
+# MIC Protection shield banners
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/khien_img_hoadon.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/khien_img_muasam.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/khien_img_offline.webp'
+# Private users
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/khien_img_hoadon.private.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/khien_img_muasam.private.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/khien_img_offline.private.webp'
