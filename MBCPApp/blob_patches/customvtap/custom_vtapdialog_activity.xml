@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="@dimen/fab_margin"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@id/llBottom"
+        android:paddingTop="2.0dip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <Button
+            android:textColor="#ffff0000"
+            android:tag="0"
+            android:visibility="visible"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="BẠN ĐANG GẶP LỖI NGHIÊM TRỌNG TRONG APP !!!" />
+        <Button
+            android:textColor="#ffff0000"
+            android:tag="0"
+            android:visibility="visible"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="APP MBCP sẽ KHÔNG THỂ HOẠT ĐỘNG CHO ĐẾN KHI FIX" />
+        <Button
+            android:textColor="#ffff0000"
+            android:tag="0"
+            android:visibility="visible"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="VUI LÒNG KIỂM TRA LẠI CÁC BƯỚC CÀI ĐẶT APP" />
+        <Button
+            android:textColor="#ff6698ff"
+            android:tag="0"
+            android:visibility="visible"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="TRUY CẬP WEB SAU ĐỂ THỬ FIX : tinyurl.com/vtapfixvi" />
+        <Button
+            android:textColor="#ffff0000"
+            android:tag="0"
+            android:visibility="visible"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="TRONG TRƯỜNG HỢP ĐÃ LÀM ĐÚNG TẤT CẢ, CHỤP MÀN HÌNH NÀY VÀ BÁO LỖI QUA Telegram @cuynuz hoặc YouTube @cuynu !!!" />
+        <Button
+            android:tag="0"
+            android:visibility="invisible"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+        <Button
+            android:tag="0"
+            android:visibility="invisible"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+        <Button
+            android:id="@id/btnSecond"
+            android:tag="0"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+        <Button
+            android:id="@id/btnMain"
+            android:tag="1"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+    </LinearLayout>
+    <ImageView
+        android:id="@id/imgAlert"
+        android:background="@color/cardview_shadow_end_color"
+        android:visibility="gone"
+        android:layout_width="100.0dip"
+        android:layout_height="100.0dip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@id/view_pager"
+        android:layout_width="0.0dip"
+        android:layout_height="0.0dip"
+        app:layout_constraintBottom_toTopOf="@id/tab_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgAlert"
+        app:layout_constraintVertical_bias="0.0" />
+    <com.google.android.material.tabs.TabLayout
+        android:id="@id/tab_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="2.0dip"
+        android:layout_marginBottom="16.0dip"
+        app:layout_constraintBottom_toTopOf="@id/llBottom"
+        app:layout_constraintTop_toTopOf="@id/llBottom"
+        app:tabIndicatorColor="#ffffffff" />
+</androidx.constraintlayout.widget.ConstraintLayout>
