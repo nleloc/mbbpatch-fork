@@ -77,6 +77,7 @@ I'm not responsible if someone abuse this patch to do illegal things, since it's
 | `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.84 |
 | `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.4.84 |
 | `Custom VTAP screen` | Warn users about critical VTAP trigger error from app. | v6.4.53 ~ v6.4.84 |
+| `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.86 |
 | `Force portrait screen` | Force the screen always portrait on app, espcially when launching. | v6.4.0 ~ v6.4.84 |
 | `Remove MB AI Bullsh*t resources` | Remove the bullsh*t MB AI resources from app. Need to implement more in the future. | v6.4.74 ~ v6.4.84 |
 | `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.4.84 |
@@ -192,7 +193,7 @@ cd ~/mbbpatch/MBCPApp
 
 - [x] Adapt new v6.4.68 trungthu theme
 
-## Contribute to project
+## Contribute to project & AI usage?
 - PRs are welcome, but you are NOT allowed to use any AI-tools for creating PRs with AI-generated/AI-assisted code to this project, even if it's manually reviewed by human. please use your brain and search engine & read documentation for that !
 <details>
 

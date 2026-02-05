@@ -44,6 +44,15 @@ sed_libapp() {
     ) && info "[sed_libapp] [$target] -> [$replacement]" || warn "[sed_libapp] replacing [$target] failed !"
 }
 
+sed_libtian37() {
+    target=$(bb_split "$1" '|' '1')
+    replacement=$(bb_split "$1" '|' '2')
+    (
+        sed -i "$1" "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libanTian37.so \
+            "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libanTian37.so
+    ) && info "[sed_libtian37] [$target] -> [$replacement]" || warn "[sed_libtian37] replacing [$target] failed !"
+}
+
 prioritylogo() { 
 	if [ -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/a_logo_img_addon.webp' ]
 then
