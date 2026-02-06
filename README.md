@@ -195,18 +195,18 @@ cd ~/mbbpatch/MBCPApp
 
 - [x] Adapt new v6.4.68 trungthu theme
 
-## Contribute to project & AI usage?
+## Contribute to project 
 
-- Short answer : PRs are welcome. Just no Generative AI at all, all the code and assets (except from MB itself) must be written by yourself with no assistance from Generative AI.
+- Short answer : PRs are welcome. Just no Generative AI at all, all the code and assets (except from MB itself) must be made/written by yourself with no assistance from Generative AI.
 
 - Long answer : PRs are welcome, but you are NOT allowed to use any AI-tools for creating PRs with AI-generated/AI-assisted code to this project, even if it's manually reviewed by human. please use your brain and search engine & read documentation for that !
 <details>
 
 - Even though this project is NOT AI-powered or assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) may have been filled up with AI-generated code or assisted by AI. While I'm straightly disagree it, theres no escape for that in big 2025 (and also in few next years) so we have to live with that AI-generated & AI-assisted code inside the dependencies, but that doesn't mean I will code or allows AI-generated & AI-assisted code in this project at all. 
 
-- Remember : Projects that rely on dependencies that is already filled up with AI-generated & AI-assisted code or bulit on top of it but written by human and NOT AI doesn't means the project is AI-powered or AI-generated project. 
+- Remember : Projects that rely on dependencies that is already filled up with AI-generated & AI-assisted code or bulit on top of it but written by human and NOT Generative AI doesn't means the project is AI-powered or AI-generated project. 
 
-- If you wish to use AI-tools for contributing, please go ahead and find for another project instead. 
+- If you wish to use Generative AI-tools for contributing, please go ahead and find for another project instead. 
 
 </details>
 
@@ -245,7 +245,8 @@ cd ~/mbbpatch/MBCPApp
 - [FlatIcon](https://flaticon.com) for some icons, including search icon, verified badge
 
 ## Contributors
-- [Cuynu](/cuynu) - ~~dev~~ (im not deserve it) MBCP maintainer 
-- [fukiame](/fukiame) - refactor & other improvements
-- [Ngankbakaa](https://github.com/miyukocutee) - contributor
+- [Cuynu](/cuynu) - (dev)
+- [fukiame](/fukiame) - refactor & other improvements (contributor)
+- [Ngankbakaa](https://github.com/miyukocutee) - (contributor)
+
 
