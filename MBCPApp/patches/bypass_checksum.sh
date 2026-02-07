@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PATCHNAME: Bypass GW934 checksum
-# MAXVER: 67
-# MINVER: 63
+# MAXVER: 6.4.67
+# MINVER: 6.4.63
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 

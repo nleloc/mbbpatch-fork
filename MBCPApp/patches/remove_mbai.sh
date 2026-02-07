@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PATCHNAME: Remove MB AI Bullsh*t resources
 # MAXVER:
-# MINVER: 73
+# MINVER: 6.4.73
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 

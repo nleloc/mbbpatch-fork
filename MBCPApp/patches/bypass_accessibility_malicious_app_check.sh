@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Bypass accessibility & malicious apps check
-# MAXVER: 55
+# MAXVER: 6.4.55
 # MINVER:
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh

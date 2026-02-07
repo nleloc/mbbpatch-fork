@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PATCHNAME: Better custom background screen
 # MAXVER:
-# MINVER: 83
+# MINVER: 6.4.83
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 

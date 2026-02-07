@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PATCHNAME: Restore old 682 lib
-# MAXVER: 63
-# MINVER: 61
+# MAXVER: 6.4.63
+# MINVER: 6.4.61
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 

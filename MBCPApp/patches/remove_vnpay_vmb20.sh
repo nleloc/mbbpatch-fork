@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PATCHNAME: Remove VNPAY VMB20
 # MAXVER:
-# MINVER: 56
+# MINVER: 6.4.56
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 

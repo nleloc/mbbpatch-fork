@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Remove new root detection
-# MAXVER: 59
+# MAXVER: 6.4.59
 # MINVER:
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh

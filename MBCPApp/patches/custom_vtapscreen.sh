@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PATCHNAME: Custom VTAP screen
 # MAXVER:
-# MINVER: 52
+# MINVER: 6.4.52
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 

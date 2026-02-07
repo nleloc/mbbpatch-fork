@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PATCHNAME: Tian37 Fix
 # MAXVER:
-# MINVER: 85
+# MINVER: 6.4.85
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 

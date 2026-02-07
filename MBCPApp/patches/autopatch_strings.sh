@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Autopatch strings
-# MAXVER: 67
+# MAXVER: 6.4.67
 # MINVER:
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
