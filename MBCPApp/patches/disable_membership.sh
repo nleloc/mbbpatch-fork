@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PATCHNAME: Disable MB Membership 
+# PATCHNAME: Disable MB Membership
 # MAXVER: 67
 # MINVER:
 # shellcheck disable=SC1091

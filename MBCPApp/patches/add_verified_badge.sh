@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PATCHNAME: Add verified badge
 # MAXVER:
-# MINVER: 
+# MINVER:
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 

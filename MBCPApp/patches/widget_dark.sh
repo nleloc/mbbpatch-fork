@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PATCHNAME: Change widget background to dark 
+# PATCHNAME: Change widget background to dark
 # MAXVER:
 # MINVER:
 # shellcheck disable=SC1091

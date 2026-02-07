@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Remove invoke to mbshield
-# MAXVER:  
+# MAXVER:
 # MINVER: 21
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
@@ -21,7 +21,7 @@ done
 else
 	warn "Flutter not found on classes4, ignoring..."
 fi
-	
+
 	# Newer dex location (found on v6.4.82+, might present since v6.4.70+)
 if [[ -f mbapk/mbapk_unpacked/smali/classes3/io/flutter/plugins/MainActivity.smali ]]; then
 	info "Flutter found on classes3 !!"

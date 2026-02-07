@@ -37,7 +37,7 @@ rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/pri
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/khien_img_muasam.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/khien_img_offline.webp'
 
-# 
+#
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/banner_transfer_mass.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/banner_transfer_private.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/recap_banner.webp'

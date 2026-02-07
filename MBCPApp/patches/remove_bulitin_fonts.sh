@@ -27,9 +27,9 @@ rm -f 'mbapk/mbapk_unpacked/resources/package_1/res/font/bold.ttf'
 rm -f 'mbapk/mbapk_unpacked/resources/package_1/res/font/medium.ttf'
 rm -f 'mbapk/mbapk_unpacked/resources/package_1/res/font/regular.ttf'
 rm -f 'mbapk/mbapk_unpacked/root/assets/insider.ttf'
-# Placeholder font to fix display issues when open details balance notifications 
+# Placeholder font to fix display issues when open details balance notifications
 info "Creating placeholder font..."
-touch 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/fonts/AvertaStdCY-Regular.otf' 
+touch 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/fonts/AvertaStdCY-Regular.otf'
 # Placeholder to prevent compiling resource fail
 touch 'mbapk/mbapk_unpacked/resources/package_1/res/font/avenir_next_bold.ttf'
 info 'Copying fix fonts...'

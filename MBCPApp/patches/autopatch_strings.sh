@@ -46,7 +46,7 @@ sed_libapp 's|To provide the best experience, the MBBank APP needs access to som
 # QR on "Other"
 sed_libapp 's|QR receive|My QR     |g'
 
-# Digital OTP related 
+# Digital OTP related
 sed_libapp 's|To use transaction authentication feature with Online OTP, please signin APP MB Bank and implement Online OTP registration in the Installation item|DigitalOTP is not currently registered on your MBCP app. In order to use this feature, please login to MBCP and setup DigitalOTP, then try again.  |'
 sed_libapp 's|When transacting via Internet banking or registering Online OTP on other device|Used for transactions via eMB or when registering DigitalOTP on other device   |'
 sed_libapp 's|online OTP|DigitalOTP|g'
@@ -101,18 +101,18 @@ sed_libapp 's|You want to send a gift for the occasion?|You want to send a gift 
 sed_libapp 's|Intruction|How-to    |g'
 sed_libapp 's|MBBank will send the withdrawal verification code to the APP instead of SMS on the phone.|MB Bank will send the withdrawal verification code to MBCPApp instead of SMS as before.  |'
 
-# Latest version check 
+# Latest version check
 sed_libapp 's|The lastest version|TG/Disroot:mbbpatch|'
 
-# Profile section 
+# Profile section
 sed_libapp 's|User profile|View profile|g'
 sed_libapp 's|MB Membership Package|MB Membership        |'
 sed_libapp 's|email information|Email information|g'
 
-# Account related 
+# Account related
 sed_libapp 's|Premium Account Number|Open new lucky account|'
 
-# Cashback 150K badge (unused on v6.4.62+) 
+# Cashback 150K badge (unused on v6.4.62+)
 sed_libapp 's|Cashback 150K|             |'
 
 # Forgot password screen
@@ -120,7 +120,7 @@ sed_libapp 's|Request for supplying password|Request for new password      |'
 sed_libapp 's|ID card/ID card|Old/New ID card|g'
 sed_libapp 's|Number of document|Number of ID card |g'
 
-# Wrong password dialog 
+# Wrong password dialog
 sed_libapp 's|Your device will be locked if you enter incorrectly more than 5 times. Please try again or select the "Forgot password" feature to be reissued.|Your account will be locked if you enter incorrect password more than 5 times. Please try again or use the "Forgot password" feature to reset. |'
 
 # Others section on MB
@@ -138,7 +138,7 @@ sed_libapp 's|Please come back later for more new themes!|Tips: Unofficial theme
 sed_libapp 's|Change theme successfully|App theme changed :)     |'
 sed_libapp 's|Change theme|Store themes|'
 
-# Balance fluctuations notifications (Configuration -> Balance fluctuations notifications) 
+# Balance fluctuations notifications (Configuration -> Balance fluctuations notifications)
 sed_libapp 's|get notifications|Get notifications|g'
 sed_libapp 's|Read the announcement|Notify with voice    |'
 
@@ -155,7 +155,7 @@ sed_libapp 's|Start journey|Alright !    |'
 sed_libapp 's|Go here to install the app|MBCPApp settings are here |'
 
 
-# EKYC error dialog 
+# EKYC error dialog
 sed_libapp 's|Verification information is invalid, please contact hotline 1900545426 for support|EKYC failed, please go to Telegram group (@mbbpatch_eng) for details and help !!! |'
 
 # XPE002/XPE003 dialog :
@@ -190,7 +190,7 @@ sed_libapp 's|Zalo Pay|ZolaPay |'
 sed_libapp 's|MB membership|MB Membership|g'
 
 # Explore strings (homeLanding -> More -> Discovery)
-sed_libapp 's|New release|Features   |g'			
+sed_libapp 's|New release|Features   |g'
 sed_libapp 's|Challenge to receive gifts|Others                    |g'
 
 # Close account hints (homeLanding -> Total balance VND -> See -> Close account)
@@ -198,7 +198,7 @@ sed_libapp 's|MB will Autoally transfer the entire remaining balance to the acco
 
 # Expired login session dialog
 sed_libapp 's|The login session expired. Please login again|Login session are expired. Please login again|'
-# Confirm button on dialog 
+# Confirm button on dialog
 sed_libapp 's|I understand|OKAY        |g'
 
 # Exit application dialog
@@ -239,7 +239,7 @@ sed_libapp 's|AI Suggestion|MB Suggestion|'
 sed_libapp 's|Quick transfer using AI|Quick transfer         |'
 
 
-# Placeholder toolbox	
+# Placeholder toolbox
 sed_libapp 's|Shopping, entertainment|MBCPApp Toolbox        |'
 
 

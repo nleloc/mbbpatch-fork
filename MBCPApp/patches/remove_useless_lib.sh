@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Remove useless libraries
-# MAXVER: 
+# MAXVER:
 # MINVER: 68
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh

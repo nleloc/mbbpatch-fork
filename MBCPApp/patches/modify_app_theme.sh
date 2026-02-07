@@ -21,8 +21,8 @@ do
       info 'Copying [welcom_img_eMbee.webp]...'
       cp -f 'blob_patches/semipriority/welcom_img_eMbee.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
 
-      
-      cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic > /dev/null 2>&1 && demopriority 
+
+      cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic > /dev/null 2>&1 && demopriority
       demopriority() {
       # Modify the demo screen
       info 'Modifying demo screenshot...'
@@ -64,12 +64,12 @@ do
     cp -f 'blob_patches/trungthu_theme/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     cp -f 'blob_patches/trungthu_theme/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     cp -f 'blob_patches/trungthu_theme/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    
+
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_illus_a80.webp'
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Banner.webp'
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Code.webp'
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_bg_a80Landing.webp'
-	
+
     cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic > /dev/null 2>&1 && demotrungthu
     demotrungthu() {
     sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_thumbnail_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/227ca0fc0dd1b5b3973690c3f9031c27/thumb.png?app=mbcp11|g'
@@ -78,7 +78,7 @@ do
     sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenHome_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/b0b35d05a0752b6eec0dd19d50f15afd/preview3.png?ref=mbcp|g'
     sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccess_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/c61050db4674a181978b6f868c100aa6/preview4.png?ref=mbcpapp|g'
     sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenShare_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/2bd471b0b9ef7f96b05020bb4af304ed/preview5.png?ref=mbcp1|g'
-     }	
+     }
     echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/midautumn_theme.inf"
       good "Applied [Mid-autumn festival] theme."
 
@@ -92,7 +92,7 @@ do
       cp -f 'blob_patches/mbclassic/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
       cp -f 'blob_patches/mbclassic/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
       cp -f 'blob_patches/mbclassic/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-	
+
       cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic > /dev/null 2>&1 && demombclassic
       demombclassic() {
       # Modify theme preview on settings
@@ -100,15 +100,15 @@ do
 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLoginClassic.png|https://gitlab.com/-/project/56341767/uploads/f585b28f88876db211f116d1d622031d/mbcp_login.png?git1|g'
 
-      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_thumbnailClassic.png|https://gitlab.com/-/project/56341767/uploads/ba4f0923a4956ba379868e01c55e9cfb/thumb.png?aaaaaaa|g' 
+      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_thumbnailClassic.png|https://gitlab.com/-/project/56341767/uploads/ba4f0923a4956ba379868e01c55e9cfb/thumb.png?aaaaaaa|g'
 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_thumbnailClassic.png|https://gitlab.com/-/project/56341767/uploads/ba4f0923a4956ba379868e01c55e9cfb/thumb.png?aaaaaaa|g'
 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenHomeClassic.png|https://gitlab.com/-/project/56341767/uploads/1d7fcf300167e87440220a6f0d28b8c1/mbcp_lobby.png?aaa|g'
 
-      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenHomeClassic.png|https://gitlab.com/-/project/56341767/uploads/1d7fcf300167e87440220a6f0d28b8c1/mbcp_lobby.png?aaa|g' 
+      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenHomeClassic.png|https://gitlab.com/-/project/56341767/uploads/1d7fcf300167e87440220a6f0d28b8c1/mbcp_lobby.png?aaa|g'
 
-      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g' 
+      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g'
 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccessClassic.png|https://gitlab.com/-/project/56341767/uploads/d94e257eb6cf59865016a939541c32fc/mbcp_transfer.png?aaa|g'
 
@@ -166,7 +166,7 @@ do
 
       cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic > /dev/null 2>&1 && noel2024lib
       noel2024lib() {
-	
+
       # Lockdown ability to change other theme, also force Noel 2024 theme
       sed_libapp 's|theme|Noel |g'
       sed_libapp 's|theme|Noel |g'
@@ -175,7 +175,7 @@ do
       sed_libapp 's|Change Noel |Noel 2024   |g'
       # Modify the demo screen
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/module/onboarding/welcome/welcom_img_demoImage01.png|https://gitlab.com/-/project/56341767/uploads/bab657a5c0a9d0c4e0f7ddd5ba5772e9/noel1.png?ref=mbcpappgit1234|g'
-      
+
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/module/onboarding/welcome/welcom_img_demoImage02.png|https://gitlab.com/-/project/56341767/uploads/8314efa7352360a84df8ec8315ee587b/noel2.png?ref=mbcpappgit1234|g'
 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/module/onboarding/welcome/welcom_img_demoImage03.png|https://gitlab.com/-/project/56341767/uploads/f05f1e2fc54d24d99504141d65a107e8/noel3.png?ref=mbcpappgit1234|g'
@@ -196,7 +196,7 @@ do
       cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
       cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/loading_bg_main.webp'
       cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/qr_img_ThemeDefalut.webp'
-	
+
       rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/customUI_img_noelMode.webp'
       rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/a_logo_img_addon.webp'
 

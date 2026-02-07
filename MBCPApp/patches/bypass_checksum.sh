@@ -18,11 +18,11 @@ fi
 
 info "Extracting [app-debug.apk]..."
 unzip -o 'tools/bypass/app-debug.apk' -d 'tools/bypass'
-mv 'tools/bypass/lib/arm64-v8a/libSignatureKiller.so' 'tools/bypass/lib/arm64-v8a/libmodft3.so' 
+mv 'tools/bypass/lib/arm64-v8a/libSignatureKiller.so' 'tools/bypass/lib/arm64-v8a/libmodft3.so'
 mv 'tools/bypass/lib/armeabi-v7a/libSignatureKiller.so' 'tools/bypass/lib/armeabi-v7a/libmodft3.so'
 info "Moving libraries..."
-mv 'tools/bypass/lib/arm64-v8a/libmodft3.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a' 
-mv 'tools/bypass/lib/armeabi-v7a/libmodft3.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a' 
+mv 'tools/bypass/lib/arm64-v8a/libmodft3.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a'
+mv 'tools/bypass/lib/armeabi-v7a/libmodft3.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a'
 
 mv 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbcp.so'
 mv 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libapp.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbcp.so'

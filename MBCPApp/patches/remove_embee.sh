@@ -19,8 +19,8 @@ rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/bas
 # Priority support
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/eMBee_img_page.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/eMBee_img_header.webp'
-rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/eMBee_img_login.webp'   
-# Private support  
+rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/eMBee_img_login.webp'
+# Private support
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_page.private.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_login.private.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_header.private.webp'
@@ -31,6 +31,6 @@ rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/bas
 # Private support
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_loginSupport.private.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/eMBee_img_loginSupport.webp'
-# Priority support 
+# Priority support
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/eMBee_img_headerNew.webp'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/eMBee_img_loginSupport.webp'

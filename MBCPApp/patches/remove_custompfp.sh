@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PATCHNAME: Remove custom profile picture 
+# PATCHNAME: Remove custom profile picture
 # MAXVER: 67
 # MINVER:
 # shellcheck disable=SC1091

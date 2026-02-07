@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Remove new zimperium check
-# MAXVER: 
+# MAXVER:
 # MINVER: 59
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
@@ -22,7 +22,7 @@
     sed -i 's|designersactivists                                                                     |weneedfreedom|g' "$DIRPATH"/mbapk/mbapk_unpacked/smali/classes/androidx/UnderlyingVcl.smali
      # Adapt with v6.4.66
     sed -i 's|estimateddistributions                                                                 |weneedfreedom|g' "$DIRPATH"/mbapk/mbapk_unpacked/smali/classes/androidx/UnderlyingVcl.smali
-else 
+else
     warn "[UnderlyingVcl.smali] not found! skipping"
 fi
     # Adapt with v6.4.67+
@@ -70,12 +70,12 @@ fi
     cp 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libweneedfreedom.so' 'temp/'
     mv 'temp/libweneedfreedom.so' 'temp/libdesignersactivists.so'
     cp -f 'temp/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libdesignersactivists.so'
-    rm -rf temp 
+    rm -rf temp
     mkdir temp
     cp 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libweneedfreedom.so' 'temp/'
     mv 'temp/libweneedfreedom.so' 'temp/libdesignersactivists.so'
     cp -f 'temp/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libdesignersactivists.so'
-    rm -rf temp 
+    rm -rf temp
 else
     warn "[libdesignersactivists.so] not found! skipping"
 fi
@@ -171,6 +171,6 @@ fi
     # Fixes EKYC3002-MS6998 (DF16246.6) error on devices with randomized apps
     info "Patching [AndroidManifest.xml]"
     sed -i 's|<uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>||g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-   
-    
-    
+
+
+
