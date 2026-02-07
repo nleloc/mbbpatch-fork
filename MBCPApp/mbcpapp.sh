@@ -210,11 +210,11 @@ repack_mbcp() {
         set -e
         java -jar tools/apkeditor.jar b -i 'mbapk/mbapk_unpacked' -o mbcpapp_apk/MBCP_Flutter_TMP.apk
         info "Processing APK signature scheme v2/v3..."
-        rm 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
-        java -jar tools/apkeditor.jar b -t sig -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk' -sig 'mbsig/signatures' -o 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+        rm -rf mbcpapp_apk/MBCP_Flutter_SelfPatched*
+        java -jar tools/apkeditor.jar b -t sig -i 'mbcpapp_apk/MBCP_Flutter_TMP.apk' -sig 'mbsig/signatures' -o "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk"
         rm 'mbcpapp_apk/MBCP_Flutter_TMP.apk'
     ) && {
-        good 'Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!'
+        good "Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk] !!!"
         good 'Install and trying to open it when ಠ‿ಠ'
         good 'If you are facing issues, report it on Telegram [@mbcposs_en] or [@mbcposs] (for Vietnamese users) !!'
         good 'It is recommended to report issues to [https://git.disroot.org/mbcp/mbbpatch/issues] instead !'
