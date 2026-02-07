@@ -29,6 +29,7 @@ strip_all() {
 
 getvar() {
     # Usage: getline "n" "pattern" "file"
+    i=0
     while IFS= read -r line; do
         i=$((i+1))
         [ "$i" = "$1" ] && printf '%s\n' "${line##$2}" && return
