@@ -93,7 +93,7 @@ pblock() {
     echo "$1" > "$blocker"
 }
 
-get_mb_ver() {
+mb_ver() {
     [ -z "$1" ] && return 42
     a="$(grep -m1 'android:versionName' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml | tr ' ' '\n' | grep -m1 'android:versionName')"
     a="$(bb_split "$a" '=' '1')"
