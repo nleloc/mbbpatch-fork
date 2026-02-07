@@ -400,26 +400,26 @@ done
 do
 
         if [ "$opt" == 'App patched with newer version [v6.4.59+]' ]; then
-        if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
-    then 
+        if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk ]
+    then
         warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
         warn "You must have connected Android device with USB debugging turned on in order to install !!!"
         adb kill-server
         adb start-server
-        adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk"
         adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
     else
-        err "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
+        err "[MBCP_Flutter_SelfPatched_$COMMIT.apk] not found, cannot continue !"
     fi
 
     	elif [ "$opt" == 'App patched with specific version' ]; then
-        if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
-    then 
+        if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk ]
+    then
         warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
         warn "You must have connected Android device with USB debugging turned on in order to install !!!"
         adb kill-server
         adb start-server
-        adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk"
         # Delete zimperium detection files
         adb shell su -c rm -rf /data/data/com.mbmobile/files/0*
         adb shell su -c rm -rf /data/data/com.mbmobile/files/1*
@@ -442,20 +442,20 @@ do
         adb shell su -c 'iptables -t nat -F OUTPUT'
         info "Press [Try again] after got 1005/1007 error on MB, so it's can skip device not secure dialog !"
     else
-        err "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
+        err "[MBCP_Flutter_SelfPatched_$COMMIT.apk] not found, cannot continue !"
     fi
         
         elif [ "$opt" == 'App patched with older version [v6.4.55 or lower]' ]; then
-        if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched.apk ]
-    then 
+        if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk ]
+    then
         warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
         warn "You must have connected Android device with USB debugging turned on in order to install !!!"
         adb kill-server
         adb start-server
-        adb install 'mbcpapp_apk/MBCP_Flutter_SelfPatched.apk'
+        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk"
         adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
     else
-        err "[MBCP_Flutter_SelfPatched.apk] not found, cannot continue !"
+        err "[MBCP_Flutter_SelfPatched_$COMMIT.apk] not found, cannot continue !"
     fi
 
 
