@@ -106,6 +106,14 @@ iszdefend() {
     fi
 }
 
+isvcm1() {
+    if [[ -f mbapk/mbapk_unpacked/root/lib/arm64-v8a/libvcm1.so ]]; then
+        warn "As of v6.4.86+, to extract assets, you need to clear app data and then open the app again!"
+    else
+        info "[libvcm1.so] not found! ignoring notice"
+    fi
+}
+
 manifest_remove() {
     sed -i "/$1/d" "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml && \
         info "[manifest_remove] removing $1" || \

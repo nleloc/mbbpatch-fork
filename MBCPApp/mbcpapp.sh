@@ -290,6 +290,7 @@ do
         'MBShield Check' )   check_mbshield ;;
         'Convert apks to apk' ) convert_apks ;;
         'Extract assets [ROOT]' )
+    isvcm1
     iszdefend
     info 'To extract encrypted assets [if current app has MBShield protection] you need rooted device'
     info 'And trigger a bulit-in app assets extraction !'
