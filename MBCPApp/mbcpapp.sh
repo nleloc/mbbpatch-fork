@@ -118,6 +118,7 @@ unpack_mbcp() {
     rm -rf 'mbapk/*merged.apk'
     java -jar tools/apkeditor.jar d -i mbapk/*.apk -o mbapk/mbapk_unpacked || { err "Unpacking failed !" ; return 1 ; }
     touch 'mbapk/mbapk_unpacked/isreal_unpacked'
+    unzip -l mbapk/MBOriginal.apk | grep -oH "ic-appmb.ttf" && good "Current converted app is MBBank! Continuing" || { err "Current converted app is NOT MBBank! Deleting files" ; rm -rf mbapk/* ; return 1 ; }
     info "Cleaning useless files..."
     rm -rf 'mbapk/mbapk_unpacked/root/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
@@ -254,6 +255,7 @@ convert_apks() {
     mv mbapk/*.apk mbapk/MBOriginal.apk
     info 'Cleaning left over [apks] files...'
     rm -f mbapk/*.apks
+    unzip -l mbapk/MBOriginal.apk | grep -oH "ic-appmb.ttf" && good "Current converted app is MBBank! Continuing" || { err "Current converted app is NOT MBBank! Deleting files" ; rm -rf mbapk/* ; return 1 ; }
     info "You probably can continue to unpack APK!"
 }
 
@@ -273,7 +275,8 @@ echo "Original APK must be inside [mbapk] folder !"
 echo -------------------------------------------------------------
 echo "Current commit : $COMMIT ($BRANCH)"
 echo "Source code : https://git.disroot.org/mbcp/mbbpatch.git"
-echo "Made possible by Cuynu's brain with love <3"
+echo "Documentation : see [docs] folder"
+echo "Written from scratch by Cuynu with love <3"
 echo -------------------------------------------------------------
 echo App status : $(successunpack)
 echo -------------------------------------------------------------
