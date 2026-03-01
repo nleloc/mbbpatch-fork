@@ -7,23 +7,21 @@
 
 iszdefend
 PS3='Select themes : '
-select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-autumn festival' 'Exit'
-do
+select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-autumn festival' 'Viet Nam' 'Exit'; do
   case "$opt" in
-    'MBCP SemiPriority')
-      info 'Moving [priority] folder...'
-      cp -r 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority' 'blob_patches/semipriority/'
-      info 'Modifying QR background...'
-      cp 'blob_patches/semipriority/priority/a_background_image.webp' 'blob_patches/semipriority/priority/qr_img_ThemeDefalut.webp'
-      info 'Copying to [flutter_assets/assets/images/dynamic/base]'
-      cp -r -f 'blob_patches/semipriority/priority/'* 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      prioritylogo
-      info 'Copying [welcom_img_eMbee.webp]...'
-      cp -f 'blob_patches/semipriority/welcom_img_eMbee.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+  'MBCP SemiPriority')
+    info 'Moving [priority] folder...'
+    cp -r 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority' 'blob_patches/semipriority/'
+    info 'Modifying QR background...'
+    cp 'blob_patches/semipriority/priority/a_background_image.webp' 'blob_patches/semipriority/priority/qr_img_ThemeDefalut.webp'
+    info 'Copying to [flutter_assets/assets/images/dynamic/base]'
+    cp -r -f 'blob_patches/semipriority/priority/'* 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    prioritylogo
+    info 'Copying [welcom_img_eMbee.webp]...'
+    cp -f 'blob_patches/semipriority/welcom_img_eMbee.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
 
-
-      cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic > /dev/null 2>&1 && demopriority
-      demopriority() {
+    cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic >/dev/null 2>&1 && demopriority
+    demopriority() {
       # Modify the demo screen
       info 'Modifying demo screenshot...'
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/module/onboarding/welcome/welcom_img_demoImage01.png|https://gitlab.com/-/project/56341767/uploads/1616c32f26051152de0ee7e60742c47b/priority1.png?ref=mbcpappgit|g'
@@ -35,12 +33,12 @@ do
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/module/onboarding/welcome/welcom_img_demoImage04.png|https://gitlab.com/-/project/56341767/uploads/7bd2d759bb1f2430016e272e27ceb72c/priority4.png?ref=mbcpappgit|g'
 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/module/onboarding/welcome/welcom_img_demoImage05.png|https://gitlab.com/-/project/56341767/uploads/7f5a42716cc32b0f9db78076c15d1cfa/priority5.png?ref=mbcpappgit|g'
-      	}
+    }
 
-      info 'Cleaning...'
-      rm -rf 'blob_patches/semipriority/priority'
-      echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/semipriority_theme.inf"
-      good "Applied [MBCP SemiPriority] theme."
+    info 'Cleaning...'
+    rm -rf 'blob_patches/semipriority/priority'
+    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/semipriority_theme.inf"
+    good "Applied [MBCP SemiPriority] theme."
 
     ;;
   'Mid-autumn festival')
@@ -70,31 +68,31 @@ do
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Code.webp'
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_bg_a80Landing.webp'
 
-    cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic > /dev/null 2>&1 && demotrungthu
+    cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic >/dev/null 2>&1 && demotrungthu
     demotrungthu() {
-    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_thumbnail_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/227ca0fc0dd1b5b3973690c3f9031c27/thumb.png?app=mbcp11|g'
-    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLoading_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/27f934ed3f55c3214185bc193cfdfe2b/preview1.png?app=mbcpapp|g'
-    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLogin_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/4f5f5398f57ce629b195f0fa6eb21f2a/preview2.png?ref=mbcp1|g'
-    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenHome_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/b0b35d05a0752b6eec0dd19d50f15afd/preview3.png?ref=mbcp|g'
-    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccess_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/c61050db4674a181978b6f868c100aa6/preview4.png?ref=mbcpapp|g'
-    sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenShare_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/2bd471b0b9ef7f96b05020bb4af304ed/preview5.png?ref=mbcp1|g'
-     }
-    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/midautumn_theme.inf"
-      good "Applied [Mid-autumn festival] theme."
+      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_thumbnail_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/227ca0fc0dd1b5b3973690c3f9031c27/thumb.png?app=mbcp11|g'
+      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLoading_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/27f934ed3f55c3214185bc193cfdfe2b/preview1.png?app=mbcpapp|g'
+      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLogin_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/4f5f5398f57ce629b195f0fa6eb21f2a/preview2.png?ref=mbcp1|g'
+      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenHome_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/b0b35d05a0752b6eec0dd19d50f15afd/preview3.png?ref=mbcp|g'
+      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenSuccess_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/c61050db4674a181978b6f868c100aa6/preview4.png?ref=mbcpapp|g'
+      sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenShare_quockhanh.png|https://gitlab.com/-/project/56341767/uploads/2bd471b0b9ef7f96b05020bb4af304ed/preview5.png?ref=mbcp1|g'
+    }
+    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/midautumn_theme.inf"
+    good "Applied [Mid-autumn festival] theme."
 
     ;;
-    'MBCP MBClassic')
-      info "Ensure that SemiPriority theme is not applied before this !"
-      info "Otherwise it will have like mixed SemiPriority and MB Classic theme, You've been warned !!! "
-      cp -f 'blob_patches/mbclassic/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/mbclassic/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/mbclassic/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/mbclassic/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/mbclassic/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/mbclassic/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+  'MBCP MBClassic')
+    info "Ensure that SemiPriority theme is not applied before this !"
+    info "Otherwise it will have like mixed SemiPriority and MB Classic theme, You've been warned !!! "
+    cp -f 'blob_patches/mbclassic/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/mbclassic/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/mbclassic/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/mbclassic/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/mbclassic/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/mbclassic/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
 
-      cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic > /dev/null 2>&1 && demombclassic
-      demombclassic() {
+    cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic >/dev/null 2>&1 && demombclassic
+    demombclassic() {
       # Modify theme preview on settings
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/ThemeImage/theme_img_screenLoginClassic.png|https://gitlab.com/-/project/56341767/uploads/f585b28f88876db211f116d1d622031d/mbcp_login.png?git1|g'
 
@@ -123,49 +121,49 @@ do
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/module/onboarding/welcome/welcom_img_demoImage04.png|https://gitlab.com/-/project/56341767/uploads/76f1288713391966cfc750388f7f47b2/classic4.png?ref=mbcpappgit1|g'
 
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/module/onboarding/welcome/welcom_img_demoImage05.png|https://gitlab.com/-/project/56341767/uploads/b9063205666549f28fc6c9c0c99e2336/classic5.png?ref=mbcpappgit1|g'
-	}
-      echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/mbclassic_theme.inf"
-      good 'Applied [MBCP MBClassic] theme.'
+    }
+    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/mbclassic_theme.inf"
+    good 'Applied [MBCP MBClassic] theme.'
     ;;
-    'Noel 2024')
-      info "Ensure that SemiPriority theme is not applied before this !"
-      info "Otherwise it will have like mixed SemiPriority and MB Classic theme, You've been warned !!! "
-      cp -f 'blob_patches/noel/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      # New trungthu
-      cp -f 'blob_patches/noel/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-      cp -f 'blob_patches/noel/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-      cp -f 'blob_patches/noel/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-      cp -f 'blob_patches/noel/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-      cp -f 'blob_patches/noel/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-      cp -f 'blob_patches/noel/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-      cp -f 'blob_patches/noel/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-      cp -f 'blob_patches/noel/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-      cp -f 'blob_patches/noel/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+  'Noel 2024')
+    info "Ensure that SemiPriority theme is not applied before this !"
+    info "Otherwise it will have like mixed SemiPriority and MB Classic theme, You've been warned !!! "
+    cp -f 'blob_patches/noel/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    # New trungthu
+    cp -f 'blob_patches/noel/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+    cp -f 'blob_patches/noel/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+    cp -f 'blob_patches/noel/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+    cp -f 'blob_patches/noel/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+    cp -f 'blob_patches/noel/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+    cp -f 'blob_patches/noel/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+    cp -f 'blob_patches/noel/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+    cp -f 'blob_patches/noel/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+    cp -f 'blob_patches/noel/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
 
-      ##############
-      cp -f 'blob_patches/noel/a_background_image.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/bill_background_gold.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/coreBanking_img_successBackground.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/general_bg_screenshot.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/general_bg_success.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/homeLanding_bg_main.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/loading_bg_main.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/login_bg_main.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/qr_img_ThemeDefalut.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      # Change theme preview
-      cp -f 'blob_patches/noel/customUI_img_classicMode.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
-      cp -f 'blob_patches/noel/customUI_img_classicMode.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    ##############
+    cp -f 'blob_patches/noel/a_background_image.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/bill_background_gold.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/coreBanking_img_successBackground.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/general_bg_screenshot.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/general_bg_success.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/homeLanding_bg_main.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/loading_bg_main.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/login_bg_main.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/qr_img_ThemeDefalut.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    # Change theme preview
+    cp -f 'blob_patches/noel/customUI_img_classicMode.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
+    cp -f 'blob_patches/noel/customUI_img_classicMode.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
 
-      cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic > /dev/null 2>&1 && noel2024lib
-      noel2024lib() {
+    cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic >/dev/null 2>&1 && noel2024lib
+    noel2024lib() {
 
       # Lockdown ability to change other theme, also force Noel 2024 theme
       sed_libapp 's|theme|Noel |g'
@@ -185,33 +183,44 @@ do
       sed_libapp 's|https://filestatic.mbbank.com.vn/mbapp-images/rs/prime/module/onboarding/welcome/welcom_img_demoImage05.png|https://gitlab.com/-/project/56341767/uploads/2d78975896a9f640d1f1e5af06fd1922/noel5.png?ref=mbcpappgit1234|g'
 
       warn "You WON'T be able to use other theme than Noel 2024 on app !"
-	}
-      echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." > "mbapk/mbapk_unpacked/root/assets/mbcp_info/noel2024_theme.inf"
-      good "Applied [Noel 2024] theme."
-;;
-    'Tre trung')
-      info "Applying..."
-      cp -f 'blob_patches/tretrung_theme/login_img_notification.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/'
-      cp -f 'blob_patches/tretrung_theme/login_img_highlightElement.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
-      cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
-      cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/loading_bg_main.webp'
-      cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/qr_img_ThemeDefalut.webp'
+    }
+    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/noel2024_theme.inf"
+    good "Applied [Noel 2024] theme."
+    ;;
+  'Tre trung')
+    info "Applying..."
+    cp -f 'blob_patches/tretrung_theme/login_img_notification.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/'
+    cp -f 'blob_patches/tretrung_theme/login_img_highlightElement.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+    cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+    cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/loading_bg_main.webp'
+    cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/qr_img_ThemeDefalut.webp'
 
-      rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/customUI_img_noelMode.webp'
-      rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/a_logo_img_addon.webp'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/customUI_img_noelMode.webp'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/a_logo_img_addon.webp'
 
-      cp -f 'blob_patches/tretrung_theme/homeLanding_img_PFM.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
-      cp -f 'blob_patches/tretrung_theme/homeLanding_img_assetsReport.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
-      cp -f 'blob_patches/tretrung_theme/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
-      cp -f 'blob_patches/tretrung_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
-      cp -f 'blob_patches/tretrung_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/coreBanking_img_successBackground.webp'
-      cp -f 'blob_patches/tretrung_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/bill_background_gold.webp'
-      cp -f 'blob_patches/tretrung_theme/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
-      cp -f 'blob_patches/tretrung_theme/cardService_img_cardMKT.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
-      cp -f 'blob_patches/tretrung_theme/cardService_bg_cardMKT.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
-      cp -f 'blob_patches/tretrung_theme/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+    cp -f 'blob_patches/tretrung_theme/homeLanding_img_PFM.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+    cp -f 'blob_patches/tretrung_theme/homeLanding_img_assetsReport.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+    cp -f 'blob_patches/tretrung_theme/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+    cp -f 'blob_patches/tretrung_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+    cp -f 'blob_patches/tretrung_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/coreBanking_img_successBackground.webp'
+    cp -f 'blob_patches/tretrung_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/bill_background_gold.webp'
+    cp -f 'blob_patches/tretrung_theme/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+    cp -f 'blob_patches/tretrung_theme/cardService_img_cardMKT.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+    cp -f 'blob_patches/tretrung_theme/cardService_bg_cardMKT.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
+    cp -f 'blob_patches/tretrung_theme/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
 
     ;;
-    'Exit') exit ;;
+  'Viet Nam')
+    [ ! -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo ] && err "This theme is only suitable for app with [tetbinhngo] theme. Current unpacked app does not have it!" && exit 1
+    info "Applying..."
+    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/*.webp
+    rm -rf "$DIRPATH"/tmpvn
+    mkdir "$DIRPATH"/tmpvn
+    git clone https://git.disroot.org/mbcp/mb-flutter-themes "$DIRPATH"/tmpvn
+    mv tmpvn/mbstore_theme_original/tuhaovietnam/e0050e73-fc22-4ca8-b1eb-6672ab948c01/images/*.png "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/
+    rm -rf tmpvn
+    rename png webp "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/*.png
+    ;;
+  'Exit') exit ;;
   esac
 done
