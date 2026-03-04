@@ -27,6 +27,7 @@ rm -f 'mbapk/mbapk_unpacked/resources/package_1/res/font/bold.ttf'
 rm -f 'mbapk/mbapk_unpacked/resources/package_1/res/font/medium.ttf'
 rm -f 'mbapk/mbapk_unpacked/resources/package_1/res/font/regular.ttf'
 rm -f 'mbapk/mbapk_unpacked/root/assets/insider.ttf'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/font'
 # Placeholder font to fix display issues when open details balance notifications
 info "Creating placeholder font..."
 touch 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/fonts/AvertaStdCY-Regular.otf'
@@ -43,8 +44,3 @@ rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/packages/market_place/ass
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/packages/market_place/assets/fonts/AvertaStdCY-Regular.ttf'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/packages/market_place/assets/fonts/AvertaStdCy-Semibold.ttf'
 rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/packages/market_place/assets/fonts/Montserrat-Medium.ttf'
-
-
-
-
-
