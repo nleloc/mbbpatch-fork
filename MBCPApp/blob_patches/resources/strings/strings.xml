@@ -43,7 +43,7 @@
   <string name="aiDemo_willSpeakLoudly">You will have to speak loudy these numbers on the screen</string>
   <string name="aiFaceMessage_facePitchDown">Please look straight</string>
   <string name="aiFaceMessage_facePitchUp">Please look straight</string>
-  <string name="aiFaceMessage_faceQualified">Please hold your hand steady</string>
+  <string name="aiFaceMessage_faceQualified">Your face is in the frame. Please hold your hand steady!</string>
   <string name="aiFaceMessage_faceRollAntiClockWise">Please keep your face upright</string>
   <string name="aiFaceMessage_faceRollClockWise">Please keep your face upright</string>
   <string name="aiFaceMessage_faceTooBig">Please put the camera further away</string>
@@ -86,17 +86,16 @@
   <string name="character_counter_pattern">%1$d/%2$d</string>
   <string name="chip_text">Chip text</string>
   <string name="clear_text_end_icon_content_description">Clear text</string>
-  <string name="click_setting_qr">Chạm để cài đặt
-QR</string>
-  <string name="click_setting_qr_big_qr">Chạm để cài đặt QR</string>
+  <string name="click_setting_qr">Touch to setup QR</string>
+  <string name="click_setting_qr_big_qr">Touch to setup QR</string>
   <string name="com.crashlytics.android.build_id">cca90e65-5805-4c06-bc2d-930595fb2cf4</string>
   <string name="com.google.firebase.crashlytics.mapping_file_id">a4f49867dfa64435bea0bafc1f437f34</string>
   <string name="common_google_play_services_enable_button">Enable</string>
-  <string name="common_google_play_services_enable_text">%1$s won't work unless you enable Google Play services.</string>
-  <string name="common_google_play_services_enable_title">Enable Google Play services</string>
+  <string name="common_google_play_services_enable_text">%1$s can't work properly unless you enable GMS/microG.</string>
+  <string name="common_google_play_services_enable_title">Enable GMS/microG</string>
   <string name="common_google_play_services_install_button">Install</string>
-  <string name="common_google_play_services_install_text">%1$s won't run without Google Play services, which are missing from your device.</string>
-  <string name="common_google_play_services_install_title">Get Google Play services</string>
+  <string name="common_google_play_services_install_text">GMS/microG is missing from your device. %1$s still runs without it but some features will be broken.</string>
+  <string name="common_google_play_services_install_title">GMS/microG missing</string>
   <string name="common_google_play_services_notification_channel_name">Google Play services availability</string>
   <string name="common_google_play_services_notification_ticker">Google Play services error</string>
   <string name="common_google_play_services_unknown_issue">%1$s is having trouble with Google Play services. Please try again.</string>

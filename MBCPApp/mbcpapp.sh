@@ -60,7 +60,7 @@ Patching operation are all not limited at all !
 Asset extraction are not needed :)'
 
 download_tools() {
-    apktool_link="https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar"
+    apktool_link="https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_3.0.1.jar"
     apkeditor_link="https://github.com/REAndroid/APKEditor/releases/download/V1.4.7/APKEditor-1.4.7.jar"
 
     cd tools && rm -rf ./*.jar

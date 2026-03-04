@@ -47,7 +47,7 @@
             android:visibility="visible"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="TRONG TRƯỜNG HỢP ĐÃ LÀM ĐÚNG TẤT CẢ, CHỤP MÀN HÌNH NÀY VÀ BÁO LỖI QUA Telegram @cuynuz hoặc YouTube @cuynu !!!" />
+            android:text="TRONG TRƯỜNG HỢP ĐÃ LÀM ĐÚNG TẤT CẢ, CHỤP MÀN HÌNH NÀY VÀ BÁO LỖI QUA Telegram @cuynuchat hoặc YouTube @cuynu !!!" />
         <Button
             android:tag="0"
             android:visibility="invisible"
