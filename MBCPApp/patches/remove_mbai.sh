@@ -5,6 +5,27 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
+enforcemb() {
+    if [ -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/customize_img_changeImageContent.webp' ]
+then
+    info "App newer than v6.4.84 ! Using new search logo!"
+    # Replace MB AI search button with normal search button
+    cp -f 'blob_patches/searchicon/search_718.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_textLogo.webp'
+    cp -f 'blob_patches/searchicon/search_718.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_textLogo.private.webp'
+    # Adapt new changes with v6.4.75
+    cp -f 'blob_patches/searchicon/search_718.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_search.webp'
+    cp -f 'blob_patches/searchicon/search_718.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_search.private.webp'
+else
+    info "App older than v6.4.83 ! Using old search logo!"
+    # Replace MB AI search button with normal search button
+    cp -f 'blob_patches/searchicon/search.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_textLogo.webp'
+    cp -f 'blob_patches/searchicon/search.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_textLogo.private.webp'
+    # Adapt new changes with v6.4.75
+    cp -f 'blob_patches/searchicon/search.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_search.webp'
+    cp -f 'blob_patches/searchicon/search.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_search.private.webp'
+fi
+}
+
 # Currently not possible to completely remove and prevent users from use AI features in MB app.
 # So we remove it's resources instead, so the search icon won't show AI things
 # Need to implement more ASAP in the future
@@ -35,7 +56,7 @@ rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/bas
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_mbai_short_white.webp'
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_textOnly_white.webp'
 
-# Call the enforcemb function in common.sh
+# Call the enforcemb function 
 enforcemb
 
 # Adapt with new animated search AI logo (v6.4.77+)
