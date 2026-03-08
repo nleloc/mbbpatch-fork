@@ -1,16 +1,15 @@
 #!/usr/bin/env bash
 
+echo "DO NOT use these patches with newer app!"
 echo "Legacy patches list for MBCPApp :"
 PS3='Select patch options :'
 select opt in 'Bypass 1200 error [v6.4.45]' 'Bypass signature check' '[TEST] Remove v6.4.56 root detection' 'Exit'
 do
-if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
+	if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
+		[ ! -f 'bypass1200/*.apks' ] && echo "Download the [v6.4.47] app from Telegram [@embeeapks] or Google Play API with versionCode 661" && echo "Then copy it to [bypass1200] folder!" && exit 1
 		echo "Notice : v6.4.45 are now got [GW525 - Force update !] !!!"
 		echo "This patch will remain available but you cannot bypass GW525 error !"
-		mkdir bypass1200
-		echo "Downloading v6.4.47 apks..."
-     		wget https://github.com/ghclonenah1/mbbpatch_release/releases/download/a/embee_v6.4.47_arm64-v8a_armeabi-v7a.apks -q --show-progress
-		mv *.apks bypass1200/
+		mkdir -p bypass1200
      		echo "Unpacking..."
      		java -jar tools/apkeditor.jar m -i bypass1200/*.apks
      		java -jar tools/apktool.jar d bypass1200/*.apk -o bypass1200/unpacked -j$(nproc)
@@ -21,17 +20,17 @@ if [ "$opt" == 'Bypass 1200 error [v6.4.45]' ]; then
      		echo "Cleaning..."   
      		rm -rf bypass1200
      		## MB Forced update to 658, it must be spoofed!
-     		echo "Patching [apktool.yml]..."
+     		echo "Patching [AndroidManifest.xml]..."
 		sed -i 's|658|700|g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
      		echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(git show -s --format=%cd HEAD). > 'mbapk/mbapk_unpacked/root/assets/mbcp_info/bypass_1200_error.inf'
 
 
-		# Use bypass gw934 checksum for this patch instead
+	# Use bypass gw934 checksum for this patch instead
 	elif [ "$opt" == 'Bypass signature check' ]; then
     		echo "Applying patch [Bypass signature check]..."
 	if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  	then 
-    		# Checks for MBShield, if exists then exit function
+    	# Checks for MBShield, if exists then exit function
 	if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
  	then
     	info "MBShield found on unpacked APK ! Bypass signature checks won't be possible if MBShield is present on current unpacked APK !"
@@ -52,7 +51,6 @@ fi
 	elif [ "$opt" == '[TEST] Remove v6.4.56 root detection' ]; then
     if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/smali/androidx/UnderlyingVcl.smali ]
  then
-
     echo "Applying patch..."
     echo "Removing checksum from provider..."
     sed -i 's|e1a14adc915d7ad159edf2668b0dfcb359cf86538642de0e425d027f66eb07b2||g' "$DIRPATH"/mbapk/mbapk_unpacked/smali/classes/androidx/UnderlyingVcl.smali
@@ -87,10 +85,10 @@ fi
     mv 'temp/libweneedfreedom.so' 'temp/libdesignersactivists.so'
     cp -f 'temp/libdesignersactivists.so' 'mbapk/mbapk_unpacked/lib/armeabi-v7a/libdesignersactivists.so'
     rm -rf temp
-    echo "This patch are applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(git show -s --format=%cd HEAD). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_v6.4.56_root_detection.inf'
+    echo "This patch is applied by MBCPApp Patcher on $(uname -s -r) with commit :" $(git rev-parse --short HEAD) at $(git show -s --format=%cd HEAD). > 'mbapk/mbapk_unpacked/assets/mbcp_info/remove_v6.4.56_root_detection.inf'
    echo "Applied [Remove v6.4.56 root detection] patch !!!"
 else
-   echo "[UnderlyingVcl.smali] not found! Please clear patched app then unpack again!"
+   echo "[UnderlyingVcl.smali] not found!"
 fi
 
 	elif [ "$opt" == 'Exit' ]; then
