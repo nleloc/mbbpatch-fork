@@ -1,6 +1,6 @@
 # MBCPApp Patcher for MB Bank (Android)
 
-Lightweight **AI-free, human-written** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with bulit-in CorePatch). primarily written in Bash, made possible by @cuynu and community in Vietnam.
+Lightweight **AI-free, human-written** open source CLI tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with bulit-in CorePatch). primarily written in Bash, made possible by @cuynu and community in Vietnam.
 
 <img alt="Gitea Release" src="https://img.shields.io/gitea/v/release/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&include_prereleases&display_name=tag&style=for-the-badge&logo=android&label=Latest%20Pre-bulit%20MBCP%20&color=%23CC6699">
 
@@ -13,6 +13,13 @@ Lightweight **AI-free, human-written** open source tool for patching MB Bank (An
 - Project FAQ : [Read here](/mbcp/info_en/wiki/faq)
 - Licensed as MIT License.
 
+## Introduction
+- Note : "MBCP" / "MBCPApp" = "MBBank CorePatch"
+- MBCP is inspired from [CorePatch](https://github.com/LSPosed/CorePatch) project. Now it can works with [PMPatch](https://github.com/vova7878-modules/PMPatch) too
+- This project was made to remove or limit annoying features & root detection & accessibility detection that is implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability, device font, etc (see more in patches list). **It's not PoC (Proof of Concept) project at all.**
+- [MBCP](https://t.me/mbcposs) are closed source before, and many people don't like it and concern with privacy & security issues
+- In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment. All MBCP pre-bulit releases from v6.4.47+ are all bulit with this open source project with the commit ID at the end of the file name.
+
 ## Current situation
 
 - Project is used to almost DEAD, due to MB's measure to modified dex & libraries from the server-side with GW934 error (`getSHFiles`) when logging in. Luckily, I have a way to bypass the [Zimperium check](/mbcp/mbzdefend-fix), that's why the project still alive till nowadays with other patches.
@@ -22,18 +29,12 @@ Lightweight **AI-free, human-written** open source tool for patching MB Bank (An
 - The GW934 error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error (MB has detected that your device is not secure for performing transactions. Please uninstall the App and reinstall it from the app store). The other function (eg: DigitalOTP) that works without logging in still works.
 </details>
 
-## Introduction
-- Note : "MBCP" / "MBCPApp" = "MBBank CorePatch"
-- This project was made to remove or limit annoying features & root detection & accessibility detection that is implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability, device font, etc (see more in patches list). **It's not PoC (Proof of Concept) project at all.**
-- [MBCP](https://t.me/mbcposs) are closed source before, and many people don't like it and concern with privacy & security issues
-- In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment. All MBCP pre-bulit releases from v6.4.47+ are all bulit with this open source project with the commit ID at the end of the file name.
-
-## DISCLAIMER 
-I'm not responsible if someone abuse this patch to do illegal things, since it's originally made for technical or well-known users only.
+## DISCLAIMER
+- I'm not responsible if someone abuse this patch to do illegal things, since it's originally made for technical or well-known users only.
 
 ## Documentation
 
-- [MBCPApp Patcher Documentation](/mbcp/mbbpatch/wiki)
+- [MBCPApp Patcher Documentation](/mbcp/mbbpatch/src/branch/mbflutter/docs)
 
 ## Requirements & Usage & How-to use patcher
 - Follow usage docs here : [Patcher Usage](/mbcp/mbbpatch/wiki/patcher-usage.-)
@@ -184,9 +185,9 @@ cd ~/mbbpatch/MBCPApp
 
 ## TODO
 
-- [ ] Bypass the new dex & libraries checksum for MB v6.4.67+ (hardcore challenge)
+- [ ] Bypass the new dex & libraries checksum for MB v6.4.67+ (hardcore challenge, would be extremely excited if this is achieved)
 
-- [ ] Crash fixes for `Hide VTAP root detection activity & dialog` patch (Android 16 >QPR1 / OEM ROMs)
+- [ ] Crash fixes for `Hide VTAP root detection activity & dialog` patch (OEM ROMs)
 
 - [ ] Proper display language under Singalarity eKYC phase 
 
@@ -212,6 +213,9 @@ cd ~/mbbpatch/MBCPApp
 </details>
 
 ## Project history
+
+- This project was made (and still maintained) by [@cuynu](/cuynu) with some help from other contributors, but in reality, I am not currently have enough skills with coding and project development yet and is still stupid. So some most of my commits is just minimal changes. **You can say me as a Developer/Dev and I'll embrace it because this project is not that easy to made, it's not what average person can even think as open source**. Maybe someday you'll see me ship more c/cpp code in this project :)
+
 <details>
 
 - 05/2023 : MB Bank MOD APK ANDROID project created on Telegram (@mbbmod), providing modified MB Bank APKs since v5.8 with lots of features such as bypassing accessibility check and show a guide to hide root instead of show rooted screen then close the app.
@@ -233,6 +237,8 @@ cd ~/mbbpatch/MBCPApp
 - 11/2025 : After multiple times lying myself and always said that I'm not a developer, **I embraced and claim myself as a MBCP developer** and still having skill issues, but atleast, I made this project, and solved the issues that MB's development team created to the MB Bank app by writing code to bypass them.
 
 - 11/2025 (2) : MB released `v6.4.74` with AI-crap button that replaces legacy search button. I created a patch that force replace it back to old search icon. 
+
+- 02/2025 : MB released `v6.4.85` with enhanced Singalarity eKYC detection (detects `data/adb/modules` and `com.rifsxd.ksunext`), so I created a patch that nuked the check.
 
 - ...
 </details>
