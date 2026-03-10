@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PATCHNAME: Remove MB AI Bullsh*t resources
+# PATCHNAME: Remove MB AI Bullshit resources
 # MAXVER:
 # MINVER: 6.4.73
 # shellcheck disable=SC1091
@@ -50,11 +50,21 @@ rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/pr
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/mbai_img_paste2Pay.webp'
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/mbai_img_search.webp'
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/coreBanking_illus_p2p.webp'
+# New resources
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/mbai_img_paste.priority.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/mbai_img_paste2Pay.priority.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/priority/mbai_img_search.priority.webp'
+# New resources
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_paste.priority.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_paste2Pay.priority.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_search.priority.webp'
 
 # Other stuff
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_mbai_short.webp'
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/base/partner/img_mbai_short_white.webp'
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/img_mbai_textOnly_white.webp'
+# Temp solution for forced MB AI assistant in v6.4.91+ (A/B testing from MB side, not yet in production)
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/ai_assistant'
 
 # Call the enforcemb function 
 enforcemb
