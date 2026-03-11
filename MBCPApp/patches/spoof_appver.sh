@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # PATCHNAME: Spoof app version
-# MAXVER: 6.4.90
-# MINVER:
+# MAXVER:
+# MINVER: 6.4.47
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
@@ -75,6 +75,7 @@ sed -i 's|6.4.48|6.4.48.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.47|6.4.47.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 
 sed -i 's|727|2000|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|729|2000|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 
 sed -i 's|v6.4.66|v6.4.68|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|v6.4.65|v6.4.68|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
