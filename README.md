@@ -44,7 +44,9 @@ Lightweight "open source" tool for patching MB Bank Flutter (Android) app for ro
 
 ## Requirements
 - Actual Linux environment (not on virtualized environment like WSL) and any compatible distro (Arch Linux based recommended)
-- Little knowledge about `bash` commands 
+- Little knowledge about `bash` commands
+- `android-tools` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based 
+- For macOS, you need `openjdk` `gnu-sed` `wget` `android-platform-tools` installed with brew (both need to be added to PATH first!) 
 - `git` installed
 - `java` or `jdk-openjdk` installed
 
