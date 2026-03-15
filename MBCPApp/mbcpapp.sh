@@ -380,7 +380,7 @@ done
             info "Current logged in account will remain present, even if app data is cleared !"
         ;;
         'Pull latest commit' )
-            git pull origin mbflutter
+            git pull origin dev
             info "Please run patcher again !"
             exit
         ;;
