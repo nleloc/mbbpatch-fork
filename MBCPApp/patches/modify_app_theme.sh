@@ -19,6 +19,9 @@ fi
 
 iszdefend
 PS3='Select themes : '
+info "The list below is bulit-in customized app themes."
+info "For community themes, please download and install from [tweaked-mbflutter-themes] repository on Disroot"
+echo "Available themes list :"
 select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-autumn festival' 'Viet Nam' 'Exit'; do
   case "$opt" in
   'MBCP SemiPriority')
@@ -54,6 +57,8 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
 
     ;;
   'Mid-autumn festival')
+    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh  ] && autumn_quockhanh || err "[quockhanh] folder not found! current unpacked app does not have [quockhanh] theme! ignoring..." 
+    autumn_quockhanh() {
     cp -f 'blob_patches/trungthu_theme/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
     cp -f 'blob_patches/trungthu_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
     cp -f 'blob_patches/trungthu_theme/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
@@ -63,8 +68,11 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     cp -f 'blob_patches/trungthu_theme/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
     cp -f 'blob_patches/trungthu_theme/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
     cp -f 'blob_patches/trungthu_theme/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+    }
 
     # Trung thu theme since v6.4.68+
+    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu ] && autumn_trungthu || err "[trungthu] folder not found! current unpacked app does not have [trungthu] theme! ignoring..." && exit 1 
+    autumn_trungthu() {
     cp -f 'blob_patches/trungthu_theme/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     cp -f 'blob_patches/trungthu_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     cp -f 'blob_patches/trungthu_theme/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
@@ -74,11 +82,15 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     cp -f 'blob_patches/trungthu_theme/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     cp -f 'blob_patches/trungthu_theme/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     cp -f 'blob_patches/trungthu_theme/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+    }
 
+    [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_illus_a80.webp ] && del_a80resources  
+    del_a80resources() {
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_illus_a80.webp'
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Banner.webp'
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Code.webp'
     rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_bg_a80Landing.webp'
+    }
 
     cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic >/dev/null 2>&1 && demotrungthu
     demotrungthu() {
@@ -94,8 +106,7 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
 
     ;;
   'MBCP MBClassic')
-    info "Ensure that SemiPriority theme is not applied before this !"
-    info "Otherwise it will have like mixed SemiPriority and MB Classic theme, You've been warned !!! "
+    [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/mbcpinfo/semipriority* ] && err "SemiPriority theme is applied. You can't apply MBClassic theme as it will conflict. Please unpack app again." && exit 1
     cp -f 'blob_patches/mbclassic/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
     cp -f 'blob_patches/mbclassic/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
     cp -f 'blob_patches/mbclassic/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
@@ -138,8 +149,7 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     good 'Applied [MBCP MBClassic] theme.'
     ;;
   'Noel 2024')
-    info "Ensure that SemiPriority theme is not applied before this !"
-    info "Otherwise it will have like mixed SemiPriority and MB Classic theme, You've been warned !!! "
+    [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/mbcp_info/semipriority* ] && err "SemiPriority theme already applied. Noel theme cannot be applied. Please unpack app again." && exit 1
     cp -f 'blob_patches/noel/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
     cp -f 'blob_patches/noel/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
     cp -f 'blob_patches/noel/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
@@ -201,6 +211,7 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     ;;
   'Tre trung')
     info "Applying..."
+    [ ! -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel ] && err "This theme is only suitable for app with [noel] theme. Current unpacked app does not have it!" && exit 1
     cp -f 'blob_patches/tretrung_theme/login_img_notification.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel/'
     cp -f 'blob_patches/tretrung_theme/login_img_highlightElement.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
     cp -f 'blob_patches/tretrung_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
@@ -220,7 +231,8 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     cp -f 'blob_patches/tretrung_theme/cardService_img_cardMKT.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
     cp -f 'blob_patches/tretrung_theme/cardService_bg_cardMKT.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
     cp -f 'blob_patches/tretrung_theme/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
-
+    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/tretrung_theme.inf"
+    good "Applied [Tre Trung] theme."  
     ;;
   'Viet Nam')
     [ ! -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo ] && err "This theme is only suitable for app with [tetbinhngo] theme. Current unpacked app does not have it!" && exit 1
@@ -229,10 +241,12 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     rm -rf "$DIRPATH"/tmpvn
     mkdir "$DIRPATH"/tmpvn
     git clone https://git.disroot.org/mbcp/mb-flutter-themes "$DIRPATH"/tmpvn
+    [ ! -d "$DIRPATH"/tmpvn/mbstore_theme_original/ ] && err "[mbstore_theme_original] folder not found in [tmpvn!] aborting..." && rm -rf tmpvn && exit 1 
     mv tmpvn/mbstore_theme_original/tuhaovietnam/e0050e73-fc22-4ca8-b1eb-6672ab948c01/images/*.png "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/
     rm -rf tmpvn
     rename png webp "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/*.png
-    ;;
+    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/vn_theme.inf"
+    good "Applied [Viet Nam] theme."    ;;
   'Exit') exit ;;
   esac
 done
