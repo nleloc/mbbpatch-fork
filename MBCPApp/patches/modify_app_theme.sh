@@ -106,7 +106,7 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
 
     ;;
   'MBCP MBClassic')
-    [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/mbcpinfo/semipriority* ] && err "SemiPriority theme is applied. You can't apply MBClassic theme as it will conflict. Please unpack app again." && exit 1
+    [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/mbcp_info/semipriority* ] && err "SemiPriority theme is applied. You can't apply MBClassic theme as it will conflict. Please unpack app again." && exit 1
     cp -f 'blob_patches/mbclassic/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
     cp -f 'blob_patches/mbclassic/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
     cp -f 'blob_patches/mbclassic/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
