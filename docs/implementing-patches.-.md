@@ -1,6 +1,6 @@
 ## Implementing patches 
-- patch template is implemented by @fukiame from this commit : aa4eb65992 so just need to follow their `TEMPLATE`
-- they well documented it on the commit message : 
+- patch template is implemented by @fukiame from this commit : [0a89bce342](/mbcp/mbbpatch_fix/commit/0a89bce3422b72dd6d09325f0150be619e5531cd) so just need to follow their `TEMPLATE`
+- him well documented it on the commit message : 
 ```
 adding new patches is now trivial:
 
