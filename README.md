@@ -1,6 +1,6 @@
 # MBCPApp Patcher for MB Bank (Android)
 
-Lightweight **AI-free, human-written** open source CLI tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with bulit-in CorePatch). primarily written in Bash, made possible by @cuynu and community in Vietnam.
+**AI-free, human-written** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with bulit-in CorePatch). primarily written in Bash, made possible by @cuynu and community in Vietnam.
 
 <img alt="Gitea Release" src="https://img.shields.io/gitea/v/release/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&include_prereleases&display_name=tag&style=for-the-badge&logo=android&label=Latest%20Pre-bulit%20MBCP%20&color=%23CC6699">
 
@@ -14,12 +14,12 @@ Lightweight **AI-free, human-written** open source CLI tool for patching MB Bank
 - Licensed as MIT License.
 
 > [!IMPORTANT]
-> As of new State of Bank regulations, this project now targets with the aim to gain back freedom for power users and developers who wanted to use rooted device as main device but still want to use the MB normally. 
+> As of new State of Bank regulations, this project now targets with the aim to gain back freedom for power users and developers who wanted to use rooted device as main device but wanted to use the app normally. 
 > 
 >
 > We spend efforts and times for finding the method and make this project. Of course, it's not for scammer, it's for **power users and developers only**.
 >
-> Older releases (v6.4.90 or older) has mismatch commit ID with this new repo, for reference to the exactly same commit, look at `MBCP_VersionReference.md` in repository.
+> Older releases (v6.4.90 or older) has mismatch commit ID with this new repo, for reference to the exactly same commit, see [MBCP_VersionReference.md](MBCP_VersionReference.md) in repository.
 
 ## Introduction
 - Note : "MBCP" / "MBCPApp" = "MBBank CorePatch"
@@ -34,7 +34,9 @@ Lightweight **AI-free, human-written** open source CLI tool for patching MB Bank
 
 - More information about GW934 measure :
 <details>
-- The GW934 error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error (MB has detected that your device is not secure for performing transactions. Please uninstall the App and reinstall it from the app store). The other function (eg: DigitalOTP) that works without logging in still works.
+
+- The `GW934` error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error (MB has detected that your device is not secure for performing transactions. Please uninstall the App and reinstall it from the app store). The other function (eg: DigitalOTP) that works without logging in still works.
+
 </details>
 
 ## DISCLAIMER
@@ -42,10 +44,10 @@ Lightweight **AI-free, human-written** open source CLI tool for patching MB Bank
 
 ## Documentation
 
-- [MBCPApp Patcher Documentation](/mbcp/mbbpatch/src/branch/dev/docs)
+- [MBCPApp Patcher Documentation](docs/)
 
 ## Requirements & Usage & How-to use patcher
-- Follow usage docs here : [Patcher Usage](/mbcp/mbbpatch/src/branch/dev/docs/patcher-usage.-.md)
+- Follow usage docs here : [Patcher Usage](docs/patcher-usage.-.md)
 
 ## Patches list :
 
@@ -75,7 +77,6 @@ Lightweight **AI-free, human-written** open source CLI tool for patching MB Bank
 </details>
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
-<details>
 
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
@@ -109,13 +110,10 @@ Lightweight **AI-free, human-written** open source CLI tool for patching MB Bank
 | `Add modified resources` | Adds the specific strings for MBCP on eKYC phases, and modify the DigiBank logo. | v6.4.0 ~ v6.4.94 |
 | `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.4.94 |
 
-
-</details>
-
 ## Old patches
 
 > [!IMPORTANT]
-> These patches are no longer compatible with newer/current app version. It can't be fixed unless MB decompress the `libapp.so` (which will never happen) or until I find the method to decompress it manually.
+> Following patches are no longer compatible with newer/current app version. It can't be fixed unless MB decompress the `libapp.so` (which will never happen) or until I find the method to decompress it manually.
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
@@ -166,6 +164,47 @@ Lightweight **AI-free, human-written** open source CLI tool for patching MB Bank
 - Under `mbsig` directory, it contains original signature from original MB's app, which is necessary to make app works after patching process because the app doesn't work with different APK signature.
 - Everything including that listed above code are all licensed under MIT license, it can be considered as reverse engineered code :>
 
+## Contributing | AI/LLM code or NOT ?
+
+- Never, not even auto-complete LLM-powered suggestions. PR is currently closed for some personal reasons.
+
+- Even though this project is NOT vibe-coded or AI/LLM-assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) may contains AI/LLM-generated code or assisted by AI/LLM. While I'm straightly disagree it, theres no escape for that in big 2026 (and also in few next years) so we have to accept the truth that some of dependencies the project relies on can contains AI/LLM code, but that doesn't mean I will code or put AI/LLM-assisted (or generated) code in this project at all. 
+
+- Remember : Project may rely on dependencies that can contains AI/LLM code, but is written by a human and NOT LLM (or so calld Generative AI) doesn't mean the project contains AI/LLM code. Every single line of code is done by contributors and me (@cuynu) without any AI/LLM assistance at all.
+
+- If you want to use Generative AI-tools / LLMs for contributing, please fork and do it yourself. We do not accept AI/LLM code in this project at all.
+
+## Project history
+
+<details>
+
+- 05/2023 : MB Bank MOD APK ANDROID project created on Telegram (@mbbmod), providing modified MB Bank APKs since v5.8 with a lot of features such as bypassing accessibility check and show a guide to hide root instead of show rooted screen then close the app.
+
+- 01/2024 : Channel from 2023 is deleted, due to Telegram banning account (@cuynutt)
+
+- 06/2024 : [MB Android Patched] channel created, providing modified MB Bank Flutter APKs and then MB React Native APKs
+
+- 01/2025 : Channel renamed to [MBCP Android] due to MB discontinued version that does not requires CorePatch. MBCP Helper also existed since then.
+
+- 05/2025 : Project is rewritten from closed source (mostly with MT Manager) to open source with `bash` programming language, reduce the trust issues with closed source app before, also allow anyone to patch it manually.
+
+- 06/2025 : [Hide VTAP root detection activity & dialog] patch was added, enables the ability to use the MBCP app with superuser (root permission) enabled.
+
+- 07/2025 : MB forced zimperium with v6.4.56, which throw `XPE002` dialog if zimperium is completely destroyed. I fixed it.
+
+- 08/2025 : @fukiame joining to refactor the project source code, make it easier to maintain in the future, also implement good logic.
+
+- 09/2025 : MB forced checksum check, throw `GW934` error if any classes$.dex file or `libapp` aka zimperium aka `libmbshield` is modified. I made a bypass, it works for v6.4.63 up to v6.4.66.
+
+- 10/2025 : MB discontinued `v6.4.66`, the last version with almost all patches working (except `bypass_accessibility_applist`) with `GW525` error when logging in
+
+- 11/2025 : MB released `v6.4.74` with AI-crap button that replaces legacy search button. I created a patch that force replace it back to old search icon. 
+
+- 02/2026 : MB released `v6.4.85` with enhanced Singalarity eKYC detection (detects `data/adb/modules` and `com.rifsxd.ksunext`), so I created a patch that removed the check.
+
+- 03/2026 : After a long-term pain, Me (author of this project) finally find the right label for myself. This project turned me from just a YouTuber aka tinkerer to a developer who love to write code.
+</details>
+
 ## TODO
 
 - [ ] Bypass the new dex & libraries checksum for MB v6.4.67+ 
@@ -180,44 +219,6 @@ Lightweight **AI-free, human-written** open source CLI tool for patching MB Bank
 
 - [x] Adapt new v6.4.68 trungthu theme
 
-## Contributing | AI/LLM code or NOT ?
-
-- Never, not even auto-complete LLM-powered suggestions. PR is currently closed for some personal reasons.
-
-- Even though this project is NOT vibe-coded or AI/LLM-assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) may contains AI/LLM-generated code or assisted by AI/LLM. While I'm straightly disagree it, theres no escape for that in big 2026 (and also in few next years) so we have to accept the truth that some of dependencies the project relies on can contains AI/LLM code, but that doesn't mean I will code or put AI/LLM-assisted (or generated) code in this project at all. 
-
-- Remember : Projects may rely on dependencies that can contains AI/LLM code, but is written by a human and NOT LLM (or so calld Generative AI) doesn't mean the project contains AI/LLM code. Every single line of code is done by contributors and me (@cuynu) without any AI/LLM assistance at all.
-
-- If you want to use Generative AI-tools / LLMs for contributing, please fork and do it yourself. We do not accept AI/LLM code in this project at all.
-
-## Project history
-
-<details>
-
-- 05/2023 : MB Bank MOD APK ANDROID project created on Telegram (@mbbmod), providing modified MB Bank APKs since v5.8 with lots of features such as bypassing accessibility check and show a guide to hide root instead of show rooted screen then close the app.
-
-- 01/2024 : Channel from 2023 is deleted, due to Telegram banning account (@cuynutt)
-
-- 06/2024 : [MB Android Patched] channel created, providing modified MB Bank Flutter APKs and then MB React Native APKs
-
-- 01/2025 : Channel renamed to [MBCP Android] due to MB discontinued version that does not requires CorePatch. MBCP Helper also existed since then.
-
-- 05/2025 : Project is rewritten from closed source (mostly with MT Manager) to open source with `bash` programming language, reduce the trust issues with closed source app before, also allow anyone to patch it manually.
-
-- 06/2025 : [Hide VTAP root detection activity & dialog] patch was added, enables the ability to use the MBCP app with superuser (root permission) enabled.
-
-- 08/2025 : @fukiame joining to refactor the project source code, make it easier to maintain in the future, also implement good logic.
-
-- 10/2025 : MB discontinued `v6.4.66`, the last version with almost all patches working (except `bypass_accessibility_applist`) with `GW525` error when logging in
-
-- 11/2025 : MB released `v6.4.74` with AI-crap button that replaces legacy search button. I created a patch that force replace it back to old search icon. 
-
-- 02/2025 : MB released `v6.4.85` with enhanced Singalarity eKYC detection (detects `data/adb/modules` and `com.rifsxd.ksunext`), so I created a patch that nuked the check.
-
-- ...
-</details>
-
-
 ## Credits
 - [apktool](https://github.com/iBotPeaches/Apktool)
 - [APKEditor](https://github.com/REAndroid/APKEditor/)
@@ -229,5 +230,3 @@ Lightweight **AI-free, human-written** open source CLI tool for patching MB Bank
 - [Cuynu](/cuynu) - developer (also [youtuber](https://youtube.com/@cuynu))
 - [fukiame](/fukiame) - refactor & other improvements - contributor
 - [Ngankbakaa](https://github.com/miyukocutee) - contributor
-
-
