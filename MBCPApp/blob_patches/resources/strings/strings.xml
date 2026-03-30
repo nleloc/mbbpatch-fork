@@ -86,8 +86,8 @@
   <string name="character_counter_pattern">%1$d/%2$d</string>
   <string name="chip_text">Chip text</string>
   <string name="clear_text_end_icon_content_description">Clear text</string>
-  <string name="click_setting_qr">Touch to setup QR</string>
-  <string name="click_setting_qr_big_qr">Touch to setup QR</string>
+  <string name="click_setting_qr">Tap to setup QR</string>
+  <string name="click_setting_qr_big_qr">Tap to setup QR</string>
   <string name="com.crashlytics.android.build_id">cca90e65-5805-4c06-bc2d-930595fb2cf4</string>
   <string name="com.google.firebase.crashlytics.mapping_file_id">a4f49867dfa64435bea0bafc1f437f34</string>
   <string name="common_google_play_services_enable_button">Enable</string>
@@ -120,8 +120,8 @@
   <string name="copy_toast_msg">Link copied to clipboard</string>
   <string name="default_error_msg">Unknown error</string>
   <string name="default_web_client_id">162583259686-erd52s6o9832jno1lpa9on8t2djnicie.apps.googleusercontent.com</string>
-  <string name="detected_threats_msg_vi">Hệ thống phát hiện ứng dụng %1$s có thể gây ra rủi ro bảo mật khi được sử dụng cùng với ứng dụng MBBank, vui lòng gỡ bỏ ứng dụng không tương thích.</string>
-  <string name="detected_threats_title_vi">Phát hiện ứng dụng không tương thích</string>
+  <string name="detected_threats_msg_vi">.</string>
+  <string name="detected_threats_title_vi">.</string>
   <string name="error_icon_content_description">Error</string>
   <string name="expand_button_title">Advanced</string>
   <string name="exposed_dropdown_menu_content_description">Show dropdown menu</string>
@@ -337,42 +337,42 @@
   <string name="preference_copied">"%1$s" copied to clipboard.</string>
   <string name="project_id">mbmobilebanking6789</string>
   <string name="qr_image">QR Image</string>
-  <string name="qr_receive_money">QR nhận tiền</string>
+  <string name="qr_receive_money">Receive QR</string>
   <string name="rationale_ask">This app may not work correctly without the requested permissions.</string>
   <string name="rationale_ask_again">This app may not work correctly without the requested permissions. Open the app settings screen to modify app permissions.</string>
-  <string name="rooted_device_msg_en">For your security, MBBank app will not work on rooted or malware infected devices.</string>
-  <string name="rooted_device_msg_vi">Để bảo mật cho bạn, ứng dụng MBBank sẽ không hoạt động trên các thiết bị root hoặc phần mềm độc hại.</string>
-  <string name="rooted_device_title_en">Rooted device detected</string>
-  <string name="rooted_device_title_vi">Phát hiện thiết bị đã root</string>
+  <string name="rooted_device_msg_en">.</string>
+  <string name="rooted_device_msg_vi">.</string>
+  <string name="rooted_device_title_en">.</string>
+  <string name="rooted_device_title_vi">.</string>
    <string name="search_menu_title">Search</string>
-  <string name="sgnfc_default_scanning">Vui lòng giữ yên thẻ
-cho đến khi hoàn tất quy trình</string>
-  <string name="sgnfc_fm_error_desc_not_supported">Thiết bị đang sử dụng không tương thích
- với chế độ NFC.
+  <string name="sgnfc_default_scanning">Please keep the card
+until the process is completed</string>
+  <string name="sgnfc_fm_error_desc_not_supported">Your current device is not currently compatible
+ with NFC mode. 
 
-Vui lòng sử dụng thiết bị khác và thử lại.</string>
-  <string name="sgnfc_fm_error_title_not_supported">Thiết bị không tương thích</string>
-  <string name="sgnfc_fm_guidance1_title">Kiểm tra CCCD gắn chip</string>
-  <string name="sgnfc_fm_guidance1_title_2">Lưu ý</string>
-  <string name="sgnfc_fm_guidance1_video_desc">Xem video hướng dẫn trước khi thực hiện</string>
-  <string name="sgnfc_fm_guidance1_warning_desc_1">1. Chuẩn bị sẵn CCCD gắn chip hợp lệ, nguyên vẹn.</string>
-  <string name="sgnfc_fm_guidance1_warning_desc_2">2. Tháo ốp lưng điện thoại.</string>
-  <string name="sgnfc_fm_guidance1_warning_desc_3">3. Bật chế độ NFC và cấp quyền cho ứng dụng nếu có yêu cầu.</string>
-  <string name="sgnfc_fm_guidance1_warning_desc_4">4. Thao tác như video hướng dẫn.</string>
-  <string name="sgnfc_fm_scan_demo_warning_desc_1">1. Cầm sẵn thẻ CCCD gắn chip.</string>
-  <string name="sgnfc_fm_scan_demo_warning_desc_2">2. Áp sát thẻ vào lưng điện thoại.</string>
-  <string name="sgnfc_fm_scan_demo_warning_desc_3">3. Di chuyển thẻ chậm rãi từ trên xuống dưới cho đến khi thiết bị rung và làm theo tín hiệu hướng dẫn.</string>
-  <string name="sgnfc_fm_scan_demo_warning_desc_4">4. Giữ yên thẻ trong 5-10 giây.</string>
-  <string name="sgnfc_fm_scan_warning_desc_1">1. Áp sát thẻ vào lưng điện thoại.</string>
-  <string name="sgnfc_fm_scan_warning_desc_2">2. Di chuyển thẻ chậm rãi từ trên xuống dưới cho đến khi thiết bị rung và làm theo tín hiệu hướng dẫn.</string>
+Please try on another device. or restart. </string>
+  <string name="sgnfc_fm_error_title_not_supported">Current device is not compatible</string>
+  <string name="sgnfc_fm_guidance1_title">Check your ID card</string>
+  <string name="sgnfc_fm_guidance1_title_2">Notes</string>
+  <string name="sgnfc_fm_guidance1_video_desc">Watch the instruction video before proceed</string>
+  <string name="sgnfc_fm_guidance1_warning_desc_1">1. Prepare vaild ID card</string>
+  <string name="sgnfc_fm_guidance1_warning_desc_2">2. Remove the phone case.</string>
+  <string name="sgnfc_fm_guidance1_warning_desc_3">3. Enable NFC and accept the permission if asked.</string>
+  <string name="sgnfc_fm_guidance1_warning_desc_4">4. Do like the video.</string>
+  <string name="sgnfc_fm_scan_demo_warning_desc_1">1. Prepare the ID card.</string>
+  <string name="sgnfc_fm_scan_demo_warning_desc_2">2. Put it to your phone backcover.</string>
+  <string name="sgnfc_fm_scan_demo_warning_desc_3">3. Move the ID card from bottom slowly until the device recognize it.</string>
+  <string name="sgnfc_fm_scan_demo_warning_desc_4">4. Keep the card scanning for 5-10 seconds.</string>
+  <string name="sgnfc_fm_scan_warning_desc_1">1. Put the ID card to your phone backcover.</string>
+  <string name="sgnfc_fm_scan_warning_desc_2">2. Slowly moving the ID card, until the device recognize it, then keep the card until the process is complete.</string>
   <string name="show_threats">SHOW THREATS</string>
   <string name="status_bar_notification_info_overflow">999+</string>
   <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
 
   <string name="text_click_setting_qr">Tap to setup QR</string>
   <string name="text_online_loan">Online loan</string>
-  <string name="text_phone_recharge">Phone recharge</string>
-  <string name="text_recharge_phone_short">Phone Recharge</string>
+  <string name="text_phone_recharge">Phone Topup</string>
+  <string name="text_recharge_phone_short">Phone Topup</string>
   <string name="text_scan_qr">Scan QR</string>
   <string name="text_transfer">Transfer</string>
 
@@ -389,11 +389,11 @@ Vui lòng sử dụng thiết bị khác và thử lại.</string>
   <string name="ucrop_scale">Scale</string>
   <string name="v7_preference_off">OFF</string>
   <string name="v7_preference_on">ON</string>
-  <string name="preference_copied">Đã sao chép "%1$s" vào bảng nhớ tạm.</string>
-  <string name="search_menu_title">Tìm kiếm</string>
+  <string name="preference_copied">Copied "%1$s" to clipboard.</string>
+  <string name="search_menu_title">Search</string>
   <string name="status_bar_notification_info_overflow">999+</string>
   <string name="summary_collapsed_preference_list">%1$s, %2$s</string>
-  <string name="tp_loading_spinner_content_desc">Đang tải…</string>
-  <string name="v7_preference_off">TẮT</string>
-  <string name="v7_preference_on">BẬT</string>
+  <string name="tp_loading_spinner_content_desc">Loading…</string>
+  <string name="v7_preference_off">OFF</string>
+  <string name="v7_preference_on">ON</string>
   </resources>
