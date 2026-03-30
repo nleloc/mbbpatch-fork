@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Bypass GW934 checksum
-# MAXVER: 6.4.67
+# MAXVER: 
 # MINVER: 6.4.63
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
@@ -73,11 +73,41 @@ info "Moving libraries..."
 cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libapp.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a'
 cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libapp.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a'
 
-cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/'
-cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/'
+designerzimperium() {
+	 info "Moving [libdesigneractivists.so]..."
+   	 cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/'
+  	 cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libdesignersactivists.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/'
+}
 
-cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libestimateddistributions.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/'
-cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libestimateddistributions.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a'
+distributionzimperium() {
+	info "Moving [libestimateddistributions.so]..."	
+	cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libestimateddistributions.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/'
+	cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libestimateddistributions.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/'
+}
+
+humanzimperium() {
+	info "Moving [libhumanargued.so]..."
+	cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libhumanargued.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/'
+ 	cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libhumanargued.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/'
+}
+
+closestzimperium() {
+	info "Moving [libclosestmadagascar.so]..."
+	cp -f 'tools/bypass/tmp/root/lib/arm64-v8a/libclosestmadagascar.so' 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/'
+	cp -f 'tools/bypass/tmp/root/lib/armeabi-v7a/libclosestmadagascar.so' 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/'
+}
+
+# v6.4.48 ~ v6.4.65
+[ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libdesigneractivists.so' ] && designerzimperium
+
+# v6.4.65 ~ v6.4.71 (except v6.4.67)
+[ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libestimateddistributions.so' ] && distributionzimperium
+
+# v6.4.67
+[ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libhumanargued.so' ] && humanzimperium
+
+# v6.4.72+
+[ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so ' ] && closestzimperium
 
 info "Removing unnecessary files from unpacked [MBOriginal.apk]..."
 rm -rf 'tools/bypass/tmp/root/lib'
