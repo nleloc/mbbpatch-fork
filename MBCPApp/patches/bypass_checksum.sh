@@ -107,7 +107,7 @@ closestzimperium() {
 [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libhumanargued.so' ] && humanzimperium
 
 # v6.4.72+
-[ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so ' ] && closestzimperium
+[ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so' ] && closestzimperium
 
 info "Removing unnecessary files from unpacked [MBOriginal.apk]..."
 rm -rf 'tools/bypass/tmp/root/lib'
