@@ -121,4 +121,6 @@ warn "DO NOT APPLY ANY OTHER PATCHES AFTER APPLIED THIS !!!"
 warn "OTHERWISE, GW934 ERROR MIGHT APPEARS AGAIN !!!"
 warn "YOU'VE WARNED !!!!"
 
+rm -rf 'tools/bypass'
+
 pblock "Bypass GW934 checksum"
