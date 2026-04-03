@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PATCHNAME: Remove bulit-in fonts
+# PATCHNAME: Remove built-in fonts
 # MAXVER:
 # MINVER:
 # shellcheck disable=SC1091

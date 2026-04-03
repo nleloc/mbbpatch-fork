@@ -300,7 +300,7 @@ do
     isvcm1
     iszdefend
     info 'To extract encrypted assets [if current app has MBShield protection] you need rooted device'
-    info 'And trigger a bulit-in app assets extraction !'
+    info 'And trigger a built-in app assets extraction !'
     echo -------------------------------------------
     PS3='Select options continue, or [3] to quit : '
     select opt in 'Launch MBCPApp/MBBank' 'Extract assets' 'Exit'
