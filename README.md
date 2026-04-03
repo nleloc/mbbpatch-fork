@@ -26,16 +26,14 @@
 - MBCP is inspired from [CorePatch](https://github.com/LSPosed/CorePatch) project. Now it can works with [PMPatch](https://github.com/vova7878-modules/PMPatch) too
 - This project was made to remove or limit annoying features & root detection & accessibility detection that is implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability, device font, etc (see more in patches list). **It's not PoC (Proof of Concept) project at all.**
 - [MBCP](https://t.me/mbcposs) are closed source before, and many people don't like it and concern with privacy & security issues
-- In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment. All MBCP pre-built releases from v6.4.47+ are all built with this open source project with the commit ID at the end of the file name.
+- In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment. All MBCP releases from v6.4.47+ are all built with this open source project with the commit ID at the end of the file name.
 
 ## Current situation
-
-- Project is used to almost DEAD, due to MB's measure to modified dex & libraries from the server-side with GW934 error (`getSHFiles`) when logging in. Luckily, I have a way to bypass the [Zimperium check](/mbcp/mbzdefend-fix), that's why the project still alive till nowadays with other patches.
 
 - More information about GW934 measure :
 <details>
 
-- The `GW934` error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error (MB has detected that your device is not secure for performing transactions. Please uninstall the App and reinstall it from the app store). The other function (eg: DigitalOTP) that works without logging in still works.
+- The `GW934` error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error : `Re-install app to continue using app.`. The other function (eg: DigitalOTP) that works without logging in still works.
 
 </details>
 
@@ -46,8 +44,18 @@
 
 - [MBCPApp Patcher Documentation](docs/)
 
-## Requirements & Usage & How-to use patcher
-- Follow usage docs here : [Patcher Usage](docs/patcher-usage.-.md)
+## Requirements & Building
+
+- Any actual Linux environment or macOS (Arch Linux based recommended)
+- Little knowledge about terminal commands
+- `android-tools` `wget` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based
+- `android-platform-tools` for macOS with brew
+- `git` installed
+- `java` or `jdk-openjdk` installed
+- `figlet` for showing banner (optional)
+- `xmlstarlet` for reformatting AndroidManifest after unpacking
+
+- [Building App from Patcher](#Building)
 
 ## Patches list :
 
@@ -69,7 +77,7 @@
 >
 > Dex and libraries checksum when logging in seems to be added since v6.4.63+, and is likely implemented from the library side.
 >
-> At the current situation, the workaround for it is still unknown :(
+> At this point, the workaround for it is still unknown :(
 >
 > Except for testing, mentioned patches shouldn't be used for any normal use cases. So for now, avoid it when patching app. 
 > 
@@ -203,6 +211,111 @@
 - 02/2026 : MB released `v6.4.85` with enhanced Singalarity eKYC detection (detects `data/adb/modules` and `com.rifsxd.ksunext`), so I created a patch that removed the check.
 
 - 03/2026 : After a long-term pain, Me (author of this project) finally find the right label for myself. This project turned me from just a YouTuber aka tinkerer to a developer who love to write code.
+</details>
+
+## Building
+
+### Install dependencies
+
+for Arch Linux / EndeavourOS / CachyOS / any Arch-based distributions
+```
+sudo pacman -Sy android-tools wget jdk-openjdk figlet xmlstarlet git
+```
+for Debian / Mint / Ubuntu / any debian-based distributions
+```
+sudo apt install android-sdk-platform-tools xmlstarlet figlet wget git default-jre coreutils
+```
+for Fedora / any fedora-based distributions
+```
+sudo dnf makecache --refresh
+sudo dnf -y install wget xmlstarlet android-tools java-latest-openjdk.x86_64
+git clone https://github.com/M0Rf30/android-udev-rules.git
+cd android-udev-rules
+sudo bash install.sh
+```
+
+for macOS (brew)
+```
+brew install xmlstarlet wget openjdk android-platform-tools figlet gnu-sed
+sudo ln -sfn /opt/homebrew/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
+PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+```
+
+### Clone repository
+You can choose between 2 repository mirrors, one is the repository on Disroot, and the other one is the Selfhosted Forgejo instance, it has no difference as both are pushed at the same time.
+
+Disroot 
+```
+cd ~
+git clone https://git.disroot.org/mbcp/mbbpatch.git
+cd mbbpatch/MBCPApp
+```
+Self-hosted Instance
+```
+cd ~
+git clone https://cuynutt.ddns.net/mbcp/mbbpatch.git
+cd mbbpatch/MBCPApp
+```
+
+### Run the Patcher
+Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
+```
+./mbcpapp.sh
+```
+- Download tools with `14) Download tools` function first, it will download `apktool` and `apkeditor` to `tools` folder. This is required since `2) Unpack APK` function requires it.
+
+### Patch the app 
+
+> [!IMPORTANT]
+> If you are patching MB Bank with those version : 
+> 
+> MB Bank : v6.4.63 | v6.4.64 | v6.4.65 | v6.4.66
+> 
+> Ensure that you applied `Bypass GW934 checksum` patch after applied all other patches, so the app can works without GW934 error when logging in.
+
+- Grab MB Bank apks from [eMBee APKs](https://t.me/embeeapks) or [Lotus Chat](https://lotuschat.vn/w/+anSH1BbDbAYn54JC9nIC9A) (in case if you don't have access to Telegram) and copy it to `~/mbbpatch/MBCPApp/mbapk`
+- Alternatively, if you don't have access to both Telegram & Lotus Chat, download from [Google Play](https://play.google.com/store/apps/details?id=com.mbmobile) then extract the MB Bank apks and copy it to `~/mbbpatch/MBCPApp/mbapk` or get it [from my instance](http://cuynutt.ddns.net/mbcp/mbmobile-apks)
+- Convert apks to apk first using `3) Convert apks to apk` function
+- Unpack apk with `2) Unpack apk` function
+- Use `7) Patch App` function, it should show a list of patches, select the patch you wanted to and it will automatically patch the app at `mbapk/mbapk_original`
+- Note that the patches list might different, depends on your current unpacked MB Bank app version, as there will be a patch that compatible with specific version, for example patch [Bypass accessibility & malicious apps check] is compatible with v6.4.54, but not with v6.4.55 or newer, so if you have v6.4.55 or newer, then that patch will be hidden from patches list.
+- The patcher should show info to the log when use `7) Patch App` function if it found that the current unpacked app version is not compatible with one of implemented patches like this : 
+```
+[INFO] [parser] skipping [Patch A] as current version is higher than patch version clamp
+[INFO] [parser] skipping [Patch B] as current version is lower than patch version clamp
+```
+- View full patches list [here](/mbcp/mbbpatch#patches-list) for more info about compatible version, or view the `MAXVER` value and `MINVER` in patch files `~/mbbpatch/MBCPApp/patches/*.sh`
+
+### Repack the app
+- So you have applied all the patches you wanted to ?
+- Exit patch app function with the exit option in the last patch list
+- Use `4) Repack APK` to repack patched app
+- What's next? wait :)
+- Patcher will repack the app, and then [restore signature]() to make sure that app can load, the example of nice repack process : 
+```
+00.000 I: [BUILD] Using: APKEditor version 1.4.5, ARSCLib version 1.3.8
+            -t = sig                                     
+      -dex-lib = internal                                
+          -sig = mbsig/signatures                        
+            -i = mbcpapp_apk/MBCP_Flutter_TMP.apk        
+            -o = mbcpapp_apk/MBCP_Flutter_SelfPatched.apk
+ _______________________________________________________ 
+00.013 I: [BUILD] Restoring signatures ...
+00.214 I: [BUILD] Writing apk...
+00.217 I: [BUILD] Buffering compress changed files ...
+00.226 I: [BUILD] Writing files: 3332
+00.453 I: [BUILD] Writing signature block ...                                                                                             
+00.909 I: [BUILD] Saved to: mbcpapp_apk/MBCP_Flutter_SelfPatched.apk
+[19:45:55:70] [INFO] Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!
+[19:45:55:70] [INFO] Install and trying to open it when ಠ‿ಠ
+[19:45:55:70] [INFO] If you are facing issues, report it on Telegram [@mbbpatch_eng] or Disroot Forgejo : mbbpatch !!
+```
+- Patched app will be `MBCP_Flutter_SelfPatched.apk` on `~/mbbpatch/MBCPApp/mbcpapp_apk/`
+- As this is unsigned app, Android will refuse to install `MBCP_Flutter_SelfPatched.apk` by default. In order to install it, you MUST install [MBCP Helper](/mbcp/mbcp-helper/releases) or [CorePatch](https://github.com/LSPosed/CorePatch/releases) and enable the "Disable digest verify" option to bypass android package signature verification. 
+- If you don't know how to deal with MBCP Helper, follow this guide : [MBCP Installation](/mbcp/info_en/wiki/mbcpinstall)
+- Copy this `MBCP_Flutter_SelfPatched.apk` then install to your device, or simply use `5) Install patched app` function, its will do the same thing with `adb`
+- Profit :)
+
 </details>
 
 ## TODO
