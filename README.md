@@ -1,14 +1,14 @@
 # MBCPApp Patcher for MB Bank (Android)
 
-**AI-free, human-written** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with bulit-in CorePatch). primarily written in Bash, made possible by @cuynu and community in Vietnam.
+**AI-free, human-written** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with built-in CorePatch). primarily written in Bash, made possible by @cuynu and community in Vietnam.
 
-<img alt="Gitea Release" src="https://img.shields.io/gitea/v/release/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&include_prereleases&display_name=tag&style=for-the-badge&logo=android&label=Latest%20Pre-bulit%20MBCP%20&color=%23CC6699">
+<img alt="Gitea Release" src="https://img.shields.io/gitea/v/release/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&include_prereleases&display_name=tag&style=for-the-badge&logo=android&label=Latest%20Pre-built%20MBCP%20&color=%23CC6699">
 
 <img alt="Gitea Issues" src="https://img.shields.io/gitea/issues/all/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&style=for-the-badge">
 
 <img alt="Gitea language count" src="https://img.shields.io/gitea/languages/count/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&style=for-the-badge&color=%236750A4">
 
-- If you are looking pre-bulit app, here : [MBCP Releases](/mbcp/mbbpatch/releases) | [Install guide](/mbcp/info_en/wiki/mbcpinstall)
+- If you are looking pre-built app, here : [MBCP Releases](/mbcp/mbbpatch/releases) | [Install guide](/mbcp/info_en/wiki/mbcpinstall)
 - Coming from GitLab? Go to the main location here to avoid link errors : [Disroot](https://git.disroot.org/mbcp/mbbpatch) | [Selfhost](http://cuynutt.ddns.net/mbcp/mbbpatch)
 - Project FAQ : [Read here](/mbcp/info_en/wiki/faq)
 - Licensed as MIT License.
@@ -26,7 +26,7 @@
 - MBCP is inspired from [CorePatch](https://github.com/LSPosed/CorePatch) project. Now it can works with [PMPatch](https://github.com/vova7878-modules/PMPatch) too
 - This project was made to remove or limit annoying features & root detection & accessibility detection that is implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability, device font, etc (see more in patches list). **It's not PoC (Proof of Concept) project at all.**
 - [MBCP](https://t.me/mbcposs) are closed source before, and many people don't like it and concern with privacy & security issues
-- In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment. All MBCP pre-bulit releases from v6.4.47+ are all bulit with this open source project with the commit ID at the end of the file name.
+- In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment. All MBCP pre-built releases from v6.4.47+ are all built with this open source project with the commit ID at the end of the file name.
 
 ## Current situation
 
@@ -94,8 +94,8 @@
 | `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.4.94 |
 | `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.94 |
 | `Remove new zimperium check` | Remove the new Zimperium (ZDefend) root detection from app. Picked up from Legacy Patch. | v6.4.60 ~ v6.4.94 | 
-| `Remove bulit-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.4.94 |
-| `Modify app theme` | Modify the bulit-in app theme from original one to other themes. | v6.4.30 ~ v6.4.94 |
+| `Remove built-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.4.94 |
+| `Modify app theme` | Modify the built-in app theme from original one to other themes. | v6.4.30 ~ v6.4.94 |
 | `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.4.94 |
 | `Revert old eMBee logo` | Revert old eMBee logo, especially on product consultation options. | v6.4.53 ~ v6.4.94 |
 | `Remove useless libraries` | Remove the useless libraries from app, only for v6.4.67+ | v6.4.67 ~ v6.4.94 |
