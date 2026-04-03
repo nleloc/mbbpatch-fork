@@ -160,6 +160,8 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     cp -f 'blob_patches/noel/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
     cp -f 'blob_patches/noel/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
     # New trungthu
+    [ -d 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu' ] && trungthu2025
+    trungthu2025() {
     cp -f 'blob_patches/noel/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     cp -f 'blob_patches/noel/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     cp -f 'blob_patches/noel/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
@@ -169,6 +171,7 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     cp -f 'blob_patches/noel/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     cp -f 'blob_patches/noel/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     cp -f 'blob_patches/noel/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+    }
 
     ##############
     cp -f 'blob_patches/noel/a_background_image.png' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base'
