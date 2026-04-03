@@ -55,7 +55,7 @@
 - `figlet` for showing banner (optional)
 - `xmlstarlet` for reformatting AndroidManifest after unpacking
 
-[Building App from Patcher](building)
+[Building App from Patcher](#building)
 
 ## Patches list :
 
