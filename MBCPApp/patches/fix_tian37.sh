@@ -11,3 +11,7 @@ sed_libtian37 's|/proc/fs/jbd2/loop*8 2>/dev/null|                              
 sed_libtian37 's|me.weishu.kernelsu|                  |'
 sed_libtian37 's|/proc/self/maps/|               |'
 sed_libtian37 's|/data/adb/modules|/sdcard/Downloads|'
+
+# related to tian37 
+rm -f "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libvcm1.so
+rm -f "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libvcm1.so
