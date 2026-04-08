@@ -98,6 +98,7 @@
 | `Custom VTAP screen` | Warn users about critical VTAP trigger error from app. | v6.4.53 ~ v6.4.94 |
 | `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.4.94 |
 | `Force portrait screen` | Force the screen always portrait on app, espcially when launching. | v6.4.0 ~ v6.4.94 |
+| `Fix outdated VTAP certificate` | Update new VTAP certificate for older app version, so it can work again in future | v6.4.67 ~ v6.4.90 |
 | `Remove MB AI Bullsh*t resources` | Remove the bullsh*t MB AI resources from app. Need to implement more in the future. | v6.4.74 ~ v6.4.94 |
 | `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.4.94 |
 | `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.94 |
