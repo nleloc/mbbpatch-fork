@@ -19,8 +19,7 @@ nofwfound() {
 	info "copy [firmware] and [profile] file to [fixcert] folder to continue."
 	info "[firmware] and [profile] can be found in [assets], please find from newer app."
 	info "recommended app : v6.4.94"
-
-	
+	exit 1
 }
 
 mkdir -p "$DIRPATH"/fixcert/
