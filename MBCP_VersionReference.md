@@ -1,4 +1,4 @@
-# MBCP Prebulit app commit ID
+# MBCP Pre-built app commit ID
 
 As the repo is now changed, the commit ID for older commits is different. It does not match anymore, make it harder to identity the exact commit ID for older versions.
 
@@ -42,5 +42,5 @@ The below lists the most exactly same commit to a specific version. (v6.4.45 ~ v
 | MBCP `v6.4.63` [unknown] | May matches with commit : [87ee1a9ac5](/mbcp/mbbpatch_fix/commit/87ee1a9ac5ed06b878974736faa7f72969495ac7) in new repo |
 
 Notes : 
-- Older version (v6.4.44, v6.4.43, v6.4.42, v6.4.40, v6.4.39, v6.4.36, v6.4.35, v6.4.34, v6.4.33, v6.4.32, v6.4.31, v6.4.30, v6.4.29, v6.4.28, v6.4.27, v6.4.26, v6.4.24, v6.4.23, v6.4.20, v6.4.19, v6.4.18, v6.4.17, v6.4.15, v6.4.14, v6.4.13, v6.4.7) are not contain commit ID as these is bulit on top of proprietary software (MT Manager)
-- Some React Native version (v6.3.11, v6.2.x, v6.1.x, v5.9, v5.8) are not contain commit ID as these is bulit on top of proprietary software (MT Manager).
+- Older version (v6.4.44, v6.4.43, v6.4.42, v6.4.40, v6.4.39, v6.4.36, v6.4.35, v6.4.34, v6.4.33, v6.4.32, v6.4.31, v6.4.30, v6.4.29, v6.4.28, v6.4.27, v6.4.26, v6.4.24, v6.4.23, v6.4.20, v6.4.19, v6.4.18, v6.4.17, v6.4.15, v6.4.14, v6.4.13, v6.4.7) does not contain commit ID as it is built on top of proprietary software (MT Manager).
+- Some React Native version (v6.3.11, v6.2.x, v6.1.x, v5.9, v5.8) does not contain commit ID as it is built on top of proprietary software (MT Manager). Rewrite as open source is WIP.
