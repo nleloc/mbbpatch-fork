@@ -96,6 +96,7 @@
 | `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.97 |
 | `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.4.97 |
 | `Custom VTAP screen` | Warn users about critical VTAP trigger error from app. | v6.4.53 ~ v6.4.97 |
+| `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. (limited features with v6.4.67+) | v6.4.0 ~ v6.4.97 |
 | `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.4.97 |
 | `Force portrait screen` | Force the screen always portrait on app, espcially when launching. | v6.4.0 ~ v6.4.97 |
 | `Fix outdated VTAP certificate` | Update new VTAP certificate for older app version, so it can work again in future | v6.4.67 ~ v6.4.90 |
@@ -131,7 +132,6 @@
 |:--------:|:--------------:|:-----------------:|
 | `Autopatch strings` | Modify the strings in-app within `libapp.so`, and also fixes some translation typo in-app. | v6.4.0 ~ v6.4.66 |
 | `Bypass GW934 checksum` | Bypass the GW934 error rolled-out from MB server-side which prevent MBCP users from logging in to app. Only use this after applied all your patch needs. | v6.4.64 ~ v6.4.66 |
-| `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. | v6.4.0 ~ v6.4.66 |
 | `Remove custom profile picture` | Force the use of default profile picture instead of your current one on MB's server side. | v6.4.0 ~ v6.4.66 |
 | `Restore old 682 lib` | Restore old v6.4.61 `libapp.so` to prevent enforced `quockhanh` theme changes on v6.4.62. | v6.4.62 |
 | `Remove eMBee` | Removes eMBee options in app, alongside with Customer support. | v6.4.43 ~ v6.4.66 |
