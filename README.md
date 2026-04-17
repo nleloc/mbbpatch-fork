@@ -86,6 +86,7 @@
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 
+<details>
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
 | `Add verified badge` | Replaces the MIC protection shield with verified badge to make it looks more cute :3 | v6.4.0 ~ v6.4.97 |
@@ -119,6 +120,8 @@
 | `Set targetSdkVersion to 34` | Set the `targetSdkVersion` to 34 (Android 14) to prevent UI issues on some activities. | v6.4.10 ~ v6.4.97 |
 | `Add modified resources` | Adds the specific strings for MBCP on eKYC phases, and modify the DigiBank logo. | v6.4.0 ~ v6.4.97 |
 | `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.4.97 |
+
+</details>
 
 ## Old patches
 
@@ -172,55 +175,6 @@
 
 - Under `mbsig` directory, it contains original signature from original MB's app, which is necessary to make app works after patching process because the app doesn't work with different APK signature.
 - Everything including that listed above code are all licensed under MIT license, it can be considered as reverse engineered code :>
-
-## Contributing
-
-- PR are welcome, but before submit, please ensure that it's your work, not AI/LLM work (not even assisted by AI/LLM).
-
-- [Submit PR here](https://git.disroot.org/mbcp/mbbpatch/pulls)
-
-## AI/LLM code or NOT ?
-
-- Never, not even auto-complete LLM-powered suggestions.
-
-- Even though this project is NOT vibe-coded or AI/LLM-assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) may already tainted with it. While I'm straightly disagree it, theres no escape for that in big 2026 (and also in few next years) so we have to accept the truth that some of dependencies the project is tainted, but it doesn't mean I will code or put AI/LLM-assisted (or generated) code in this project at all. 
-
-- Remember : Project may rely on dependencies that is already tainted with AI/LLM, but is written by a human and NOT AI/LLM doesn't mean the project contains AI/LLM code. Every single line of code is done by contributors and me (@cuynu) without any AI/LLM assistance at all.
-
-- If you want to use Generative AI-tools / LLMs for contributing, please fork and do it yourself. We do not accept AI/LLM code in this project in anyway at all.
-
-## Project history
-
-<details>
-
-- 05/2023 : MB Bank MOD APK ANDROID project created on Telegram (@mbbmod), providing modified MB Bank APKs since v5.8 with a lot of features such as bypassing accessibility check and show a guide to hide root instead of show rooted screen then close the app.
-
-- 01/2024 : Channel from 2023 is deleted, due to Telegram banning account (@cuynutt)
-
-- 06/2024 : [MB Android Patched] channel created, providing modified MB Bank Flutter APKs and then MB React Native APKs
-
-- 01/2025 : Channel renamed to [MBCP Android] due to MB discontinued version that does not requires CorePatch. MBCP Helper also existed since then.
-
-- 05/2025 : Project is rewritten from closed source (mostly with MT Manager) to open source with `bash` programming language, reduce the trust issues with closed source app before, also allow anyone to patch it manually.
-
-- 06/2025 : [Hide VTAP root detection activity & dialog] patch was added, enables the ability to use the MBCP app with superuser (root permission) enabled.
-
-- 07/2025 : MB forced zimperium with v6.4.56, which throw `XPE002` dialog if zimperium is completely destroyed. I fixed it.
-
-- 08/2025 : @fukiame joining to refactor the project source code, make it easier to maintain in the future, also implement good logic.
-
-- 09/2025 : MB forced checksum check, throw `GW934` error if any classes$.dex file or `libapp` aka zimperium aka `libmbshield` is modified. I made a bypass, it works for v6.4.63 up to v6.4.66.
-
-- 10/2025 : MB discontinued `v6.4.66`, the last version with almost all patches working (except `bypass_accessibility_applist`) with `GW525` error when logging in
-
-- 11/2025 : MB released `v6.4.74` with AI-crap button that replaces legacy search button. I created a patch that force replace it back to old search icon. 
-
-- 02/2026 : MB released `v6.4.85` with enhanced Singalarity eKYC detection (detects `data/adb/modules` and `com.rifsxd.ksunext`), so I created a patch that removed the check.
-
-- 03/2026 : After a long-term pain, Me (author of this project) finally find the right label for myself. This project turned me from just a YouTuber aka tinkerer to a developer who love to write code.
-
-shady part : this project used to contains llm generated code : `platform-tools.sh` but then removed completely, no other code is llm generated.
-</details>
 
 ## Building
 
@@ -276,7 +230,7 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 ### Patch the app 
 
 > [!IMPORTANT]
-> If you are patching MB Bank with those version : 
+> If you are patching MB Bank with these version : 
 > 
 > MB Bank : v6.4.63 | v6.4.64 | v6.4.65 | v6.4.66
 > 
@@ -293,7 +247,7 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 [INFO] [parser] skipping [Patch A] as current version is higher than patch version clamp
 [INFO] [parser] skipping [Patch B] as current version is lower than patch version clamp
 ```
-- View full patches list [here](/mbcp/mbbpatch#patches-list) for more info about compatible version, or view the `MAXVER` value and `MINVER` in patch files `~/mbbpatch/MBCPApp/patches/*.sh`
+- View full patches list [here](#patches-list) for more info about compatible version, or view the `MAXVER` value and `MINVER` in patch files `~/mbbpatch/MBCPApp/patches/*.sh`
 
 ### Repack the app
 - So you have applied all the patches you wanted to ?
@@ -320,11 +274,61 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 [19:45:55:70] [INFO] If you are facing issues, report it on Telegram [@mbbpatch_eng] or Disroot Forgejo : mbbpatch !!
 ```
 - Patched app will be `MBCP_Flutter_SelfPatched.apk` on `~/mbbpatch/MBCPApp/mbcpapp_apk/`
-- As this is unsigned app, Android will refuse to install `MBCP_Flutter_SelfPatched.apk` by default. In order to install it, you MUST install [MBCP Helper](/mbcp/mbcp-helper/releases) or [CorePatch](https://github.com/LSPosed/CorePatch/releases) and enable the "Disable digest verify" option to bypass android package signature verification. 
-- If you don't know how to deal with MBCP Helper, follow this guide : [MBCP Installation](/mbcp/info_en/wiki/mbcpinstall)
+- As this is unsigned app, Android will refuse to install `MBCP_Flutter_SelfPatched.apk` by default. In order to install it, you MUST use [CorePatch](https://github.com/LSPosed/CorePatch/releases) 
+- If you don't know how to deal with CorePatch, follow this guide : [MBCP Installation](/mbcp/info_en/wiki/mbcpinstall)
 - Copy this `MBCP_Flutter_SelfPatched.apk` then install to your device, or simply use `5) Install patched app` function, its will do the same thing with `adb`
-- Profit :)
+- Check if the app working properly or not.
 
+</details>
+
+
+## Contributing
+
+- PR are welcome, but before submit, please ensure that it's your work, not AI/LLM work (not even assisted by AI/LLM).
+
+- [Submit PR here](https://git.disroot.org/mbcp/mbbpatch/pulls)
+
+## AI/LLM code or NOT ?
+
+- Never, not even auto-complete LLM-powered suggestions.
+
+- Even though this project is NOT vibe-coded or AI/LLM-assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) may already tainted with it. While I'm straightly disagree it, theres no escape for that in big 2026 (and also in few next years) so we have to accept the truth that some of dependencies the project is tainted, but it doesn't mean I will code or put AI/LLM-assisted (or generated) code in this project at all. 
+
+- Remember : Project may rely on dependencies that is already tainted with AI/LLM, but is written by a human and NOT AI/LLM doesn't mean the project contains AI/LLM code. Every single line of code is done by contributors and me (@cuynu) without any AI/LLM assistance at all.
+
+- If you want to use Generative AI-tools / LLMs for contributing, please fork and do it yourself. We do not accept AI/LLM code in this project in anyway at all.
+
+## Project history
+
+<details>
+
+- 05/2023 : MB Bank MOD APK ANDROID project created on Telegram (@mbbmod), providing modified MB Bank APKs since v5.8 with a lot of features such as bypassing accessibility check and show a guide to hide root instead of show rooted screen then close the app.
+
+- 01/2024 : Channel from 2023 is deleted, due to Telegram banning account (@cuynutt)
+
+- 06/2024 : [MB Android Patched] channel created, providing modified MB Bank Flutter APKs and then MB React Native APKs
+
+- 01/2025 : Channel renamed to [MBCP Android] due to MB discontinued version that does not requires CorePatch. MBCP Helper also existed since then.
+
+- 05/2025 : Project is rewritten from closed source (mostly with MT Manager) to open source with `bash` programming language, reduce the trust issues with closed source app before, also allow anyone to patch it manually.
+
+- 06/2025 : [Hide VTAP root detection activity & dialog] patch was added, enables the ability to use the MBCP app with superuser (root permission) enabled.
+
+- 07/2025 : MB forced zimperium with v6.4.56, which throw `XPE002` dialog if zimperium is completely destroyed. I fixed it.
+
+- 08/2025 : @fukiame joining to refactor the project source code, make it easier to maintain in the future, also implement good logic.
+
+- 09/2025 : MB forced checksum check, throw `GW934` error if any classes$.dex file or `libapp` aka zimperium aka `libmbshield` is modified. I made a bypass, it works for v6.4.63 up to v6.4.66.
+
+- 10/2025 : MB discontinued `v6.4.66`, the last version with almost all patches working (except `bypass_accessibility_applist`) with `GW525` error when logging in
+
+- 11/2025 : MB released `v6.4.74` with AI-crap button that replaces legacy search button. I created a patch that force replace it back to old search icon. 
+
+- 02/2026 : MB released `v6.4.85` with enhanced Singalarity eKYC detection (detects `data/adb/modules` and `com.rifsxd.ksunext`), so I created a patch that removed the check.
+
+- 03/2026 : After a long-term pain, Me (author of this project) finally find the right label for myself. This project turned me from just a YouTuber aka tinkerer to a developer who love to write code.
+
+shady part : this project used to contains llm generated code : `platform-tools.sh` but then removed completely, no other code is llm generated.
 </details>
 
 ## TODO
