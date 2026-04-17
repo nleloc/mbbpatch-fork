@@ -87,6 +87,7 @@
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 
 <details>
+
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
 | `Add verified badge` | Replaces the MIC protection shield with verified badge to make it looks more cute :3 | v6.4.0 ~ v6.4.97 |
