@@ -173,15 +173,21 @@
 - Under `mbsig` directory, it contains original signature from original MB's app, which is necessary to make app works after patching process because the app doesn't work with different APK signature.
 - Everything including that listed above code are all licensed under MIT license, it can be considered as reverse engineered code :>
 
-## Contributing | AI/LLM code or NOT ?
+## Contributing
 
-- Never, not even auto-complete LLM-powered suggestions. PR is currently closed for some personal reasons.
+- PR are welcome, but before submit, please ensure that it's your work, not AI/LLM work (not even assisted by AI/LLM).
 
-- Even though this project is NOT vibe-coded or AI/LLM-assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) may contains AI/LLM-generated code or assisted by AI/LLM. While I'm straightly disagree it, theres no escape for that in big 2026 (and also in few next years) so we have to accept the truth that some of dependencies the project relies on can contains AI/LLM code, but that doesn't mean I will code or put AI/LLM-assisted (or generated) code in this project at all. 
+- [Submit PR here](https://git.disroot.org/mbcp/mbbpatch/pulls)
 
-- Remember : Project may rely on dependencies that can contains AI/LLM code, but is written by a human and NOT LLM (or so calld Generative AI) doesn't mean the project contains AI/LLM code. Every single line of code is done by contributors and me (@cuynu) without any AI/LLM assistance at all.
+## AI/LLM code or NOT ?
 
-- If you want to use Generative AI-tools / LLMs for contributing, please fork and do it yourself. We do not accept AI/LLM code in this project at all.
+- Never, not even auto-complete LLM-powered suggestions.
+
+- Even though this project is NOT vibe-coded or AI/LLM-assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) may already tainted with it. While I'm straightly disagree it, theres no escape for that in big 2026 (and also in few next years) so we have to accept the truth that some of dependencies the project is tainted, but it doesn't mean I will code or put AI/LLM-assisted (or generated) code in this project at all. 
+
+- Remember : Project may rely on dependencies that is already tainted with AI/LLM, but is written by a human and NOT AI/LLM doesn't mean the project contains AI/LLM code. Every single line of code is done by contributors and me (@cuynu) without any AI/LLM assistance at all.
+
+- If you want to use Generative AI-tools / LLMs for contributing, please fork and do it yourself. We do not accept AI/LLM code in this project in anyway at all.
 
 ## Project history
 
@@ -212,6 +218,8 @@
 - 02/2026 : MB released `v6.4.85` with enhanced Singalarity eKYC detection (detects `data/adb/modules` and `com.rifsxd.ksunext`), so I created a patch that removed the check.
 
 - 03/2026 : After a long-term pain, Me (author of this project) finally find the right label for myself. This project turned me from just a YouTuber aka tinkerer to a developer who love to write code.
+
+shady part : this project used to contains llm generated code : `platform-tools.sh` but then removed completely, no other code is llm generated.
 </details>
 
 ## Building
