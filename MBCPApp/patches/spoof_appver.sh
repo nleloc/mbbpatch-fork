@@ -74,6 +74,9 @@ sed -i 's|6.4.49|6.4.49.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.48|6.4.48.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.47|6.4.47.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 
+
+sed -i 's|704|1000|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|712|1001|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|727|2000|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|729|2000|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|730|2001|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
