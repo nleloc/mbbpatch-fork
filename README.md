@@ -235,7 +235,7 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 - Alternatively, if you don't have access to both Telegram & Lotus Chat, download from [Google Play](https://play.google.com/store/apps/details?id=com.mbmobile) then extract the MB Bank apks and copy it to `~/mbbpatch/MBCPApp/mbapk` or get it [from my instance](http://cuynutt.ddns.net/mbcp/mbmobile-apks)
 - Convert apks to apk first using `3) Convert apks to apk` function
 - Unpack apk with `2) Unpack apk` function
-- Use `7) Patch App` function, it should show a list of patches, select the patch you wanted to and it will automatically patch the app at `mbapk/mbapk_original`
+- Use `7) Patch App` function, it should show a list of patches, select the patch you wanted to and it will automatically patch the app at `mbapk/mbapk_unpacked`
 - Note that the patches list might different, depends on your current unpacked MB Bank app version, as there will be a patch that compatible with specific version, for example patch [Bypass accessibility & malicious apps check] is compatible with v6.4.54, but not with v6.4.55 or newer, so if you have v6.4.55 or newer, then that patch will be hidden from patches list.
 - The patcher should show info to the log when use `7) Patch App` function if it found that the current unpacked app version is not compatible with one of implemented patches like this : 
 ```
@@ -287,25 +287,28 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 
 - This project does not accept any AI/LLM generated & assisted code. Any PR / work must be done by a human (it's okay with help from search engines like Google/DuckDuckGo/StartPage and sites like StackOverFlow, but no search from AI/LLMs)
 
-> Why not AI/LLM, isn't it good?
-> 
-> Me : Why would I use it if I can do write the code by myself? I might slower than AI/LLMs in coding, and more sucks than it, but I enjoy coding, it's my hobby, use LLMs will destroy the fun of coding. 
->
->  [See AI/LLM impact in Codeberg](https://codeberg.org/small-hack/open-slopware/src/branch/main#why-not-llms)
-
-- The development is done without any help from any kind of LLMs. There's `platform-tools.sh` (Gemini generated) mistakenly pushed to this repository in the past, but then deleted due to the file was too awful and I don't want to use LLMs anymore, all of other work is done by me and contributors (I reviewed fukiame's code carefully before merge it).
-
-> Personal situation : I used to use LLMs (Claude, Gemini) before for useless questions, but then stopped using it because it appears to unsuitable for me, it can take my critical thinking and coding skills away. 
+- The development is done without any help from any kind of LLMs for now. 
+- Exception : There's `platform-tools.sh` (Gemini generated) mistakenly pushed to this repository in the past, but then deleted due to that code was too awful and I don't want to use LLMs anymore.
+- All of other work is done by me and contributors without any help from AI/LLM (I reviewed fukiame's code carefully before merge it).
 
 - If you want to use Generative AI-tools / LLMs for this contributing code (or artwork) to project, please fork and do it yourself. We do not accept AI/LLM code in this project at all.
 
-## AI-tainted dependencies
+-  Why not AI/LLM, isn't it good?
+> 
+> [See AI/LLM impact in Codeberg (small-hack/open-slopware)](https://codeberg.org/small-hack/open-slopware/src/branch/main#why-not-llms)
+>
+> Personal situation : I used to use LLMs (Claude, Gemini) before for useless questions, and the last time is the generated the code `platform-tools.sh`, then stopped using it and nuked from repository because it appears to awful for me, it can take my critical thinking and coding skills away and that sucks.
+>
+> After that, I forced myself to code, learn using old fashioned docs, traditional search engine, and it makes me happy. The dopamine hit actually make sense of coding journey and I love it.
 
-> I am using vim (and maybe Android Studio in future) for the development of this project, it is already tainted with AI/LLM code, but I don't use any AI/LLM-powered features in it, I use it as normal editor/ide, and it still atleast provide me a environment for writing code just like before. I guess this is not avoidable anymore and I'm fine with it.
+## AI-tainted dependencies
 
 - Even though this project is NOT vibe-coded or AI/LLM-assisted, another dependencies that the project heavily rely on (APKEditor, apktool, etc) may already tainted with it. While I'm straightly disagree it, theres no escape for that in big 2026 (and also in few next years) so we have to accept the truth that some of dependencies the project depends on is tainted.
 
->  Project that depends on dependencies that is already tainted with AI/LLM, but is done by a human and NOT AI/LLM doesn't mean the project contains AI/LLM code. Every single line of code is done by contributors and me (@cuynu) without any AI/LLM assistance at all.
+- Project depends on dependencies that is already tainted with AI/LLM, but is done by a human and NOT AI/LLM doesn't mean the project contains AI/LLM code.
+
+> I am using `vim` (and Android Studio) for the development of this project, it is already tainted with some AI/LLM assisted code, but I don't use any AI/LLM-powered features in it, I use it as normal Text Editor/IDE, and it still provide me a environment for writing code just like before. I guess this is not avoidable anymore.
+
 
 ## Project history
 
