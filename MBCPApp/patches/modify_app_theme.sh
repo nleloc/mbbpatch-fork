@@ -238,7 +238,10 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     good "Applied [Tre Trung] theme."  
     ;;
   'Viet Nam')
-    [ ! -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo ] && err "This theme is only suitable for app with [tetbinhngo] theme. Current unpacked app does not have it!" && exit 1
+    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo ] && vn_binhngo || err "[tetbinhngo] theme not found! skipping..."
+    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong ] && vn_giaiphong || err "[giaiphong] theme not found! aborting..." && exit 1 
+    # v6.4.87 ~ v6.4.93
+    vn_binhngo() {
     info "Applying..."
     rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/*.webp
     rm -rf "$DIRPATH"/tmpvn
@@ -249,7 +252,24 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     rm -rf tmpvn
     rename png webp "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/*.png
     echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/vn_theme.inf"
-    good "Applied [Viet Nam] theme."    ;;
+    good "Applied [Viet Nam] theme."
+    }
+    # v6.4.98
+    vn_giaiphong() {
+    info "Applying..."
+    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong/*.webp
+    rm -rf "$DIRPATH"/tmpvn
+    mkdir "$DIRPATH"/tmpvn
+    git clone https://git.disroot.org/mbcp/mb-flutter-themes "$DIRPATH"/tmpvn
+    [ ! -d "$DIRPATH"/tmpvn/mbstore_theme_original/ ] && err "[mbstore_theme_original] folder not found in [tmpvn!] aborting..." && rm -rf tmpvn && exit 1 
+    mv tmpvn/mbstore_theme_original/tuhaovietnam/e0050e73-fc22-4ca8-b1eb-6672ab948c01/images/*.png "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong/
+    rm -rf tmpvn
+    rename png webp "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong/*.png
+    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/vn_theme.inf"
+    good "Applied [Viet Nam] theme." 
+    }
+    ;;
+
   'Exit') exit ;;
   esac
 done
