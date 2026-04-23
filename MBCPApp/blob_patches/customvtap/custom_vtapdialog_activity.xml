@@ -35,13 +35,6 @@
             android:layout_height="wrap_content"
             android:text="VUI LÒNG KIỂM TRA LẠI CÁC BƯỚC CÀI ĐẶT APP" />
         <Button
-            android:textColor="#ff6698ff"
-            android:tag="0"
-            android:visibility="visible"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="TRUY CẬP WEB SAU ĐỂ THỬ FIX : tinyurl.com/vtapfixvi" />
-        <Button
             android:textColor="#ffff0000"
             android:tag="0"
             android:visibility="visible"
