@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Fix outdated VTAP certificate
-# MAXVER:
+# MAXVER: 6.4.89
 # MINVER:
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
