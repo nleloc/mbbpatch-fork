@@ -5,6 +5,11 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
+# Version flag
+# [old] flag is used for discontinued version from MB
+# [legacy] flag is used for older app version, but not discontinued from MB
+# [mbcp] is the most recent active version.
+
 info "Spoofing app version..."
 
 # v6.5.x
@@ -14,41 +19,41 @@ sed -i 's|6.5.0|6.5.0.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.99|6.4.99.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.98|6.4.98.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.97|6.4.97.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.96|6.4.96.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.95|6.4.95.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.94|6.4.94.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.93|6.4.93.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.92|6.4.92.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.91|6.4.91.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.90|6.4.90.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.96|6.4.96.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.95|6.4.95.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.94|6.4.94.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.93|6.4.93.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.92|6.4.92.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.91|6.4.91.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.90|6.4.90.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 
 # v6.4.8x
-sed -i 's|6.4.89|6.4.89.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.88|6.4.88.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.87|6.4.87.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.86|6.4.86.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.85|6.4.85.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.84|6.4.84.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.83|6.4.83.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.82|6.4.82.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.81|6.4.81.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.80|6.4.80.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.89|6.4.89.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.88|6.4.88.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.87|6.4.87.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.86|6.4.86.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.85|6.4.85.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.84|6.4.84.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.83|6.4.83.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.82|6.4.82.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.81|6.4.81.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.80|6.4.80.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 
 # v6.4.7x
-sed -i 's|6.4.79|6.4.79.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.78|6.4.78.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.77|6.4.77.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.75|6.4.75.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.74|6.4.74.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.73|6.4.73.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.72|6.4.72.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.71|6.4.71.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.70|6.4.70.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.79|6.4.79.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.78|6.4.78.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.77|6.4.77.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.75|6.4.75.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.74|6.4.74.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.73|6.4.73.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.72|6.4.72.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.71|6.4.71.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.70|6.4.70.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 
 # v6.4.6x
-sed -i 's|6.4.69|6.4.69.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.68|6.4.68.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.67|6.4.67.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.69|6.4.69.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.68|6.4.68.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.67|6.4.67.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.66|6.4.66.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.65|6.4.65.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.64|6.4.64.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
