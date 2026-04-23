@@ -293,13 +293,13 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 
 - If you want to use Generative AI-tools / LLMs for this contributing code (or artwork) to project, please fork and do it yourself. We do not accept AI/LLM code in this project at all.
 
--  Why not AI/LLM, isn't it good?
+Why not AI/LLM, isn't it good?
 > 
 > [See AI/LLM impact in Codeberg (small-hack/open-slopware)](https://codeberg.org/small-hack/open-slopware/src/branch/main#why-not-llms)
 >
-> Personal situation : I used to use LLMs (Claude, Gemini) before for useless questions, and the last time is the generated the code `platform-tools.sh`, then stopped using it and nuked from repository because it appears to awful for me, it can take my critical thinking and coding skills away and that sucks.
+> Personal situation : I used to use LLMs (Claude, Gemini) before for useless questions, and the last time is the generated the code `platform-tools.sh`, then stopped using it and nuked from repository because it looks awful for me, it can take my critical thinking and coding skills away and that sucks. I do not want to use AI/LLMs anymore and the specially hate it from my mind, in the future of it may get better, but none of it can change my mind.
 >
-> After that, I forced myself to code, learn using old fashioned docs, traditional search engine, and it makes me happy. The dopamine hit actually make sense of coding journey and I love it.
+> After that, I forced myself to code, learn using old fashioned docs, traditional search engine, and it makes me happy. The dopamine hit actually make sense of coding and I love it.
 
 ## AI-tainted dependencies
 
