@@ -7,6 +7,7 @@
 
 warn "Source code for [app-debug.apk] are on [https://git.disroot.org/cuynu/ApkSignatureKillerEx]"
 warn "Ensure that you applied all patches you want, and then apply this as the last one!"
+warn "This patch does not work with v6.4.67+, it is still available in patch list for future fix. Do not use it unless you know what you are doing!"
 confirm "Are you sure you want to apply this patch?" || exit 69
 
 mkdir -p tools/bypass
