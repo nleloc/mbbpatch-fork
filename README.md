@@ -33,7 +33,8 @@
 - More information about GW934 measure :
 <details>
 
-- The `GW934` error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error : `Re-install app to continue using app.`. The other function (eg: DigitalOTP) that works without logging in still works.
+- The `GW934` error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error : `Re-install app to continue using app.`
+- The other function (eg: DigitalOTP) that works without logging in still works.
 
 </details>
 
@@ -100,9 +101,8 @@
 | `Custom VTAP screen` | Warn users about critical VTAP trigger error from app. | v6.4.53 ~ v6.4.97 |
 | `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. (limited features with v6.4.67+) | v6.4.0 ~ v6.4.97 |
 | `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.4.97 |
-| `Force portrait screen` | Force the screen always portrait on app, espcially when launching. | v6.4.0 ~ v6.4.97 |
-| `Fix outdated VTAP certificate` | Update new VTAP certificate for older app version, so it can work again in future | v6.4.67 ~ v6.4.90 |
-| `Remove MB AI Bullsh*t resources` | Remove the bullsh*t MB AI resources from app. Need to implement more in the future. | v6.4.74 ~ v6.4.97 |
+| `Force portrait screen` | Force the screen always portrait on app, especially when launching app. | v6.4.0 ~ v6.4.97 |
+| `Remove MB AI Bullsh*t resources` | Remove the bullsh*t MB AI resources from app. | v6.4.74 ~ v6.4.97 |
 | `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.4.97 |
 | `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.97 |
 | `Remove new zimperium check` | Remove the new Zimperium (ZDefend) root detection from app. Picked up from Legacy Patch. | v6.4.60 ~ v6.4.97 | 
@@ -115,7 +115,7 @@
 | `Remove VNPAY VMB20` | Remove the VNPAY Airplane related activities. | v6.4.55 ~ v6.4.97 |
 | `Restore old registration resources` | Restore old resources on `onboarding` page. | v6.4.48 ~ v6.4.97 |
 | `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted" (might have issues with some HyperOS ROMs). | v6.4.0 ~ v6.4.97 |
-| `Legacy hide VTAP activity & dialog` | Hide the first root detection screen with dialog showing "Device is rooted" but not bypassing it. (GW908 will present, unlike standard `Hide VTAP root detection activity & dialog` patch). Only use for some ugly ROMs which is crashing with standard patch. | v6.4.53 ~ v6.4.97 |
+| `Legacy hide VTAP activity & dialog` | Hide the first root detection screen with dialog showing "Device is rooted" but not bypassing it. (GW908 will still present, unlike standard `Hide VTAP root detection activity & dialog` patch). Only use for some ugly ROMs which is crashing with standard patch. | v6.4.53 ~ v6.4.97 |
 | `Remove protection shield` | Remove the MIC protection shield on profile picture and login screen. (not app protection) | v6.4.0 ~ v6.4.97 |
 | `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.4.97 |
 | `Set targetSdkVersion to 34` | Set the `targetSdkVersion` to 34 (Android 14) to prevent UI issues on some activities. | v6.4.10 ~ v6.4.97 |
@@ -127,13 +127,14 @@
 ## Old patches
 
 > [!IMPORTANT]
-> Following patches are no longer compatible with newer/current app version. It can't be fixed unless MB decompress the `libapp.so` (which will never happen) or until I find the method to decompress it manually.
+> Following patches are no longer compatible with newer/current app version.
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
 <details>
 
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
+| `Fix outdated VTAP certificate` | Update new VTAP certificate for older app version, so it can work again in future | v6.4.67 ~ v6.4.90 |
 | `Autopatch strings` | Modify the strings in-app within `libapp.so`, and also fixes some translation typo in-app. | v6.4.0 ~ v6.4.66 |
 | `Bypass GW934 checksum` | Bypass the GW934 error rolled-out from MB server-side which prevent MBCP users from logging in to app. Only use this after applied all your patch needs. | v6.4.64 ~ v6.4.66 |
 | `Remove custom profile picture` | Force the use of default profile picture instead of your current one on MB's server side. | v6.4.0 ~ v6.4.66 |
@@ -230,13 +231,6 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 
 ### Patch the app 
 
-> [!IMPORTANT]
-> If you are patching MB Bank with these version : 
-> 
-> MB Bank : v6.4.63 | v6.4.64 | v6.4.65 | v6.4.66
-> 
-> Ensure that you applied `Bypass GW934 checksum` patch after applied all other patches, so the app can works without GW934 error when logging in.
-
 - Grab MB Bank apks from [eMBee APKs](https://t.me/embeeapks) or [Lotus Chat](https://lotuschat.vn/w/+anSH1BbDbAYn54JC9nIC9A) (in case if you don't have access to Telegram) and copy it to `~/mbbpatch/MBCPApp/mbapk`
 - Alternatively, if you don't have access to both Telegram & Lotus Chat, download from [Google Play](https://play.google.com/store/apps/details?id=com.mbmobile) then extract the MB Bank apks and copy it to `~/mbbpatch/MBCPApp/mbapk` or get it [from my instance](http://cuynutt.ddns.net/mbcp/mbmobile-apks)
 - Convert apks to apk first using `3) Convert apks to apk` function
@@ -255,7 +249,7 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 - Exit patch app function with the exit option in the last patch list
 - Use `4) Repack APK` to repack patched app
 - What's next? wait :)
-- Patcher will repack the app, and then [restore signature]() to make sure that app can load, the example of nice repack process : 
+- Patcher will repack the app, and then restore signature to make sure that app can load, the example of good repack process : 
 ```
 00.000 I: [BUILD] Using: APKEditor version 1.4.5, ARSCLib version 1.3.8
             -t = sig                                     
@@ -272,7 +266,7 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 00.909 I: [BUILD] Saved to: mbcpapp_apk/MBCP_Flutter_SelfPatched.apk
 [19:45:55:70] [INFO] Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!
 [19:45:55:70] [INFO] Install and trying to open it when ಠ‿ಠ
-[19:45:55:70] [INFO] If you are facing issues, report it on Telegram [@mbbpatch_eng] or Disroot Forgejo : mbbpatch !!
+[19:45:55:70] [INFO] If you are facing issues, report it on Telegram [@mbcposs] or Disroot Forgejo : mbbpatch !!
 ```
 - Patched app will be `MBCP_Flutter_SelfPatched.apk` on `~/mbbpatch/MBCPApp/mbcpapp_apk/`
 - As this is unsigned app, Android will refuse to install `MBCP_Flutter_SelfPatched.apk` by default. In order to install it, you MUST use [CorePatch](https://github.com/LSPosed/CorePatch/releases) 
@@ -285,19 +279,33 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 
 ## Contributing
 
-- PR are welcome, but before submit, please ensure that it's your work, not AI/LLM work (not even assisted by AI/LLM).
+- PR are welcome, but before submit, please ensure that **it's your work**, not AI/LLM work (not even assisted by AI/LLM).
 
 - [Submit PR here](https://git.disroot.org/mbcp/mbbpatch/pulls)
 
-## AI/LLM code or NOT ?
+## AI/LLM Policy
 
-- Never, not even auto-complete LLM-powered suggestions.
+- This project does not accept any AI/LLM generated & assisted code. Any PR / work must be done by a human (it's okay with help from search engines like Google/DuckDuckGo/StartPage and sites like StackOverFlow, but no search from AI/LLMs)
 
-- Even though this project is NOT vibe-coded or AI/LLM-assisted, another dependencies that the project heavily rely on (APKEditor, coreutils, etc) may already tainted with it. While I'm straightly disagree it, theres no escape for that in big 2026 (and also in few next years) so we have to accept the truth that some of dependencies the project is tainted, but it doesn't mean I will code or put AI/LLM-assisted (or generated) code in this project at all. 
+> Why not AI/LLM, isn't it good?
+> 
+> Me : Why would I use it if I can do write the code by myself? I might slower than AI/LLMs in coding, and more sucks than it, but I enjoy coding, it's my hobby, use LLMs will destroy the fun of coding. 
+>
+>  [See AI/LLM impact in Codeberg](https://codeberg.org/small-hack/open-slopware/src/branch/main#why-not-llms)
 
-- Remember : Project may rely on dependencies that is already tainted with AI/LLM, but is written by a human and NOT AI/LLM doesn't mean the project contains AI/LLM code. Every single line of code is done by contributors and me (@cuynu) without any AI/LLM assistance at all.
+- The development is done without any help from any kind of LLMs. There's `platform-tools.sh` (Gemini generated) mistakenly pushed to this repository in the past, but then deleted due to the file was too awful and I don't want to use LLMs anymore, all of other work is done by me and contributors (I reviewed fukiame's code carefully before merge it).
 
-- If you want to use Generative AI-tools / LLMs for contributing, please fork and do it yourself. We do not accept AI/LLM code in this project in anyway at all.
+> Personal situation : I used to use LLMs (Claude, Gemini) before for useless questions, but then stopped using it because it appears to unsuitable for me, it can take my critical thinking and coding skills away. 
+
+- If you want to use Generative AI-tools / LLMs for this contributing code (or artwork) to project, please fork and do it yourself. We do not accept AI/LLM code in this project at all.
+
+## AI-tainted dependencies
+
+> I am using vim (and maybe Android Studio in future) for the development of this project, it is already tainted with AI/LLM code, but I don't use any AI/LLM-powered features in it, I use it as normal editor/ide, and it still atleast provide me a environment for writing code just like before. I guess this is not avoidable anymore and I'm fine with it.
+
+- Even though this project is NOT vibe-coded or AI/LLM-assisted, another dependencies that the project heavily rely on (APKEditor, apktool, etc) may already tainted with it. While I'm straightly disagree it, theres no escape for that in big 2026 (and also in few next years) so we have to accept the truth that some of dependencies the project depends on is tainted.
+
+>  Project that depends on dependencies that is already tainted with AI/LLM, but is done by a human and NOT AI/LLM doesn't mean the project contains AI/LLM code. Every single line of code is done by contributors and me (@cuynu) without any AI/LLM assistance at all.
 
 ## Project history
 
@@ -327,14 +335,15 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 
 - 02/2026 : MB released `v6.4.85` with enhanced Singalarity eKYC detection (detects `data/adb/modules` and `com.rifsxd.ksunext`), so I created a patch that removed the check.
 
-- 03/2026 : After a long-term pain, Me (author of this project) finally find the right label for myself. This project turned me from just a YouTuber aka tinkerer to a developer who love to write code.
+- 03/2026 : After a long-term pain, Me (author of this project) finally find the right label for myself. This project turned me from just a YouTuber aka tinkerer to a developer who love to writing code.
 
-shady part : this project used to contains llm generated code : `platform-tools.sh` but then removed completely, no other code is llm generated.
+- 04/2026 : MB discontinued all old active version (v6.4.67 ~ v6.4.91). The current minimum active version is (v6.4.92+). Users must update to newer app or repatch with newer version.
+
 </details>
 
 ## TODO
 
-- [ ] Bypass the new dex & libraries checksum for MB v6.4.67+ 
+- [ ] Bypass the new dex & libraries checksum for MB v6.4.92+ 
 
 - [ ] Crash fixes for `Hide VTAP root detection activity & dialog` patch (OEM ROMs)
 
