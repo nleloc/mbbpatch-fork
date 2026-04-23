@@ -287,7 +287,7 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 
 - This project does not accept any AI/LLM generated & assisted code. Any PR / work must be done by a human (it's okay with help from search engines like Google/DuckDuckGo/StartPage and sites like StackOverFlow, but no search from AI/LLMs)
 
-- The development is done without any help from any kind of LLMs for now. 
+- The development is done without any help from any kind of LLMs. 
 - Exception : There's `platform-tools.sh` (Gemini generated) mistakenly pushed to this repository in the past, but then deleted due to that code was too awful and I don't want to use LLMs anymore.
 - All of other work is done by me and contributors without any help from AI/LLM (I reviewed fukiame's code carefully before merge it).
 
