@@ -238,9 +238,7 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     good "Applied [Tre Trung] theme."  
     ;;
   'Viet Nam')
-    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo ] && vn_binhngo || err "[tetbinhngo] theme not found! skipping..."
-    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong ] && vn_giaiphong || err "[giaiphong] theme not found! aborting..." && exit 1 
-    # v6.4.87 ~ v6.4.93
+      # v6.4.87 ~ v6.4.93
     vn_binhngo() {
     info "Applying..."
     rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/*.webp
@@ -268,7 +266,9 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/vn_theme.inf"
     good "Applied [Viet Nam] theme." 
     }
-    ;;
+    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo ] && vn_binhngo || err "[tetbinhngo] theme not found! skipping..."
+    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong ] && vn_giaiphong || err "[giaiphong] theme not found! aborting..." || exit 1 
+      ;;
 
   'Exit') exit ;;
   esac
