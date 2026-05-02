@@ -299,6 +299,7 @@ do
     is_unpacked || exit 1
     isvcm1
     iszdefend
+    info "If you have v6.4.98 or newer, app resource extraction is no longer possible. Please use older version."
     info 'To extract encrypted assets [if current app has MBShield protection] you need rooted device'
     info 'And trigger a built-in app assets extraction !'
     echo -------------------------------------------
