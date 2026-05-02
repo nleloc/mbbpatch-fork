@@ -91,36 +91,36 @@
 
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
-| `Add verified badge` | Replaces the MIC protection shield with verified badge to make it looks more cute :3 | v6.4.0 ~ v6.4.97 |
-| `Adaptive launcher icon` | Adds the adaptive & themed icon support to the app. Thanks to @fukiame ! | v6.4.0 ~ v6.4.97 |
-| `Proper notification icon` | Temporary fixes for the app notification icon. Thanks to @fukiame ! | v6.4.0 ~ v6.4.97 |
-| `Block adjust volume on sEKYC` | Prevent the device volume from being adjusted when entering eKYC activity. | v6.4.0 ~ v6.4.97 |
-| `Better custom background screen` | Replace the preview custom background from awful to useful. | v6.4.84 ~ v6.4.97 |
-| `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.97 |
-| `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.4.97 |
-| `Custom VTAP screen` | Warn users about critical VTAP trigger error from app. | v6.4.53 ~ v6.4.97 |
-| `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. (limited features with v6.4.67+) | v6.4.0 ~ v6.4.97 |
-| `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.4.97 |
-| `Force portrait screen` | Force the screen always portrait on app, especially when launching app. | v6.4.0 ~ v6.4.97 |
-| `Remove MB AI Bullsh*t resources` | Remove the bullsh*t MB AI resources from app. | v6.4.74 ~ v6.4.97 |
-| `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.4.97 |
-| `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.97 |
-| `Remove new zimperium check` | Remove the new Zimperium (ZDefend) root detection from app. Picked up from Legacy Patch. | v6.4.60 ~ v6.4.97 | 
-| `Remove built-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.4.97 |
-| `Modify app theme` | Modify the built-in app theme from original one to other themes. | v6.4.30 ~ v6.4.97 |
-| `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.4.97 |
-| `Revert old eMBee logo` | Revert old eMBee logo, especially on product consultation options. | v6.4.53 ~ v6.4.97 |
-| `Remove useless libraries` | Remove the useless libraries from app, only for v6.4.67+ | v6.4.67 ~ v6.4.97 |
-| `Remove animated QR background` | Remove the animated QR background from bottom navigation bar and replace with white background. | v6.4.43 ~ v6.4.97 |
-| `Remove VNPAY VMB20` | Remove the VNPAY Airplane related activities. | v6.4.55 ~ v6.4.97 |
-| `Restore old registration resources` | Restore old resources on `onboarding` page. | v6.4.48 ~ v6.4.97 |
-| `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted" (might have issues with some HyperOS ROMs). | v6.4.0 ~ v6.4.97 |
-| `Legacy hide VTAP activity & dialog` | Hide the first root detection screen with dialog showing "Device is rooted" but not bypassing it. (GW908 will still present, unlike standard `Hide VTAP root detection activity & dialog` patch). Only use for some ugly ROMs which is crashing with standard patch. | v6.4.53 ~ v6.4.97 |
-| `Remove protection shield` | Remove the MIC protection shield on profile picture and login screen. (not app protection) | v6.4.0 ~ v6.4.97 |
-| `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.4.97 |
-| `Set targetSdkVersion to 34` | Set the `targetSdkVersion` to 34 (Android 14) to prevent UI issues on some activities. | v6.4.10 ~ v6.4.97 |
-| `Add modified resources` | Adds the specific strings for MBCP on eKYC phases, and modify the DigiBank logo. | v6.4.0 ~ v6.4.97 |
-| `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.4.97 |
+| `Add verified badge` | Replaces the MIC protection shield with verified badge to make it looks more cute :3 | v6.4.0 ~ v6.4.99 |
+| `Adaptive launcher icon` | Adds the adaptive & themed icon support to the app. Thanks to @fukiame ! | v6.4.0 ~ v6.4.99 |
+| `Proper notification icon` | Temporary fixes for the app notification icon. Thanks to @fukiame ! | v6.4.0 ~ v6.4.99 |
+| `Block adjust volume on sEKYC` | Prevent the device volume from being adjusted when entering eKYC activity. | v6.4.0 ~ v6.4.99 |
+| `Better custom background screen` | Replace the preview custom background from awful to useful. | v6.4.84 ~ v6.4.99 |
+| `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.99 |
+| `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.4.99 |
+| `Custom VTAP screen` | Warn users about critical VTAP trigger error from app. | v6.4.53 ~ v6.4.99 |
+| `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. (limited features with v6.4.67+) | v6.4.0 ~ v6.4.99 |
+| `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.4.99 |
+| `Force portrait screen` | Force the screen always portrait on app, especially when launching app. | v6.4.0 ~ v6.4.99 |
+| `Remove MB AI Bullsh*t resources` | Remove the bullsh*t MB AI resources from app. | v6.4.74 ~ v6.4.99 |
+| `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.4.99 |
+| `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.99 |
+| `Remove new zimperium check` | Remove the new Zimperium (ZDefend) root detection from app. Picked up from Legacy Patch. | v6.4.60 ~ v6.4.99 | 
+| `Remove built-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.4.99 |
+| `Modify app theme` | Modify the built-in app theme from original one to other themes. | v6.4.30 ~ v6.4.99 |
+| `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.4.99 |
+| `Revert old eMBee logo` | Revert old eMBee logo, especially on product consultation options. | v6.4.53 ~ v6.4.99 |
+| `Remove useless libraries` | Remove the useless libraries from app, only for v6.4.67+ | v6.4.67 ~ v6.4.99 |
+| `Remove animated QR background` | Remove the animated QR background from bottom navigation bar and replace with white background. | v6.4.43 ~ v6.4.99 |
+| `Remove VNPAY VMB20` | Remove the VNPAY Airplane related activities. | v6.4.55 ~ v6.4.99 |
+| `Restore old registration resources` | Restore old resources on `onboarding` page. | v6.4.48 ~ v6.4.99 |
+| `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted" (might have issues with some HyperOS ROMs). | v6.4.0 ~ v6.4.99 |
+| `Legacy hide VTAP activity & dialog` | Hide the first root detection screen with dialog showing "Device is rooted" but not bypassing it. (GW908 will still present, unlike standard `Hide VTAP root detection activity & dialog` patch). Only use for some ugly ROMs which is crashing with standard patch. | v6.4.53 ~ v6.4.99 |
+| `Remove protection shield` | Remove the MIC protection shield on profile picture and login screen. (not app protection) | v6.4.0 ~ v6.4.99 |
+| `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.4.99 |
+| `Set targetSdkVersion to 34` | Set the `targetSdkVersion` to 34 (Android 14) to prevent UI issues on some activities. | v6.4.10 ~ v6.4.99 |
+| `Add modified resources` | Adds the specific strings for MBCP on eKYC phases, and modify the DigiBank logo. | v6.4.0 ~ v6.4.99 |
+| `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.4.99 |
 
 </details>
 
