@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Remove invoke to mbshield
-# MAXVER:
+# MAXVER: 6.4.66
 # MINVER: 6.4.21
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
