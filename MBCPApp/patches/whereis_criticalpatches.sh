@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PATCHNAME: Where is VTAP & Zimperium bypass ? 
+# PATCHNAME: Where is VTAP & Zimperium bypass
 # MAXVER:
 # MINVER:
 # shellcheck disable=SC1091
