@@ -22,3 +22,5 @@ rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/img
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/background/sub_bg_hoiVien.webp'
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/moneyChat_img*.webp'
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/background_moneyChat_base.webp'
+# metro qr bg
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/lottie/qr_bg_metro.json'
