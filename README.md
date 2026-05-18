@@ -99,6 +99,7 @@
 | `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.99 |
 | `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.4.99 |
 | `Custom VTAP screen` | Warn users about critical VTAP trigger error from app. | v6.4.53 ~ v6.4.99 |
+| `Custom sub-badge` | Replace original animated promotion badge with static badge for Basic users | v6.4.44 ~ v6.5.1 |
 | `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. (limited features with v6.4.67+) | v6.4.0 ~ v6.4.99 |
 | `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.4.99 |
 | `Force portrait screen` | Force the screen always portrait on app, especially when launching app. | v6.4.0 ~ v6.4.99 |
