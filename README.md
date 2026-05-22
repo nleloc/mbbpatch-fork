@@ -1,6 +1,6 @@
 # MBCPApp Patcher for MB Bank (Android)
 
-**AI-free, human-written** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with built-in CorePatch). primarily written in Bash, made possible by @cuynu and community in Vietnam.
+**AI-free, human-written** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with built-in CorePatch). primarily written in Bash, made possible by @cuynu with love and community in Vietnam.
 
 <img alt="Gitea Release" src="https://img.shields.io/gitea/v/release/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&include_prereleases&display_name=tag&style=for-the-badge&logo=android&label=Latest%20Pre-built%20MBCP%20&color=%23CC6699">
 
@@ -14,29 +14,19 @@
 - Licensed as MIT License.
 
 > [!IMPORTANT]
-> As of new State of Bank regulations, this project now targets with the aim to gain back freedom for power users and developers who wanted to use rooted device as main device but wanted to use the app normally. 
-> 
->
 > We spend efforts and times for finding the method and make this project. Of course, it's not for scammer, it's for **power users and developers only**.
 >
 > Older releases (v6.4.90 or older) has mismatch commit ID with this new repo, for reference to the exactly same commit, see [MBCP_VersionReference.md](MBCP_VersionReference.md) in repository.
 
 ## Introduction
+
+> Fact : MBCP / MBZDefend-Fix is my "hobby project", I maintain it in my free times :>
+
 - Note : "MBCP" / "MBCPApp" = "MBBank CorePatch"
 - MBCP is inspired from [CorePatch](https://github.com/LSPosed/CorePatch) project. Now it can works with [PMPatch](https://github.com/vova7878-modules/PMPatch) too
 - This project was made to remove or limit annoying features & root detection & accessibility detection that is implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability, device font, etc (see more in patches list). **It's not PoC (Proof of Concept) project at all.**
 - [MBCP](https://t.me/mbcposs) are closed source before, and many people don't like it and concern with privacy & security issues
 - In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment. All MBCP releases from v6.4.47+ are all built with this open source project with the commit ID at the end of the file name.
-
-## Current situation
-
-- More information about GW934 measure :
-<details>
-
-- The `GW934` error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error : `Re-install app to continue using app.`
-- The other function (eg: DigitalOTP) that works without logging in still works.
-
-</details>
 
 ## DISCLAIMER
 - I'm not responsible if someone abuse this patch to do illegal things, since it's originally made for power users and developers only.
@@ -60,29 +50,6 @@
 
 ## Patches list :
 
-- Important notice (must read!) : 
-
-<details>
-
-> [!IMPORTANT]
-> Following patches can be applied for current/newer app version, but the app will refuse to login with `GW934` error :
-> - Remove invoke to mbshield
-> 
-> - Block adjust volume on sEKYC
-> 
-> - Remove new zimperium check
->
-> - Hide VTAP root detection activity & dialog
->
-> It used to works with v6.4.62 and lower (v6.4.63 up to v6.4.66 with workaround).
->
-> Dex and libraries checksum when logging in seems to be added since v6.4.63+, and is likely implemented from the library side.
->
-> At this point, the workaround for it is still unknown :(
->
-> Except for testing, mentioned patches shouldn't be used for any normal use cases. So for now, avoid it when patching app. 
-> 
-
 </details>
 
 ### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
@@ -91,37 +58,37 @@
 
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
-| `Add verified badge` | Replaces the MIC protection shield with verified badge to make it looks more cute :3 | v6.4.0 ~ v6.4.99 |
-| `Adaptive launcher icon` | Adds the adaptive & themed icon support to the app. Thanks to @fukiame ! | v6.4.0 ~ v6.4.99 |
-| `Proper notification icon` | Temporary fixes for the app notification icon. Thanks to @fukiame ! | v6.4.0 ~ v6.4.99 |
-| `Block adjust volume on sEKYC` | Prevent the device volume from being adjusted when entering eKYC activity. | v6.4.0 ~ v6.4.99 |
-| `Better custom background screen` | Replace the preview custom background from awful to useful. | v6.4.84 ~ v6.4.99 |
-| `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.4.99 |
-| `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.4.99 |
-| `Custom VTAP screen` | Warn users about critical VTAP trigger error from app. | v6.4.53 ~ v6.4.99 |
-| `Custom sub-badge` | Replace original animated promotion badge with static badge for Basic users | v6.4.44 ~ v6.5.1 |
-| `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. (limited features with v6.4.67+) | v6.4.0 ~ v6.4.99 |
-| `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.4.99 |
-| `Force portrait screen` | Force the screen always portrait on app, especially when launching app. | v6.4.0 ~ v6.4.99 |
-| `Remove MB AI Bullsh*t resources` | Remove the bullsh*t MB AI resources from app. | v6.4.74 ~ v6.4.99 |
-| `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.4.99 |
-| `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only | v6.4.22 ~ v6.4.99 |
-| `Remove new zimperium check` | Remove the new Zimperium (ZDefend) root detection from app. Picked up from Legacy Patch. | v6.4.60 ~ v6.4.99 | 
-| `Remove built-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.4.99 |
-| `Modify app theme` | Modify the built-in app theme from original one to other themes. | v6.4.30 ~ v6.4.99 |
-| `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.4.99 |
-| `Revert old eMBee logo` | Revert old eMBee logo, especially on product consultation options. | v6.4.53 ~ v6.4.99 |
-| `Remove useless libraries` | Remove the useless libraries from app, only for v6.4.67+ | v6.4.67 ~ v6.4.99 |
-| `Remove animated QR background` | Remove the animated QR background from bottom navigation bar and replace with white background. | v6.4.43 ~ v6.4.99 |
-| `Remove VNPAY VMB20` | Remove the VNPAY Airplane related activities. | v6.4.55 ~ v6.4.99 |
-| `Restore old registration resources` | Restore old resources on `onboarding` page. | v6.4.48 ~ v6.4.99 |
-| `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted" (might have issues with some HyperOS ROMs). | v6.4.0 ~ v6.4.99 |
-| `Legacy hide VTAP activity & dialog` | Hide the first root detection screen with dialog showing "Device is rooted" but not bypassing it. (GW908 will still present, unlike standard `Hide VTAP root detection activity & dialog` patch). Only use for some ugly ROMs which is crashing with standard patch. | v6.4.53 ~ v6.4.99 |
-| `Remove protection shield` | Remove the MIC protection shield on profile picture and login screen. (not app protection) | v6.4.0 ~ v6.4.99 |
-| `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.4.99 |
-| `Set targetSdkVersion to 34` | Set the `targetSdkVersion` to 34 (Android 14) to prevent UI issues on some activities. | v6.4.10 ~ v6.4.99 |
-| `Add modified resources` | Adds the specific strings for MBCP on eKYC phases, and modify the DigiBank logo. | v6.4.0 ~ v6.4.99 |
-| `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.4.99 |
+| `Add verified badge` | Replaces the MIC protection shield with verified badge to make it looks more cute :3 | v6.4.0 ~ v6.5.2 |
+| `Adaptive launcher icon` | Adds the adaptive & themed icon support to the app. Thanks to @fukiame ! | v6.4.0 ~ v6.5.2 |
+| `Proper notification icon` | Temporary fixes for the app notification icon. Thanks to @fukiame ! | v6.4.0 ~ v6.5.2 |
+| `Block adjust volume on sEKYC` | Prevent the device volume from being adjusted when entering eKYC activity. (Hidden for v6.4.67+) | v6.4.0 ~ v6.5.2 |
+| `Better custom background screen` | Replace the preview custom background from awful to useful. | v6.4.84 ~ v6.5.2 |
+| `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.5.2 |
+| `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.5.2 |
+| `Custom VTAP screen` | Warn users about critical VTAP trigger error from app. | v6.4.53 ~ v6.5.2 |
+| `Custom sub-badge` | Replace original animated promotion badge with static badge for Basic users | v6.4.44 ~ v6.5.2 |
+| `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. (limited features with v6.4.67+) | v6.4.0 ~ v6.5.2 |
+| `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.5.2 |
+| `Force portrait screen` | Force the screen always portrait on app, especially when launching app. | v6.4.0 ~ v6.5.2 |
+| `Remove MB AI Bullsh*t resources` | Remove the bullsh*t MB AI resources from app. | v6.4.74 ~ v6.5.2 |
+| `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.5.2 |
+| `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only (Hidden for v6.4.67+) | v6.4.22 ~ v6.5.2 |
+| `Remove new zimperium check` | Remove the new Zimperium (ZDefend) root detection from app. Picked up from Legacy Patch. (Hidden for v6.4.67+) | v6.4.60 ~ v6.5.2 | 
+| `Remove built-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.5.2 |
+| `Modify app theme` | Modify the built-in app theme from original one to other themes. | v6.4.30 ~ v6.5.2 |
+| `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.5.2 |
+| `Revert old eMBee logo` | Revert old eMBee logo, especially on product consultation options. | v6.4.53 ~ v6.5.2 |
+| `Remove useless libraries` | Remove the useless libraries from app, only for v6.4.67+ | v6.4.67 ~ v6.5.2 |
+| `Remove animated QR background` | Remove the animated QR background from bottom navigation bar and replace with white background. | v6.4.43 ~ v6.5.2 |
+| `Remove VNPAY VMB20` | Remove the VNPAY Airplane related activities. | v6.4.55 ~ v6.5.2 |
+| `Restore old registration resources` | Restore old resources on `onboarding` page. | v6.4.48 ~ v6.5.2 |
+| `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted" (might have issues with some HyperOS ROMs). (Hidden for v6.4.67+) | v6.4.0 ~ v6.5.2 |
+| `Legacy hide VTAP activity & dialog` | Hide the first root detection screen with dialog showing "Device is rooted" but not bypassing it. (GW908 will still present, unlike standard `Hide VTAP root detection activity & dialog` patch). Only use for some ugly ROMs which is crashing with standard patch. (Hidden for v6.4.67+) | v6.4.53 ~ v6.5.2 |
+| `Remove protection shield` | Remove the MIC protection shield on profile picture and login screen. (not app protection) | v6.4.0 ~ v6.5.2 |
+| `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.5.2 |
+| `Set targetSdkVersion to 34` | Set the `targetSdkVersion` to 34 (Android 14) to prevent UI issues on some activities. | v6.4.10 ~ v6.5.2 |
+| `Add modified resources` | Adds the specific strings for MBCP on eKYC phases, and modify the DigiBank logo. | v6.4.0 ~ v6.5.2 |
+| `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.5.2 |
 
 </details>
 
@@ -313,6 +280,8 @@ Why not AI/LLM, isn't it good?
 
 ## Project history
 
+Early note : When I created @mbbmod channel back in 2023, no one knows it for months, until september, I did not promote or tell to anyone, it is public link and people accidentlly found it.
+
 <details>
 
 - 05/2023 : MB Bank MOD APK ANDROID project created on Telegram (@mbbmod), providing modified MB Bank APKs since v5.8 with a lot of features such as bypassing accessibility check and show a guide to hide root instead of show rooted screen then close the app.
@@ -347,6 +316,8 @@ Why not AI/LLM, isn't it good?
 
 ## TODO
 
+- [ ] Native library for more bypasses
+
 - [ ] Bypass the new dex & libraries checksum for MB v6.4.92+ 
 
 - [ ] Crash fixes for `Hide VTAP root detection activity & dialog` patch (OEM ROMs)
@@ -358,6 +329,16 @@ Why not AI/LLM, isn't it good?
 - [x] Adapt new v6.4.67 zimperium structure
 
 - [x] Adapt new v6.4.68 trungthu theme
+
+## Old measure
+
+- More information about GW934 measure :
+<details>
+
+- The `GW934` error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error : `Re-install app to continue using app.`
+- The other function (eg: DigitalOTP) that works without logging in still works.
+
+</details>
 
 ## Credits
 - [apktool](https://github.com/iBotPeaches/Apktool)
