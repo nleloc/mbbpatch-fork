@@ -126,9 +126,11 @@ copyHash() {
     # dex files
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex1_sum && good "Success dump sha256 dex1 hash to [mbapk/original_hash]!"
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes2.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex2_sum && good "Success dump sha256 dex2 hash to [mbapk/original_hash] !"
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes3.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex3_sum && good "Success dump sha256 dex3 hash to [mbapk/original_hash ]!"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes3.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex3_sum && good "Success dump sha256 dex3 hash to [mbapk/original_hash]!"
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes4.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex4_sum && good "Success dump sha256 dex4 hash to [mbapk/original_hash] !"
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes5.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex5_sum && good "Success dump sha256 dex5 hash to [mbapk_original_hash] !"
+    # dex6 for v6.5.2+
+    [ -f 'mbapk/mbapk_unpacked/.cache/classes6.dex' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes6.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex6_sum && good "Success dump sha256 dex6 hash to [mbapk/original_hash] !"
     info "Copying hashes to app assets"
     cp -r "$DIRPATH"/mbapk/original_hash "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/ && good "Success copy hashes to app assets!"
 }
