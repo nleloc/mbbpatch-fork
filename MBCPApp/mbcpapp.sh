@@ -122,13 +122,13 @@ copyHash() {
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbshield.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libmbshield_armv7a_sum && good "Success dump sha256 libmbshield (armv7a) hash to [mbapk/original_hash] !"
     # zimperium
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_arm64_sum && good "Success dump sha256 zimperium (arm64) hash to [mbapk/original_hash] !"
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_armv7_sum && good "Success dump sha256 zimperium (armv7a) hash to [mbapk/original_hasg] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_armv7_sum && good "Success dump sha256 zimperium (armv7a) hash to [mbapk/original_hash] !"
     # dex files
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex1_sum && good "Success dump sha256 dex1 hash to [mbapk/original_hash]!"
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes2.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex2_sum && good "Success dump sha256 dex2 hash to [mbapk/original_hash] !"
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes3.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex3_sum && good "Success dump sha256 dex3 hash to [mbapk/original_hash ]!"
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes4.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex4_sum && good "Success dump sha256 dex4 hash to [mbapk/original_hash] !"
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes5.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex5_sum && good "Success dump sha256 dex5 hash to [mbapk_original_hasj] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes5.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex5_sum && good "Success dump sha256 dex5 hash to [mbapk_original_hash] !"
 }
 
 unpack_mbcp() {
