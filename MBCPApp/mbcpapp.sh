@@ -425,6 +425,7 @@ done
             rm -f mbapk/*.apk
             rm -f mbapk/*.apks
             rm -rf mbapk/mbapk_unpacked
+            rm -rf mbapk/original_hash
             info "Cleared !"
         ;;
         'Install patched app' )
