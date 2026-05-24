@@ -110,12 +110,34 @@ mb_apk_exist() {
     }
 }
 
+# gw934 check sha256 hash of libraries and dex files
+copyHash() {
+    info "Dumping libraries & dex sha256 hash..."
+    mkdir -p "$DIRPATH"/mbapk/original_hash
+    # libapp flutter
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libapp_arm64_sum && good "Success dump sha256 libapp (arm64) hash to [mbapk/original_hash] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libapp.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libapp_armv7a_sum && good "Success dump sha256 libapp (armv7a) hash to [mbapk/original_hash] !"
+    # mbshield
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbshield.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libmbshield_arm64_sum && good "Success dump sha256 libmbshield (arm64) hash to [mbapk/original_hash] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbshield.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libmbshield_armv7a_sum && good "Success dump sha256 libmbshield (armv7a) hash to [mbapk/original_hash] !"
+    # zimperium
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_arm64_sum && good "Success dump sha256 zimperium (arm64) hash to [mbapk/original_hash] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_armv7_sum && good "Success dump sha256 zimperium (armv7a) hash to [mbapk/original_hasg] !"
+    # dex files
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex1_sum && good "Success dump sha256 dex1 hash to [mbapk/original_hash]!"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes2.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex2_sum && good "Success dump sha256 dex2 hash to [mbapk/original_hash] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes3.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex3_sum && good "Success dump sha256 dex3 hash to [mbapk/original_hash ]!"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes4.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex4_sum && good "Success dump sha256 dex4 hash to [mbapk/original_hash] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes5.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex5_sum && good "Success dump sha256 dex5 hash to [mbapk_original_hasj] !"
+}
+
 unpack_mbcp() {
     [[ $(uname -a | grep Linux) ]] && local - ; set -e
     { apkeditor_exist && mb_apk_exist ; } || return 0
     rm -rf 'mbapk/mbapk_unpacked'
     rm -rf 'mbapk/*.apks'
     rm -rf 'mbapk/*merged.apk'
+    rm -rf 'mbapk/original_hash'
     java -jar tools/apkeditor.jar d -i mbapk/*.apk -o mbapk/mbapk_unpacked || { err "Unpacking failed !" ; return 1 ; }
     touch 'mbapk/mbapk_unpacked/isreal_unpacked'
     unzip -l mbapk/MBOriginal.apk | grep -oH "flutter_assets" > /dev/null 2>&1 && good "Current app is Flutter!" || { err "Current converted app is not Flutter, or too outdated, cannot continue! Deleting files..." ; rm -rf mbapk/* ; return 1 ;
@@ -203,6 +225,7 @@ unpack_mbcp() {
 
     info "Changing minSdkVersion to 28..."
     sed -i 's|android:minSdkVersion="24"|android:minSdkVersion="28"|g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml 
+    copyHash
 }
 
 repack_mbcp() {
