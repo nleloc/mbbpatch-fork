@@ -5,21 +5,6 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
-# Block forced update dialog (does not bypasses GW525)
-sed_libapp 's|version_check_update_config|version_nonapp_check_config'
-sed_libapp 's|currentVersion|currentMBdevsa'
-sed_libapp 's|minVersion|MBDEVSUCKS'
-
-# Bypass blacklist IP hashes
-sed_libapp 's|list_blocked_ip_hash|list_ip_blocked_hash'
-
-# Bypass malicious apps check
-sed_libapp 's|whitelistServices|Servicewhitelist'
-
-# XPE003 error fixes
-sed_libapp 's|isEnableTimeout|isEnableLockout'
-sed_libapp 's|zdefend_config|fua0am0_config'
-
 # App update button url
 sed_libapp 's|market://details?id=com.mbmobile|https://tinyurl.com/mbcpupdate??|'
 # Facebook button url
@@ -177,8 +162,9 @@ sed_libapp 's|Account Balance|Account balance|g'
 sed_libapp 's|Set as Default Account|Set as default account|g'
 
 # App log header info (client.log)
+# Spoof app version patch already spoofed with (_mbcp) suffix.
 #sed_libapp 's|productionrn|mbcpreleases|g'
-sed_libapp 's|Open app MBCPApp|Open app MB Bank|g'
+#sed_libapp 's|Open app MBCPApp|Open app MB Bank|g'
 
 # Wallet (Link management)
 sed_libapp 's|Link Management|Link management|'

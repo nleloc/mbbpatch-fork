@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # PATCHNAME: Block adjust volume on sEKYC
-# MAXVER: 6.4.66
+# MAXVER:
 # MINVER:
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh

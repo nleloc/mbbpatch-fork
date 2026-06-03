@@ -104,6 +104,10 @@
 |:--------:|:--------------:|:-----------------:|
 | `Fix outdated VTAP certificate` | Update new VTAP certificate for older app version, so it can work again in future | v6.4.67 ~ v6.4.90 |
 | `Autopatch strings` | Modify the strings in-app within `libapp.so`, and also fixes some translation typo in-app. | v6.4.0 ~ v6.4.66 |
+| `Bypass blacklist IP hashes` | Bypass the block list of some IP hashes. | v6.4.50 ~ v6.4.66 |
+| `Bypass forced update dialog` | Bypass forced update dialog from app. | v6.4.0 ~ v6.4.66 |
+| `Bypass malicious app check` | Bypass malicious app check from app. | v6.4.10 ~ v6.4.66 |
+| `XPE003 Fix` | Fix XPE003 issues when use bypass zimperium patch. | v6.4.56 ~ v6.4.66 |
 | `Bypass GW934 checksum` | Bypass the GW934 error rolled-out from MB server-side which prevent MBCP users from logging in to app. Only use this after applied all your patch needs. | v6.4.64 ~ v6.4.66 |
 | `Remove custom profile picture` | Force the use of default profile picture instead of your current one on MB's server side. | v6.4.0 ~ v6.4.66 |
 | `Restore old 682 lib` | Restore old v6.4.61 `libapp.so` to prevent enforced `quockhanh` theme changes on v6.4.62. | v6.4.62 |
