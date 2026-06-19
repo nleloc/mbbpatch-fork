@@ -38,7 +38,7 @@
 ## Requirements & Building
 
 - Any actual Linux environment or macOS (Arch Linux based recommended)
-- Knowledge about terminal commands
+- Little knowledge about terminal commands
 - `android-tools` `wget` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based
 - `android-platform-tools` for macOS with brew
 - `git` installed
@@ -312,6 +312,8 @@ Early note : When I created @mbbmod channel back in 2023, no one knows it for mo
 
 - 02/2026 : MB released `v6.4.85` with enhanced Singalarity eKYC detection (detects `data/adb/modules` and `com.rifsxd.ksunext`), so I created a patch that removed the check.
 
+- 03/2026 : After a long-term pain, Me (author of this project) finally find the right label for myself. This project turned me from just a YouTuber aka tinkerer to a developer who love to writing code.
+
 - 04/2026 : MB discontinued all old active version (v6.4.67 ~ v6.4.91). The current minimum active version is (v6.4.92+). Users must update to newer app or repatch with newer version.
 
 </details>
@@ -350,6 +352,6 @@ Early note : When I created @mbbmod channel back in 2023, no one knows it for mo
 - [FlatIcon](https://flaticon.com) for some icons, including search icon, verified badge
 
 ## Contributors
-- [Cuynu](/cuynu) - maintainer
+- [Cuynu](/cuynu) - developer (also [youtuber](https://youtube.com/@cuynu))
 - [fukiame](/fukiame) - refactor & other improvements - contributor
 - [Ngankbakaa](https://github.com/miyukocutee) - contributor
