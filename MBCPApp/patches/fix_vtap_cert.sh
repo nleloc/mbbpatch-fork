@@ -27,13 +27,11 @@ mkdir -p "$DIRPATH"/fixcert/
 
 [ ! -f "$DIRPATH"/fixcert/firmware ] && nofwfound
 
-[ ! -f "$DIRPATH"/fixcert/profile ] && nofwfound
-
 # fw
 cp -f "$DIRPATH"/fixcert/firmware "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/
 
 # profile
-cp -f "$DIRPATH"/fixcert/profile "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/
+[ -f "$DIRPATH"/fixcert/profile ] && cp -f "$DIRPATH"/fixcert/profile "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/
 
 info "Remove [firmware] and [profile] file from [/data/data/com.mbmobile/files] or clear app data"
 info "If the app still keep crashing or throwing expired certificate screen or the detection is still the same."
