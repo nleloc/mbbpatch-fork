@@ -70,7 +70,7 @@
 | `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. (limited features with v6.4.67+) | v6.4.0 ~ v6.5.2 |
 | `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.5.2 |
 | `Force portrait screen` | Force the screen always portrait on app, especially when launching app. | v6.4.0 ~ v6.5.2 |
-| `Remove MB AI Bullsh*t resources` | Remove the bullsh*t MB AI resources from app. | v6.4.74 ~ v6.5.2 |
+| `Remove MB AI Slop resources` | Remove the MB AI slop resources from app. | v6.4.74 ~ v6.5.2 |
 | `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.5.2 |
 | `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only (Hidden for v6.4.67+) | v6.4.22 ~ v6.5.2 |
 | `Remove new zimperium check` | Remove the new Zimperium (ZDefend) root detection from app. Picked up from Legacy Patch. (Hidden for v6.4.67+) | v6.4.60 ~ v6.5.2 | 

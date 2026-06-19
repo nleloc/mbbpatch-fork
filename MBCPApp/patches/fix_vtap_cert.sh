@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# PATCHNAME: Fix VTAP certificate
-# MAXVER:
+# PATCHNAME: Fix outdated VTAP certificate
+# MAXVER: 6.4.89
 # MINVER:
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
@@ -17,9 +17,8 @@ info "Not needed for newer app version (like v6.4.94)"
 nofwfound() {
 	err "no VTAP firmware in [fixcert] folder found!"
 	info "copy [firmware] and [profile] file to [fixcert] folder to continue."
-	info "[firmware] and [profile] can be found in [assets], please find from newer or older app."
-	info "recommended app : v6.4.94 for fixing v6.4.67 ~ v6.4.91"
-	info "and v6.4.75 for v6.4.92+ for revert old detection behavior."
+	info "[firmware] and [profile] can be found in [assets], please find from newer app."
+	info "recommended app : v6.4.94"
 	exit 1
 }
 
@@ -36,4 +35,4 @@ cp -f "$DIRPATH"/fixcert/firmware "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/
 cp -f "$DIRPATH"/fixcert/profile "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/
 
 info "Remove [firmware] and [profile] file from [/data/data/com.mbmobile/files] or clear app data"
-info "If the app still keep crashing or throwing expired certificate screen or the detection is still the same."
+info "If the app still keep crashing or throwing expired certificate screen."
