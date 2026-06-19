@@ -74,4 +74,4 @@ cp -f 'blob_patches/searchicon/search.png' 'mbapk/mbapk_unpacked/root/assets/flu
 
 # Adapt with more new AI slop icons (v6.5.x)
 rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_camera.webp'
-rm -rf 'mbapk/mbapk_unpakced/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_photo.webp'
+rm -rf 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/mbai_img_photo.webp'
