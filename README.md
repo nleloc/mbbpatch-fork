@@ -70,6 +70,7 @@
 | `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. (limited features with v6.4.67+) | v6.4.0 ~ v6.5.5 |
 | `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.5.5 |
 | `Force portrait screen` | Force the screen always portrait on app, especially when launching app. | v6.4.0 ~ v6.5.5 |
+| `Fix VTAP certificate` | Update or downgrade VTAP certificate for older/newer app version, so it can work again in future. | v6.4.67 ~ v6.5.5 |
 | `Remove MB AI Slop resources` | Remove the MB AI slop resources from app. | v6.4.74 ~ v6.5.5 |
 | `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.5.5 |
 | `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only (Hidden for v6.4.67+) | v6.4.22 ~ v6.5.5 |
@@ -102,7 +103,6 @@
 
 | ⚙️ Patch | 📜 Description | 🏦 Suggested version |
 |:--------:|:--------------:|:-----------------:|
-| `Fix outdated VTAP certificate` | Update new VTAP certificate for older app version, so it can work again in future | v6.4.67 ~ v6.4.90 |
 | `Autopatch strings` | Modify the strings in-app within `libapp.so`, and also fixes some translation typo in-app. | v6.4.0 ~ v6.4.66 |
 | `Bypass blacklist IP hashes` | Bypass the block list of some IP hashes. | v6.4.50 ~ v6.4.66 |
 | `Bypass forced update dialog` | Bypass forced update dialog from app. | v6.4.0 ~ v6.4.66 |
