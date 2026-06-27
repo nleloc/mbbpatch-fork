@@ -147,7 +147,7 @@ unpack_mbcp() {
     unzip -l mbapk/MBOriginal.apk | grep -oH "flutter_assets" > /dev/null 2>&1 && good "Current app is Flutter!" || { err "Current converted app is not Flutter, or too outdated, cannot continue! Deleting files..." ; rm -rf mbapk/* ; return 1 ;
     } 
     unzip -l mbapk/MBOriginal.apk | grep -oH "ic-appmb.ttf" > /dev/null 2>&1 && good "Current converted app is MBBank! Continuing" || { err "Current converted app is NOT MBBank! Deleting files..." ; rm -rf mbapk/* ; return 1 ; }
-    info "Cleaning useless files..."
+    info "Removing local zimperium detection models..."
     rm -rf 'mbapk/mbapk_unpacked/root/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/2GcdAWdkXGgxPfHSIhzLkrkf2LU6Z_cuZfUWnczoEHw_'
