@@ -117,12 +117,25 @@ copyHash() {
     # libapp flutter
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libapp_arm64_sum && good "Success dump sha256 libapp (arm64) hash to [mbapk/original_hash] !"
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libapp.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libapp_armv7a_sum && good "Success dump sha256 libapp (armv7a) hash to [mbapk/original_hash] !"
-    # mbshield
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbshield.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libmbshield_arm64_sum && good "Success dump sha256 libmbshield (arm64) hash to [mbapk/original_hash] !"
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbshield.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libmbshield_armv7a_sum && good "Success dump sha256 libmbshield (armv7a) hash to [mbapk/original_hash] !"
-    # zimperium
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_arm64_sum && good "Success dump sha256 zimperium (arm64) hash to [mbapk/original_hash] !"
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_armv7_sum && good "Success dump sha256 zimperium (armv7a) hash to [mbapk/original_hash] !"
+
+    # mbshield (zShield) 
+    # exist in MB v6.4.22 ~ v6.5.6 (except v6.4.45 versionCode 658)
+    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbshield.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbshield.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libmbshield_arm64_sum && good "Success dump sha256 libmbshield (arm64) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbshield.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbshield.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libmbshield_armv7a_sum && good "Success dump sha256 libmbshield (armv7a) hash to [mbapk/original_hash] !"
+
+    # new zshield + zdefend (v6.5.7+)
+    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libempirememorial.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libempirememorial.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libempirememorial_arm64_sum && good "Success dump sha256 libempirememorial (arm64) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libempirememorial.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libempirememorial.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libempirememorial_armv7a_sum && good "Success dump sha256 libempirememorial (armv7a) hash to [mbapk/original_hash] !"
+    
+    # built in flutter zdefend plugin lib call, it might call to libempirememorial.so
+    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libcode_arm64_sum && good "Success dump sha256 libcode (arm64) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libcode.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libcode.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libcode_armv7a_sum && good "Success dump sha256 libcode (armv7a) hash to [mbapk/original_hash]"
+
+    # old zimperium zdefend
+    # exist in MB v6.4.72 ~ v6.5.6
+    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_arm64_sum && good "Success dump sha256 zimperium (arm64) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_armv7_sum && good "Success dump sha256 zimperium (armv7a) hash to [mbapk/original_hash] !"
+
     # dex files
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex1_sum && good "Success dump sha256 dex1 hash to [mbapk/original_hash]!"
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes2.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex2_sum && good "Success dump sha256 dex2 hash to [mbapk/original_hash] !"
