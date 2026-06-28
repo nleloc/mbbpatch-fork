@@ -73,7 +73,7 @@
 | `Fix VTAP certificate` | Update or downgrade VTAP certificate for older/newer app version, so it can work again in future. | v6.4.67 ~ v6.5.5 |
 | `Remove MB AI Slop resources` | Remove the MB AI slop resources from app. | v6.4.74 ~ v6.5.5 |
 | `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.5.5 |
-| `Remove invoke to mbshield` | Make app don't invoke to mbshield when opening (MainActivity) and (MBBHomeWidgetQR) only (Hidden for v6.4.67+) | v6.4.22 ~ v6.5.5 |
+| `Remove invoke to zShield` | Make the app stop invoking to zShield when opening (MainActivity) and (MBBHomeWidgetQR) only (Hidden for v6.4.67+) | v6.4.22 ~ v6.5.5 |
 | `Remove new zimperium check` | Remove the new Zimperium (ZDefend) root detection from app. Picked up from Legacy Patch. (Hidden for v6.4.67+) | v6.4.60 ~ v6.5.5 |
 | `Remove built-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.5.5 |
 | `Modify app theme` | Modify the built-in app theme from original one to other themes. | v6.4.30 ~ v6.5.5 |

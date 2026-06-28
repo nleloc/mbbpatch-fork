@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
-# PATCHNAME: Remove invoke to mbshield
+# PATCHNAME: Remove invoke to zShield
 # MAXVER: 
 # MINVER: 6.4.21
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
-warn "Currently only support remove invoke mbshield to [io.flutter.plugins.MainActivity] and [MBBHomeWidgetQR] !!!"
+# mbshield is zShield, not mbshield, zimperium renamed it to bank name + shield
+
+warn "Currently only support remove invoke zShield to [io.flutter.plugins.MainActivity] and [MBBHomeWidgetQR] !!!"
 info "Copying..."
 if [[ -f mbapk/mbapk_unpacked/smali/classes4/io/flutter/plugins/MainActivity.smali ]]; then
   info "Flutter found on classes4 !!"

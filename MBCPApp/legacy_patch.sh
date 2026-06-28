@@ -30,10 +30,10 @@ do
     		echo "Applying patch [Bypass signature check]..."
 	if [ -d "$DIRPATH"/mbapk/mbapk_unpacked ]
  	then 
-    	# Checks for MBShield, if exists then exit function
-	if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/mbshield.szip ]
+    	# Checks for zShield (mbshield is zShield), if exists then exit function
+	if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/assets/*.szip ]
  	then
-    	info "MBShield found on unpacked APK ! Bypass signature checks won't be possible if MBShield is present on current unpacked APK !"
+    	info "zShield found on unpacked APK ! Bypass signature checks won't be possible if zShield is present on current unpacked APK !"
     	info "Please use supported version !!!"
    	echo "For React Native : MBBank/MB Lite v1.0 up to v6.3.11"
     	echo "For Flutter : MBBank v6.4.0 up to v6.4.21"

@@ -51,7 +51,7 @@ COMMIT="$(git rev-parse --short HEAD)"
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 clear
 
-zshield_found='zShield found on [mbapk_unpacked/assets/mbshield.szip] !!!
+zshield_found='zShield found on [mbapk_unpacked/assets/*.szip] !!!
 Patching operation is limited due to zShield :(
 You need to extract assets from Android device for some patching operation to works properly !!!'
 
@@ -386,7 +386,7 @@ then
         info 'Removing leftover assets...'
         adb shell rm -rf /sdcard/assets && good "Removed leftover assets !" || err "Failed to remove leftover assets from device !"
         else
-        info "MBShield not found ! No need to extract assets !"
+        info "zShield not found ! No need to extract assets !"
         fi
 else
         err "Can't find [mbapk/mbapk_unpacked] folder, cannot continue ! "
