@@ -51,11 +51,11 @@ COMMIT="$(git rev-parse --short HEAD)"
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 clear
 
-mbshield_found='MBShield found on [mbapk_unpacked/assets/mbshield.szip] !!!
-Patching operation is limited due to MBShield :(
+zshield_found='zShield found on [mbapk_unpacked/assets/mbshield.szip] !!!
+Patching operation is limited due to zShield :(
 You need to extract assets from Android device for some patching operation to works properly !!!'
 
-mbshield_not_found='MBShield NOT found on [mbapk_unpacked/assets/]
+zshield_not_found='zShield NOT found on [mbapk_unpacked/assets/]
 Patching operation are all not limited at all !
 Asset extraction are not needed :)'
 
@@ -262,14 +262,14 @@ successunpack() {
     fi
 }
 
-check_mbshield() {
+check_zshield() {
     is_unpacked || return 1
-    if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/mbshield.szip ]
+    if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/*.szip ]
     then
-        info "$mbshield_found"
+        info "$zshield_found"
         iszdefend
     else
-        info "$mbshield_not_found"
+        info "$zshield_not_found"
     fi
 }
 
@@ -312,7 +312,7 @@ echo App status : $(successunpack)
 echo -------------------------------------------------------------
 # Main functions
 PS3='Please select options to continue : '
-select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'MBShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download/update tools' 'Restart script' 'Exit'
+select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'zShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download/update tools' 'Restart script' 'Exit'
 do
     case "$opt" in
         'Download/update tools' )   download_tools ;;
@@ -320,7 +320,7 @@ do
         'Repack APK' )       repack_mbcp ;;
         'Patch App' )        run_patcher ;;
         'Legacy patches' )   run_legacy_patcher ;;
-        'MBShield Check' )   check_mbshield ;;
+        'zShield Check' )   check_zshield ;;
         'Convert apks to apk' ) convert_apks ;;
         'Extract assets [ROOT]' )
     is_unpacked || exit 1
@@ -341,9 +341,9 @@ do
         elif [ "$opt" == 'Extract assets' ]; then
         if [ -d "$DIRPATH"/mbapk/mbapk_unpacked/ ]
 then
-        if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/mbshield.szip ]
+        if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/*.szip ]
 then
-        info "MBShield found ! Continuing !!!"
+        info "zShield found ! Continuing !!!"
         warn 'You MUST grant root access to [com.android.shell] in order to extract assets !'
         info 'Trying to extract assets...'
         adb shell am force-stop com.mbmobile
