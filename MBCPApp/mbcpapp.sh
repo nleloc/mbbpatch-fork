@@ -172,9 +172,13 @@ unpack_mbcp() {
     rm -rf 'mbapk/mbapk_unpacked/root/assets/c7uFHgsHzlQ_T524_4N3h9neXvtcUg0m1ERhEjFpPI8_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/ccBu4aSM_mSaMBpFvr14pizu6EGMvwRiZltU_zVJMz0_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/DcM3z3tolULDhbn8YrUE7hxOlxZx2oFC5yNQFG1SX9k_'
-    rm -rf 'mbapk/mbapk_unpacked/root/assets/fPGzhQFvISia1NiVGU8vQx9IpRm63E4_1Xv0Z2ypWUE_'
+    # v6.5.7+ and new zimperium need this, without it the app will crash in startup, libcode.so
+    # is new pattern to detect v6.5.7+, older app base with old zimperium does not need this
+    # so i added condition check, whether if libcode.so is exist or not, if not then it will
+    # continue to delete the local model as before.
+    [ ! -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so' ] && rm -rf 'mbapk/mbapk_unpacked/root/assets/fPGzhQFvISia1NiVGU8vQx9IpRm63E4_1Xv0Z2ypWUE_'
+    [ ! -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so' ] && rm -rf 'mbapk/mbapk_unpacked/root/assets/GXNv8xc5IcVF6TyUgjJpyYFeyHGqUqN7ZS0X_2WRbEE_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/g9x205p_On9_RR4kI_GdsoQ2pfSrV_OQXSopshyhYVk_'
-    rm -rf 'mbapk/mbapk_unpacked/root/assets/GXNv8xc5IcVF6TyUgjJpyYFeyHGqUqN7ZS0X_2WRbEE_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/H8leCCp85eX0YRvo4WCzqF5MEuj2_9ix6zL2bjnj6hk_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/Hput_BfAb8ftOt8hvazec24Eqk0gC5DDY6qALJMLtcI_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/MZuOOtdhO6pcGnZ5_kqMPh56hL3LqawBZd05vfIivww_'
