@@ -12,6 +12,18 @@
 
 info "Spoofing app version..."
 
+# v6.5.1x
+sed -i 's|6.5.19|6.5.19.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.5.18|6.5.18.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.5.17|6.5.17.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.5.16|6.5.16.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.5.15|6.5.15.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.5.14|6.5.14.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.5.13|6.5.13.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.5.12|6.5.12.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.5.11|6.5.11.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.5.10|6.5.10.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+
 # v6.5.x
 sed -i 's|6.5.9|6.5.9.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.5.8|6.5.8.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
@@ -25,9 +37,9 @@ sed -i 's|6.5.1|6.5.1.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.5.0|6.5.0.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 
 # v6.4.9x
-sed -i 's|6.4.99|6.4.99.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.98|6.4.98.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
-sed -i 's|6.4.97|6.4.97.mbcp|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.99|6.4.99.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.98|6.4.98.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|6.4.97|6.4.97.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.96|6.4.96.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.95|6.4.95.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.94|6.4.94.legacy|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
@@ -88,7 +100,7 @@ sed -i 's|6.4.49|6.4.49.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.48|6.4.48.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|6.4.47|6.4.47.old|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 
-
+# versionCode spoofing to prevent in-app forced update dialog, and play store / aurora store from replacing with original app :>
 sed -i 's|704|1000|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|712|1001|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|727|2000|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
@@ -110,6 +122,19 @@ sed -i 's|744|2014|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|745|2015|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|746|2016|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|747|2017|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|749|2018|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|750|2019|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|751|2020|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|752|2021|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|753|2022|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|754|2023|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|755|2024|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|756|2025|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|757|2026|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|758|2027|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|760|2028|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|761|2029|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
+sed -i 's|762|2030|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 
 sed -i 's|v6.4.66|v6.4.68|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
 sed -i 's|v6.4.65|v6.4.68|g' 'mbapk/mbapk_unpacked/AndroidManifest.xml'
