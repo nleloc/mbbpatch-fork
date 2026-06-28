@@ -64,8 +64,8 @@ download_tools() {
     apkeditor_link="https://github.com/REAndroid/APKEditor/releases/download/V1.4.8/APKEditor-1.4.8.jar"
 
     cd tools && rm -rf ./*.jar
-    wget -q --show-progress -O apktool.jar "$apktool_link" || err "downloading apktool failed"
-    wget -q --show-progress -O apkeditor.jar "$apkeditor_link" || err "downloading apkeditor failed"
+    wget -q --no-check-certificate --show-progress -O apktool.jar "$apktool_link" || err "downloading apktool failed"
+    wget -q --no-check-certificate --show-progress -O apkeditor.jar "$apkeditor_link" || err "downloading apkeditor failed"
     cd .. 
 }
 
