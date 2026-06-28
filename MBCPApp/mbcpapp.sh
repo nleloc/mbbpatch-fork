@@ -136,6 +136,10 @@ copyHash() {
     [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_arm64_sum && good "Success dump sha256 zimperium (arm64) hash to [mbapk/original_hash] !"
     [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_armv7_sum && good "Success dump sha256 zimperium (armv7a) hash to [mbapk/original_hash] !"
 
+    # Tian37 (since MB v6.4.86+)
+    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libanTian37.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libanTian37.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libanTian37_arm64_sum && good "Success dump libanTian37 (arm64) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libanTian37.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libanTian37.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libanTian37_armv7a_sum && good "Success dump libanTian37 (armv7a) hash to [mbapk/original_hash] !"	
+
     # dex files
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex1_sum && good "Success dump sha256 dex1 hash to [mbapk/original_hash]!"
     sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes2.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex2_sum && good "Success dump sha256 dex2 hash to [mbapk/original_hash] !"
