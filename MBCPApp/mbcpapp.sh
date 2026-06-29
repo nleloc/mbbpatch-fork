@@ -177,7 +177,7 @@ unpack_mbcp() {
     # so i added condition check, whether if libcode.so is exist or not, if not then it will
     # continue to delete the local model as before.
     [ ! -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so' ] && rm -rf 'mbapk/mbapk_unpacked/root/assets/fPGzhQFvISia1NiVGU8vQx9IpRm63E4_1Xv0Z2ypWUE_'
-    [ ! -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so' ] && rm -rf 'mbapk/mbapk_unpacked/root/assets/GXNv8xc5IcVF6TyUgjJpyYFeyHGqUqN7ZS0X_2WRbEE_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/GXNv8xc5IcVF6TyUgjJpyYFeyHGqUqN7ZS0X_2WRbEE_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/g9x205p_On9_RR4kI_GdsoQ2pfSrV_OQXSopshyhYVk_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/H8leCCp85eX0YRvo4WCzqF5MEuj2_9ix6zL2bjnj6hk_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/Hput_BfAb8ftOt8hvazec24Eqk0gC5DDY6qALJMLtcI_'
@@ -204,7 +204,6 @@ unpack_mbcp() {
     rm -rf 'mbapk/mbapk_unpacked/root/assets/ccBu4aSM_mSaMBpFvr14pizu6EGMvwRiZltU_zVJMz0_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/DcM3z3tolULDhbn8YrUE7hxOlxZx2oFC5yNQFG1SX9k_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/eB0ZLvEtv8_qoOAcmcB19tx0pnT_RXKn5WU3rOVgK4k_'
-    rm -rf 'mbapk/mbapk_unpacked/root/assets/fPGzhQFvISia1NiVGU8vQx9IpRm63E4_1Xv0Z2ypWUE_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/g9x205p_On9_RR4kI_GdsoQ2pfSrV_OQXSopshyhYVk_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/GXNv8xc5IcVF6TyUgjJpyYFeyHGqUqN7ZS0X_2WRbEE_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/H8leCCp85eX0YRvo4WCzqF5MEuj2_9ix6zL2bjnj6hk_'
@@ -240,7 +239,10 @@ unpack_mbcp() {
     # New zimperium for v6.4.72+
     rm -rf 'mbapk/mbapk_unpacked/root/assets/Z1YbTXaPlMjbmWCKXXD0m4wkWyE0I6xxDebGhXz5igk_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/zxwCzUaZ8itWQeAMKtyu52RbljJe1Pd8GuV7H4RPsy4_'
-
+    # New zimperium for v6.5.7+
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/BHCdF10ojcfyA7xfkrsMHYFMRUCn2CVYK6zKEnI8Jdc_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/i_4CYiKEHQ3wTzTlrx_YVNIvHCgFjnkpMtMf4pgDlic_'
+    rm -rf 'mbapk/mbapk_unpacked/root/assets/OrE6E3b6dxQnoToaT2eLN48gKz8_Iui_eFezclhtVQk_'
     info "Creating [mbcp_info] folder..."
     mkdir 'mbapk/mbapk_unpacked/root/assets/mbcp_info/'
 
