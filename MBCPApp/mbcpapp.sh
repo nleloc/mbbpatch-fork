@@ -177,6 +177,8 @@ unpack_mbcp() {
     # so i added condition check, whether if libcode.so is exist or not, if not then it will
     # continue to delete the local model as before.
     [ ! -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so' ] && rm -rf 'mbapk/mbapk_unpacked/root/assets/fPGzhQFvISia1NiVGU8vQx9IpRm63E4_1Xv0Z2ypWUE_'
+    # v6.5.9+ behavior (does not affect v6.5.7/v6.5.8 behavior)
+    [ ! -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so' ] && rm -rf 'mbapk/mbapk_unpacked/root/assets/2lclXWtX58GC8tXgJr1E_tmzpvS_K1Q7_0jHeXBaECc_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/GXNv8xc5IcVF6TyUgjJpyYFeyHGqUqN7ZS0X_2WRbEE_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/g9x205p_On9_RR4kI_GdsoQ2pfSrV_OQXSopshyhYVk_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/H8leCCp85eX0YRvo4WCzqF5MEuj2_9ix6zL2bjnj6hk_'
@@ -224,7 +226,6 @@ unpack_mbcp() {
     rm -rf 'mbapk/mbapk_unpacked/root/assets/ZOKOK1a6XCiqYb_a8bYPE9c0rjUf7_n7k77YxX5Ypdw_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/zxHdhL4_ZEQLQeo8R2DzSYl9PGss_cKSCQTcZGBtVmU_'
     # New zimperium for v6.4.67+
-    rm -rf 'mbapk/mbapk_unpacked/root/assets/2lclXWtX58GC8tXgJr1E_tmzpvS_K1Q7_0jHeXBaECc_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/EHFtsAf7MYH_M7kQF1YX8LeWfU1_RjdRH62oJRE0v38_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/KZsyhtgSOXgFDPIf88NF5svaDH3xQ8feGsAQiy1c9_s_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/mT0VvAZ00szUCjj1fIELzEtu8jyGYugItWXzMzctw5s_'
@@ -466,8 +467,7 @@ do
         warn "You must have connected Android device with USB debugging turned on in order to install !!!"
         adb kill-server
         adb start-server
-        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk"
-        adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
+        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk" | grep -q Success && echo "Opening app..." && adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity || echo "Failed to install app, please check your device!"
     else
         err "[MBCP_Flutter_SelfPatched_$COMMIT.apk] not found, cannot continue !"
     fi
@@ -479,7 +479,7 @@ do
         warn "You must have connected Android device with USB debugging turned on in order to install !!!"
         adb kill-server
         adb start-server
-        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk"
+        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk" | grep -q Success && echo "Opening app..." && adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity || echo "Failed to install app, please check your device!"
         # Delete zimperium detection files
         adb shell su -c rm -rf /data/data/com.mbmobile/files/0*
         adb shell su -c rm -rf /data/data/com.mbmobile/files/1*
@@ -493,6 +493,7 @@ do
         adb shell su -c rm -rf /data/data/com.mbmobile/files/9*
         adb shell su -c rm -rf /data/data/com.mbmobile/files/KNOV3PN*
         adb shell su -c rm -rf /data/data/com.mbmobile/files/zxpolicyme*
+        adb shell su -c rm -rf /data/data/com.mbmobile/files/zxpolicymd*
         adb shell su -c rm -rf /data/data/com.mbmobile/files/policyme*
         warn "ATTENTION : Network traffic will be redirected to [medium.com] for 20 seconds !!!"
         adb shell su -c 'iptables -t nat -A OUTPUT -p tcp -d 0/0 -j DNAT --to-destination 162.159.153.4:443'
@@ -512,7 +513,7 @@ do
         warn "You must have connected Android device with USB debugging turned on in order to install !!!"
         adb kill-server
         adb start-server
-        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk"
+        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk" | grep -q Success && echo "Opening app..." && adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity || echo "Failed to install app, please check your device!"
         adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
     else
         err "[MBCP_Flutter_SelfPatched_$COMMIT.apk] not found, cannot continue !"
