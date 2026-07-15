@@ -54,9 +54,9 @@ applyPatch() {
 
 echo "--------------------------
 Patch list for MBCPApp :"
-PS3="Select patch options : "' > patch.sh
+PS3="Select patch options, or [0] to quit and [00] to show patch list : "' >patch.sh
 
-for f in patches/*.sh ; do
+for f in patches/*.sh; do
     # name without suffix and prefix
     n="$(rstrip "$f" '.sh')"
     n="$(lstrip "$n" 'patches/')"
@@ -77,7 +77,7 @@ for f in patches/*.sh ; do
         continue
     }
     [ -n "$minver" ] && {
-        chk="${minver//[^.]}"
+        chk="${minver//[^.]/}"
         [ "${#chk}" -ne 2 ] && {
             warn "[parser] skipping [$pname] with malformed minver"
             continue
@@ -87,14 +87,15 @@ for f in patches/*.sh ; do
         minminor="$(bb_split "$minver" '.' '1')"
         minpatch="$(bb_split "$minver" '.' '2')"
 
-        [ "$(( $(mb_ver 0) * 10000 + $(mb_ver 1) * 100 + $(mb_ver 2) ))" -lt \
-          "$((    minmajor * 10000 +    minminor * 100 +    minpatch ))" \
-        ] && {
-        info "[parser] skipping [$pname] as current version is lower than patch version clamp"
-        continue ; }
+        [ "$(($(mb_ver 0) * 10000 + $(mb_ver 1) * 100 + $(mb_ver 2)))" -lt \
+            "$((minmajor * 10000 + minminor * 100 + minpatch))" \
+            ] && {
+            info "[parser] skipping [$pname] as current version is lower than patch version clamp"
+            continue
+        }
     } || :
     [ -n "$maxver" ] && {
-        chk="${maxver//[^.]}"
+        chk="${maxver//[^.]/}"
         [ "${#chk}" -ne 2 ] && {
             warn "[parser] skipping [$pname] with malformed maxver"
             continue
@@ -104,11 +105,12 @@ for f in patches/*.sh ; do
         maxminor="$(bb_split "$maxver" '.' '1')"
         maxpatch="$(bb_split "$maxver" '.' '2')"
 
-        [ "$(( $(mb_ver 0) * 10000 + $(mb_ver 1) * 100 + $(mb_ver 2) ))" -gt \
-          "$((    maxmajor * 10000 +    maxminor * 100 +    maxpatch ))" \
-        ] && {
-        info "[parser] skipping [$pname] as current version is higher than patch version clamp"
-        continue ; }
+        [ "$(($(mb_ver 0) * 10000 + $(mb_ver 1) * 100 + $(mb_ver 2)))" -gt \
+            "$((maxmajor * 10000 + maxminor * 100 + maxpatch))" \
+            ] && {
+            info "[parser] skipping [$pname] as current version is higher than patch version clamp"
+            continue
+        }
     } || :
 
     opts_arr+=" '$pname'"
@@ -116,12 +118,17 @@ for f in patches/*.sh ; do
 "
 done
 
-opts_arr+=" 'Exit'"
-#echo "$opts_arr"
-echo "select opt in $opts_arr" >> patch.sh
+echo "select opt in $opts_arr" >>patch.sh
 echo 'do
-  case "$opt" in' >> patch.sh
-echo "$append
-    'Exit' ) exit ;;
-  esac
-done" >> patch.sh
+    if [ "$REPLY" == "0" ]; then
+        exit 0
+    elif [ "$REPLY" == "00" ]; then
+        clear
+        echo -e "--------------------------\nPatch list for MBCPApp :"
+        REPLY=""
+        continue
+    fi
+    case "$opt" in' >>patch.sh
+
+echo "$append  esac
+done" >>patch.sh

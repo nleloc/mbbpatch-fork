@@ -459,7 +459,7 @@ echo -------------------------------------------------------------
 # Main functions
 echo "Use [0] to exit and [00] to restart MBCPApp Patcher"
 echo ""
-PS3='Please select options to continue, or [0] to exit : '
+PS3='Please select options to continue, or [0] to exit and [00] to restart patcher : '
 select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'zShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download/update tools'; do
     # prioritize exiting and restart script
     # 0 will always be exit and 00 will always be restart ;) better for later development
