@@ -1,6 +1,13 @@
-# MBCPApp Patcher for MB Bank (Android)
+# MBCPApp Patcher Fork for MB Bank (Android)
 
-**AI-free, human-written** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with built-in CorePatch). primarily written in Bash, made possible by @cuynu with love and community in Vietnam.
+> [!IMPORTANT]
+> **THIS IS A FORK FOR PERSONAL USAGE**
+> 
+> For original source code, kindly refer to [MBBPatch repo from Disroot](https://git.disroot.org/mbcp/mbbpatch)
+>
+> Again, this is a **PERSONAL FORK** for my usage, if you faces any problem, idc
+
+Yeah, still **AI-free, human-written** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with built-in CorePatch). primarily written in Bash, made possible by @cuynu with love and community in Vietnam.
 
 <img alt="Gitea Release" src="https://img.shields.io/gitea/v/release/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&include_prereleases&display_name=tag&style=for-the-badge&logo=android&label=Latest%20Pre-built%20MBCP%20&color=%23CC6699">
 
@@ -352,6 +359,6 @@ Early note : When I created @mbbmod channel back in 2023, no one knows it for mo
 - [FlatIcon](https://flaticon.com) for some icons, including search icon, verified badge
 
 ## Contributors
-- [Cuynu](/cuynu) - developer (also [youtuber](https://youtube.com/@cuynu))
-- [fukiame](/fukiame) - refactor & other improvements - contributor
+- [Cuynu](https://git.disroot.org/cuynu) - developer (also [youtuber](https://youtube.com/@cuynu))
+- [fukiame](https://git.disroot.org/fukiame) - refactor & other improvements - contributor
 - [Ngankbakaa](https://github.com/miyukocutee) - contributor

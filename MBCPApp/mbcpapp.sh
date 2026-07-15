@@ -15,34 +15,34 @@ clear
 . "$DIRPATH/common.sh"
 
 # Check if user is running on an actual Linux environment
-if uname -a | grep -i Linux ; then
+if uname -a | grep -i Linux; then
     info "You have Linux environment :)"
 fi
 
 # Check if figlet exists or not
-if command -v figlet ; then
+if command -v figlet; then
     FIGLET=figlet
 else
-    warn "figlet not found, ignoring banner !"
+    warn "figlet not found, ignoring banner :("
     FIGLET=:
 fi
 
 # Check if java exists
-if ! java -version ; then
+if ! java -version; then
     err "Java not found !!!"
     info "Please install Java for your system ! "
     exit 127
 fi
 
 # Check if wget exists
-if ! wget --version ; then
+if ! wget --version; then
     err "wget not found !!!"
     info "Please install wget for your system !"
     exit 127
 fi
 
 # Check if xmlstarlet exists
-if ! xmlstarlet --version ; then
+if ! xmlstarlet --version; then
     err "xmlstarlet not found, please install it"
     exit 127
 fi
@@ -66,7 +66,7 @@ download_tools() {
     cd tools && rm -rf ./*.jar
     wget -q --no-check-certificate --show-progress -O apktool.jar "$apktool_link" || err "downloading apktool failed"
     wget -q --no-check-certificate --show-progress -O apkeditor.jar "$apkeditor_link" || err "downloading apkeditor failed"
-    cd .. 
+    cd ..
 }
 
 darwindeps() {
@@ -77,7 +77,7 @@ darwin() {
     [ $(brew list | grep gnu-sed) ] && echo "gnu-sed is installed!" && darwindeps || echo "gnu-sed is not installed. Please install it!"
 }
 
-if uname -a | grep -i Darwin ; then
+if uname -a | grep -i Darwin; then
     info "You have macOS environment :)"
     darwin
     clear
@@ -89,19 +89,27 @@ copy_assets() {
 
 is_unpacked() {
     [ -d "$DIRPATH"/mbapk/mbapk_unpacked ] || {
-        err "[mbapk_unpacked] not found ! Please unpack APK first !" ; return 127
+        err "[mbapk_unpacked] not found ! Please unpack APK first !"
+        return 127
     }
 }
 is_unpacked_lib() {
     [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/lib ] || {
-        err "[mbapk_unpacked/root/lib] folder not found ! Please unpack APK first !" ; return 127
+        err "[mbapk_unpacked/root/lib] folder not found ! Please unpack APK first !"
+        return 127
     }
 }
 apktool_exist() {
-    [ -f "$DIRPATH"/tools/apktool.jar ] || { err "apktool not found" ; return 127 ; }
+    [ -f "$DIRPATH"/tools/apktool.jar ] || {
+        err "apktool not found"
+        return 127
+    }
 }
 apkeditor_exist() {
-    [ -f "$DIRPATH"/tools/apkeditor.jar ] || { err "apkeditor not found" ; return 127 ; }
+    [ -f "$DIRPATH"/tools/apkeditor.jar ] || {
+        err "apkeditor not found"
+        return 127
+    }
 }
 mb_apk_exist() {
     ls "$DIRPATH"/mbapk/*.apk >/dev/null 2>&1 || {
@@ -109,62 +117,76 @@ mb_apk_exist() {
         err "If you got apks from eMBee APKs, use [Convert apks to apk] option !"
     }
 }
-
+launch_mb() {
+    adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
+}
 # gw934 check sha256 hash of libraries and dex files
 copyHash() {
     info "Dumping libraries & dex sha256 hash..."
     mkdir -p "$DIRPATH"/mbapk/original_hash
     # libapp flutter
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libapp_arm64_sum && good "Success dump sha256 libapp (arm64) hash to [mbapk/original_hash] !"
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libapp.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libapp_armv7a_sum && good "Success dump sha256 libapp (armv7a) hash to [mbapk/original_hash] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libapp_arm64_sum && good "Success dump sha256 libapp (arm64) hash to [mbapk/original_hash] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libapp.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libapp_armv7a_sum && good "Success dump sha256 libapp (armv7a) hash to [mbapk/original_hash] !"
 
-    # mbshield (zShield) 
+    # mbshield (zShield)
     # exist in MB v6.4.22 ~ v6.5.6 (except v6.4.45 versionCode 658)
-    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbshield.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbshield.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libmbshield_arm64_sum && good "Success dump sha256 libmbshield (arm64) hash to [mbapk/original_hash] !"
-    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbshield.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbshield.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libmbshield_armv7a_sum && good "Success dump sha256 libmbshield (armv7a) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbshield.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libmbshield.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libmbshield_arm64_sum && good "Success dump sha256 libmbshield (arm64) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbshield.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libmbshield.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libmbshield_armv7a_sum && good "Success dump sha256 libmbshield (armv7a) hash to [mbapk/original_hash] !"
 
     # new zshield + zdefend (v6.5.7+)
-    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libempirememorial.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libempirememorial.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libempirememorial_arm64_sum && good "Success dump sha256 libempirememorial (arm64) hash to [mbapk/original_hash] !"
-    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libempirememorial.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libempirememorial.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libempirememorial_armv7a_sum && good "Success dump sha256 libempirememorial (armv7a) hash to [mbapk/original_hash] !"
-    
+    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libempirememorial.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libempirememorial.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libempirememorial_arm64_sum && good "Success dump sha256 libempirememorial (arm64) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libempirememorial.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libempirememorial.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libempirememorial_armv7a_sum && good "Success dump sha256 libempirememorial (armv7a) hash to [mbapk/original_hash] !"
+
     # built in flutter zdefend plugin lib call, it might call to libempirememorial.so
-    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libcode_arm64_sum && good "Success dump sha256 libcode (arm64) hash to [mbapk/original_hash] !"
-    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libcode.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libcode.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libcode_armv7a_sum && good "Success dump sha256 libcode (armv7a) hash to [mbapk/original_hash]"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libcode.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libcode_arm64_sum && good "Success dump sha256 libcode (arm64) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libcode.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libcode.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libcode_armv7a_sum && good "Success dump sha256 libcode (armv7a) hash to [mbapk/original_hash]"
 
     # old zimperium zdefend
     # exist in MB v6.4.72 ~ v6.5.6
-    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_arm64_sum && good "Success dump sha256 zimperium (arm64) hash to [mbapk/original_hash] !"
-    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libclosestmadagascar_armv7_sum && good "Success dump sha256 zimperium (armv7a) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libclosestmadagascar.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libclosestmadagascar_arm64_sum && good "Success dump sha256 zimperium (arm64) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libclosestmadagascar.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libclosestmadagascar_armv7_sum && good "Success dump sha256 zimperium (armv7a) hash to [mbapk/original_hash] !"
 
     # Tian37 (since MB v6.4.86+)
-    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libanTian37.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libanTian37.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libanTian37_arm64_sum && good "Success dump libanTian37 (arm64) hash to [mbapk/original_hash] !"
-    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libanTian37.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libanTian37.so | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/libanTian37_armv7a_sum && good "Success dump libanTian37 (armv7a) hash to [mbapk/original_hash] !"	
+    [ -f 'mbapk/mbapk_unpacked/root/lib/arm64-v8a/libanTian37.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/arm64-v8a/libanTian37.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libanTian37_arm64_sum && good "Success dump libanTian37 (arm64) hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libanTian37.so' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/root/lib/armeabi-v7a/libanTian37.so | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/libanTian37_armv7a_sum && good "Success dump libanTian37 (armv7a) hash to [mbapk/original_hash] !"
 
     # dex files
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex1_sum && good "Success dump sha256 dex1 hash to [mbapk/original_hash]!"
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes2.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex2_sum && good "Success dump sha256 dex2 hash to [mbapk/original_hash] !"
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes3.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex3_sum && good "Success dump sha256 dex3 hash to [mbapk/original_hash]!"
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes4.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex4_sum && good "Success dump sha256 dex4 hash to [mbapk/original_hash] !"
-    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes5.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex5_sum && good "Success dump sha256 dex5 hash to [mbapk_original_hash] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes.dex | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/dex1_sum && good "Success dump sha256 dex1 hash to [mbapk/original_hash]!"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes2.dex | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/dex2_sum && good "Success dump sha256 dex2 hash to [mbapk/original_hash] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes3.dex | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/dex3_sum && good "Success dump sha256 dex3 hash to [mbapk/original_hash]!"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes4.dex | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/dex4_sum && good "Success dump sha256 dex4 hash to [mbapk/original_hash] !"
+    sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes5.dex | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/dex5_sum && good "Success dump sha256 dex5 hash to [mbapk_original_hash] !"
     # dex6 for v6.5.2+
-    [ -f 'mbapk/mbapk_unpacked/.cache/classes6.dex' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes6.dex | cut -f 1 -d " " > "$DIRPATH"/mbapk/original_hash/dex6_sum && good "Success dump sha256 dex6 hash to [mbapk/original_hash] !"
+    [ -f 'mbapk/mbapk_unpacked/.cache/classes6.dex' ] && sha256sum "$DIRPATH"/mbapk/mbapk_unpacked/.cache/classes6.dex | cut -f 1 -d " " >"$DIRPATH"/mbapk/original_hash/dex6_sum && good "Success dump sha256 dex6 hash to [mbapk/original_hash] !"
     info "Copying hashes to app assets"
     cp -r "$DIRPATH"/mbapk/original_hash "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/ && good "Success copy hashes to app assets!"
 }
 
 unpack_mbcp() {
-    [[ $(uname -a | grep Linux) ]] && local - ; set -e
-    { apkeditor_exist && mb_apk_exist ; } || return 0
+    [[ $(uname -a | grep Linux) ]] && local -
+    set -e
+    { apkeditor_exist && mb_apk_exist; } || return 0
     rm -rf 'mbapk/mbapk_unpacked'
     rm -rf 'mbapk/*.apks'
     rm -rf 'mbapk/*merged.apk'
     rm -rf 'mbapk/original_hash'
-    java -jar tools/apkeditor.jar d -i mbapk/*.apk -o mbapk/mbapk_unpacked || { err "Unpacking failed !" ; return 1 ; }
+    java -jar tools/apkeditor.jar d -i mbapk/*.apk -o mbapk/mbapk_unpacked || {
+        err "Unpacking failed !"
+        return 1
+    }
     touch 'mbapk/mbapk_unpacked/isreal_unpacked'
-    unzip -l mbapk/MBOriginal.apk | grep -oH "flutter_assets" > /dev/null 2>&1 && good "Current app is Flutter!" || { err "Current converted app is not Flutter, or too outdated, cannot continue! Deleting files..." ; rm -rf mbapk/* ; return 1 ;
-    } 
-    unzip -l mbapk/MBOriginal.apk | grep -oH "ic-appmb.ttf" > /dev/null 2>&1 && good "Current converted app is MBBank! Continuing" || { err "Current converted app is NOT MBBank! Deleting files..." ; rm -rf mbapk/* ; return 1 ; }
+    unzip -l mbapk/MBOriginal.apk | grep -oH "flutter_assets" >/dev/null 2>&1 && good "Current app is Flutter!" || {
+        err "Current converted app is not Flutter, or too outdated, cannot continue! Deleting files..."
+        rm -rf mbapk/*
+        return 1
+    }
+    unzip -l mbapk/MBOriginal.apk | grep -oH "ic-appmb.ttf" >/dev/null 2>&1 && good "Current converted app is MBBank! Continuing" || {
+        err "Current converted app is NOT MBBank! Deleting files..."
+        rm -rf mbapk/*
+        return 1
+    }
     info "Removing local zimperium detection models..."
+    # fuck, there's too much 'rm' be called, i can't fucking optimize it :(
     rm -rf 'mbapk/mbapk_unpacked/root/assets/_4A9w8flncUrhDOG8dyqLi_azBTYT3PlSXz0hiCzRQA_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/0QDl12M5S2hKxoKF4cNI4kEX1qDQRMiOd34TXjSjy4M_'
     rm -rf 'mbapk/mbapk_unpacked/root/assets/2GcdAWdkXGgxPfHSIhzLkrkf2LU6Z_cuZfUWnczoEHw_'
@@ -249,17 +271,17 @@ unpack_mbcp() {
 
     info "Reformatting AndroidManifest.xml with xmlstarlet..."
     mv "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml.orig
-    xmlstarlet fo "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml.orig > "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
+    xmlstarlet fo "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml.orig >"$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
 
     info "Changing minSdkVersion to 28..."
-    sed -i 's|android:minSdkVersion="24"|android:minSdkVersion="28"|g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml 
+    sed -i 's|android:minSdkVersion="24"|android:minSdkVersion="28"|g' "$DIRPATH"/mbapk/mbapk_unpacked/AndroidManifest.xml
     copyHash
 }
 
 repack_mbcp() {
-    { apktool_exist && is_unpacked ; } || return 0
+    { apktool_exist && is_unpacked; } || return 0
     info "Repacking APK..."
-    echo "Compiled with MBCPApp Patcher by $(whoami) on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" > 'mbapk/mbapk_unpacked/root/assets/mbcp_info/mbcpinfo.txt'
+    echo "Compiled with MBCPApp Patcher by $(whoami) on $(uname -s -r) with commit $COMMIT at $(date). That's all xD" >'mbapk/mbapk_unpacked/root/assets/mbcp_info/mbcpinfo.txt'
     (
         set -e
         java -jar tools/apkeditor.jar b -i 'mbapk/mbapk_unpacked' -o mbcpapp_apk/MBCP_Flutter_TMP.apk
@@ -277,19 +299,17 @@ repack_mbcp() {
 }
 
 successunpack() {
-    if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/isreal_unpacked ]
-    then
+    if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/isreal_unpacked ]; then
         echo -e "\033[32m"Unpacked."$1\033[0m"
 
     else
-        echo -e "\033[31m"Not yet unpacked or not found."$1\033[0m"    
+        echo -e "\033[31m"Not yet unpacked or not found."$1\033[0m"
     fi
 }
 
 check_zshield() {
     is_unpacked || return 1
-    if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/*.szip ]
-    then
+    if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/*.szip ]; then
         info "$zshield_found"
         iszdefend
     else
@@ -298,18 +318,23 @@ check_zshield() {
 }
 
 convert_apks() {
-    [[ $(uname -a | grep Linux) ]] && local - ; set -e
+    [[ $(uname -a | grep Linux) ]] && local -
+    set -e
     ls "$DIRPATH"/mbapk/*.apks >/dev/null 2>&1 || {
         err "APKs missing, cannot continue !"
         return 0
     }
     apkeditor_exist
     info "Converting apks to apk..."
-    java -jar tools/apkeditor.jar m -i mbapk/*.apks 
+    java -jar tools/apkeditor.jar m -i mbapk/*.apks
     mv mbapk/*.apk mbapk/MBOriginal.apk
     info 'Cleaning left over [apks] files...'
     rm -f mbapk/*.apks
-    unzip -l mbapk/MBOriginal.apk | grep -oH "ic-appmb.ttf" && good "Current converted app is MBBank! Continuing" || { err "Current converted app is NOT MBBank! Deleting files" ; rm -rf mbapk/* ; return 1 ; }
+    unzip -l mbapk/MBOriginal.apk | grep -oH "ic-appmb.ttf" && good "Current converted app is MBBank! Continuing" || {
+        err "Current converted app is NOT MBBank! Deleting files"
+        rm -rf mbapk/*
+        return 1
+    }
     info "You probably can continue to unpack APK!"
 }
 
@@ -321,8 +346,104 @@ run_legacy_patcher() {
     is_unpacked_lib && bash ./legacy_patch.sh
 }
 
-# Banner 
-$FIGLET "MBCPApp Patcher"
+menu_extract_assests() {
+    is_unpacked || exit 1
+    isvcm1
+    iszdefend
+    info "If you have v6.4.98 or newer, app resource extraction is no longer possible. Please use older version."
+    info 'To extract encrypted assets [if current app has zShield protection] you need rooted device'
+    info 'And trigger a built-in app assets extraction !'
+    echo -------------------------------------------
+    local PS3='Select options continue, or [0] to quit : '
+    select opt in 'Launch MBCPApp/MBBank' 'Extract assets'; do
+        if [ "$REPLY" = "0" ]; then
+            echo "Exiting to main menu"
+            break
+        fi
+
+        if [ "$opt" == 'Launch MBCPApp/MBBank' ]; then
+            launch_mb
+            info 'After app started, you MUST need to trigger assets extraction'
+            info 'By trigger eKYC authetication with reset account password option or register DigitalOTP'
+            info 'After you got into eKYC screen, close the app, then use Extract assets option to extract assets.'
+        elif [ "$opt" == 'Extract assets' ]; then
+            if [ -d "$DIRPATH"/mbapk/mbapk_unpacked/ ] && [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/*.szip ]; then
+                info "zShield found ! Continuing !!!"
+                warn 'You MUST grant root access to [com.android.shell] in order to extract assets !'
+                info 'Trying to extract assets...'
+                adb shell am force-stop com.mbmobile
+                adb shell rm -rf /sdcard/assets
+                adb shell mkdir /sdcard/assets
+
+                # i only optimized this, never tested myself :)
+                for assets_list in \
+                    "flutter_assets" "dexopt" "font" "mbshield" "media_init_data" "mlkit_barcode_models" "models_bundled" \
+                    "mwebview" "zfiles" "crashlytics-build.properties" \
+                    "firmware" "insider.ttf" "dlangV5.dat" "dlangV5.en.dat" \
+                    "policy0" "policy1" "policy2" "policy3" "policy4" "policy5" "policy6" "policy7" "policy8" "policy9" "policym" \
+                    "profile" "rulesV5.dat" "sgprofile" "signature" "smart_ekyc_finall.zip" "version.json" \
+                    "vkeylicensepack" "voscodesign.vky"; do
+                    info "Copying assets ($assets_list) from app to /sdcard/assets/"
+                    copy_assets $assets_list
+                done
+                info 'Pulling assets from device...'
+                adb pull /sdcard/assets mbapk/mbapk_unpacked/root/ && good "Assets copied to [mbapk_unpacked/root/] !" || err "Failed to copy assets ! Please try again."
+                info 'Removing leftover assets...'
+                adb shell rm -rf /sdcard/assets && good "Removed leftover assets !" || err "Failed to remove leftover assets from device !"
+            else
+                info "zShield not found ! No need to extract assets !"
+            fi
+        else
+            err "Can't find [mbapk/mbapk_unpacked] folder, cannot continue ! "
+            err "Please unpack APK first !"
+        fi
+    done
+}
+
+menu_install_patched_app() {
+    info 'Select your patched version to continue'
+    local PS3='Select your option to continue, or [0] to quit : '
+    select opt in 'Only install' 'Install and delete zimperium files'; do
+        # i don't see there's any difference between old and new version installation
+        # so nuked them :) and also renaming it
+        # exit first, same as above
+        if [ "$REPLY" = "0" ]; then
+            echo "Exiting to main menu"
+            break
+        fi
+
+        # Install for both choice
+        if [ "$opt" == 'Only install' ] || [ "$opt" == 'Install and delete zimperium files' ]; then
+            if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk ]; then
+                warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
+                warn "You must have connected Android device with USB debugging turned on in order to install !!!"
+                adb kill-server && adb start-server
+                adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk" | grep -q Success && echo "Opening app..." && launch_mb || echo "Failed to install app, please check your device!"
+            else
+                err "[MBCP_Flutter_SelfPatched_$COMMIT.apk] not found, cannot continue !"
+            fi
+        fi
+        # i should move those into if statement above
+        # but it will make orig dev hard to see difference so :)
+        if [ "$opt" == 'Install and delete zimperium files' ]; then
+            # Delete zimperium detection files
+            adb shell su -c "cd /data/data/com.mbmobile/files; \
+                    rm -rf 0* 1* 2* 3* 4* 5* 6* 7* 8* 9* \
+                        KNOV3PN* zxpolicyme* zxpolicymd* policyme*" # avoid calling too much 'su', may lead to overhead
+
+            warn "ATTENTION : Network traffic will be redirected to [medium.com] for 20 seconds !!!"
+            adb shell su -c 'iptables -t nat -A OUTPUT -p tcp -d 0/0 -j DNAT --to-destination 162.159.153.4:443'
+            adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
+            sleep 20
+            info "Restoring network traffic"
+            adb shell su -c 'iptables -t nat -F OUTPUT'
+            info "Press [Try again] after got 1005/1007 error on MB, so it's can skip device not secure dialog !"
+        fi
+    done
+}
+
+# Banner
+$FIGLET "MBCPApp Patcher Fork"
 echo -------------------------------------------------------------
 echo "Patching tool for MB Bank app with Flutter engine (v6.4.0+)"
 echo "Original APK must be inside [mbapk] folder !"
@@ -331,202 +452,61 @@ echo "Current commit : $COMMIT ($BRANCH)"
 echo "Source code : https://git.disroot.org/mbcp/mbbpatch.git"
 echo "Documentation : see [docs] folder"
 echo "Written from scratch by Cuynu with love <3"
+echo "With some @nleloc's trash code :D"
 echo -------------------------------------------------------------
 echo App status : $(successunpack)
 echo -------------------------------------------------------------
 # Main functions
-PS3='Please select options to continue : '
-select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'zShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download/update tools' 'Restart script' 'Exit'
-do
+echo "Use [0] to exit and [00] to restart MBCPApp Patcher"
+echo ""
+PS3='Please select options to continue, or [0] to exit : '
+select opt in 'Pull latest commit' 'Unpack APK' 'Convert apks to apk' 'Repack APK' 'Install patched app' 'zShield Check' 'Patch App' 'Legacy patches' 'Extract assets [ROOT]' 'Launch MBCPApp/MBBank' 'Force close MBCPApp/MBBank' 'Clear MBCPApp/MBBank app data' 'Clean patched app' 'Download/update tools'; do
+    # prioritize exiting and restart script
+    # 0 will always be exit and 00 will always be restart ;) better for later development
+    if [ "$REPLY" = "0" ]; then
+        echo "Bye :)"
+        exit
+    elif [ "$REPLY" = "00" ]; then
+        echo "Restarting script"
+        exec "$0" "$@"
+        # Better way to restart script :D
+    fi
+
     case "$opt" in
-        'Download/update tools' )   download_tools ;;
-        'Unpack APK' )       unpack_mbcp ;;
-        'Repack APK' )       repack_mbcp ;;
-        'Patch App' )        run_patcher ;;
-        'Legacy patches' )   run_legacy_patcher ;;
-        'zShield Check' )   check_zshield ;;
-        'Convert apks to apk' ) convert_apks ;;
-        'Extract assets [ROOT]' )
-    is_unpacked || exit 1
-    isvcm1
-    iszdefend
-    info "If you have v6.4.98 or newer, app resource extraction is no longer possible. Please use older version."
-    info 'To extract encrypted assets [if current app has zShield protection] you need rooted device'
-    info 'And trigger a built-in app assets extraction !'
-    echo -------------------------------------------
-    PS3='Select options continue, or [3] to quit : '
-    select opt in 'Launch MBCPApp/MBBank' 'Extract assets' 'Exit'
-do
-    	if [ "$opt" == 'Launch MBCPApp/MBBank' ]; then
-        adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
-        info 'After app started, you MUST need to trigger assets extraction'
-        info 'By trigger eKYC authetication with reset account password option or register DigitalOTP'
-        info 'After you got into eKYC screen, close the app, then use Extract assets option to extract assets.'
-        elif [ "$opt" == 'Extract assets' ]; then
-        if [ -d "$DIRPATH"/mbapk/mbapk_unpacked/ ]
-then
-        if [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/*.szip ]
-then
-        info "zShield found ! Continuing !!!"
-        warn 'You MUST grant root access to [com.android.shell] in order to extract assets !'
-        info 'Trying to extract assets...'
+    'Download/update tools') download_tools ;;
+    'Unpack APK') unpack_mbcp ;;
+    'Repack APK') repack_mbcp ;;
+    'Patch App') run_patcher ;;
+    'Legacy patches') run_legacy_patcher ;;
+    'zShield Check') check_zshield ;;
+    'Convert apks to apk') convert_apks ;;
+    'Extract assets [ROOT]') menu_extract_assests ;; # see above
+    'Clear MBCPApp/MBBank app data')
+        info "Clearing [com.mbmobile] data..."
+        adb shell pm clear com.mbmobile
+        launch_mb
+        info "Fact: current logged in account will remain present, even if app data is cleared ;)" # ;) will be funnier, isn't it xD
+        ;;
+    'Pull latest commit')
+        git pull origin dev
+        info "Restarting.."
+        exec "$0" "$@" || echo "Latest commit has changed patcher's name" && info "Plese run patcher again !" && exit
+        # fallback exit if commit changed script name
+        ;;
+    'Launch MBCPApp/MBBank')
+        launch_mb
+        ;;
+    'Force close MBCPApp/MBBank')
         adb shell am force-stop com.mbmobile
-        adb shell rm -rf /sdcard/assets
-        adb shell mkdir /sdcard/assets
-        copy_assets flutter_assets
-        copy_assets dexopt
-        copy_assets font
-        copy_assets mbshield
-        copy_assets media_init_data
-        copy_assets mlkit_barcode_models
-        copy_assets models_bundled
-        copy_assets mwebview
-        copy_assets zfiles
-        copy_assets crashlytics-build.properties
-        copy_assets firmware
-        copy_assets insider.ttf
-        copy_assets dlangV5.dat
-        copy_assets dlangV5.en.dat
-        copy_assets policy0
-        copy_assets policy1
-        copy_assets policy2
-        copy_assets policy3
-        copy_assets policy4
-        copy_assets policy5
-        copy_assets policy6
-        copy_assets policy8
-        copy_assets policy9
-        copy_assets policym
-        copy_assets profile
-        copy_assets rulesV5.dat
-        copy_assets sgprofile
-        copy_assets signature
-        copy_assets smart_ekyc_finall.zip
-        copy_assets version.json
-        copy_assets vkeylicensepack
-        copy_assets voscodesign.vky
-        info 'Copying assets...'
-        adb pull /sdcard/assets mbapk/mbapk_unpacked/root/ && good "Assets copied to [mbapk_unpacked/root/] !" || err "Failed to copy assets ! Please try again." 
-        info 'Removing leftover assets...'
-        adb shell rm -rf /sdcard/assets && good "Removed leftover assets !" || err "Failed to remove leftover assets from device !"
-        else
-        info "zShield not found ! No need to extract assets !"
-        fi
-else
-        err "Can't find [mbapk/mbapk_unpacked] folder, cannot continue ! "
-        err "Please unpack APK first !"
-        fi
-
-        elif [ "$opt" == 'Exit' ]; then
-        clear
-        bash mbcpapp.sh
-       break
-        	fi
-done
         ;;
-        'Restart script' ) 
-        bash mbcpapp.sh
+    'Clean patched app')
+        info "Cleaning, please wait..."
+        rm -f mbcpapp_apk/{*.apk,*.zip}
+        # rm -f mbapk/*.apk # this shouldn't remove unpatched .apk and .apks cuz nammed "clean PATCHED app" right?
+        # rm -f mbapk/*.apks # i'll remove them in the future
+        rm -rf mbapk/{mbapk_unpacked,original_hash}
+        info "Cleared !"
         ;;
-        'Clear MBCPApp/MBBank app data' )
-            info "Clearing [com.mbmobile] data..."
-            adb shell pm clear com.mbmobile
-            adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
-            info "Current logged in account will remain present, even if app data is cleared !"
-        ;;
-        'Pull latest commit' )
-            git pull origin dev
-            info "Please run patcher again !"
-            exit
-        ;;
-        'Launch MBCPApp/MBBank' )
-            adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
-        ;;
-        'Force close MBCPApp/MBBank' )
-            adb shell am force-stop com.mbmobile
-        ;;
-        'Clean patched app' )
-            info "Cleaning, please wait..." 
-            rm -f mbcpapp_apk/*.apk
-            rm -f mbcpapp_apk/*.zip
-            rm -f mbapk/*.apk
-            rm -f mbapk/*.apks
-            rm -rf mbapk/mbapk_unpacked
-            rm -rf mbapk/original_hash
-            info "Cleared !"
-        ;;
-        'Install patched app' )
-    info 'Select your patched version to continue'
-    PS3='Select patched version to continue, or [4] to quit : '
-    select opt in 'App patched with newer version [v6.4.59+]' 'App patched with specific version' 'App patched with older version [v6.4.55 or lower]' 'Exit'
-do
-
-        if [ "$opt" == 'App patched with newer version [v6.4.59+]' ]; then
-        if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk ]
-    then
-        warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
-        warn "You must have connected Android device with USB debugging turned on in order to install !!!"
-        adb kill-server
-        adb start-server
-        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk" | grep -q Success && echo "Opening app..." && adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity || echo "Failed to install app, please check your device!"
-    else
-        err "[MBCP_Flutter_SelfPatched_$COMMIT.apk] not found, cannot continue !"
-    fi
-
-    	elif [ "$opt" == 'App patched with specific version' ]; then
-        if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk ]
-    then
-        warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
-        warn "You must have connected Android device with USB debugging turned on in order to install !!!"
-        adb kill-server
-        adb start-server
-        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk" | grep -q Success && echo "Opening app..." && adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity || echo "Failed to install app, please check your device!"
-        # Delete zimperium detection files
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/0*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/1*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/2*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/3*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/4*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/5*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/6*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/7*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/8*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/9*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/KNOV3PN*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/zxpolicyme*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/zxpolicymd*
-        adb shell su -c rm -rf /data/data/com.mbmobile/files/policyme*
-        warn "ATTENTION : Network traffic will be redirected to [medium.com] for 20 seconds !!!"
-        adb shell su -c 'iptables -t nat -A OUTPUT -p tcp -d 0/0 -j DNAT --to-destination 162.159.153.4:443'
-        adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
-        sleep 20
-        info "Restoring network traffic"
-        adb shell su -c 'iptables -t nat -F OUTPUT'
-        info "Press [Try again] after got 1005/1007 error on MB, so it's can skip device not secure dialog !"
-    else
-        err "[MBCP_Flutter_SelfPatched_$COMMIT.apk] not found, cannot continue !"
-    fi
-        
-        elif [ "$opt" == 'App patched with older version [v6.4.55 or lower]' ]; then
-        if [ -f "$DIRPATH"/mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk ]
-    then
-        warn "MBCP Helper / CorePatch must be installed with disable digest verify on !!!"
-        warn "You must have connected Android device with USB debugging turned on in order to install !!!"
-        adb kill-server
-        adb start-server
-        adb install "mbcpapp_apk/MBCP_Flutter_SelfPatched_$COMMIT.apk" | grep -q Success && echo "Opening app..." && adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity || echo "Failed to install app, please check your device!"
-        adb shell am start -n com.mbmobile/io.flutter.plugins.MainActivity
-    else
-        err "[MBCP_Flutter_SelfPatched_$COMMIT.apk] not found, cannot continue !"
-    fi
-
-
-        elif [ "$opt" == 'Exit' ]; then
-            PS3='Please select options to continue : '
-            break
-        	fi
-done
-        ;;
-        'Exit' ) exit ;; 
+    'Install patched app') menu_install_patched_app ;; # again, see above
     esac
 done
-
