@@ -5,24 +5,27 @@
 # shellcheck disable=SC1091
 . "$DIRPATH"/common.sh
 
-prioritylogo() { 
-       if [ -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/a_logo_img_addon.webp' ]
-then
-       warn "App newer than v6.4.79+ ! Using enforced logo instead"
-       info "Copying [ic_logo_mb_text_enforced.svg]..."
-       cp -f 'blob_patches/semipriority/ic_logo_mb_text_enforced.svg' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/svgs/ic_logo_mb_text.svg'
-else
-       info 'Copying [ic_logo_mb_text.svg]...'
-       cp -f 'blob_patches/semipriority/ic_logo_mb_text.svg' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/svgs/'
-fi
+prioritylogo() {
+  if [ -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/base/a_logo_img_addon.webp' ]; then
+    warn "App newer than v6.4.79+ ! Using enforced logo instead"
+    info "Copying [ic_logo_mb_text_enforced.svg]..."
+    cp -f 'blob_patches/semipriority/ic_logo_mb_text_enforced.svg' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/svgs/ic_logo_mb_text.svg'
+  else
+    info 'Copying [ic_logo_mb_text.svg]...'
+    cp -f 'blob_patches/semipriority/ic_logo_mb_text.svg' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/svgs/'
+  fi
 }
 
 iszdefend
-PS3='Select themes : '
+PS3='Select themes, or [0] to exit : '
 info "The list below is bulit-in customized app themes."
 info "For community themes, please download and install from [tweaked-mbflutter-themes] repository on Disroot"
 echo "Available themes list :"
 select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-autumn festival' 'Viet Nam' 'Exit'; do
+  if [ "$REPLY" = "0" ]; then
+    exit
+  fi
+
   case "$opt" in
   'MBCP SemiPriority')
     info 'Moving [priority] folder...'
@@ -57,39 +60,39 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
 
     ;;
   'Mid-autumn festival')
-    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh  ] && autumn_quockhanh || err "[quockhanh] folder not found! current unpacked app does not have [quockhanh] theme! ignoring..." 
+    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh ] && autumn_quockhanh || err "[quockhanh] folder not found! current unpacked app does not have [quockhanh] theme! ignoring..."
     autumn_quockhanh() {
-    cp -f 'blob_patches/trungthu_theme/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
-    cp -f 'blob_patches/trungthu_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
-    cp -f 'blob_patches/trungthu_theme/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
-    cp -f 'blob_patches/trungthu_theme/homeLanding_img_defaultBanner.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
-    cp -f 'blob_patches/trungthu_theme/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
-    cp -f 'blob_patches/trungthu_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
-    cp -f 'blob_patches/trungthu_theme/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
-    cp -f 'blob_patches/trungthu_theme/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
-    cp -f 'blob_patches/trungthu_theme/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+      cp -f 'blob_patches/trungthu_theme/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+      cp -f 'blob_patches/trungthu_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+      cp -f 'blob_patches/trungthu_theme/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+      cp -f 'blob_patches/trungthu_theme/homeLanding_img_defaultBanner.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+      cp -f 'blob_patches/trungthu_theme/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+      cp -f 'blob_patches/trungthu_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+      cp -f 'blob_patches/trungthu_theme/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+      cp -f 'blob_patches/trungthu_theme/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
+      cp -f 'blob_patches/trungthu_theme/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/quockhanh'
     }
 
     # Trung thu theme since v6.4.68+
-    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu ] && autumn_trungthu || err "[trungthu] folder not found! current unpacked app does not have [trungthu] theme! ignoring..." && exit 1 
+    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu ] && autumn_trungthu || err "[trungthu] folder not found! current unpacked app does not have [trungthu] theme! ignoring..." && exit 1
     autumn_trungthu() {
-    cp -f 'blob_patches/trungthu_theme/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/trungthu_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/trungthu_theme/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/trungthu_theme/homeLanding_img_defaultBanner.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/trungthu_theme/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/trungthu_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/trungthu_theme/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/trungthu_theme/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/trungthu_theme/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/trungthu_theme/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/trungthu_theme/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/trungthu_theme/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/trungthu_theme/homeLanding_img_defaultBanner.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/trungthu_theme/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/trungthu_theme/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/trungthu_theme/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/trungthu_theme/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/trungthu_theme/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     }
 
-    [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_illus_a80.webp ] && del_a80resources  
+    [ -f "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_illus_a80.webp ] && del_a80resources
     del_a80resources() {
-    rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_illus_a80.webp'
-    rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Banner.webp'
-    rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Code.webp'
-    rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_bg_a80Landing.webp'
+      rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_illus_a80.webp'
+      rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Banner.webp'
+      rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_img_a80Code.webp'
+      rm -f 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/static/onboarding/onboarding_bg_a80Landing.webp'
     }
 
     cat mbapk/mbapk_unpacked/root/lib/arm64-v8a/libapp.so | grep -a -oH filestatic >/dev/null 2>&1 && demotrungthu
@@ -162,15 +165,15 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     # New trungthu
     [ -d 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu' ] && trungthu2025
     trungthu2025() {
-    cp -f 'blob_patches/noel/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/noel/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/noel/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/noel/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/noel/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/noel/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/noel/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/noel/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
-    cp -f 'blob_patches/noel/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/noel/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/noel/bill_background_gold.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/noel/coreBanking_img_successBackground.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/noel/general_bg_screenshot.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/noel/general_bg_success.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/noel/homeLanding_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/noel/loading_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/noel/login_bg_main.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
+      cp -f 'blob_patches/noel/qr_img_ThemeDefalut.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/trungthu'
     }
 
     ##############
@@ -235,41 +238,40 @@ select opt in 'MBCP SemiPriority' 'MBCP MBClassic' 'Noel 2024' 'Tre trung' 'Mid-
     cp -f 'blob_patches/tretrung_theme/cardService_bg_cardMKT.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
     cp -f 'blob_patches/tretrung_theme/a_background_image.webp' 'mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/noel'
     echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/tretrung_theme.inf"
-    good "Applied [Tre Trung] theme."  
+    good "Applied [Tre Trung] theme."
     ;;
   'Viet Nam')
-      # v6.4.87 ~ v6.4.93
+    # v6.4.87 ~ v6.4.93
     vn_binhngo() {
-    info "Applying..."
-    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/*.webp
-    rm -rf "$DIRPATH"/tmpvn
-    mkdir "$DIRPATH"/tmpvn
-    git clone https://git.disroot.org/mbcp/mb-flutter-themes "$DIRPATH"/tmpvn
-    [ ! -d "$DIRPATH"/tmpvn/mbstore_theme_original/ ] && err "[mbstore_theme_original] folder not found in [tmpvn!] aborting..." && rm -rf tmpvn && exit 1 
-    mv tmpvn/mbstore_theme_original/tuhaovietnam/e0050e73-fc22-4ca8-b1eb-6672ab948c01/images/*.png "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/
-    rm -rf tmpvn
-    rename png webp "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/*.png
-    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/vn_theme.inf"
-    good "Applied [Viet Nam] theme."
+      info "Applying..."
+      rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/*.webp
+      rm -rf "$DIRPATH"/tmpvn
+      mkdir "$DIRPATH"/tmpvn
+      git clone https://git.disroot.org/mbcp/mb-flutter-themes "$DIRPATH"/tmpvn
+      [ ! -d "$DIRPATH"/tmpvn/mbstore_theme_original/ ] && err "[mbstore_theme_original] folder not found in [tmpvn!] aborting..." && rm -rf tmpvn && exit 1
+      mv tmpvn/mbstore_theme_original/tuhaovietnam/e0050e73-fc22-4ca8-b1eb-6672ab948c01/images/*.png "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/
+      rm -rf tmpvn
+      rename png webp "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo/*.png
+      echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/vn_theme.inf"
+      good "Applied [Viet Nam] theme."
     }
     # v6.4.98
     vn_giaiphong() {
-    info "Applying..."
-    rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong/*.webp
-    rm -rf "$DIRPATH"/tmpvn
-    mkdir "$DIRPATH"/tmpvn
-    git clone https://git.disroot.org/mbcp/mb-flutter-themes "$DIRPATH"/tmpvn
-    [ ! -d "$DIRPATH"/tmpvn/mbstore_theme_original/ ] && err "[mbstore_theme_original] folder not found in [tmpvn!] aborting..." && rm -rf tmpvn && exit 1 
-    mv tmpvn/mbstore_theme_original/tuhaovietnam/e0050e73-fc22-4ca8-b1eb-6672ab948c01/images/*.png "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong/
-    rm -rf tmpvn
-    rename png webp "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong/*.png
-    echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/vn_theme.inf"
-    good "Applied [Viet Nam] theme." 
+      info "Applying..."
+      rm -rf "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong/*.webp
+      rm -rf "$DIRPATH"/tmpvn
+      mkdir "$DIRPATH"/tmpvn
+      git clone https://git.disroot.org/mbcp/mb-flutter-themes "$DIRPATH"/tmpvn
+      [ ! -d "$DIRPATH"/tmpvn/mbstore_theme_original/ ] && err "[mbstore_theme_original] folder not found in [tmpvn!] aborting..." && rm -rf tmpvn && exit 1
+      mv tmpvn/mbstore_theme_original/tuhaovietnam/e0050e73-fc22-4ca8-b1eb-6672ab948c01/images/*.png "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong/
+      rm -rf tmpvn
+      rename png webp "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong/*.png
+      echo "Patch applied by MBCPApp Patcher on $(uname -s -r) with commit : $(git rev-parse --short HEAD) at $(date)." >"mbapk/mbapk_unpacked/root/assets/mbcp_info/vn_theme.inf"
+      good "Applied [Viet Nam] theme."
     }
     [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/tetbinhngo ] && vn_binhngo || err "[tetbinhngo] theme not found! skipping..."
-    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong ] && vn_giaiphong || err "[giaiphong] theme not found! aborting..." || exit 1 
-      ;;
+    [ -d "$DIRPATH"/mbapk/mbapk_unpacked/root/assets/flutter_assets/assets/images/dynamic/giaiphong ] && vn_giaiphong || err "[giaiphong] theme not found! aborting..." || exit 1
+    ;;
 
-  'Exit') exit ;;
   esac
 done
