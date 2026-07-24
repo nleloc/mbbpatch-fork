@@ -7,33 +7,23 @@
 >
 > Again, this is a **PERSONAL FORK** for my usage, if you faces any problem, idc
 
-Yeah, still **AI-free, human-written** open source tool for patching MB Bank (Android) app with Flutter framework (v6.4.0+) for rooted users (or ROMs with built-in CorePatch). primarily written in Bash, made possible by @cuynu with love and community in Vietnam.
 
-<img alt="Gitea Release" src="https://img.shields.io/gitea/v/release/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&include_prereleases&display_name=tag&style=for-the-badge&logo=android&label=Latest%20Pre-built%20MBCP%20&color=%23CC6699">
-
-<img alt="Gitea Issues" src="https://img.shields.io/gitea/issues/all/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&style=for-the-badge">
-
-<img alt="Gitea language count" src="https://img.shields.io/gitea/languages/count/mbcp/mbbpatch?gitea_url=https%3A%2F%2Fgit.disroot.org&style=for-the-badge&color=%236750A4">
-
-- If you are looking pre-built app, here : [MBCP Releases](/mbcp/mbbpatch/releases) | [Install guide](/mbcp/info_en/wiki/mbcpinstall)
-- Coming from GitLab? Go to the main location here to avoid link errors : [Disroot](https://git.disroot.org/mbcp/mbbpatch) | [Selfhost](http://cuynutt.ddns.net/mbcp/mbbpatch)
-- Project FAQ : [Read here](/mbcp/info_en/wiki/faq)
+- Original Project FAQ : [Read here](/mbcp/info_en/wiki/faq)
 - Licensed as MIT License.
+- I'm too lazy to write a new one
 
 > [!IMPORTANT]
 > We spend efforts and times for finding the method and make this project. Of course, it's not for scammer, it's for **power users and developers only**.
 >
-> Older releases (v6.4.90 or older) has mismatch commit ID with this new repo, for reference to the exactly same commit, see [MBCP_VersionReference.md](MBCP_VersionReference.md) in repository.
+> This fork aim to refactor MBCPApp Patcher only, no prebuilt apk will be provided.
 
 ## Introduction
 
-> Fact : MBCP / MBZDefend-Fix is my "hobby project", I maintain it in my free times :>
+> MBCP Refactoring is my personal fork, trying to refactor MBCP Patcher
 
 - Note : "MBCP" / "MBCPApp" = "MBBank CorePatch"
 - MBCP is inspired from [CorePatch](https://github.com/LSPosed/CorePatch) project. Now it can works with [PMPatch](https://github.com/vova7878-modules/PMPatch) too
 - This project was made to remove or limit annoying features & root detection & accessibility detection that is implemented by the development team of "MB Bank" Android app with additional features such as custom themes ability, device font, etc (see more in patches list). **It's not PoC (Proof of Concept) project at all.**
-- [MBCP](https://t.me/mbcposs) are closed source before, and many people don't like it and concern with privacy & security issues
-- In order to support community and allow other devs to improve the project, I spend days to rewritten `MBCP` patches in Bash and open source it so you can patch yourself from original app on Linux or Darwin (macOS) environment. All MBCP releases from v6.4.47+ are all built with this open source project with the commit ID at the end of the file name.
 
 ## DISCLAIMER
 - I'm not responsible if someone abuse this patch to do illegal things, since it's originally made for power users and developers only.
@@ -42,103 +32,20 @@ Yeah, still **AI-free, human-written** open source tool for patching MB Bank (An
 
 - [MBCPApp Patcher Documentation](docs/)
 
-## Requirements & Building
+## Dependencies
 
-- Any actual Linux environment or macOS (Arch Linux based recommended)
+- Any actual Linux environment or macOS
 - Little knowledge about terminal commands
 - `android-tools` `wget` for Arch/Fedora based and `android-sdk-platform-tools` for Debian based
 - `android-platform-tools` for macOS with brew
 - `git` installed
 - `java` or `jdk-openjdk` installed
-- `figlet` for showing banner (optional)
+- `figlet` for showing banner (pls)
 - `xmlstarlet` for reformatting AndroidManifest after unpacking
 
-[Building App from Patcher](#building)
+- `apktool` for extracting apk, etc, this will be installed by mbcpapp
+- `apkeditor` for packing original signature into app and smt else
 
-## Patches list :
-
-</details>
-
-### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
-
-<details>
-
-| ⚙️ Patch | 📜 Description | 🏦 Suggested version |
-|:--------:|:--------------:|:-----------------:|
-| `Add verified badge` | Replaces the MIC protection shield with verified badge to make it looks more cute :3 | v6.4.0 ~ v6.5.6 |
-| `Adaptive launcher icon` | Adds the adaptive & themed icon support to the app. Thanks to @fukiame ! | v6.4.0 ~ v6.5.6 |
-| `Proper notification icon` | Temporary fixes for the app notification icon. Thanks to @fukiame ! | v6.4.0 ~ v6.5.6 |
-| `Block adjust volume on sEKYC` | Prevent the device volume from being adjusted when entering eKYC activity. (Hidden for v6.4.67+) | v6.4.0 ~ v6.5.6 |
-| `Better custom background screen` | Replace the preview custom background from awful to useful. | v6.4.84 ~ v6.5.6 |
-| `Change app logo` | Change the app logo with set of icons. | v6.4.0 ~ v6.5.6 |
-| `Change widget background to dark ` | Change widget background to dark if you use MBBHomeWidget. | v6.4.0 ~ v6.5.6 |
-| `Custom VTAP screen` | Warn users about critical VTAP trigger error from app. | v6.4.53 ~ v6.5.6 |
-| `Custom sub-badge` | Replace original animated promotion badge with static badge for Basic users | v6.4.44 ~ v6.5.6 |
-| `Disable MB Membership` | Disable the MB Membership badge below pfp and all of it's features. (limited features with v6.4.67+) | v6.4.0 ~ v6.5.6 |
-| `Tian37 Fix` | Nuke detection points within Tian37 libraries. | v6.4.87 ~ v6.5.6 |
-| `Force portrait screen` | Force the screen always portrait on app, especially when launching app. | v6.4.0 ~ v6.5.6 |
-| `Fix VTAP certificate` | Update or downgrade VTAP certificate for older/newer app version, so it can work again in future. | v6.4.67 ~ v6.5.6 |
-| `Remove MB AI Slop resources` | Remove the MB AI slop resources from app. | v6.4.74 ~ v6.5.6 |
-| `Remove MB Themes Store` | Remove the MB Themes Store banner from Themes list, preventing access to MB Theme Store. | v6.4.28 ~ v6.5.6 |
-| `Remove invoke to zShield` | Make the app stop invoking to zShield when opening (MainActivity) and (MBBHomeWidgetQR) only (Hidden for v6.4.67+) | v6.4.22 ~ v6.5.6 |
-| `Remove new zimperium check` | Remove the new Zimperium (ZDefend) root detection from app. Picked up from Legacy Patch. (Hidden for v6.4.67+) | v6.4.60 ~ v6.5.6 |
-| `Remove built-in fonts` | Remove app font and force to use device font for most app components. | v6.4.0 ~ v6.5.6 |
-| `Modify app theme` | Modify the built-in app theme from original one to other themes. | v6.4.30 ~ v6.5.6 |
-| `Remove garbage permission and activities` | Removes tracking permission & activities from app. | v6.4.0 ~ v6.5.6 |
-| `Revert old eMBee logo` | Revert old eMBee logo, especially on product consultation options. | v6.4.53 ~ v6.5.6 |
-| `Remove useless libraries` | Remove the useless libraries from app, only for v6.4.67+ | v6.4.67 ~ v6.5.6 |
-| `Remove animated QR background` | Remove the animated QR background from bottom navigation bar and replace with white background. | v6.4.43 ~ v6.5.6 |
-| `Remove VNPAY VMB20` | Remove the VNPAY Airplane related activities. | v6.4.55 ~ v6.5.6 |
-| `Restore old registration resources` | Restore old resources on `onboarding` page. | v6.4.48 ~ v6.5.6 |
-| `Hide VTAP root detection activity & dialog` | Hide the old root detection screen and dialog showing "Device is rooted" (might have issues with some HyperOS ROMs). (Hidden for v6.4.67+) | v6.4.0 ~ v6.5.6 |
-| `Legacy hide VTAP activity & dialog` | Hide the first root detection screen with dialog showing "Device is rooted" but not bypassing it. (GW908 will still present, unlike standard `Hide VTAP root detection activity & dialog` patch). Only use for some ugly ROMs which is crashing with standard patch. (Hidden for v6.4.67+) | v6.4.53 ~ v6.5.6 |
-| `Remove protection shield` | Remove the MIC protection shield on profile picture and login screen. (not app protection) | v6.4.0 ~ v6.5.6 |
-| `Remove app from launcher` | Remove the app icon from launcher, and start with `am start` or with MBZDefend-Fix Action/Termux. | v6.4.0 ~ v6.5.6 |
-| `Set targetSdkVersion to 34` | Set the `targetSdkVersion` to 34 (Android 14) to prevent UI issues on some activities. | v6.4.10 ~ v6.5.6 |
-| `Add modified resources` | Adds the specific strings for MBCP on eKYC phases, and modify the DigiBank logo. | v6.4.0 ~ v6.5.6 |
-| `Add anime resources` | Adds anime-related resources to some components inside app. | v6.4.45 ~ v6.5.6 |
-
-</details>
-
-## Old patches
-
-> [!IMPORTANT]
-> Following patches are no longer compatible with newer/current app version.
-
-### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
-<details>
-
-| ⚙️ Patch | 📜 Description | 🏦 Suggested version |
-|:--------:|:--------------:|:-----------------:|
-| `Autopatch strings` | Modify the strings in-app within `libapp.so`, and also fixes some translation typo in-app. | v6.4.0 ~ v6.4.66 |
-| `Bypass blacklist IP hashes` | Bypass the block list of some IP hashes. | v6.4.50 ~ v6.4.66 |
-| `Bypass forced update dialog` | Bypass forced update dialog from app. | v6.4.0 ~ v6.4.66 |
-| `Bypass malicious app check` | Bypass malicious app check from app. | v6.4.10 ~ v6.4.66 |
-| `XPE003 Fix` | Fix XPE003 issues when use bypass zimperium patch. | v6.4.56 ~ v6.4.66 |
-| `Bypass GW934 checksum` | Bypass the GW934 error rolled-out from MB server-side which prevent MBCP users from logging in to app. Only use this after applied all your patch needs. | v6.4.64 ~ v6.4.66 |
-| `Remove custom profile picture` | Force the use of default profile picture instead of your current one on MB's server side. | v6.4.0 ~ v6.4.66 |
-| `Restore old 682 lib` | Restore old v6.4.61 `libapp.so` to prevent enforced `quockhanh` theme changes on v6.4.62. | v6.4.62 |
-| `Remove eMBee` | Removes eMBee options in app, alongside with Customer support. | v6.4.43 ~ v6.4.66 |
-| `Remove banner & MiniApp` | Removes the banner and MiniApp on `homeLanding` page when logged in. | v6.4.43 ~ v6.4.66 |
-| `Remove VPN detection` | Remove the VPN detection that warn users to turn it off on app bundle. | v6.4.52 ~ v6.4.66 |
-| `Spoof app version to v6.4.68` | Spoof the app version from v6.4.66 to v6.4.68. | v6.4.64 ~ v6.4.66 |
-| `Bypass accessibility & malicious apps check` | Remove the restriction of using the app when an app using accessibility service or "malicious apps" like (HideMyAppList) installed. | v6.4.25 ~ v6.4.54 |
-| `Remove new root detection` | Remove the new Zimperium (ZDefend) root detection from app. (Now requires workaround for v6.4.56+) | v6.4.15 ~ v6.4.58 |
-| `Bypass new zimperium detection` | Bypass the root check from Zimperium within app. | v6.4.56 ~ v6.4.63 |
-</details>
-
-
-## Legacy patches
-- Following patches are not implemented or outdated, which is used for discontinued MB app version.
-### [📦 `MB Bank : com.mbmobile`](https://t.me/embeeapks)
-<details>
-
-| ⚙️ Patch | 📜 Description | 🏦 Suggested version |
-|:--------:|:--------------:|:-----------------:|
-| `Bypass signature check` | Not implemented (Use bypass GW934 checksum instead) | v6.4.0 ~ v6.4.21 |
-| `[TEST] Remove v6.4.56 root detection` | New workaround that removes new Zimperium (ZDefend) root detection from app. | v6.4.56 |
-| `Bypass 1200 error` | Workaround for 1200 error that happening on original MB app with specific version, now discontinued. | v6.4.45 |
-</details>
 
 ## Proprietary code
 > [!WARNING]
@@ -155,7 +62,13 @@ Yeah, still **AI-free, human-written** open source tool for patching MB Bank (An
 - 7. `blob_patches/noinvoke`
 
 - Under `mbsig` directory, it contains original signature from original MB's app, which is necessary to make app works after patching process because the app doesn't work with different APK signature.
-- Everything including that listed above code are all licensed under MIT license, it can be considered as reverse engineered code :>
+- You can extract those signature yourself with apkeditor. eg (make sure you're in `mbbpatch-fork/MBCPApp` and ran script with option [14] and [2], ik it's bad, i'll try update it soon)
+```
+rm -rf mbsig/*
+java -jar tools/apkeditor.jar d -t sig -i 'mbapk/Origial-MB-APP.apk' -sig 'mbsig/'
+# replace Original-MB-APP.apk with your MB apk name
+```
+- Everything including that listed above code are all licensed under MIT license.
 
 ## Building
 
@@ -186,32 +99,38 @@ PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 ```
 
 ### Clone repository
-You can choose between 2 repository mirrors, one is the repository on Disroot, and the other one is the Selfhosted Forgejo instance, it has no difference as both are pushed at the same time.
 
-Disroot 
+GitHub
+
 ```
-cd ~
-git clone https://git.disroot.org/mbcp/mbbpatch.git
-cd mbbpatch/MBCPApp
-```
-Self-hosted Instance
-```
-cd ~
-git clone https://cuynutt.ddns.net/mbcp/mbbpatch.git
-cd mbbpatch/MBCPApp
+git clone https://github.com/nleloc/mbbpatch-fork
+cd mbbpatch-fork/MBCPApp
 ```
 
 ### Run the Patcher
 Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
+- Clone this repository first ;)
+
+```
+git clone https://github.com/nleloc/mbbpatch-fork
+cd mbbpatch-fork/MBCPApp
+```
+
+- Actually run patcher
 ```
 ./mbcpapp.sh
 ```
-- Download tools with `14) Download tools` function first, it will download `apktool` and `apkeditor` to `tools` folder. This is required since `2) Unpack APK` function requires it.
+- NOTE: mbcpapp.sh can be found in `mbbpath-fork/MBCPApp/`
+- You can use [0] to exit, it can also be used to go back to previous list
+- Also [00] to reload script, it should work on all lists
+
+- First time usage: use [14] to download dependency tools to patch (including `apktool` and `apkeditor`), it can be found at `tools` folder
 
 ### Patch the app 
 
-- Grab MB Bank apks from [eMBee APKs](https://t.me/embeeapks) or [Lotus Chat](https://lotuschat.vn/w/+anSH1BbDbAYn54JC9nIC9A) (in case if you don't have access to Telegram) and copy it to `~/mbbpatch/MBCPApp/mbapk`
-- Alternatively, if you don't have access to both Telegram & Lotus Chat, download from [Google Play](https://play.google.com/store/apps/details?id=com.mbmobile) then extract the MB Bank apks and copy it to `~/mbbpatch/MBCPApp/mbapk` or get it [from my instance](http://cuynutt.ddns.net/mbcp/mbmobile-apks)
+- Grab MB Bank apks from [eMBee APKs](https://t.me/embeeapks) or [Lotus Chat](https://lotuschat.vn/w/+anSH1BbDbAYn54JC9nIC9A) (in case if you don't have access to Telegram) and copy it to `mbbpatch-fork/MBCPApp/mbapk`
+- Alternatively, if you don't have access to both Telegram & Lotus Chat, download from [Google Play](https://play.google.com/store/apps/details?id=com.mbmobile) then extract the MB Bank apks and copy it to `mbbpatch-fork/MBCPApp/mbapk`
+
 - Convert apks to apk first using `3) Convert apks to apk` function
 - Unpack apk with `2) Unpack apk` function
 - Use `7) Patch App` function, it should show a list of patches, select the patch you wanted to and it will automatically patch the app at `mbapk/mbapk_unpacked`
@@ -244,121 +163,39 @@ Ensure that you already in following folder to continue : `~/mbbpatch/MBCPApp`
 00.453 I: [BUILD] Writing signature block ...                                                                                             
 00.909 I: [BUILD] Saved to: mbcpapp_apk/MBCP_Flutter_SelfPatched.apk
 [19:45:55:70] [INFO] Completed! Repacked APK are saved as [mbcpapp_apk/MBCP_Flutter_SelfPatched.apk] !!!
-[19:45:55:70] [INFO] Install and trying to open it when ಠ‿ಠ
-[19:45:55:70] [INFO] If you are facing issues, report it on Telegram [@mbcposs] or Disroot Forgejo : mbbpatch !!
+[19:45:55:70] [INFO] Install and open it wen ಠ‿ಠ
+[19:45:55:70] [INFO] If you are facing issues, idk, this is a PERSONAL fork
 ```
-- Patched app will be `MBCP_Flutter_SelfPatched.apk` on `~/mbbpatch/MBCPApp/mbcpapp_apk/`
-- As this is unsigned app, Android will refuse to install `MBCP_Flutter_SelfPatched.apk` by default. In order to install it, you MUST use [CorePatch](https://github.com/LSPosed/CorePatch/releases) 
-- If you don't know how to deal with CorePatch, follow this guide : [MBCP Installation](/mbcp/info_en/wiki/mbcpinstall)
-- Copy this `MBCP_Flutter_SelfPatched.apk` then install to your device, or simply use `5) Install patched app` function, its will do the same thing with `adb`
-- Check if the app working properly or not.
+- Patched app will be `MBCP_Flutter_SelfPatched.apk` on `mbbpatch-fork/MBCPApp/mbcpapp_apk/`
+- As this has modified apk with original signature kept (cuz app checks for the signature yk), you'll need CorePatch installed and enabled `Disable digest verify`. I don't use PMPatch :) idk
 
-</details>
+- Now pray for it to work.
 
 
 ## Contributing
 
-- PR are welcome, but before submit, please ensure that **it's your work**, not AI/LLM work (not even assisted by AI/LLM).
+- PR are welcome
 
-- [Submit PR here](https://git.disroot.org/mbcp/mbbpatch/pulls)
+- [Submit PR here](https://github.com/nleloc/mbbpatch-fork/pulls)
 
-## AI/LLM Policy
+## My thought about AI/LLM
+- I don't fucking care
 
-- This project does not accept any AI/LLM generated & assisted code. Any PR / work must be done by a human (it's okay with help from search engines like Google/DuckDuckGo/StartPage and sites like StackOverFlow, but no search from AI/LLMs)
+## FUTURE DEVELOPMENT
 
-- The development is done without any help from any kind of LLMs. 
-- Exception : There's `platform-tools.sh` (Gemini generated) mistakenly pushed to this repository in the past, but then deleted due to that code was too awful and I don't want to use LLMs anymore.
-- All of other work is done by me and contributors without any help from AI/LLM (I reviewed fukiame's code carefully before merge it).
+- I'll try to re-write this as it's a mess after i commited my trash code ;)
+- Tryin to turn this from a mess to landfill
+- No ETA anytime soon
 
-- If you want to use Generative AI-tools / LLMs for this contributing code (or artwork) to project, please fork and do it yourself. We do not accept AI/LLM code in this project at all.
-
-Why not AI/LLM, isn't it good?
-> 
-> [See AI/LLM impact in Codeberg (small-hack/open-slopware)](https://codeberg.org/small-hack/open-slopware/src/branch/main#why-not-llms)
->
-> Personal situation : I used to use LLMs (Claude, Gemini) before for useless questions, and the last time is the generated the code `platform-tools.sh`, then stopped using it and nuked from repository because it looks awful for me, it can take my critical thinking and coding skills away and that sucks. I do not want to use AI/LLMs anymore and the specially hate it from my mind, in the future of it may get better, but none of it can change my mind.
->
-> After that, I forced myself to code, learn using old fashioned docs, traditional search engine, and it makes me happy. The dopamine hit actually make sense of coding and I love it.
-
-## AI-tainted dependencies
-
-- Even though this project is NOT vibe-coded or AI/LLM-assisted, another dependencies that the project heavily rely on (APKEditor, apktool, etc) may already tainted with it. While I'm straightly disagree it, theres no escape for that in big 2026 (and also in few next years) so we have to accept the truth that some of dependencies the project depends on is tainted.
-
-- Project depends on dependencies that is already tainted with AI/LLM, but is done by a human and NOT AI/LLM doesn't mean the project contains AI/LLM code.
-
-> I am using `vim` (and Android Studio) for the development of this project, it is already tainted with some AI/LLM assisted code, but I don't use any AI/LLM-powered features in it, I use it as normal Text Editor/IDE, and it still provide me a environment for writing code just like before. I guess this is not avoidable anymore.
-
-
-## Project history
-
-Early note : When I created @mbbmod channel back in 2023, no one knows it for months, until september, I did not promote or tell to anyone, it is public link and people accidentlly found it.
-
-<details>
-
-- 05/2023 : MB Bank MOD APK ANDROID project created on Telegram (@mbbmod), providing modified MB Bank APKs since v5.8 with a lot of features such as bypassing accessibility check and show a guide to hide root instead of show rooted screen then close the app.
-
-- 01/2024 : Channel from 2023 is deleted, due to Telegram banning account (@cuynutt)
-
-- 06/2024 : [MB Android Patched] channel created, providing modified MB Bank Flutter APKs and then MB React Native APKs
-
-- 01/2025 : Channel renamed to [MBCP Android] due to MB discontinued version that does not requires CorePatch. MBCP Helper also existed since then.
-
-- 05/2025 : Project is rewritten from closed source (mostly with MT Manager) to open source with `bash` programming language, reduce the trust issues with closed source app before, also allow anyone to patch it manually.
-
-- 06/2025 : [Hide VTAP root detection activity & dialog] patch was added, enables the ability to use the MBCP app with superuser (root permission) enabled.
-
-- 07/2025 : MB forced zimperium with v6.4.56, which throw `XPE002` dialog if zimperium is completely destroyed. I fixed it.
-
-- 08/2025 : @fukiame joining to refactor the project source code, make it easier to maintain in the future, also implement good logic.
-
-- 09/2025 : MB forced checksum check, throw `GW934` error if any classes$.dex file or `libapp` aka zimperium aka `libmbshield` is modified. I made a bypass, it works for v6.4.63 up to v6.4.66.
-
-- 10/2025 : MB discontinued `v6.4.66`, the last version with almost all patches working (except `bypass_accessibility_applist`) with `GW525` error when logging in
-
-- 11/2025 : MB released `v6.4.74` with AI-crap button that replaces legacy search button. I created a patch that force replace it back to old search icon. 
-
-- 02/2026 : MB released `v6.4.85` with enhanced Singalarity eKYC detection (detects `data/adb/modules` and `com.rifsxd.ksunext`), so I created a patch that removed the check.
-
-- 03/2026 : After a long-term pain, Me (author of this project) finally find the right label for myself. This project turned me from just a YouTuber aka tinkerer to a developer who love to writing code.
-
-- 04/2026 : MB discontinued all old active version (v6.4.67 ~ v6.4.91). The current minimum active version is (v6.4.92+). Users must update to newer app or repatch with newer version.
-
-</details>
-
-## TODO
-
-- [ ] Native library for more bypasses
-
-- [ ] Bypass the new dex & libraries checksum for MB v6.4.92+ 
-
-- [ ] Crash fixes for `Hide VTAP root detection activity & dialog` patch (OEM ROMs)
-
-- [ ] Proper display language under Singalarity eKYC phase 
-
-- [x] Revert old Bee Rich logo
-
-- [x] Adapt new v6.4.67 zimperium structure
-
-- [x] Adapt new v6.4.68 trungthu theme
-
-## Old measure
-
-- More information about GW934 measure :
-<details>
-
-- The `GW934` error is known enabled from the server-side (v6.4.64 works since days 0, but return with GW934 error after 11 days), it requires client (MBCP/MBBank) app to sent the SHA256 hash of 3 app libraries `libapp.so` | `libmbshield.so` | `libclosestmadagascar.so` and all of 5 dex files (classes1->5.dex) to the server for comparing hash, and if it doesn't match, the server will prevent the app from logging in with GW934 error : `Re-install app to continue using app.`
-- The other function (eg: DigitalOTP) that works without logging in still works.
-
-</details>
 
 ## Credits
 - [apktool](https://github.com/iBotPeaches/Apktool)
 - [APKEditor](https://github.com/REAndroid/APKEditor/)
-- [MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3 (in the past)
+- ~~[MT Manager](https://mt2.cn/) to handle APK signature scheme v2/v3~~ Not used anymore
 - [Zhaxia CN](https://t.me/zhaxia_cn) for sticker packs (Add anime resources)
 - [FlatIcon](https://flaticon.com) for some icons, including search icon, verified badge
 
-## Contributors
+## Original project's Contributors
 - [Cuynu](https://git.disroot.org/cuynu) - developer (also [youtuber](https://youtube.com/@cuynu))
 - [fukiame](https://git.disroot.org/fukiame) - refactor & other improvements - contributor
 - [Ngankbakaa](https://github.com/miyukocutee) - contributor
