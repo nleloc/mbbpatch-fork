@@ -1,4 +1,9 @@
-# MBCPApp Patcher Fork for MB Bank (Android)
+# [ARCHIVED] MBCPApp Patcher Fork for MB Bank (Android)
+
+- Dead project, too lazy to sync shit with upstream
+
+<details>
+<summary>Old README</summary>
 
 > [!IMPORTANT]
 > **THIS IS A FORK FOR PERSONAL USAGE**
@@ -199,3 +204,4 @@ cd mbbpatch-fork/MBCPApp
 - [Cuynu](https://git.disroot.org/cuynu) - developer (also [youtuber](https://youtube.com/@cuynu))
 - [fukiame](https://git.disroot.org/fukiame) - refactor & other improvements - contributor
 - [Ngankbakaa](https://github.com/miyukocutee) - contributor
+</details>
